@@ -29,7 +29,7 @@
   </tbody>
 </table>
 
-<h4>Associated Leads (<%= @incident.tickets.where(is_lead: true).count =%>)</h4>
+<h4>Associated Leads (<%= @incident.leads.count =%>)</h4>
 
 <table>
   <thead>
@@ -41,7 +41,7 @@
   </thead>
 
   <tbody>
-    <% @incident.tickets.where(is_lead: true).each do |ticket| %>
+    <% @incident.leads.each do |ticket| %>
       <tr>
         <td><%= ticket.name %></td>
         <td><%= ticket.incident %></td>
