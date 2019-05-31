@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, cols: 80, rows: 10 %>
+  </div>
+
+  <div class="field">
     <%= form.label :incident_id %>
     <%= collection_select(:ticket, :incident_id, Incident.all, :id, :name) %>
   </div>
