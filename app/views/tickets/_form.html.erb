@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :incident_id %>
-    <%= form.text_field :incident_id %>
+    <%= collection_select(:ticket, :incident_id, Incident.all, :id, :name) %>
   </div>
 
   <div class="actions">
