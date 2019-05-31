@@ -7,6 +7,9 @@
     <tr>
       <th>Name</th>
       <th>Incident</th>
+      <th>Status</th>
+      <th>Is Lead?</th>
+      <th>Created At</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +19,9 @@
       <tr>
         <td><%= ticket.name %></td>
         <td><%= ticket.incident %></td>
+        <td><%= ticket.status %></td>
+        <td><%= ticket.is_lead %></td>
+        <td><%= ticket.created_at %></td>
         <td><%= link_to 'Show', ticket %></td>
         <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
