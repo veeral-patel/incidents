@@ -1,3 +1,5 @@
 class Ticket < ApplicationRecord
-  belongs_to :incident
+  validates :name, presence: true
+
+  belongs_to :incident, required: true
 end
