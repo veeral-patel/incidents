@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_042631) do
+ActiveRecord::Schema.define(version: 2019_05_31_045227) do
 
   create_table "incidents", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_042631) do
     t.text "description"
     t.boolean "is_lead"
     t.integer "status"
+    t.integer "priority"
     t.index ["incident_id"], name: "index_tickets_on_incident_id"
   end
 
