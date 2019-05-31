@@ -1,32 +1,72 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @ticket.name %>
+<strong>Name:</strong>
+<%= @ticket.name %>
 </p>
 
 <p>
-  <strong>Is Lead:</strong>
-  <%= @ticket.is_lead %>
+<strong>Is Lead:</strong>
+<%= @ticket.is_lead %>
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @ticket.status %>
+<strong>Parent Ticket:</strong>
+<% if @ticket.parent == nil %>
+    <td>N/A</td>
+<% else %>
+    <td><%= link_to @ticket.parent.name, @ticket.parent =%></td>
+<% end %>
 </p>
 
-  <strong>Priority:</strong>
-  <%= @ticket.priority %>
+<p><strong>Child Tickets (<%= @ticket.children.count =%>):</strong></p>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Incident</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Is Lead?</th>
+            <th>Created At</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @ticket.children.each do |ticket| %>
+            <tr>
+                <td><%= ticket.name %></td>
+                <td><%= ticket.incident %></td>
+                <td><%= ticket.status %></td>
+                <td><%= ticket.priority %></td>
+                <td><%= ticket.is_lead %></td>
+                <td><%= ticket.created_at %></td>
+                <td><%= link_to 'Show', ticket %></td>
+                <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+                <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<p>
+<strong>Status:</strong>
+<%= @ticket.status %>
+</p>
+
+<strong>Priority:</strong>
+<%= @ticket.priority %>
 </p>
 
 <div>
-  <strong>Description:</strong>
-  <%= @ticket.description %>
+    <strong>Description:</strong>
+    <%= @ticket.description %>
 </div>
 
 <p>
-  <strong>Incident:</strong>
-  <%= @ticket.incident %>
+<strong>Incident:</strong>
+<%= @ticket.incident %>
 </p>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |

@@ -1,4 +1,6 @@
 class Ticket < ApplicationRecord
+  has_ancestry
+
   enum status: { open: 0, in_progress: 1, closed: 2}
   enum priority: { low: 0, medium: 1, high: 2}
 
