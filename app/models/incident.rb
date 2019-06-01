@@ -4,7 +4,7 @@ class Incident < ApplicationRecord
     belongs_to :user
 
     def leads
-        self.tickets.where(is_lead: false)
+        self.tickets.where(is_lead: true)
     end
 
     def to_s
