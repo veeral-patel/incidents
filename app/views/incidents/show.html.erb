@@ -5,6 +5,12 @@
   <%= @incident.name %>
 </p>
 
+<p>
+  <strong>Created At:</strong>
+  <%= @incident.created_at %>
+</p>
+
+
 <h4>Associated Tickets (<%= @incident.tickets.count =%>) </h4>
 
 <table>
