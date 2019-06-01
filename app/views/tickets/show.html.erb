@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @ticket.name %></h1>
+<h1><%= @ticket.name %> > Details</h1>
 
 <a href=".">Details</a>
-<a href="attachments">Attachments (<%= @ticket.attachments.count =%>)</a>
+<a href="/tickets/<%= @ticket.id =%>/attachments">Attachments (<%= @ticket.attachments.count =%>)</a>
 
 <p>
 <strong>Is Lead:</strong>

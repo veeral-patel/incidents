@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Attachments</h1>
+<h1><%= @ticket.name %> > Attachments</h1>
+
+<a href=".">Details</a>
+<a href="/tickets/<%= @ticket.id =%>/attachments">Attachments (<%= @ticket.attachments.count =%>)</a>
+
+<br /> <br />
 
 <table>
   <thead>
@@ -10,13 +15,10 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @attachments.each do |attachment| %>
+  <td>
+    <% @ticket.attachments.each do |attachment| %>
       <tr>
         <td><%= attachment.description %></td>
-        <td><%= link_to 'Show', attachment %></td>
-        <td><%= link_to 'Edit', edit_attachment_path(attachment) %></td>
-        <td><%= link_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
