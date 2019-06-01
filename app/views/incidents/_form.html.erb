@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :tag_list %>
+    <%= form.text_field :tag_list, value: form.object.tag_list.to_s %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, cols: 80, rows: 10 %>
   </div>

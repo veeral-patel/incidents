@@ -1,4 +1,6 @@
 class Incident < ApplicationRecord
+    acts_as_taggable
+
     validates :name, presence: true
     has_many :tickets
     belongs_to :user
