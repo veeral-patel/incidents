@@ -19,6 +19,11 @@
 <% end %>
 </p>
 
+<p>
+    <strong>Tags</strong>
+    <%= @ticket.tag_list %>
+</p>
+
 <p><strong>Child Tickets (<%= @ticket.children.count =%>):</strong></p>
 <table>
     <thead>
