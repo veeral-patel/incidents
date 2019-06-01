@@ -11,18 +11,27 @@
 
     <body>
 
-        <a href="/incidents">All Incidents</a>
-        <a href="/tickets">All Tickets</a>
+        <span>
+            <a href="/incidents" style="margin-right: 10px">All Incidents</a>
+            <a href="/tickets">All Tickets</a>
+        </span>
 
         <span style="float: right">
-        <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <% else %>
-            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-        <% end %>
+            <span>
+                <a href="/incidents/new" style="margin-right: 10px">Create Incident</a>
+                <a href="/tickets/new">Create Ticket</a>
+            </span>
+            <span style="margin-left: 10px; margin-right: 10px;"> | </span>
+            <span>
+            <% if user_signed_in? %>
+                Logged in as <strong><%= current_user.email %></strong>.
+                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            <% else %>
+                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+                <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+            <% end %>
+            </span>
         </span>
 
         <br /> <br />
