@@ -6,6 +6,11 @@
 <a href="/tickets/<%= @ticket.id =%>/attachments">Attachments (<%= @ticket.attachments.count =%>)</a>
 
 <p>
+<strong>Created At</strong> 
+<%= @ticket.created_at %>
+</p>
+
+<p>
 <strong>Is Lead:</strong>
 <%= @ticket.is_lead %>
 </p>
