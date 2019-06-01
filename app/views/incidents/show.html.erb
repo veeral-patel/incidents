@@ -10,6 +10,12 @@
   <%= @incident.created_at %>
 </p>
 
+<div>
+    <strong>Description:</strong>
+      <div style="white-space: pre-line;">
+        <%= @incident.description %>
+    </div>
+</div>
 
 <h4>Associated Tickets (<%= @incident.tickets.count =%>) </h4>
 
