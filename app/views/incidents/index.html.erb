@@ -2,13 +2,16 @@
 
 <h1>All Incidents</h1>
 
-<table>
+<table style="border-collapse: separate; border-spacing: 25px 0">
   <thead>
     <tr>
       <th>Name</th>
       <th>Created At</th>
-      <th># Tickets</th>
-      <th># Leads</th>
+      <th>Total Tickets</th>
+      <th>Open Tickets</th>
+      <th>In Progress Tickets</th>
+      <th>Closed Tickets</th>
+      <th>Leads</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,6 +22,9 @@
         <td><%= incident.name %></td>
         <td><%= incident.created_at %></td>
         <td><%= incident.tickets.count %></td>
+        <td><%= incident.open_tickets.count %></td>
+        <td><%= incident.in_progress_tickets.count %></td>
+        <td><%= incident.closed_tickets.count %></td>
         <td><%= incident.leads.count %></td>
         <td><%= link_to 'Show', incident %></td>
         <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
