@@ -2,6 +2,10 @@
 
 <h1>All Incidents</h1>
 
+<% if @incidents.empty? %>
+  No incidents
+  <br />
+<% else %>
 <table style="border-collapse: separate; border-spacing: 25px 0">
   <thead>
     <tr>
@@ -33,7 +37,8 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
-<br>
+<br />
 
 <%= link_to 'New Incident', new_incident_path %>

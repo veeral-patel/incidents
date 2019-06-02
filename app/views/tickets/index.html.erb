@@ -2,6 +2,10 @@
 
 <h1>All Tickets</h1>
 
+<% if @tickets.empty? %>
+  No tickets
+  <br />
+<% else %>
 <table>
   <thead>
     <tr>
@@ -43,6 +47,7 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <br>
 
