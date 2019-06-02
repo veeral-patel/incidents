@@ -8,6 +8,10 @@
 
 <br /> <br />
 
+<% if @ticket.children.empty? %>
+  No attachments
+  <br />
+<% else %>
 <table>
   <thead>
     <tr>
@@ -31,6 +35,7 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <br>
 
