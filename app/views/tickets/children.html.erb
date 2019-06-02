@@ -11,6 +11,8 @@
 
 <% if @ticket.children.empty? %>
   No child tickets
+  <br /><br />
+  To create a child ticket, create a new ticket, edit it, and set its parent ticket to <b><%= @ticket.name %></b>.
   <br />
 <% else %>
 <table>
