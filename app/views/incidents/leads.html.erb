@@ -5,7 +5,9 @@
 <%= render 'nav' %>
 
 <% if @incident.leads.empty? %>
-  No leads
+  No leads.
+  <br /> <br />
+   Mark a ticket as a lead for it to appear here.
   <br /> <br />
 <% else %>
 <table>
