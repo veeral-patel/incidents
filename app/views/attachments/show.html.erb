@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @attachment.description %>
+  <strong>Created At:</strong>
+  <%= @attachment.created_at %>
 </p>
+
+<strong>Description:</strong>
+<div style="white-space: pre-line;">
+  <%= @attachment.description %>
+</div>
 
 <%= link_to 'Edit', edit_ticket_attachment_path(@attachment) %> |
 <%= link_to 'Back', ticket_attachments_path %>
