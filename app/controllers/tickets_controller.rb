@@ -60,6 +60,14 @@ class TicketsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def children
+      @ticket = Ticket.find(params[:ticket_id])
+      respond_to do |format|
+        format.html { render :children }
+        format.json { render json: @ticket.children }
+      end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

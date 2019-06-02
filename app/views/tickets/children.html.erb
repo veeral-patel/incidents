@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @ticket.name %> > Child Tickets</h1>
+
+<a href=".">Details</a>
+<a href="/tickets/<%= @ticket.id =%>/attachments">Attachments (<%= @ticket.attachments.count =%>)</a>
+<a href="/tickets/<%= @ticket.id =%>/children"> Child Tickets (<%= @ticket.children.count %>) </a>
+
+<br /> <br />
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Incident</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Is Lead?</th>
+            <th>Created At</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @ticket.children.each do |ticket| %>
+            <tr>
+                <td><%= ticket.name %></td>
+                <td><%= ticket.incident %></td>
+                <td><%= ticket.status %></td>
+                <td><%= ticket.priority %></td>
+                <td><%= ticket.is_lead %></td>
+                <td><%= ticket.created_at %></td>
+                <td><%= link_to 'Show', ticket %></td>
+                <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+                <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
