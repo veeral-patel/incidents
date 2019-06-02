@@ -2,12 +2,7 @@
 
 <h1><%= @incident.name %> > Tickets </h1>
 
-<a href="/incidents/<%= @incident.id =%>/" style="margin-right: 10px">Details</a>
-<a href="/incidents/<%= @incident.id =%>/tickets" style="margin-right: 10px">Tickets (<%= @incident.tickets.count =%>) </a>
-<a href="/incidents/<%= @incident.id =%>/leads" style="margin-right: 10px">Leads (<%= @incident.leads.count =%>)</a>
-<a href="/incidents/<%= @incident.id =%>/observables" style="margin-right: 10px">Observables (<%= @incident.observables.count =%>)</a>
-
-<br /><br />
+<%= render 'nav' %>
 
 <% if @incident.tickets.empty? %>
   No tickets
