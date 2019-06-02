@@ -2,13 +2,7 @@
 
 <h1><%= @ticket.name %> > Child Tickets</h1>
 
-<a href=".">Details</a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/observables"> Observables (<%= @ticket.observables.count %>) </a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/attachments">Attachments (<%= @ticket.attachments.count =%>)</a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/children"> Child Tickets (<%= @ticket.children.count %>) </a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/comments"> Comments (<%= @ticket.comments.count %>) </a>&nbsp;&nbsp;
-
-<br /> <br />
+<%= render 'nav' %>
 
 <% if @ticket.children.empty? %>
   No child tickets
