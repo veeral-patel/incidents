@@ -12,6 +12,16 @@ class IncidentsController < ApplicationController
   def show
   end
 
+  # GET /incidents/1/observables
+  # GET /incidents/1/observables.json
+  def observables
+      @incident = Incident.find(params[:id])
+      respond_to do |format|
+        format.html { render :observables }
+        format.json { render json: @incident.observables }
+      end
+  end
+
   # GET /incidents/new
   def new
     @incident = Incident.new

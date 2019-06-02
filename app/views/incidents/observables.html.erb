@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @incident.name %> > Observables</h1>
+
+<a href="/incidents/<%= @incident.id =%>/" style="margin-right: 10px">Details</a>
+<a href="/incidents/<%= @incident.id =%>/tickets" style="margin-right: 10px">Tickets (<%= @incident.tickets.count =%>) </a>
+<a href="/incidents/<%= @incident.id =%>/leads" style="margin-right: 10px">Leads (<%= @incident.leads.count =%>)</a>
+<a href="/incidents/<%= @incident.id =%>/observables" style="margin-right: 10px">Observables (<%= @incident.observables.count =%>)</a>
+
+
+<br /> <br />
+
+<% if @incident.observables.empty? %>
+    No observables
+    <br />
+<% else %>
+<table>
+  <thead>
+    <tr>
+      <th>Observable</th>
+      <th>User</th>
+      <th>Ticket</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @incident.observables.each do |observable| %>
+      <tr>
+        <td><%= observable.observable %></td>
+        <td><%= observable.user %></td>
+        <td><%= observable.ticket %></td>
+        <td><%= observable.description %></td>
+        <td><%= link_to 'Show', ticket_observable_path(observable.ticket, observable) %></td>
+        <td><%= link_to 'Edit', edit_ticket_observable_path(observable.ticket, observable) %></td>
+        <td><%= link_to 'Destroy', ticket_observable_path(observable.ticket, observable), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<br>

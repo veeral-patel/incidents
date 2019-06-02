@@ -3,6 +3,7 @@ class Incident < ApplicationRecord
 
     validates :name, presence: true
     has_many :tickets, dependent: :destroy
+    has_many :observables, through: :tickets
     belongs_to :user
 
     def leads
