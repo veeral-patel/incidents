@@ -1,5 +1,6 @@
 class ObservablesController < ApplicationController
   before_action :set_observable, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket
 
   # GET /observables
   # GET /observables.json
@@ -24,11 +25,11 @@ class ObservablesController < ApplicationController
   # POST /observables
   # POST /observables.json
   def create
-    @observable = Observable.new(observable_params)
+    @observable = current_user.observables.new(observable_params)
 
     respond_to do |format|
       if @observable.save
-        format.html { redirect_to @observable, notice: 'Observable was successfully created.' }
+        format.html { redirect_to ticket_observable_path(@ticket, @observable), notice: 'Observable was successfully created.' }
         format.json { render :show, status: :created, location: @observable }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ObservablesController < ApplicationController
   def update
     respond_to do |format|
       if @observable.update(observable_params)
-        format.html { redirect_to @observable, notice: 'Observable was successfully updated.' }
+        format.html { redirect_to ticket_observable_path(@ticket, @observable), notice: 'Observable was successfully updated.' }
         format.json { render :show, status: :ok, location: @observable }
       else
         format.html { render :edit }
@@ -56,18 +57,20 @@ class ObservablesController < ApplicationController
   def destroy
     @observable.destroy
     respond_to do |format|
-      format.html { redirect_to observables_url, notice: 'Observable was successfully destroyed.' }
+      format.html { redirect_to ticket_observables_path(@ticket), notice: 'Observable was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_observable
       @observable = Observable.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def set_ticket
+        @ticket = Ticket.find(params[:ticket_id])
+    end
+
     def observable_params
       params.require(:observable).permit(:observable, :user_id, :ticket_id, :description)
     end

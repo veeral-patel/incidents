@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :observables
   resources :tickets do
       resources :attachments
       resources :comments

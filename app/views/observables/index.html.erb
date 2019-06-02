@@ -1,7 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Observables</h1>
+<h1><%= @ticket.name %> > Observables</h1>
 
+<a href=".">Details</a>&nbsp;&nbsp;
+<a href="/tickets/<%= @ticket.id =%>/observables"> Observables (<%= @ticket.observables.count %>) </a>&nbsp;&nbsp;
+<a href="/tickets/<%= @ticket.id =%>/attachments">Attachments (<%= @ticket.attachments.count =%>)</a>&nbsp;&nbsp;
+<a href="/tickets/<%= @ticket.id =%>/children"> Child Tickets (<%= @ticket.children.count %>) </a>&nbsp;&nbsp;
+<a href="/tickets/<%= @ticket.id =%>/comments"> Comments (<%= @ticket.comments.count %>) </a>&nbsp;&nbsp;
+
+<br /> <br />
+
+<% if @ticket.observables.empty? %>
+    No observables
+    <br />
+<% else %>
 <table>
   <thead>
     <tr>
@@ -27,7 +39,8 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <br>
 
-<%= link_to 'New Observable', new_observable_path %>
+<%= link_to 'New Observable', new_ticket_observable_path(@ticket, @observable) %>

@@ -1,4 +1,4 @@
-<%= form_with(model: observable, local: true) do |form| %>
+<%= form_with(model: @observable, url: [@ticket, @observable], local: true) do |form| %>
   <% if observable.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(observable.errors.count, "error") %> prohibited this observable from being saved:</h2>
