@@ -10,6 +10,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Created At</th>
       <th>Description</th>
       <th colspan="3"></th>
@@ -19,6 +20,7 @@
   <td>
     <% @ticket.attachments.each do |attachment| %>
       <tr>
+        <td><%= attachment.id %></td>
         <td><%= attachment.created_at %></td>
         <td><%= truncate(attachment.description, :length => 60) %></td>
         <td><%= link_to 'Show', ticket_attachment_path(@ticket, attachment) %></td>

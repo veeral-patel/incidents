@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @ticket.name %> > Attachments > #<%= @attachment.id%></h1>
+
+<a href=".">Details</a>
+<a href="/tickets/<%= @ticket.id =%>/attachments">Attachments (<%= @ticket.attachments.count =%>)</a>
+
 <p>
   <strong>Created At:</strong>
   <%= @attachment.created_at %>
