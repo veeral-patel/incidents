@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       member do
           get :tickets
           get :leads
+          get :observables
       end
   end
 
