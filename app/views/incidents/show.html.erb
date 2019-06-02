@@ -12,6 +12,11 @@
 </p>
 
 <p>
+  <strong>Created By:</strong>
+  <%= @incident.user %>
+</p>
+
+<p>
     <strong>Tags</strong>
     <% if @incident.tag_list.count == 0%>
       N/A

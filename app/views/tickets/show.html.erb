@@ -7,8 +7,13 @@
 <a href="/tickets/<%= @ticket.id =%>/children"> Child Tickets (<%= @ticket.children.count %>) </a>
 
 <p>
-<strong>Created At</strong> 
+<strong>Created At:</strong> 
 <%= @ticket.created_at %>
+</p>
+
+<p>
+<strong>Created By:</strong> 
+<%= @ticket.user %>
 </p>
 
 <p>

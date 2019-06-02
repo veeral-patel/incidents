@@ -6,7 +6,7 @@
   No tickets
   <br />
 <% else %>
-<table>
+<table style="border-collapse: separate; border-spacing: 10px 0">
   <thead>
     <tr>
       <th>Name</th>
@@ -15,6 +15,7 @@
       <th>Priority</th>
       <th>Is Lead?</th>
       <th>Created At</th>
+      <th>Created By</th>
       <th>Parent Ticket</th>
       <th>Child Tickets</th>
       <th>Attachments</th>
@@ -31,6 +32,7 @@
         <td><%= ticket.priority %></td>
         <td><%= ticket.is_lead %></td>
         <td><%= ticket.created_at %></td>
+        <td><%= ticket.user %></td>
         <td>
         <% if ticket.parent == nil %>
             N/A
