@@ -8,6 +8,10 @@
 
 <br /><br />
 
+<% if @incident.leads.empty? %>
+  No leads
+  <br /> <br />
+<% else %>
 <table>
   <thead>
     <tr>
@@ -47,6 +51,6 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
-<br />
 <%= link_to 'Back', incidents_path %>
