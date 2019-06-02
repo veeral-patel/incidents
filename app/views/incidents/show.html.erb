@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @incident.name %> > Leads</h1>
+<h1><%= @incident.name %> > Details</h1>
 
 <a href="/incidents/<%= @incident.id =%>/" style="margin-right: 10px">Details</a>
 <a href="/incidents/<%= @incident.id =%>/tickets" style="margin-right: 10px">Tickets (<%= @incident.tickets.count =%>) </a>
@@ -13,14 +13,23 @@
 
 <p>
     <strong>Tags</strong>
-    <%= @incident.tag_list %>
+    <% if @incident.tag_list.count == 0%>
+      N/A
+    <% else %>
+      <%= @incident.tag_list %>
+    <% end %>
 </p>
 
 <div>
     <strong>Description:</strong>
+    <% if @incident.description.empty? %>
+      N/A
+      <br /><br />
+    <% else %>
       <div style="white-space: pre-line;">
         <%= @incident.description %>
-    </div>
+      </div>
+    <% end %>
 </div>
 
 <%= link_to 'Edit', edit_incident_path(@incident) %> |
