@@ -2,8 +2,11 @@ class Incident < ApplicationRecord
     acts_as_taggable
 
     validates :name, presence: true
+
     has_many :tickets, dependent: :destroy
     has_many :observables, through: :tickets
+    has_many :attachments, through: :tickets
+
     belongs_to :user
 
     def leads

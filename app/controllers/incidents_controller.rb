@@ -22,6 +22,16 @@ class IncidentsController < ApplicationController
       end
   end
 
+  # GET /incidents/1/attachments
+  # GET /incidents/1/attachments.json
+  def attachments
+    @incident = Incident.find(params[:id])
+    respond_to do |format|
+      format.html { render :attachments }
+      format.json { render json: @incident.attachments }
+    end
+end
+
   # GET /incidents/new
   def new
     @incident = Incident.new

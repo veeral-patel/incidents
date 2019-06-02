@@ -25,7 +25,7 @@
         <td><%= observable.observable %></td>
         <td><%= observable.user %></td>
         <td><%= observable.ticket %></td>
-        <td><%= observable.description %></td>
+        <td><%= truncate(observable.description, :length => 60) %></td>
         <td><%= link_to 'Show', ticket_observable_path(observable.ticket, observable) %></td>
         <td><%= link_to 'Edit', edit_ticket_observable_path(observable.ticket, observable) %></td>
         <td><%= link_to 'Destroy', ticket_observable_path(observable.ticket, observable), method: :delete, data: { confirm: 'Are you sure?' } %></td>

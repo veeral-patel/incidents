@@ -11,6 +11,7 @@ Rails.application.routes.draw do
           get :tickets
           get :leads
           get :observables
+          get :attachments
       end
   end
 
