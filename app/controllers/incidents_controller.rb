@@ -1,5 +1,5 @@
 class IncidentsController < ApplicationController
-  before_action :set_incident, only: [:show, :edit, :update, :destroy]
+  before_action :set_incident, only: [:show, :edit, :update, :destroy, :tickets, :leads]
 
   # GET /incidents
   # GET /incidents.json
@@ -59,6 +59,16 @@ class IncidentsController < ApplicationController
       format.html { redirect_to incidents_url, notice: 'Incident was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /incidents/1/tickets
+  # GET /incidents/1/tickets.json
+  def tickets
+  end
+
+  # GET /incidents/1/leads
+  # GET /incidents/1/leads.json
+  def leads
   end
 
   private

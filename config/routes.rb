@@ -3,7 +3,12 @@ Rails.application.routes.draw do
       resources :attachments
   end
 
-  resources :incidents
+  resources :incidents do
+      member do
+          get :tickets
+          get :leads
+      end
+  end
 
   devise_for :users
 

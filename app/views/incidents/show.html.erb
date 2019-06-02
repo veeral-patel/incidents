@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @incident.name %>
-</p>
+<h1><%= @incident.name %> > Leads</h1>
+
+<a href="/incidents/<%= @incident.id =%>/" style="margin-right: 10px">Details</a>
+<a href="/incidents/<%= @incident.id =%>/tickets" style="margin-right: 10px">Tickets (<%= @incident.tickets.count =%>) </a>
+<a href="/incidents/<%= @incident.id =%>/leads" style="margin-right: 10px">Leads (<%= @incident.leads.count =%>)</a>
 
 <p>
   <strong>Created At:</strong>
@@ -21,90 +22,6 @@
         <%= @incident.description %>
     </div>
 </div>
-
-<h4>Associated Tickets (<%= @incident.tickets.count =%>) </h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Incident</th>
-      <th>Status</th>
-      <th>Priority</th>
-      <th>Is Lead?</th>
-      <th>Created At</th>
-      <th>Parent Ticket</th>
-      <th># Child Tickets</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @incident.tickets.each do |ticket| %>
-      <tr>
-        <td><%= ticket.name %></td>
-        <td><%= ticket.incident %></td>
-        <td><%= ticket.status %></td>
-        <td><%= ticket.priority %></td>
-        <td><%= ticket.is_lead %></td>
-        <td><%= ticket.created_at %></td>
-        <td>
-        <% if ticket.parent == nil %>
-            N/A
-        <% else %>
-            <%= link_to ticket.parent.name, ticket.parent =%>
-        <% end %>
-        </td>
-        <td><%= ticket.children.count %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h4>Associated Leads (<%= @incident.leads.count =%>)</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Incident</th>
-      <th>Status</th>
-      <th>Priority</th>
-      <th>Is Lead?</th>
-      <th>Created At</th>
-      <th>Parent Ticket</th>
-      <th># Child Tickets</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @incident.leads.each do |ticket| %>
-      <tr>
-        <td><%= ticket.name %></td>
-        <td><%= ticket.incident %></td>
-        <td><%= ticket.status %></td>
-        <td><%= ticket.priority %></td>
-        <td><%= ticket.is_lead %></td>
-        <td><%= ticket.created_at %></td>
-        <td>
-        <% if ticket.parent == nil %>
-            N/A
-        <% else %>
-            <%= link_to ticket.parent.name, ticket.parent =%>
-        <% end %>
-        </td>
-        <td><%= ticket.children.count %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <%= link_to 'Edit', edit_incident_path(@incident) %> |
 <%= link_to 'Back', incidents_path %>
