@@ -1,4 +1,4 @@
-<%= form_with(model: attachment, local: true) do |form| %>
+<%= form_with(model: @attachment, url: [@ticket, @attachment], local: true) do |form| %>
   <% if attachment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(attachment.errors.count, "error") %> prohibited this attachment from being saved:</h2>
@@ -14,6 +14,12 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_id %>
+    <%#  only allow the current ticket to be set as the attachment's ticket %>
+    <%= collection_select(:attachment, :ticket_id, Ticket.where(id: @ticket.id), :id, :name) %>
   </div>
 
   <div class="actions">

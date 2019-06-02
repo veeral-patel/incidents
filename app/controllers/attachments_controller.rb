@@ -1,6 +1,6 @@
 class AttachmentsController < ApplicationController
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
-  before_action :set_ticket, only: [:index]
+  before_action :set_ticket
 
   # GET /tickets/1/attachments
   # GET /tickets/1/attachments.json
@@ -28,7 +28,7 @@ class AttachmentsController < ApplicationController
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully created.' }
+        format.html { redirect_to ticket_attachment_path(@ticket, @attachment), notice: 'Attachment was successfully created.' }
         format.json { render :show, status: :created, location: @attachment }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @attachment.update(attachment_params)
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully updated.' }
+        format.html { redirect_to ticket_attachment_path(@ticket, @attachment), notice: 'Attachment was successfully updated.' }
         format.json { render :show, status: :ok, location: @attachment }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to attachments_url, notice: 'Attachment was successfully destroyed.' }
+      format.html { redirect_to ticket_attachments_path(@ticket), notice: 'Attachment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,7 +64,7 @@ class AttachmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_attachment
-      @attachment =Attachment.find(params[:id])
+      @attachment = Attachment.find(params[:id])
     end
 
     def set_ticket
@@ -73,6 +73,6 @@ class AttachmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachment_params
-      params.require(:attachment).permit(:description)
+      params.require(:attachment).permit(:description, :ticket_id)
     end
 end

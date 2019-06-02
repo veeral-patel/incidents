@@ -19,6 +19,9 @@
     <% @ticket.attachments.each do |attachment| %>
       <tr>
         <td><%= attachment.description %></td>
+        <td><%= link_to 'Show', ticket_attachment_path(@ticket, attachment) %></td>
+        <td><%= link_to 'Edit', edit_ticket_attachment_path(@ticket, attachment) %></td>
+        <td><%= link_to 'Destroy', ticket_attachment_path(@ticket, attachment), method: :delete, data: { confirm: 'Are you sure?' } =%></td>
       </tr>
     <% end %>
   </tbody>

@@ -2,5 +2,5 @@
 
 <%= render 'form', attachment: @attachment %>
 
-<%= link_to 'Show', @attachment %> |
+<%= link_to 'Show', ticket_attachment_path(@ticket, @attachment) %> |
 <%= link_to 'Back', ticket_attachments_path %>
