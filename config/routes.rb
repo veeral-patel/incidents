@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :tickets do
       resources :attachments
+      resources :comments
       get :children
   end
 

@@ -6,6 +6,7 @@ class Ticket < ApplicationRecord
   enum priority: { low: 0, medium: 1, high: 2}
 
   has_many :attachments
+  has_many :comments
 
   belongs_to :incident
   belongs_to :user

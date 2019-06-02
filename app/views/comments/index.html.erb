@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @ticket.name %> > Comments</h1>
+
+<a href=".">Details</a>&nbsp;&nbsp;
+<a href="/tickets/<%= @ticket.id =%>/attachments">Attachments (<%= @ticket.attachments.count =%>)</a>&nbsp;&nbsp;
+<a href="/tickets/<%= @ticket.id =%>/children"> Child Tickets (<%= @ticket.children.count %>) </a>&nbsp;&nbsp;
+<a href="/tickets/<%= @ticket.id =%>/comments"> Comments (<%= @ticket.comments.count %>) </a>&nbsp;&nbsp;
+
+<br /> <br />
+
+<% if @ticket.comments.empty? %>
+  No comments
+  <br />
+<% else %>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ticket.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user %></td>
+        <td><%= comment.comment %></td>
+        <td><%= link_to 'Show', ticket_comment_path(@ticket, comment) %></td>
+        <td><%= link_to 'Edit', edit_ticket_comment_path(@ticket, comment) %></td>
+        <td><%= link_to 'Destroy', ticket_comment_path(@ticket, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<br>
+
+<%= link_to 'New Comment', new_ticket_comment_path %>
