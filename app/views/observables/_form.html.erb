@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= collection_select :comment, :user_id, User.where(id: @current_user.id), :id, :username %>
   </div>
 
   <div class="field">
     <%= form.label :ticket_id %>
-    <%= form.text_field :ticket_id %>
+    <%= collection_select :observable, :ticket_id, Ticket.where(id: @ticket.id), :id, :name %>
   </div>
 
   <div class="field">

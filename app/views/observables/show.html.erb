@@ -20,5 +20,5 @@
   <%= @observable.description %>
 </p>
 
-<%= link_to 'Edit', edit_observable_path(@observable) %> |
-<%= link_to 'Back', observables_path %>
+<%= link_to 'Edit', edit_ticket_observable_path(@ticket, @observable) %> |
+<%= link_to 'Back', ticket_observables_path(@ticket) %>

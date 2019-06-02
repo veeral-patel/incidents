@@ -15,4 +15,8 @@ class Ticket < ApplicationRecord
   validates :name, presence: true
   validates :status, presence: true
   validates :priority, presence: true
+
+  def to_s
+    self.name
+  end
 end

@@ -32,9 +32,9 @@
         <td><%= observable.user %></td>
         <td><%= observable.ticket %></td>
         <td><%= observable.description %></td>
-        <td><%= link_to 'Show', observable %></td>
-        <td><%= link_to 'Edit', edit_observable_path(observable) %></td>
-        <td><%= link_to 'Destroy', observable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', ticket_observable_path(@ticket, observable) %></td>
+        <td><%= link_to 'Edit', edit_ticket_observable_path(@ticket, observable) %></td>
+        <td><%= link_to 'Destroy', ticket_observable_path(@ticket, observable), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

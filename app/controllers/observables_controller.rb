@@ -1,6 +1,7 @@
 class ObservablesController < ApplicationController
   before_action :set_observable, only: [:show, :edit, :update, :destroy]
   before_action :set_ticket
+  before_action :set_current_user
 
   # GET /observables
   # GET /observables.json
@@ -69,6 +70,10 @@ class ObservablesController < ApplicationController
 
     def set_ticket
         @ticket = Ticket.find(params[:ticket_id])
+    end
+
+    def set_current_user
+        @current_user = current_user
     end
 
     def observable_params
