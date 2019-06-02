@@ -7,6 +7,7 @@ class Ticket < ApplicationRecord
 
   has_many :attachments
   has_many :comments
+  has_many :observables
 
   belongs_to :incident
   belongs_to :user

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Observables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Observable</th>
+      <th>User</th>
+      <th>Ticket</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @observables.each do |observable| %>
+      <tr>
+        <td><%= observable.observable %></td>
+        <td><%= observable.user %></td>
+        <td><%= observable.ticket %></td>
+        <td><%= observable.description %></td>
+        <td><%= link_to 'Show', observable %></td>
+        <td><%= link_to 'Edit', edit_observable_path(observable) %></td>
+        <td><%= link_to 'Destroy', observable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Observable', new_observable_path %>

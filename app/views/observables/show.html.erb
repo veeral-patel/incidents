@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Observable:</strong>
+  <%= @observable.observable %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @observable.user %>
+</p>
+
+<p>
+  <strong>Ticket:</strong>
+  <%= @observable.ticket %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @observable.description %>
+</p>
+
+<%= link_to 'Edit', edit_observable_path(@observable) %> |
+<%= link_to 'Back', observables_path %>

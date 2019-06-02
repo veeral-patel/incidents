@@ -8,6 +8,7 @@ class User < ApplicationRecord
     has_many :incidents
     has_many :tickets
     has_many :comments
+    has_many :observables
 
     attr_writer :login
 
