@@ -6,7 +6,7 @@
   No incidents
   <br />
 <% else %>
-<table style="border-collapse: separate; border-spacing: 10px 0">
+<table id="a-datatable">
   <thead>
     <tr>
       <th>Name</th>
@@ -17,7 +17,9 @@
       <th>In Progress Tickets</th>
       <th>Closed Tickets</th>
       <th>Leads</th>
-      <th colspan="3"></th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
     </tr>
   </thead>
 
@@ -36,7 +38,6 @@
         <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
         <td><%= link_to 'Destroy', incident, method: :delete,
           data: { confirm: 'Are you sure? This will delete all tickets in this incident.' } %>
-        </td>
       </tr>
     <% end %>
   </tbody>
@@ -46,3 +47,9 @@
 <br />
 
 <%= link_to 'New Incident', new_incident_path %>
+
+<script>
+  $(document).ready(function() {
+    $("#a-datatable").dataTable();
+  });
+</script>

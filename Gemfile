@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'ancestry'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'jquery-rails'
+gem 'jquery-datatables'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
