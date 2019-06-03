@@ -71,9 +71,11 @@ class TicketsController < ApplicationController
   end
 
   # GET /tickets/1/tree
+  # GET /tickets/1/tree.json
   def tree
     respond_to do |format|
       format.html { render :tree }
+      format.json { render json: @ticket.to_json }
     end
   end
 
