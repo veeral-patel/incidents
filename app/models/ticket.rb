@@ -24,11 +24,13 @@ class Ticket < ApplicationRecord
     if self.children.empty?
       {
         text: { name: self.name },
+        link: { href: Rails.application.routes.url_helpers.ticket_path(self) },
         collapsable: true
       }
     else
       {
         text: { name: self.name },
+        link: { href: Rails.application.routes.url_helpers.ticket_path(self) },
         collapsable: true,
         children: self.children.map { |child| child.to_json }
       }      
