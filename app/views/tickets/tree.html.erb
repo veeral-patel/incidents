@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @ticket.name %> > Tree</h1>
+
+<%= render 'nav' %>
+
+<div id="tree-simple" style="width: 700px; height: 300px"></div>
+
+<script>
+    simple_chart_config = {
+    chart: {
+            container: "#tree-simple",
+            node: {
+            HTMLclass: "nodeStyle"
+        }
+    },
+    nodeStructure: {"text":{"name":"Parent Ticket"},"collapsable":true,"children":[{"text":{"name":"Child 1"},"collapsable":true,"children":[{"text":{"name":"Grandchild 1"},"collapsable":true}]},{"text":{"name":"Child 2"},"collapsable":true}]}
+
+    };
+    var my_chart = new Treant(simple_chart_config);
+</script>
+
+<style>
+    .nodeStyle {
+        padding: 2px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        background-color: #ffffff;
+        border: 1px solid #000;
+        font-family: Tahoma;
+        font-size: 12px;
+        text-align: center;
+      }
+</style>

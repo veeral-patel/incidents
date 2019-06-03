@@ -3,7 +3,10 @@ Rails.application.routes.draw do
       resources :attachments
       resources :comments
       resources :observables
-      get :children
+      member do
+        get :children
+        get :tree
+      end
   end
 
   resources :incidents do

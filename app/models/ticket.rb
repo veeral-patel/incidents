@@ -23,11 +23,13 @@ class Ticket < ApplicationRecord
   def to_json
     if self.children.empty?
       {
-        text: { name: self.name }
+        text: { name: self.name },
+        collapsable: true
       }
     else
       {
         text: { name: self.name },
+        collapsable: true,
         children: self.children.map { |child| child.to_json }
       }      
     end

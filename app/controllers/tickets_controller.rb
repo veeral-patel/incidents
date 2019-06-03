@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :children, :tree]
 
   # GET /tickets
   # GET /tickets.json
@@ -61,12 +61,20 @@ class TicketsController < ApplicationController
     end
   end
   
+  # GET /tickets/1/children
+  # GET /tickets/1/children.json
   def children
-      @ticket = Ticket.find(params[:ticket_id])
       respond_to do |format|
         format.html { render :children }
         format.json { render json: @ticket.children }
       end
+  end
+
+  # GET /tickets/1/tree
+  def tree
+    respond_to do |format|
+      format.html { render :tree }
+    end
   end
 
   private
