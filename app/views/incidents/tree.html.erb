@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <%= include_gon(:init => true) %>
+    </head>
+
+    <body>
+        <p id="notice"><%= notice %></p>
+
+        <h1><%= @incident.name %> > Tree</h1>
+
+        <%= render 'nav' %>
+
+        <div id="tree-simple" style="width: 700px; height: 300px"></div>
+    </body>
+
+    <script>
+        simple_chart_config = {
+        chart: {
+                container: "#tree-simple",
+                node: {
+                HTMLclass: "nodeStyle"
+            }
+        },
+        nodeStructure: gon.incident_tree_as_json
+
+        };
+        var my_chart = new Treant(simple_chart_config);
+    </script>
+
+    <style>
+        .nodeStyle {
+            padding: 2px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            background-color: #ffffff;
+            border: 1px solid #000;
+            font-family: Tahoma;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</html>

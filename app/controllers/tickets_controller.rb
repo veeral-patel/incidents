@@ -73,7 +73,6 @@ class TicketsController < ApplicationController
   # GET /tickets/1/tree
   # GET /tickets/1/tree.json
   def tree
-
     gon.push({ ticket_tree_as_json: @ticket.to_json })
 
     respond_to do |format|

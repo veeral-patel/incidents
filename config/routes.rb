@@ -15,6 +15,7 @@ Rails.application.routes.draw do
           get :leads
           get :observables
           get :attachments
+          get :tree
       end
   end
 

@@ -28,4 +28,13 @@ class Incident < ApplicationRecord
     def to_s
         self.name
     end
+
+    def to_json
+        root_tickets = Ticket.where(incident_id: self.id, ancestry: nil)
+        {
+            text: { name: "root" },
+            collapsable: true,
+            children: root_tickets.map { |ticket| ticket.to_json }
+        }
+    end
 end

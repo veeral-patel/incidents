@@ -1,5 +1,5 @@
 class IncidentsController < ApplicationController
-  before_action :set_incident, only: [:show, :edit, :update, :destroy, :tickets, :leads]
+  before_action :set_incident, only: [:show, :edit, :update, :destroy, :tickets, :leads, :tree]
 
   # GET /incidents
   # GET /incidents.json
@@ -89,6 +89,17 @@ end
   # GET /incidents/1/leads
   # GET /incidents/1/leads.json
   def leads
+  end
+
+    # GET /tickets/1/tree
+  # GET /tickets/1/tree.json
+  def tree
+    gon.push({ incident_tree_as_json: @incident.to_json })
+
+    respond_to do |format|
+      format.html { render :tree }
+      format.json { render json: @incident.to_json }
+    end
   end
 
   private
