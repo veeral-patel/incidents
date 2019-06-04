@@ -48,12 +48,14 @@ below them. The incident manager doesn't have to talk to forensic analysts; he
 only has to talk to the forensic team's manager.
 
 ## Installation
+
 ```
 docker-compose up
 ```
-This runs Incidents in a Docker container with a SQLite3 database in it.
 
-Don't run this in production. Instructions for running in production are coming
+Then visit http://localhost:300
+
+This runs Incidents in a Docker container with a SQLite3 database in it. Don't run this in production. Instructions for running in production are coming
 soon.
 
 --
