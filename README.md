@@ -45,6 +45,7 @@ Incidents tames complexity because each person only has to worry about the layer
 below them. The incident manager doesn't have to talk to forensic analysts; he
 only has to talk to the forensic team's manager.
 
+--
 
-[0] I'll switch to HTTPS soon
+[0] I'll switch to HTTPS soon  
 [1] Assigning tickets isn't possible yet  
