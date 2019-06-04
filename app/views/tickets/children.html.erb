@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @ticket.name %> > Child Tickets</h1>
+<h2><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a> > <%= @ticket.name %> > Child Tickets</h2>
 
 <%= render 'nav' %>
 

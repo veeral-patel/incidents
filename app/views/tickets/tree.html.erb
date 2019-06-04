@@ -6,12 +6,10 @@
     <body>
         <p id="notice"><%= notice %></p>
 
-        <h1><%= @ticket.name %> > Tree</h1>
-
+        <h2><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a> > <%= @ticket.name %> > Tree</h2>
         <%= render 'nav' %>
 
         <a href="<%= tree_incident_path(@ticket.incident) %>">See this incident's tree</a>
-
         <div id="tree-simple" style="width: 700px;"></div>
     </body>
 
