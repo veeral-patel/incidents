@@ -1,26 +1,12 @@
 version: '3'
 services:
-    postgres:
-        image: postgres:10.3
-        restart: always
-        env_file:
-            - .env
-        environment:
-            POSTGRES_USER: ${POSTGRES_USER}
-            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-        volumes:
-          - postgres:/var/lib/postgresql/data
-        ports:
-            - '5432:5432'
     web:
         restart: always
         build:
             context: .
+            dockerfile: Dockerfile-dev
         ports:
             - '3000:3000'
-        depends_on:
-            - postgres
-
 volumes:
     postgres: ~
 
