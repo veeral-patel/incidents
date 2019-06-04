@@ -2,10 +2,7 @@
 
 <h1><%= @ticket.name %> > Attachments > #<%= @attachment.id%></h1>
 
-<a href=".">Details</a>
-<a href="/tickets/<%= @ticket.id =%>/attachments">Attachments (<%= @ticket.attachments.count =%>)</a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/children"> Child Tickets (<%= @ticket.children.count %>) </a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/comments"> Comments (<%= @ticket.comments.count %>) </a>&nbsp;&nbsp;
+<%= render 'tickets/nav' %>
 
 <p>
   <strong>Created At:</strong>

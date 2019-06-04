@@ -22,6 +22,11 @@
     <%= collection_select(:attachment, :ticket_id, Ticket.where(id: @ticket.id), :id, :name) %>
   </div>
 
+  <div class="field">
+      <%= form.label :file %>
+      <%= form.file_field :file %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
