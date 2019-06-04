@@ -9,10 +9,35 @@
   <%= @attachment.created_at %>
 </p>
 
+<p>
+  <strong>Filename:</strong>
+    <% if @attachment.file.attached? %>
+        <a href="<%= url_for(@attachment.file) %>"><%= @attachment.file.blob.filename  %></a>
+    <% else %>
+        N/A
+    <% end %>
+</p>
+
+
+<p>
+  <strong>Size:</strong>
+    <% if @attachment.file.attached? %>
+      <%= number_to_human_size(@attachment.file.blob.byte_size)  %>
+    <% else %>
+      N/A
+    <% end %>
+</p>
+
 <strong>Description:</strong>
-<div style="white-space: pre-line;">
-  <%= @attachment.description %>
-</div>
+<% if @attachment.description.empty? %>
+      N/A
+<% else %>
+    <div style="white-space: pre-line;">
+      <%= @attachment.description %>
+    </div>
+<% end %>
+
+<br /><br />
 
 <%= link_to 'Edit', edit_ticket_attachment_path(@ticket, @attachment) %> |
 <%= link_to 'Back', ticket_attachments_path %>
