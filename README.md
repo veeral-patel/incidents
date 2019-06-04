@@ -42,6 +42,9 @@ below them. The incident manager doesn't have to talk to forensic analysts; he
 only has to talk to the forensic team's manager.
 
 
-Demo: [https://www.youtube.com/watch?v=Z7U2iYwOpQ4](https://www.youtube.com/watch?v=Z7U2iYwOpQ4)
+Video Demo: [https://www.youtube.com/watch?v=Z7U2iYwOpQ4](https://www.youtube.com/watch?v=Z7U2iYwOpQ4)
+
+Live Demo [2]: http://134.209.4.68
 
 [1] Assigning tickets isn't possible yet
+[2] I'll switch to HTTPS soon
