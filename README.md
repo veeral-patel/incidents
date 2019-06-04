@@ -1,6 +1,6 @@
 # Incidents
 
-Incidents is a web application for managing non-trivial security incidents
+Incidents is a web application for managing non-trivial security incidents.
 
 When you first encounter a phishing email, a malware infection, an application
 vulnerability, a suspicious login, an act of abuse by an insider, or another
@@ -10,7 +10,7 @@ Doc, or a JIRA ticket, to investigate it.
 As the investigation's scope increases, though, these tools aren't enough to
 manage the incident's complexity.
 
-You might have a dozen people working on 30-40 things at once:
+You might have a dozen people working on 30-40 tasks at once:
 - collecting forensic data
 - conducting forensic analysis
 - running sweeps
