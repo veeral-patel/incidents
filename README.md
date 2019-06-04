@@ -47,6 +47,15 @@ Incidents tames complexity because each person only has to worry about the layer
 below them. The incident manager doesn't have to talk to forensic analysts; he
 only has to talk to the forensic team's manager.
 
+## Installation
+```
+docker-compose up
+```
+This runs Incidents in a Docker container with a SQLite3 database in it.
+
+Don't run this in production. Instructions for running in production are coming
+soon.
+
 --
 
 [0] I'll switch to HTTPS soon  
