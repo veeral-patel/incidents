@@ -1,5 +1,9 @@
 # Incidents
 
+Video Demo: [https://www.youtube.com/watch?v=Z7U2iYwOpQ4](https://www.youtube.com/watch?v=Z7U2iYwOpQ4)
+
+Live Demo [0]: http://134.209.4.68
+
 Incidents is a web application for managing non-trivial security incidents.
 
 When you first encounter a phishing email, a malware infection, an application
@@ -42,9 +46,5 @@ below them. The incident manager doesn't have to talk to forensic analysts; he
 only has to talk to the forensic team's manager.
 
 
-Video Demo: [https://www.youtube.com/watch?v=Z7U2iYwOpQ4](https://www.youtube.com/watch?v=Z7U2iYwOpQ4)
-
-Live Demo [2]: http://134.209.4.68
-
-[1] Assigning tickets isn't possible yet
-[2] I'll switch to HTTPS soon
+[0] I'll switch to HTTPS soon
+[1] Assigning tickets isn't possible yet  
