@@ -53,7 +53,7 @@ only has to talk to the forensic team's manager.
 docker-compose up
 ```
 
-Then visit http://localhost:300
+Then visit http://localhost:3000 
 
 This runs Incidents in a Docker container with a SQLite3 database in it. Don't run this in production. Instructions for running in production are coming
 soon.
