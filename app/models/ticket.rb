@@ -5,9 +5,9 @@ class Ticket < ApplicationRecord
   enum status: { open: 0, in_progress: 1, closed: 2}
   enum priority: { low: 0, medium: 1, high: 2}
 
-  has_many :attachments
-  has_many :comments
-  has_many :observables
+  has_many :attachments, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :observables, dependent: :destroy
 
   belongs_to :incident
   belongs_to :user
