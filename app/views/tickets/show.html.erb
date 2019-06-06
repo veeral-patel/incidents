@@ -15,6 +15,15 @@
 </p>
 
 <p>
+<strong>Assigned To:</strong> 
+    <% if @ticket.assigned_to.nil? %>
+        N/A
+    <% else %>
+        <%= @ticket.assigned_to %>
+    <% end %>
+</p>
+
+<p>
 <strong>Is Lead:</strong>
 <%= @ticket.is_lead %>
 </p>

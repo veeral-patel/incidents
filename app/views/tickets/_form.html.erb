@@ -32,6 +32,12 @@
   </div>
 
   <div class="field">
+    <%= form.label :assigned_to %>
+    <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username %>
+
+  </div>
+
+  <div class="field">
     <%= form.label :priority %>
     <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
   </div>

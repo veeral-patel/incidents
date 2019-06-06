@@ -12,6 +12,10 @@ class User < ApplicationRecord
 
     attr_writer :login
 
+    def assigned_ticktes
+        Ticket.where(assigned_to: self)
+    end
+
     def login
         @login || self.username || self.email
     end

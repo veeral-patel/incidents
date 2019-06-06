@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_040348) do
+ActiveRecord::Schema.define(version: 2019_06_06_203652) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,12 +71,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_040348) do
     t.index ["user_id"], name: "index_observables_on_user_id"
   end
 
-  create_table "statuses", force: :cascade do |t|
-    t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -113,7 +107,9 @@ ActiveRecord::Schema.define(version: 2019_06_04_040348) do
     t.integer "priority"
     t.string "ancestry"
     t.integer "user_id"
+    t.integer "assigned_to_id"
     t.index ["ancestry"], name: "index_tickets_on_ancestry"
+    t.index ["assigned_to_id"], name: "index_tickets_on_assigned_to_id"
     t.index ["incident_id"], name: "index_tickets_on_incident_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
