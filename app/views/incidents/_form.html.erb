@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, Incident.statuses.keys.map { |w| [w.humanize, w] } %>
+  </div>
+
+  <div class="field">
     <%= form.label :tag_list %>
     <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
   </div>

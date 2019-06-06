@@ -14,6 +14,10 @@
   <%= @incident.user %>
 </p>
 
+<strong>Status:</strong>
+<%= @incident.status %>
+</p>
+
 <p>
     <strong>Tags</strong>
     <% if @incident.tag_list.count == 0%>
