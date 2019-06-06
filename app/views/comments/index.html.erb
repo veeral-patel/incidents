@@ -23,8 +23,10 @@
         <td><%= comment.user %></td>
         <td><%= comment.comment %></td>
         <td><%= link_to 'Show', ticket_comment_path(@ticket, comment) %></td>
-        <td><%= link_to 'Edit', edit_ticket_comment_path(@ticket, comment) %></td>
-        <td><%= link_to 'Destroy', ticket_comment_path(@ticket, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user == comment.user %>
+            <td><%= link_to 'Edit', edit_ticket_comment_path(@ticket, comment) %></td>
+            <td><%= link_to 'Destroy', ticket_comment_path(@ticket, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

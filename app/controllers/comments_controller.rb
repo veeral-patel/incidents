@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_ticket
   before_action :set_current_user
+  before_action :require_permission, only: [:edit, :update, :destroy]
 
   def index
   end
@@ -62,6 +63,14 @@ class CommentsController < ApplicationController
 
     def set_current_user
         @current_user = current_user
+    end
+
+    def require_permission
+        # prevent user from editing or deleting another user's comment
+        if current_user != Comment.find(params[:id]).user
+            flash[:notice] = "Cannot edit/delete comment as you did not create it"
+            redirect_to ticket_comments_path(@ticket)
+        end
     end
 
     def comment_params
