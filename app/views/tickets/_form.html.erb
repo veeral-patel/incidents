@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :assigned_to %>
-    <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username %>
+    <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
 
   </div>
 
