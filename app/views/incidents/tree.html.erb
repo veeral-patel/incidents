@@ -2,20 +2,24 @@
     <head>
         <%= include_gon(:init => true) %>
     </head>
-
     <body>
-        <nav class="breadcrumb">
-            <ul>
-                <li><a href="<%= incidents_path %>"> All Incidents </a></li>
-                <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
-                <li class="is-active"><a>Tree</a></li>
-            </ul>
-        </nav>
+        <div style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;">
+        <div>
+            <%= render 'shared/menu' %>
+        </div>
+        <div>
+            <nav class="breadcrumb">
+                <ul>
+                    <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+                    <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
+                    <li class="is-active"><a>Tree</a></li>
+                </ul>
+            </nav>
 
-        <h2 class="title is-4">Tree</h2>
-        <%= render 'nav' %>
+            <h2 class="title is-4">Tree</h2>
 
-        <div id="tree-simple"></div>
+            <div id="tree-simple"></div>
+        </div>
     </body>
 
     <script>

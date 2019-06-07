@@ -1,46 +1,53 @@
-<nav class="breadcrumb">
-  <ul>
-    <li><a href="<%= incidents_path %>"> All Incidents </a></li>
-    <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
-    <li class="is-active"><a>Attachments</a></li>
-  </ul>
-</nav>
+<div
+  style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;"
+>
+  <div>
+    <%= render 'shared/menu' %>
+  </div>
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
+        <li class="is-active"><a>Attachments</a></li>
+      </ul>
+    </nav>
 
-<h2 class="title is-4">Attachments</h2>
+    <h2 class="title is-4">Attachments</h2>
 
-<%= render 'nav' %>
+    This page lists every attachment added to a ticket in this incident.
 
-This page lists every attachment added to a ticket in this incident.
+    <br /><br />
 
-<br /><br />
+    <% if @incident.attachments.empty? %>
+      No attachments
+      <br />
+    <% else %>
+    <table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Created At</th>
+          <th>Ticket</th>
+          <th>Description</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<% if @incident.attachments.empty? %>
-  No attachments
-  <br />
-<% else %>
-<table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Created At</th>
-      <th>Ticket</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @incident.attachments.each do |attachment| %>
-      <tr>
-        <td><%= attachment.id %></td>
-        <td><%= attachment.created_at %></td>
-        <td><%= attachment.ticket %></td>
-        <td><%= truncate(attachment.description, :length => 60) %></td>
-        <td><%= link_to 'Show', ticket_attachment_path(attachment.ticket, attachment) %></td>
-        <td><%= link_to 'Edit', edit_ticket_attachment_path(attachment.ticket, attachment) %></td>
-        <td><%= link_to 'Destroy', ticket_attachment_path(attachment.ticket, attachment), method: :delete, data: { confirm: 'Are you sure?' } =%></td>
-      </tr>
+      <tbody>
+        <% @incident.attachments.each do |attachment| %>
+          <tr>
+            <td><%= attachment.id %></td>
+            <td><%= attachment.created_at %></td>
+            <td><%= attachment.ticket %></td>
+            <td><%= truncate(attachment.description, :length => 60) %></td>
+            <td><%= link_to 'Show', ticket_attachment_path(attachment.ticket, attachment) %></td>
+            <td><%= link_to 'Edit', edit_ticket_attachment_path(attachment.ticket, attachment) %></td>
+            <td><%= link_to 'Destroy', ticket_attachment_path(attachment.ticket, attachment), method: :delete, data: { confirm: 'Are you sure?' } =%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <% end %>
-  </tbody>
-</table>
-<% end %>
+  </div>
+</div>

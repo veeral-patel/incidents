@@ -1,47 +1,53 @@
-<nav class="breadcrumb">
-  <ul>
-    <li><a href="<%= incidents_path %>"> All Incidents </a></li>
-    <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
-    <li class="is-active"><a>Observables</a></li>
-  </ul>
-</nav>
+<div
+  style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;"
+>
+  <div>
+    <%= render 'shared/menu' %>
+  </div>
+  <div>
+  <nav class="breadcrumb">
+    <ul>
+      <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+      <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
+      <li class="is-active"><a>Observables</a></li>
+    </ul>
+  </nav>
 
-<h2 class="title is-4">Observables</h2>
-<%= render 'nav' %>
+  <h2 class="title is-4">Observables</h2>
 
-This page lists every observable added to a ticket in this incident.
+  This page lists every observable added to a ticket in this incident.
 
-<br /><br />
+  <br /><br />
 
-<% if @incident.observables.empty? %>
-    No observables
-    <br />
-<% else %>
-<table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
-  <thead>
-    <tr>
-      <th>Observable</th>
-      <th>User</th>
-      <th>Ticket</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @incident.observables.each do |observable| %>
+  <% if @incident.observables.empty? %>
+      No observables
+      <br />
+  <% else %>
+  <table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
+    <thead>
       <tr>
-        <td><%= observable.observable %></td>
-        <td><%= observable.user %></td>
-        <td><%= observable.ticket %></td>
-        <td><%= truncate(observable.description, :length => 60) %></td>
-        <td><%= link_to 'Show', ticket_observable_path(observable.ticket, observable) %></td>
-        <td><%= link_to 'Edit', edit_ticket_observable_path(observable.ticket, observable) %></td>
-        <td><%= link_to 'Destroy', ticket_observable_path(observable.ticket, observable), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Observable</th>
+        <th>User</th>
+        <th>Ticket</th>
+        <th>Description</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
+    </thead>
 
-<br>
+    <tbody>
+      <% @incident.observables.each do |observable| %>
+        <tr>
+          <td><%= observable.observable %></td>
+          <td><%= observable.user %></td>
+          <td><%= observable.ticket %></td>
+          <td><%= truncate(observable.description, :length => 60) %></td>
+          <td><%= link_to 'Show', ticket_observable_path(observable.ticket, observable) %></td>
+          <td><%= link_to 'Edit', edit_ticket_observable_path(observable.ticket, observable) %></td>
+          <td><%= link_to 'Destroy', ticket_observable_path(observable.ticket, observable), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+  </div>
+</div>
