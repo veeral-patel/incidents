@@ -10,17 +10,17 @@
     </head>
 
     <body>
-        <nav class="navbar is-link">
-          <div class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="<%= incidents_path %>">
-                        All Incidents
-                    </a>
-                    <a class="navbar-item" href="<%= tickets_path %>">
-                        All Tickets
-                    </a>
-                </div>
-                <% if user_signed_in? %>
+        <% if user_signed_in? %>
+            <nav class="navbar is-link">
+            <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="<%= incidents_path %>">
+                            All Incidents
+                        </a>
+                        <a class="navbar-item" href="<%= tickets_path %>">
+                            All Tickets
+                        </a>
+                    </div>
                     <div class="navbar-end">
                         <div class="navbar-item has-dropdown is-hoverable">
                             <a class="navbar-link">
@@ -28,19 +28,15 @@
                             </a>
 
                             <div class="navbar-dropdown">
-                                <a class="navbar-item">
-                                    Edit Profile
-                                </a>
+                                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-item' %> 
                                 <hr class="navbar-divider">
-                                <a class="navbar-item">
-                                    Log out
-                                </a>
+                                <%= link_to "Log out", destroy_user_session_path, method: :delete, :class => 'navbar-item'  %>
                             </div>
                         </div>
                     </div>
-                <% end %>
-            </div>
-        </nav>
+                </div>
+            </nav>
+        <% end %>
 
         <% if notice %>
             <article class="message is-success">
