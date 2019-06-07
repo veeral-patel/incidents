@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class IncidentsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @incident = incidents(:one)
+    @incident = incidents(:incident_one)
+    @user = users(:user_one)
+    sign_in @user
   end
 
   test "should get index" do
@@ -17,7 +21,7 @@ class IncidentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create incident" do
     assert_difference('Incident.count') do
-      post incidents_url, params: { incident: { name: @incident.name } }
+      post incidents_url, params: { incident: { name: @incident.name, status: "open", user: @user } }
     end
 
     assert_redirected_to incident_url(Incident.last)
