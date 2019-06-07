@@ -21,7 +21,7 @@ class AttachmentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create attachment" do
     assert_difference('Attachment.count') do
-        post ticket_attachments_url(@attachment.ticket), params: { attachment: { description: @attachment.description } }
+        post ticket_attachments_url(@attachment.ticket), params: { attachment: { description: @attachment.description, ticket_id: @attachment.ticket_id } }
     end
 
     assert_redirected_to ticket_attachment_url(Attachment.last.ticket, Attachment.last)
