@@ -21,6 +21,7 @@ gem 'ancestry'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'gon'
 gem 'rename'
+gem 'fixturator'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
