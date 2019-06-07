@@ -1,45 +1,67 @@
-<nav class="breadcrumb">
-  <ul>
-    <li><a href="<%= incidents_path %>"> All Incidents </a></li>
-    <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
-    <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
-    <li class="is-active"><a>Observables</a></li>
-  </ul>
-</nav>
+<div
+  style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;"
+>
+  <div>
+    <%= render 'incidents/menu' %>
+  </div>
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li>
+          <a href="<%= incident_path(@ticket.incident) %>"
+            ><%= @ticket.incident %></a
+          >
+        </li>
+        <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
+        <li class="is-active"><a>Observables</a></li>
+      </ul>
+    </nav>
 
-<h2 class="title is-4">Observables</h2>
+    <h2 class="title is-4">Observables</h2>
 
-<%= render 'tickets/nav' %>
-
-<% if @ticket.observables.empty? %>
-    No observables
+    <%= render 'tickets/nav' %> <% if @ticket.observables.empty? %> No
+    observables
     <br />
-<% else %>
-<table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
-  <thead>
-    <tr>
-      <th>Observable</th>
-      <th>User</th>
-      <th>Ticket</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <% else %>
+    <table
+      class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered"
+    >
+      <thead>
+        <tr>
+          <th>Observable</th>
+          <th>User</th>
+          <th>Ticket</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @observables.each do |observable| %>
-      <tr>
-        <td><%= observable.observable %></td>
-        <td><%= observable.user %></td>
-        <td><%= observable.ticket %></td>
-        <td><%= link_to 'Show', ticket_observable_path(@ticket, observable) %></td>
-        <td><%= link_to 'Edit', edit_ticket_observable_path(@ticket, observable) %></td>
-        <td><%= link_to 'Destroy', ticket_observable_path(@ticket, observable), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <tbody>
+        <% @observables.each do |observable| %>
+        <tr>
+          <td><%= observable.observable %></td>
+          <td><%= observable.user %></td>
+          <td><%= observable.ticket %></td>
+          <td>
+            <%= link_to 'Show', ticket_observable_path(@ticket, observable) %>
+          </td>
+          <td>
+            <%= link_to 'Edit', edit_ticket_observable_path(@ticket, observable)
+            %>
+          </td>
+          <td>
+            <%= link_to 'Destroy', ticket_observable_path(@ticket, observable),
+            method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
     <% end %>
-  </tbody>
-</table>
-<% end %>
+  </div>
 
-<br>
+  <br />
 
-<%= link_to 'New Observable', new_ticket_observable_path(@ticket, @observable) %>
+  <%= link_to 'New Observable', new_ticket_observable_path(@ticket, @observable)
+  %>
+</div>

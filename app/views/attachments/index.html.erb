@@ -1,59 +1,78 @@
-<nav class="breadcrumb">
-  <ul>
-    <li><a href="<%= incidents_path %>"> All Incidents </a></li>
-    <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
-    <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
-    <li class="is-active"><a>Attachments</a></li>
-  </ul>
-</nav>
+<div
+  style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;"
+>
+  <div>
+    <%= render 'incidents/menu' %>
+  </div>
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li>
+          <a href="<%= incident_path(@ticket.incident) %>"
+            ><%= @ticket.incident %></a
+          >
+        </li>
+        <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
+        <li class="is-active"><a>Attachments</a></li>
+      </ul>
+    </nav>
 
-<h2 class="title is-4">Attachments</h2>
+    <h2 class="title is-4">Attachments</h2>
 
-<%= render 'tickets/nav' %>
+    <%= render 'tickets/nav' %> <% if @ticket.attachments.empty? %> No
+    attachments
+    <br />
+    <% else %>
+    <table
+      class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered"
+    >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Size</th>
+          <th>Created At</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<% if @ticket.attachments.empty? %>
-  No attachments
-  <br />
-<% else %>
-<table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Size</th>
-      <th>Created At</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ticket.attachments.each do |attachment| %>
-      <tr>
-        <td><%= attachment.id %></td>
-        <td>
+      <tbody>
+        <% @ticket.attachments.each do |attachment| %>
+        <tr>
+          <td><%= attachment.id %></td>
+          <td>
             <% if attachment.file.attached? %>
-                <a href="<%= url_for(attachment.file) %>"><%= attachment.file.blob.filename  %></a>
-            <% else %>
-                N/A
-            <% end %>
-        </td>
-        <td>
-            <% if attachment.file.attached? %>
-              <%= number_to_human_size(attachment.file.blob.byte_size)  %>
-            <% else %>
-              N/A
-            <% end %>
-        </td>
-        <td><%= attachment.created_at %></td>
-        <td><%= link_to 'Show', ticket_attachment_path(@ticket, attachment) %></td>
-        <td><%= link_to 'Edit', edit_ticket_attachment_path(@ticket, attachment) %></td>
-        <td><%= link_to 'Destroy', ticket_attachment_path(@ticket, attachment), method: :delete, data: { confirm: 'Are you sure?' } =%></td>
-      </tr>
+            <a href="<%= url_for(attachment.file) %>"
+              ><%= attachment.file.blob.filename %></a
+            >
+            <% else %> N/A <% end %>
+          </td>
+          <td>
+            <% if attachment.file.attached? %> <%=
+            number_to_human_size(attachment.file.blob.byte_size) %> <% else %>
+            N/A <% end %>
+          </td>
+          <td><%= attachment.created_at %></td>
+          <td>
+            <%= link_to 'Show', ticket_attachment_path(@ticket, attachment) %>
+          </td>
+          <td>
+            <%= link_to 'Edit', edit_ticket_attachment_path(@ticket, attachment)
+            %>
+          </td>
+          <td>
+            <%= link_to 'Destroy', ticket_attachment_path(@ticket, attachment),
+            method: :delete, data: { confirm: 'Are you sure?' } =%>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
     <% end %>
-  </tbody>
-</table>
-<% end %>
 
-<br>
+    <br />
 
-<%= link_to 'New Attachment', new_ticket_attachment_path %>
+    <%= link_to 'New Attachment', new_ticket_attachment_path %>
+  </div>
+</div>

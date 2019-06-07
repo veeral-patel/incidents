@@ -1,52 +1,65 @@
 <html>
-    <head>
-        <%# initialize gon %>
-        <%= include_gon(:init => true) %>
-    </head>
+  <head>
+    <%= include_gon(:init => true) %>
+  </head>
 
-    <body>
-        <%# render breadcrumb %>
+  <body>
+    <%# render breadcrumb %>
+    <div
+      style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;"
+    >
+      <div>
+        <%= render 'incidents/menu' %>
+      </div>
+      <div>
         <nav class="breadcrumb">
-            <ul>
-                <li><a href="<%= incidents_path %>"> All Incidents </a></li>
-                <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
-                <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
-                <li class="is-active"><a>Tree</a></li>
-            </ul>
+          <ul>
+            <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+            <li>
+              <a href="<%= incident_path(@ticket.incident) %>"
+                ><%= @ticket.incident %></a
+              >
+            </li>
+            <li>
+              <a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a>
+            </li>
+            <li class="is-active"><a>Tree</a></li>
+          </ul>
         </nav>
-
         <%# render title and nav %>
         <h2 class="title is-4">Tree</h2>
-        <%= render 'nav' %>
-
-        <%# render tree %>
-        <a href="<%= tree_incident_path(@ticket.incident) %>">See this incident's tree</a>
+        <%= render 'nav' %> <%# render tree %>
+        <a href="<%= tree_incident_path(@ticket.incident) %>"
+          >See this incident's tree</a
+        >
         <div id="tree-simple"></div>
-    </body>
+      </div>
+    </div>
+  </body>
 
-    <script>
-        simple_chart_config = {
-            chart: {
-                container: "#tree-simple",
-                node: { HTMLclass: "nodeStyle" }
-            },
-            nodeStructure: gon.ticket_tree_as_json
-        };
+  <script>
+    simple_chart_config = {
+      chart: {
+        container: "#tree-simple",
+        node: { HTMLclass: "nodeStyle" }
+      },
+      nodeStructure: gon.ticket_tree_as_json
+    };
 
-        var my_chart = new Treant(simple_chart_config);
-    </script>
+    var my_chart = new Treant(simple_chart_config);
+  </script>
 
-    <style>
-        .nodeStyle {
-            padding: 2px;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-            border-radius: 3px;
-            background-color: #ffffff;
-            border: 1px solid #000;
-            font-family: Tahoma;
-            font-size: 12px;
-            text-align: center;
-        }
-    </style>
+  <style>
+    .nodeStyle {
+      padding: 2px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background-color: #ffffff;
+      border: 1px solid #000;
+      font-family: Tahoma;
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
 </html>

@@ -1,50 +1,66 @@
-<nav class="breadcrumb">
-  <ul>
-    <li><a href="<%= incidents_path %>"> All Incidents </a></li>
-    <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
-    <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
-    <li class="is-active"><a>Child Tickets</a></li>
-  </ul>
-</nav>
+<div
+  style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;"
+>
+  <div>
+    <%= render 'incidents/menu' %>
+  </div>
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li>
+          <a href="<%= incident_path(@ticket.incident) %>"
+            ><%= @ticket.incident %></a
+          >
+        </li>
+        <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
+        <li class="is-active"><a>Child Tickets</a></li>
+      </ul>
+    </nav>
 
-<h2 class="title is-4">Child Tickets</h2>
+    <h2 class="title is-4">Child Tickets</h2>
 
-<%= render 'nav' %>
-
-<% if @ticket.children.empty? %>
-  No child tickets
-  <br /><br />
-  To create a child ticket, create a new ticket, edit it, and set its parent ticket to <b><%= @ticket.name %></b>.
-  <br />
-<% else %>
-<table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
-    <thead>
+    <%= render 'nav' %> <% if @ticket.children.empty? %> No child tickets
+    <br /><br />
+    To create a child ticket, create a new ticket, edit it, and set its parent
+    ticket to <b><%= @ticket.name %></b>.
+    <br />
+    <% else %>
+    <table
+      class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered"
+    >
+      <thead>
         <tr>
-            <th>Name</th>
-            <th>Incident</th>
-            <th>Status</th>
-            <th>Priority</th>
-            <th>Is Lead?</th>
-            <th>Created At</th>
-            <th colspan="4"></th>
+          <th>Name</th>
+          <th>Incident</th>
+          <th>Status</th>
+          <th>Priority</th>
+          <th>Is Lead?</th>
+          <th>Created At</th>
+          <th colspan="4"></th>
         </tr>
-    </thead>
+      </thead>
 
-    <tbody>
+      <tbody>
         <% @ticket.children.each do |ticket| %>
-            <tr>
-                <td><%= ticket.name %></td>
-                <td><%= ticket.incident %></td>
-                <td><%= ticket.status %></td>
-                <td><%= ticket.priority %></td>
-                <td><%= ticket.is_lead %></td>
-                <td><%= ticket.created_at %></td>
-                <td><%= link_to 'Show', ticket %></td>
-                <td><%= link_to 'Tree', tree_ticket_path(ticket) %></td>
-                <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-                <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
+        <tr>
+          <td><%= ticket.name %></td>
+          <td><%= ticket.incident %></td>
+          <td><%= ticket.status %></td>
+          <td><%= ticket.priority %></td>
+          <td><%= ticket.is_lead %></td>
+          <td><%= ticket.created_at %></td>
+          <td><%= link_to 'Show', ticket %></td>
+          <td><%= link_to 'Tree', tree_ticket_path(ticket) %></td>
+          <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+          <td>
+            <%= link_to 'Destroy', ticket, method: :delete, data: { confirm:
+            'Are you sure?' } %>
+          </td>
+        </tr>
         <% end %>
-    </tbody>
-</table>
-<% end %>
+      </tbody>
+    </table>
+    <% end %>
+  </div>
+</div>
