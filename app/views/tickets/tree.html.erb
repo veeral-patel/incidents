@@ -1,9 +1,11 @@
 <html>
     <head>
+        <%# initialize gon %>
         <%= include_gon(:init => true) %>
     </head>
 
     <body>
+        <%# render breadcrumb %>
         <nav class="breadcrumb">
             <ul>
                 <li><a href="<%= incidents_path %>"> All Incidents </a></li>
@@ -13,25 +15,24 @@
             </ul>
         </nav>
 
+        <%# render title and nav %>
         <h2 class="title is-4">Tree</h2>
-
         <%= render 'nav' %>
 
+        <%# render tree %>
         <a href="<%= tree_incident_path(@ticket.incident) %>">See this incident's tree</a>
         <div id="tree-simple"></div>
     </body>
 
     <script>
         simple_chart_config = {
-        chart: {
+            chart: {
                 container: "#tree-simple",
-                node: {
-                HTMLclass: "nodeStyle"
-            }
-        },
-        nodeStructure: gon.ticket_tree_as_json
-
+                node: { HTMLclass: "nodeStyle" }
+            },
+            nodeStructure: gon.ticket_tree_as_json
         };
+
         var my_chart = new Treant(simple_chart_config);
     </script>
 

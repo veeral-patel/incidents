@@ -1,8 +1,16 @@
-<h1><%= @incident.name %> > Attachments</h1>
+<nav class="breadcrumb">
+  <ul>
+    <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+    <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
+    <li class="is-active"><a>Attachments</a></li>
+  </ul>
+</nav>
+
+<h2 class="title is-4">Attachments</h2>
 
 <%= render 'nav' %>
 
-This page lists every observable added to a ticket in this incident.
+This page lists every attachment added to a ticket in this incident.
 
 <br /><br />
 
