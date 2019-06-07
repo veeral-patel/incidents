@@ -18,7 +18,7 @@ This page lists every attachment added to a ticket in this incident.
   No attachments
   <br />
 <% else %>
-<table>
+<table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
   <thead>
     <tr>
       <th>ID</th>
@@ -29,7 +29,7 @@ This page lists every attachment added to a ticket in this incident.
     </tr>
   </thead>
 
-  <td>
+  <tbody>
     <% @incident.attachments.each do |attachment| %>
       <tr>
         <td><%= attachment.id %></td>
