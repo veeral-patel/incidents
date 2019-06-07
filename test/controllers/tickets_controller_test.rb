@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class TicketsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @ticket = tickets(:one)
+    @ticket = tickets(:ticket_one)
+    @user = users(:user_one)
+    sign_in @user
   end
 
   test "should get index" do
@@ -17,7 +21,7 @@ class TicketsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ticket" do
     assert_difference('Ticket.count') do
-      post tickets_url, params: { ticket: { incident_id: @ticket.incident_id, name: @ticket.name } }
+      post tickets_url, params: { ticket: { incident_id: @ticket.incident_id, name: @ticket.name, status: 'open', priority: 'low', user: @user } }
     end
 
     assert_redirected_to ticket_url(Ticket.last)
