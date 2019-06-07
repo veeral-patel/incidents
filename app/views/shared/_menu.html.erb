@@ -1,0 +1,23 @@
+<aside class="menu">
+  <p class="menu-label">
+    <%= @incident.name %>
+  </p>
+  <ul class="menu-list">
+    <li><a href="<%= incident_path(@incident) %>">Details</a></li>
+    <li>
+      <a href="<%= tickets_incident_path(@incident) %>">Tickets</a>
+    </li>
+    <li>
+      <a href="<%= leads_incident_path(@incident) %>">Leads</a>
+    </li>
+    <li>
+      <a href="<%= observables_incident_path(@incident) %>">Observables</a>
+    </li>
+    <li>
+      <a href="<%= attachments_incident_path(@incident) %>">Attachments</a>
+    </li>
+    <li>
+      <a href="<%= tree_incident_path(@incident) %>">Tree</a>
+    </li>
+  </ul>
+</aside>

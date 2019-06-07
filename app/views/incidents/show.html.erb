@@ -1,51 +1,57 @@
-<nav class="breadcrumb">
-  <ul>
-    <li><a href="<%= incidents_path %>"> All Incidents </a></li>
-    <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
-    <li class="is-active"><a>Details</a></li>
-  </ul>
-</nav>
-
-<h2 class="title is-4">Details</h2>
-<%= render 'nav' %>
-
-<div class="content">
-  <p>
-    <strong>Created At:</strong>
-    <%= @incident.created_at %>
-  </p>
-
-  <p>
-    <strong>Created By:</strong>
-    <%= @incident.user %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= @incident.status %>
-  </p>
-
-  <p>
-      <strong>Tags</strong>
-      <% if @incident.tag_list.count == 0%>
-        N/A
-      <% else %>
-        <%= @incident.tag_list %>
-      <% end %>
-  </p>
-
+<div
+  style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;"
+>
   <div>
-      <strong>Description:</strong>
-      <% if @incident.description.empty? %>
-        N/A
+    <%= render 'shared/menu' %>
+  </div>
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li>
+          <a href="<%= incident_path(@incident) %>"><%= @incident.name %></a>
+        </li>
+        <li class="is-active"><a>Details</a></li>
+      </ul>
+    </nav>
+
+    <h2 class="title is-4">Details</h2>
+    <%= render 'nav' %>
+
+    <div class="content">
+      <p>
+        <strong>Created At:</strong>
+        <%= @incident.created_at %>
+      </p>
+
+      <p>
+        <strong>Created By:</strong>
+        <%= @incident.user %>
+      </p>
+
+      <p>
+        <strong>Status:</strong>
+        <%= @incident.status %>
+      </p>
+
+      <p>
+        <strong>Tags</strong>
+        <% if @incident.tag_list.count == 0%> N/A <% else %> <%=
+        @incident.tag_list %> <% end %>
+      </p>
+
+      <div>
+        <strong>Description:</strong>
+        <% if @incident.description.empty? %> N/A
         <br /><br />
-      <% else %>
+        <% else %>
         <div style="white-space: pre-line;">
           <%= @incident.description %>
         </div>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <%= link_to 'Edit', edit_incident_path(@incident) %>
   </div>
 </div>
-
-<%= link_to 'Edit', edit_incident_path(@incident) %> |
-<%= link_to 'Back', incidents_path %>
