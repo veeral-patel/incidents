@@ -5,16 +5,16 @@
   <ul class="menu-list">
     <li><a href="<%= incident_path(@incident) %>">Details</a></li>
     <li>
-      <a href="<%= tickets_incident_path(@incident) %>">Tickets</a>
+      <a href="<%= tickets_incident_path(@incident) %>">Tickets (<%= @incident.tickets.count %>)</a>
     </li>
     <li>
-      <a href="<%= leads_incident_path(@incident) %>">Leads</a>
+      <a href="<%= leads_incident_path(@incident) %>">Leads (<%= @incident.leads.count %>)</a>
     </li>
     <li>
-      <a href="<%= observables_incident_path(@incident) %>">Observables</a>
+      <a href="<%= observables_incident_path(@incident) %>">Observables (<%= @incident.observables.count %>)</a>
     </li>
     <li>
-      <a href="<%= attachments_incident_path(@incident) %>">Attachments</a>
+      <a href="<%= attachments_incident_path(@incident) %>">Attachments (<%= @incident.attachments.count %>)</a>
     </li>
     <li>
       <a href="<%= tree_incident_path(@incident) %>">Tree</a>
