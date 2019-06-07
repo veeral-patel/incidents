@@ -4,8 +4,8 @@ class ObservablesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @observable = observables(:observable_one)
-    @user = users(:user_one)
+    @observable = observables(:observable_1)
+    @user = users(:user_1)
     sign_in @user
   end
 
@@ -15,7 +15,7 @@ class ObservablesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_ticket_observable_url(@observable.ticket, @observable)
+    get new_ticket_observable_url(@observable.ticket)
     assert_response :success
   end
 

@@ -1,4 +1,4 @@
-user_one:
+user_1:
   id: 1
   email: test@example.com
   encrypted_password: "$2a$11$FpGLpmmdn8i9UVoMNTurRuBmPkOQmrRHpAaF6wHG.zDWEdLu/tD0G"

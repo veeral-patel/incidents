@@ -1,4 +1,4 @@
-incident_one:
+incident_1:
   id: 1
   name: Incident One
   created_at: 2016-10-10 07:00:00.000000000 Z

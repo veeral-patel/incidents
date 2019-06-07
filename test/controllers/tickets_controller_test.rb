@@ -4,8 +4,8 @@ class TicketsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @ticket = tickets(:ticket_one)
-    @user = users(:user_one)
+    @ticket = tickets(:ticket_1)
+    @user = users(:user_1)
     sign_in @user
   end
 

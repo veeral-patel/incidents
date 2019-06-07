@@ -6,3 +6,4 @@ models:
   - name: Incident
   - name: Ticket
   - name: Observable
+  - name: Comment

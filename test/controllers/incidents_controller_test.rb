@@ -4,8 +4,8 @@ class IncidentsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @incident = incidents(:incident_one)
-    @user = users(:user_one)
+    @incident = incidents(:incident_1)
+    @user = users(:user_1)
     sign_in @user
   end
 
