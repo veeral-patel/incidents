@@ -7,3 +7,4 @@ models:
   - name: Ticket
   - name: Observable
   - name: Comment
+  - name: Attachment

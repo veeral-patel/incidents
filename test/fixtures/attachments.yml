@@ -1,7 +1,7 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+attachment_1:
+  id: 1
+  description: ''
+  created_at: 2016-10-10 07:00:00.000000000 Z
+  updated_at: 2016-10-10 07:00:00.000000000 Z
+  ticket_id: 1
 
-one:
-  description: MyText
-
-two:
-  description: MyText

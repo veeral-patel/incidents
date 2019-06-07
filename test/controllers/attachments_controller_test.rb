@@ -1,48 +1,52 @@
 require 'test_helper'
 
 class AttachmentsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @attachment = attachments(:one)
+    @attachment = attachments(:attachment_1)
+    @user = users(:user_1)
+    sign_in @user
   end
 
   test "should get index" do
-    get attachments_url
+    get ticket_attachments_url(@attachment.ticket)
     assert_response :success
   end
 
   test "should get new" do
-    get new_attachment_url
+    get new_ticket_attachment_url(@attachment.ticket, @attachment)
     assert_response :success
   end
 
   test "should create attachment" do
     assert_difference('Attachment.count') do
-      post attachments_url, params: { attachment: { description: @attachment.description } }
+        post ticket_attachments_url(@attachment.ticket), params: { attachment: { description: @attachment.description } }
     end
 
-    assert_redirected_to attachment_url(Attachment.last)
+    assert_redirected_to ticket_attachment_url(Attachment.last.ticket, Attachment.last)
   end
 
   test "should show attachment" do
-    get attachment_url(@attachment)
+    get ticket_attachment_url(@attachment.ticket, @attachment.ticket)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_attachment_url(@attachment)
+    get edit_ticket_attachment_url(@attachment.ticket, @attachment)
     assert_response :success
   end
 
   test "should update attachment" do
-    patch attachment_url(@attachment), params: { attachment: { description: @attachment.description } }
-    assert_redirected_to attachment_url(@attachment)
+     patch ticket_attachment_url(@attachment.ticket, @attachment), params: { attachment: { description: @attachment.description } }
+    assert_redirected_to ticket_attachment_url(@attachment)
   end
 
   test "should destroy attachment" do
     assert_difference('Attachment.count', -1) do
-      delete attachment_url(@attachment)
+        delete ticket_attachment_url(@attachment.ticket, @attachment)
     end
 
-    assert_redirected_to attachments_url
+    assert_redirected_to ticket_attachments_url(@attachment.ticket)
   end
 end
