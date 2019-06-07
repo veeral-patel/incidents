@@ -1,9 +1,24 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+ticket_one:
+  id: 1
+  name: Ticket One
+  incident_id: 1
+  created_at: 2016-10-10 07:00:00.000000000 Z
+  updated_at: 2016-10-10 07:00:00.000000000 Z
+  description: ''
+  is_lead: false
+  status: open
+  priority: low
+  user_id: 1
 
-one:
-  name: MyString
-  incident: one
+ticket_two:
+  id: 2
+  name: Ticket Two
+  incident_id: 1
+  created_at: 2016-10-10 07:00:00.000000000 Z
+  updated_at: 2016-10-10 07:00:00.000000000 Z
+  description: ''
+  is_lead: false
+  status: open
+  priority: low
+  user_id: 1
 
-two:
-  name: MyString
-  incident: two

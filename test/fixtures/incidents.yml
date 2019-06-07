@@ -1,7 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+incident_1:
+  id: 1
+  name: Incident One
+  created_at: 2016-10-10 07:00:00.000000000 Z
+  updated_at: 2016-10-10 07:00:00.000000000 Z
+  user_id: 1
+  description: ''
+  status: open
 
-one:
-  name: MyString
-
-two:
-  name: MyString

@@ -1,0 +1,8 @@
+exclude_timestamps: false
+
+# The models for which fixtures are generated
+models:
+  - name: User
+  - name: Incident
+  - name: Ticket
+  - name: Observable
