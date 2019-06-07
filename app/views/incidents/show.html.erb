@@ -9,39 +9,42 @@
 <h2 class="title is-4">Details</h2>
 <%= render 'nav' %>
 
-<p>
-  <strong>Created At:</strong>
-  <%= @incident.created_at %>
-</p>
+<div class="content">
+  <p>
+    <strong>Created At:</strong>
+    <%= @incident.created_at %>
+  </p>
 
-<p>
-  <strong>Created By:</strong>
-  <%= @incident.user %>
-</p>
+  <p>
+    <strong>Created By:</strong>
+    <%= @incident.user %>
+  </p>
 
-<strong>Status:</strong>
-<%= @incident.status %>
-</p>
+  <p>
+    <strong>Status:</strong>
+    <%= @incident.status %>
+  </p>
 
-<p>
-    <strong>Tags</strong>
-    <% if @incident.tag_list.count == 0%>
-      N/A
-    <% else %>
-      <%= @incident.tag_list %>
-    <% end %>
-</p>
+  <p>
+      <strong>Tags</strong>
+      <% if @incident.tag_list.count == 0%>
+        N/A
+      <% else %>
+        <%= @incident.tag_list %>
+      <% end %>
+  </p>
 
-<div>
-    <strong>Description:</strong>
-    <% if @incident.description.empty? %>
-      N/A
-      <br /><br />
-    <% else %>
-      <div style="white-space: pre-line;">
-        <%= @incident.description %>
-      </div>
-    <% end %>
+  <div>
+      <strong>Description:</strong>
+      <% if @incident.description.empty? %>
+        N/A
+        <br /><br />
+      <% else %>
+        <div style="white-space: pre-line;">
+          <%= @incident.description %>
+        </div>
+      <% end %>
+  </div>
 </div>
 
 <%= link_to 'Edit', edit_incident_path(@incident) %> |
