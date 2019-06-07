@@ -10,7 +10,6 @@
     </head>
 
     <body>
-
         <nav class="navbar is-primary">
           <div class="navbar-menu">
                 <div class="navbar-start">
@@ -43,7 +42,18 @@
             </div>
         </nav>
 
-        <%= yield %>
+        <% if notice %>
+            <article class="message is-success">
+                <div class="message-body">
+                    <%= notice %>
+                </div>
+            </article>
+        <% end %>
+
+
+        <div style="margin-left: 3%; margin-right: 3%; margin-top: 2%; margin-bottom: 2%;">
+            <%= yield %>
+        </div>
 
     </body>
 </html>
