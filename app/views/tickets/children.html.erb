@@ -1,5 +1,6 @@
 <nav class="breadcrumb">
   <ul>
+    <li><a href="<%= incidents_path %>"> All Incidents </a></li>
     <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
     <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
     <li class="is-active"><a>Children</a></li>
