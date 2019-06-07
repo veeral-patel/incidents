@@ -1,4 +1,12 @@
-<h2><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a> > <%= @ticket.name %> > Attachments</h2>
+<nav class="breadcrumb">
+  <ul>
+    <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
+    <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
+    <li class="is-active"><a>Observables</a></li>
+  </ul>
+</nav>
+
+<h2 class="title is-4">Attachments</h2>
 
 <%= render 'tickets/nav' %>
 
