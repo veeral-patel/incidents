@@ -69,6 +69,7 @@ class AttachmentsController < ApplicationController
 
     def set_ticket
       @ticket = Ticket.find(params[:ticket_id])
+      @incident = @ticket.incident
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
