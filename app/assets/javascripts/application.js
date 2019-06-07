@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $("label").addClass("label");
+  $("textarea").addClass("textarea");
+  $("input").addClass("input");
+  $("button").addClass("button is-link");
+});
