@@ -2,5 +2,5 @@
 
 <%= render 'form', observable: @observable %>
 
-<%= link_to 'Show', @observable %> |
-<%= link_to 'Back', observables_path %>
+<%= link_to 'Show', ticket_observable_path(@observable.ticket, @observable) %> |
+<%= link_to 'Back', ticket_observables_path(@observable.ticket) %>

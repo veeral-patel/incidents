@@ -1,48 +1,52 @@
 require 'test_helper'
 
 class ObservablesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @observable = observables(:one)
+    @observable = observables(:observable_one)
+    @user = users(:user_one)
+    sign_in @user
   end
 
   test "should get index" do
-    get observables_url
+    get ticket_observables_url(@observable.ticket)
     assert_response :success
   end
 
   test "should get new" do
-    get new_observable_url
+    get new_ticket_observable_url(@observable.ticket, @observable)
     assert_response :success
   end
 
   test "should create observable" do
     assert_difference('Observable.count') do
-      post observables_url, params: { observable: { description: @observable.description, observable: @observable.observable, ticket_id: @observable.ticket_id, user_id: @observable.user_id } }
+    post ticket_observables_url(@observable.ticket), params: { observable: { description: @observable.description, observable: @observable.observable, ticket_id: @observable.ticket_id, user_id: @observable.user_id } }
     end
 
-    assert_redirected_to observable_url(Observable.last)
+    assert_redirected_to ticket_observable_url(Observable.last.ticket, Observable.last)
   end
 
   test "should show observable" do
-    get observable_url(@observable)
+    get ticket_observable_url(@observable.ticket, @observable)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_observable_url(@observable)
+    get edit_ticket_observable_url(@observable.ticket, @observable)
     assert_response :success
   end
 
   test "should update observable" do
-    patch observable_url(@observable), params: { observable: { description: @observable.description, observable: @observable.observable, ticket_id: @observable.ticket_id, user_id: @observable.user_id } }
-    assert_redirected_to observable_url(@observable)
+      patch ticket_observable_url(@observable.ticket, @observable), params: { observable: { description: @observable.description, observable: @observable.observable, ticket_id: @observable.ticket_id, user_id: @observable.user_id } }
+      assert_redirected_to ticket_observable_url(@observable.ticket,@observable)
   end
 
   test "should destroy observable" do
     assert_difference('Observable.count', -1) do
-      delete observable_url(@observable)
+      delete ticket_observable_url(@observable.ticket, @observable)
     end
 
-    assert_redirected_to observables_url
+    assert_redirected_to ticket_observables_url(@observable.ticket)
   end
 end
