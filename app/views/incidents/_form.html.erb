@@ -19,7 +19,9 @@
 
     <div class="field">
       <%= form.label :status %>
-      <%= form.select :status, Incident.statuses.keys.map { |w| [w.humanize, w] } %>
+      <div class="select">
+        <%= form.select :status, Incident.statuses.keys.map { |w| [w.humanize, w] } %>
+      </div>
     </div>
 
     <div class="field">
