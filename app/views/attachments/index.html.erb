@@ -3,7 +3,7 @@
     <li><a href="<%= incidents_path %>"> All Incidents </a></li>
     <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
     <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
-    <li class="is-active"><a>Observables</a></li>
+    <li class="is-active"><a>Attachments</a></li>
   </ul>
 </nav>
 
@@ -15,7 +15,7 @@
   No attachments
   <br />
 <% else %>
-<table style="border-collapse: separate; border-spacing: 10px 0">
+<table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
   <thead>
     <tr>
       <th>ID</th>
@@ -26,7 +26,7 @@
     </tr>
   </thead>
 
-  <td>
+  <tbody>
     <% @ticket.attachments.each do |attachment| %>
       <tr>
         <td><%= attachment.id %></td>

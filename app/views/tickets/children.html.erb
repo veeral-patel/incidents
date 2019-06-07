@@ -3,7 +3,7 @@
     <li><a href="<%= incidents_path %>"> All Incidents </a></li>
     <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
     <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
-    <li class="is-active"><a>Children</a></li>
+    <li class="is-active"><a>Child Tickets</a></li>
   </ul>
 </nav>
 
@@ -17,7 +17,7 @@
   To create a child ticket, create a new ticket, edit it, and set its parent ticket to <b><%= @ticket.name %></b>.
   <br />
 <% else %>
-<table>
+<table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
     <thead>
         <tr>
             <th>Name</th>
