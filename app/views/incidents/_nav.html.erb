@@ -1,8 +1,10 @@
-<a href="/incidents/<%= @incident.id =%>/" style="margin-right: 10px">Details</a>
-<a href="/incidents/<%= @incident.id =%>/tickets" style="margin-right: 10px">Tickets (<%= @incident.tickets.count =%>) </a>
-<a href="/incidents/<%= @incident.id =%>/leads" style="margin-right: 10px">Leads (<%= @incident.leads.count =%>)</a>
-<a href="/incidents/<%= @incident.id =%>/observables" style="margin-right: 10px">Observables (<%= @incident.observables.count =%>)</a>
-<a href="/incidents/<%= @incident.id =%>/attachments" style="margin-right: 10px">Attachments (<%= @incident.attachments.count =%>)</a>
-<a href="/incidents/<%= @incident.id =%>/tree" style="margin-right: 10px">Tree</a>
-
-<br><br>
+<div class="tabs">
+    <ul>
+        <li><a href="<%= incident_path(@incident) %>">Details</a></li>
+        <li><a href="<%= tickets_incident_path(@incident) %>">Tickets (<%= @incident.tickets.count =%>) </a></li>
+        <li><a href="<%= leads_incident_path(@incident) %>"">Leads (<%= @incident.leads.count =%>)</a></li>
+        <li><a href="<%= observables_incident_path(@incident) %>">Observables (<%= @incident.observables.count =%>)</a></li>
+        <li><a href="<%= attachments_incident_path(@incident) %>">Attachments (<%= @incident.attachments.count =%>)</a></li>
+        <li><a href="<%= tree_incident_path(@incident) %>">Tree</a></li>
+    </ul>
+</div>
