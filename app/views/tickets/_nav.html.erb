@@ -1,8 +1,10 @@
-<a href="/tickets/<%= @ticket.id =%>/"> Details </a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/observables"> Observables (<%= @ticket.observables.count %>) </a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/attachments">Attachments (<%= @ticket.attachments.count =%>)</a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/children"> Child Tickets (<%= @ticket.children.count %>) </a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/comments"> Comments (<%= @ticket.comments.count %>) </a>&nbsp;&nbsp;
-<a href="/tickets/<%= @ticket.id =%>/tree"> Tree </a>
-
-<br><br>
+<div class="tabs">
+    <ul>
+        <li><a href="<%= ticket_path(@ticket) %>"> Details </a></li>
+        <li><a href="<%= ticket_observables_path(@ticket) %>"> Observables (<%= @ticket.observables.count %>) </a></li>
+        <li><a href="<%= ticket_attachments_path(@ticket) %>">Attachments (<%= @ticket.attachments.count =%>)</a></li>
+        <li><a href="<%= children_ticket_path(@ticket) %>"> Child Tickets (<%= @ticket.children.count %>) </a></li>
+        <li><a href="<%= ticket_comments_path(@ticket) %>"> Comments (<%= @ticket.comments.count %>) </a></li>
+        <li><a href="<%= tree_ticket_path(@ticket) %>"> Tree </a></li>
+    </ul>
+</div>
