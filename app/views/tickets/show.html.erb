@@ -1,15 +1,23 @@
-<h2><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a> > <%= @ticket.name %> > Details</h2>
+<nav class="breadcrumb">
+  <ul>
+    <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
+    <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
+    <li class="is-active"><a>Details</a></li>
+  </ul>
+</nav>
+
+<h2 class="title is-4">Details</h2>
 
 <%= render 'nav' %>
 
 <p>
-<strong>Created At:</strong> 
-<%= @ticket.created_at %>
+    <strong>Created At:</strong> 
+    <%= @ticket.created_at %>
 </p>
 
 <p>
-<strong>Created By:</strong> 
-<%= @ticket.user %>
+    <strong>Created By:</strong> 
+    <%= @ticket.user %>
 </p>
 
 <p>
@@ -22,17 +30,17 @@
 </p>
 
 <p>
-<strong>Is Lead:</strong>
-<%= @ticket.is_lead %>
+    <strong>Is Lead:</strong>
+    <%= @ticket.is_lead %>
 </p>
 
 <p>
-<strong>Parent Ticket:</strong>
-<% if @ticket.parent == nil %>
-    <td>N/A</td>
-<% else %>
-    <td><%= link_to @ticket.parent.name, @ticket.parent =%></td>
-<% end %>
+    <strong>Parent Ticket:</strong>
+    <% if @ticket.parent == nil %>
+        <td>N/A</td>
+    <% else %>
+        <td><%= link_to @ticket.parent.name, @ticket.parent =%></td>
+    <% end %>
 </p>
 
 <p>
@@ -41,12 +49,12 @@
 </p>
 
 <p>
-<strong>Status:</strong>
-<%= @ticket.status %>
+    <strong>Status:</strong>
+    <%= @ticket.status %>
 </p>
 
-<strong>Priority:</strong>
-<%= @ticket.priority %>
+    <strong>Priority:</strong>
+    <%= @ticket.priority %>
 </p>
 
 <div>
@@ -57,8 +65,8 @@
 </div>
 
 <p>
-<strong>Incident:</strong>
-<a href="/incidents/<%= @ticket.incident.id =%>/"><%= @ticket.incident.name %></a>
+    <strong>Incident:</strong>
+    <a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident.name %></a>
 </p>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
