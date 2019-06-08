@@ -16,24 +16,24 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :name %>
+      <%= form.label :name, "Name (Required)" %>
       <%= form.text_field :name, placeholder: "Detected Ryuk on an endpoint", autofocus: true %>
     </div>
 
     <div class="field">
-      <%= form.label :status %>
+      <%= form.label :status, "Status (Required)" %>
       <div class="select">
         <%= form.select :status, Incident.statuses.keys.map { |w| [w.humanize, w] } %>
       </div>
     </div>
 
     <div class="field">
-      <%= form.label :tag_list %>
+      <%= form.label :tag_list, "Tag List " %>
       <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
     </div>
 
     <div class="field">
-      <%= form.label :description %>
+      <%= form.label :description, "Description " %>
       <%= form.text_area :description, cols: 80, rows: 10, placeholder: "Enter description here" %>
     </div>
 

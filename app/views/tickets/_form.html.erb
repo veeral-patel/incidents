@@ -16,7 +16,7 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :name %>
+      <%= form.label :name, "Name (Required)" %>
       <%= form.text_field :name, placeholder: "Conduct live response", autofocus: true %>
     </div>
 
@@ -26,43 +26,53 @@
     </div>
 
     <div class="field">
-      <%= form.label :tag_list %>
+      <%= form.label :tag_list, "Tag List " %>
       <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
     </div>
 
     <div class="field">
-      <%= form.label :status %>
-      <%= form.select :status, Ticket.statuses.keys.map { |w| [w.humanize, w] } %>
+      <%= form.label :status, "Status (Required)" %>
+      <div class="select">
+          <%= form.select :status, Ticket.statuses.keys.map { |w| [w.humanize, w] } %>
+      </div>
     </div>
 
     <div class="field">
-      <%= form.label :assigned_to %>
-      <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
+      <%= form.label :assigned_to, "Assigned To " %>
+      <div class="select">
+          <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
+      </div>
 
     </div>
 
     <div class="field">
-      <%= form.label :priority %>
-      <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
+      <%= form.label :priority, "Priority " %>
+      <div class="select">
+          <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
+      </div>
     </div>
 
     <div class="field">
-      <%= form.label :description %>
-      <%= form.text_area :description, cols: 80, rows: 10, placeholder: "Enter description here" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :incident_id %>
-      <%= collection_select(:ticket, :incident_id, Incident.all, :id, :name) %>
+      <%= form.label :incident_id, "Incident (Required)" %>
+        <div class="select">
+          <%= collection_select(:ticket, :incident_id, Incident.all, :id, :name) %>
+        </div>
     </div>
 
     <%# only show parent ticket dropdown in edit ticket %>
     <% if not @ticket.new_record? %>
       <div class="field">
-        <%= form.label :parent_id %>
-          <%= collection_select(:ticket, :parent_id, Ticket.where(incident: ticket.incident), :id, :name, {include_blank: true}) %>
+        <%= form.label :parent_id, "Parent Ticket " %>
+        <div class="select">
+            <%= collection_select(:ticket, :parent_id, Ticket.where(incident: ticket.incident), :id, :name, {include_blank: true}) %>
+        </div>
       </div>
     <% end %>
+
+    <div class="field">
+      <%= form.label :description, "Description " %>
+      <%= form.text_area :description, cols: 80, rows: 10, placeholder: "Enter description here" %>
+    </div>
 
     <div class="actions">
       <%= form.button "Submit", type: :submit %>
