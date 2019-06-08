@@ -3,7 +3,7 @@
     <% if incident.errors.any? %>
       <div class="message is-danger">
         <div class="message-header">
-          <h2><%= pluralize(incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+          <p><%= pluralize(incident.errors.count, "error") %> prohibited this incident from being saved:</p>
         </div>
         <div class="message-body">
           <ul>
