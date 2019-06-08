@@ -23,6 +23,10 @@ $(document).ready(function() {
   $("input[type=email]").addClass("input");
   $("button").addClass("button is-link");
 
+  // fade out notices
+  $(".message.is-success" ).fadeOut(2000);
+
+
   Mousetrap.bind('shift+t', function() {
       window.location.replace("/tickets/new")
   });
