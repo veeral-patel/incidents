@@ -1,37 +1,46 @@
-<%= form_with(model: @observable, url: [@ticket, @observable], local: true) do |form| %>
-  <% if observable.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(observable.errors.count, "error") %> prohibited this observable from being saved:</h2>
+<div style="width: 50%">
+  <%= form_with(model: @observable, url: [@ticket, @observable], local: true) do |form| %>
+    <% if observable.errors.any? %>
+      <div class="message is-danger">
+        <div class="message-header">
+          <h2><%= pluralize(observable.errors.count, "error") %> prohibited this observable from being saved:</h2>
+        </div>
+        <div class="message-body">
+          <ul>
+          <% observable.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
 
-      <ul>
-      <% observable.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= form.label :observable %>
+      <%= form.text_field :observable, placeholder: "168.23.35.25" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :user_id %>
+      <div class="select">
+        <%= collection_select :comment, :user_id, User.where(id: @current_user.id), :id, :username %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :ticket_id %>
+      <div class="select">
+        <%= collection_select :observable, :ticket_id, Ticket.where(id: @ticket.id), :id, :name %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, placeholder: "Enter description here" %>
+    </div>
+
+    <div class="actions">
+      <%= form.button "Submit", type: :submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :observable %>
-    <%= form.text_field :observable %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= collection_select :comment, :user_id, User.where(id: @current_user.id), :id, :username %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ticket_id %>
-    <%= collection_select :observable, :ticket_id, Ticket.where(id: @ticket.id), :id, :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
