@@ -24,16 +24,25 @@ $(document).ready(function() {
   $("button").addClass("button is-link");
 
   // fade out notices
-  $(".message.is-success" ).fadeOut(2000);
+  $(".message.is-success").fadeOut(2000);
 
-
-  Mousetrap.bind('shift+t', function() {
-      window.location.replace("/tickets/new")
+  // shift-t to create a ticket
+  Mousetrap.bind("shift+t", function() {
+    window.location.replace("/tickets/new");
   });
 
-  Mousetrap.bind('shift+i', function() {
-      window.location.replace("/incidents/new")
+  // shift-i to create an incident
+  Mousetrap.bind("shift+i", function() {
+    window.location.replace("/incidents/new");
+  });
+
+  // submit forms with Cmd-Enter in textareas
+  $(document).on("keydown", "body", function(e) {
+    if (!(e.keyCode == 13 && e.metaKey)) return;
+
+    var $target = $(e.target);
+    if ($target.is("textarea")) {
+      $target.closest("form").submit();
+    }
   });
 });
-
-
