@@ -17,10 +17,6 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
-  # GET /tickets/1/edit
-  def edit
-  end
-
   # POST /tickets
   # POST /tickets.json
   def create
