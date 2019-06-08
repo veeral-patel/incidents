@@ -18,6 +18,6 @@
 $(document).ready(function() {
   $("label").addClass("label");
   $("textarea").addClass("textarea");
-  $("input").addClass("input");
+  $("input[type=text]").addClass("input");
   $("button").addClass("button is-link");
 });
