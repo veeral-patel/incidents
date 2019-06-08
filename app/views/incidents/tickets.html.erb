@@ -1,6 +1,4 @@
-<div
-  style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;"
->
+<div style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;" >
   <div>
     <%= render 'shared/menu' %>
   </div>
@@ -14,7 +12,15 @@
       </ul>
     </nav>
 
-    <h2 class="title is-4">Tickets</h2>
+    <div>
+      <span style="display: inline-block">
+        <h2 class="title is-4">Tickets</h2>
+      </span>
+      <span>
+        <a class="button is-link" style="float: right">New Ticket</a>
+      </span>
+    </div>
+    <br />
 
     <% if @incident.tickets.empty? %>
       No tickets
