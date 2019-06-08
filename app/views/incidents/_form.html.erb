@@ -16,46 +16,47 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :name, "Name (Required)" %>
-      <%= form.text_field :name, placeholder: "Detected Ryuk on an endpoint", autofocus: true %>
+      <%= form.label :name, "Name (Required)", class: "label" %>
+      <%= form.text_field :name, placeholder: "Found Ryuk", autofocus: true, class: "input" %>
     </div>
 
     <fieldset disabled>
         <div class="field">
           <strong>Created At:</strong>
-          <%= form.text_field :created_at %>
+          <%= form.text_field :created_at, class: "input" %>
         </div>
     </div>
+    <br>
 
-      <fieldset disabled>
-          <div class="field">
-              <%= form.label :created_by, "Created By" %>
-              <div class="select">
-                  <%= collection_select :incident, :user, User.where(id: @incident.user_id), :id, :username  %>
-              </div>
-          </div>
-      </fieldset>
-
+    <fieldset disabled>
+        <div class="field">
+            <%= form.label :created_by, "Created By", class: "label" %>
+            <div class="select">
+                <%= collection_select :incident, :user, User.where(id: @incident.user_id), :id, :username  %>
+            </div>
+        </div>
+    </fieldset>
+    <br>
 
     <div class="field">
-      <%= form.label :status, "Status (Required)" %>
+      <%= form.label :status, "Status (Required)", class: "label" %>
       <div class="select">
         <%= form.select :status, Incident.statuses.keys.map { |w| [w.humanize, w] } %>
       </div>
     </div>
 
     <div class="field" style="width: 50%">
-      <%= form.label :tag_list, "Tag List " %>
-      <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
+      <%= form.label :tag_list, "Tag List", class: "label" %>
+      <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk", class: "input" %>
     </div>
 
     <div class="field" style="width: 50%">
-      <%= form.label :description, "Description " %>
-      <%= form.text_area :description, placeholder: "Enter description here" %>
+      <%= form.label :description, "Description", class: "label" %>
+      <%= form.text_area :description, placeholder: "Enter description here", class: "textarea" %>
     </div>
 
     <div class="actions">
-      <%= form.button "Update", type: :submit %>
+      <%= form.button "Update", type: :submit, class: "button is-link" %>
     </div>
   <% end %>
 </div>
