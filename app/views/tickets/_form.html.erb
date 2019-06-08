@@ -1,14 +1,17 @@
 <div style="width: 50%">
   <%= form_with(model: ticket, local: true) do |form| %>
     <% if ticket.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
-
-        <ul>
-        <% ticket.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
+      <div class="message is-danger">
+        <div class="message-header">
+          <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+        </div>
+        <div class="message-body">
+          <ul>
+          <% ticket.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       </div>
     <% end %>
 
