@@ -22,4 +22,14 @@ $(document).ready(function() {
   $("input[type=password]").addClass("input");
   $("input[type=email]").addClass("input");
   $("button").addClass("button is-link");
+
+  Mousetrap.bind('shift+t', function() {
+      window.location.replace("/tickets/new")
+  });
+
+  Mousetrap.bind('shift+i', function() {
+      window.location.replace("/incidents/new")
+  });
 });
+
+

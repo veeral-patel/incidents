@@ -1,35 +1,35 @@
  <% if user_signed_in? %>
-            <nav class="navbar is-link">
-            <div class="navbar-menu">
-                    <div class="navbar-start">
-                        <a class="navbar-item" href="<%= incidents_path %>">
-                            All Incidents
-                        </a>
-                        <a class="navbar-item" href="<%= tickets_path %>">
-                            All Tickets
-                        </a>
-                    </div>
-                    <div class="navbar-end">
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">New</a>
-                            <div class="navbar-dropdown">
-                                <%= link_to 'Ticket', new_ticket_path, :class => 'navbar-item' %> 
-                                <hr class="navbar-divider">
-                                <%= link_to 'Incident', new_incident_path, :class => 'navbar-item'  %>
-                            </div>
-                        </div>
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">
-                                <%= current_user.username %>
-                            </a>
-
-                            <div class="navbar-dropdown">
-                                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-item' %> 
-                                <hr class="navbar-divider">
-                                <%= link_to "Log out", destroy_user_session_path, method: :delete, :class => 'navbar-item'  %>
-                            </div>
-                        </div>
+    <nav class="navbar is-link">
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="<%= incidents_path %>">
+                    All Incidents
+                </a>
+                <a class="navbar-item" href="<%= tickets_path %>">
+                    All Tickets
+                </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">New</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="<%= new_ticket_path %>">Ticket (shift-t)</a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="<%= new_incident_path %>">Incident (shift-i)</a>
                     </div>
                 </div>
-            </nav>
-        <% end %>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        <%= current_user.username %>
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-item' %> 
+                        <hr class="navbar-divider">
+                        <%= link_to "Log out", destroy_user_session_path, method: :delete, :class => 'navbar-item'  %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+<% end %>
