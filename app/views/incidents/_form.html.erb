@@ -1,4 +1,3 @@
-<div style="width: 50%">
   <%= form_with(model: incident, local: true) do |form| %>
     <% if incident.errors.any? %>
       <div class="message is-danger">
@@ -20,6 +19,23 @@
       <%= form.text_field :name, placeholder: "Detected Ryuk on an endpoint", autofocus: true %>
     </div>
 
+    <fieldset disabled>
+        <div class="field">
+          <strong>Created At:</strong>
+          <%= form.text_field :created_at %>
+        </div>
+    </div>
+
+      <fieldset disabled>
+          <div class="field">
+              <%= form.label :created_by, "Created By" %>
+              <div class="select">
+                  <%= collection_select :incident, :user, User.where(id: @incident.user_id), :id, :username  %>
+              </div>
+          </div>
+      </fieldset>
+
+
     <div class="field">
       <%= form.label :status, "Status (Required)" %>
       <div class="select">
@@ -34,11 +50,10 @@
 
     <div class="field">
       <%= form.label :description, "Description " %>
-      <%= form.text_area :description, cols: 80, rows: 10, placeholder: "Enter description here" %>
+      <%= form.text_area :description, placeholder: "Enter description here" %>
     </div>
 
     <div class="actions">
       <%= form.button "Submit", type: :submit %>
     </div>
   <% end %>
-</div>

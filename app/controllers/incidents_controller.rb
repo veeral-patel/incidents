@@ -1,5 +1,5 @@
 class IncidentsController < ApplicationController
-  before_action :set_incident, only: [:show, :edit, :update, :destroy, :tickets, :leads, :tree]
+  before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree]
 
   # GET /incidents
   # GET /incidents.json
@@ -35,10 +35,6 @@ end
   # GET /incidents/new
   def new
     @incident = Incident.new
-  end
-
-  # GET /incidents/1/edit
-  def edit
   end
 
   # POST /incidents

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       end
   end
 
-  resources :incidents do
+  resources :incidents, :except => [:edit] do
       member do
           get :tickets
           get :leads
