@@ -1,3 +1,4 @@
+<div style="width: 50%">
   <%= form_with(model: incident, local: true) do |form| %>
     <% if incident.errors.any? %>
       <div class="message is-danger">
@@ -43,12 +44,12 @@
       </div>
     </div>
 
-    <div class="field">
+    <div class="field" style="width: 50%">
       <%= form.label :tag_list, "Tag List " %>
       <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
     </div>
 
-    <div class="field">
+    <div class="field" style="width: 50%">
       <%= form.label :description, "Description " %>
       <%= form.text_area :description, placeholder: "Enter description here" %>
     </div>
@@ -57,3 +58,4 @@
       <%= form.button "Submit", type: :submit %>
     </div>
   <% end %>
+</div>

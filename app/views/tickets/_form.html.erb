@@ -20,6 +20,26 @@
       <%= form.text_field :name, placeholder: "Conduct live response", autofocus: true %>
     </div>
 
+    <fieldset disabled>
+        <div class="field">
+          <strong>Created At:</strong>
+          <%= form.text_field :created_at %>
+        </div>
+    </div>
+
+    <br />
+
+    <fieldset disabled>
+        <div class="field">
+            <%= form.label :created_by, "Created By" %>
+            <div class="select">
+                <%= collection_select :incident, :user, User.where(id: @incident.user_id), :id, :username  %>
+            </div>
+        </div>
+    </fieldset>
+
+    <br />
+
     <div class="field">
       <%= form.label :incident_id, "Incident (Required)" %>
         <div class="select">
@@ -39,9 +59,9 @@
       <%= form.check_box :is_lead %>
     </div>
 
-    <div class="field">
+    <div class="field" style="width: 50%">
       <%= form.label :tag_list, "Tag List " %>
-      <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
+        <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
     </div>
 
     <div class="field">
@@ -69,13 +89,13 @@
       </div>
     <% end %>
 
-    <div class="field">
+    <div class="field" style="width: 50%">
       <%= form.label :description, "Description " %>
       <%= form.text_area :description, cols: 80, rows: 10, placeholder: "Enter description here" %>
     </div>
 
     <div class="actions">
-      <%= form.button "Submit", type: :submit %>
+      <%= form.button "Update", type: :submit %>
     </div>
   <% end %>
 </div>
