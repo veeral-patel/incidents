@@ -21,13 +21,10 @@
     </div>
 
     <div class="field">
-      <%= form.label :is_lead %>
-      <%= form.check_box :is_lead %>
-    </div>
-
-    <div class="field">
-      <%= form.label :tag_list, "Tag List " %>
-      <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
+      <%= form.label :incident_id, "Incident (Required)" %>
+        <div class="select">
+          <%= collection_select(:ticket, :incident_id, Incident.all, :id, :name) %>
+        </div>
     </div>
 
     <div class="field">
@@ -35,6 +32,16 @@
       <div class="select">
           <%= form.select :status, Ticket.statuses.keys.map { |w| [w.humanize, w] } %>
       </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :is_lead %>
+      <%= form.check_box :is_lead %>
+    </div>
+
+    <div class="field">
+      <%= form.label :tag_list, "Tag List " %>
+      <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
     </div>
 
     <div class="field">
@@ -50,13 +57,6 @@
       <div class="select">
           <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
       </div>
-    </div>
-
-    <div class="field">
-      <%= form.label :incident_id, "Incident (Required)" %>
-        <div class="select">
-          <%= collection_select(:ticket, :incident_id, Incident.all, :id, :name) %>
-        </div>
     </div>
 
     <%# only show parent ticket dropdown in edit ticket %>
