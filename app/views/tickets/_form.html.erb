@@ -1,66 +1,68 @@
-<%= form_with(model: ticket, local: true) do |form| %>
-  <% if ticket.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+<div style="width: 50%">
+  <%= form_with(model: ticket, local: true) do |form| %>
+    <% if ticket.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
 
-      <ul>
-      <% ticket.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <ul>
+        <% ticket.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :is_lead %>
-    <%= form.check_box :is_lead %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tag_list %>
-    <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, Ticket.statuses.keys.map { |w| [w.humanize, w] } %>
-  </div>
-
-  <div class="field">
-    <%= form.label :assigned_to %>
-    <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
-
-  </div>
-
-  <div class="field">
-    <%= form.label :priority %>
-    <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, cols: 80, rows: 10 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :incident_id %>
-    <%= collection_select(:ticket, :incident_id, Incident.all, :id, :name) %>
-  </div>
-
-  <%# only show parent ticket dropdown in edit ticket %>
-  <% if not @ticket.new_record? %>
     <div class="field">
-      <%= form.label :parent_id %>
-        <%= collection_select(:ticket, :parent_id, Ticket.where(incident: ticket.incident), :id, :name, {include_blank: true}) %>
+      <%= form.label :name %>
+      <%= form.text_field :name, placeholder: "Conduct live response" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :is_lead %>
+      <%= form.check_box :is_lead %>
+    </div>
+
+    <div class="field">
+      <%= form.label :tag_list %>
+      <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :status %>
+      <%= form.select :status, Ticket.statuses.keys.map { |w| [w.humanize, w] } %>
+    </div>
+
+    <div class="field">
+      <%= form.label :assigned_to %>
+      <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
+
+    </div>
+
+    <div class="field">
+      <%= form.label :priority %>
+      <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, cols: 80, rows: 10, placeholder: "Enter description here" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :incident_id %>
+      <%= collection_select(:ticket, :incident_id, Incident.all, :id, :name) %>
+    </div>
+
+    <%# only show parent ticket dropdown in edit ticket %>
+    <% if not @ticket.new_record? %>
+      <div class="field">
+        <%= form.label :parent_id %>
+          <%= collection_select(:ticket, :parent_id, Ticket.where(incident: ticket.incident), :id, :name, {include_blank: true}) %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= form.button "Submit", type: :submit %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.button "Submit", type: :submit %>
-  </div>
-<% end %>
+</div>
