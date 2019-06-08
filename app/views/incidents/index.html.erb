@@ -1,4 +1,11 @@
-<h2 class="title is-4">All Incidents</h2>
+<div>
+  <span style="display: inline-block">
+    <h2 class="title is-4">All Incidents</h2>
+  </span>
+  <span>
+    <a href="<%= new_incident_path %>" class="button is-link" style="float: right">New Incident</a>
+  </span>
+</div>
 
 <% if @incidents.empty? %>
   No incidents
