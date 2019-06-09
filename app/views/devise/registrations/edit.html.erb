@@ -43,8 +43,8 @@
 <strong>Cancel my account</strong>
 <br>
 Unhappy?
-<br><br>
-<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-link" %>
+<br>
+<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger" %>
 
 <br>
 <%= link_to "Back", :back %>
