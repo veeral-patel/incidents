@@ -1,5 +1,5 @@
 class AttachmentsController < ApplicationController
-  before_action :set_attachment, only: [:show, :edit, :update, :destroy]
+  before_action :set_attachment, only: [:show, :update, :destroy]
   before_action :set_ticket
 
   # GET /tickets/1/attachments
@@ -15,10 +15,6 @@ class AttachmentsController < ApplicationController
   # GET /tickets/1/attachments/new
   def new
     @attachment = Attachment.new
-  end
-
-  # GET /tickets/1/attachments/1/edit
-  def edit
   end
 
   # POST /tickets/1/attachments
@@ -45,7 +41,7 @@ class AttachmentsController < ApplicationController
         format.html { redirect_to ticket_attachment_path(@ticket, @attachment), notice: 'Attachment was successfully updated.' }
         format.json { render :show, status: :ok, location: @attachment }
       else
-        format.html { render :edit }
+        format.html { render :show }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
       end
     end

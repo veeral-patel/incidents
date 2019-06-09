@@ -41,7 +41,6 @@
           <th>Size</th>
           <th>Created At</th>
           <th>Show</th>
-          <th>Edit</th>
           <th>Destroy</th>
         </tr>
       </thead>
@@ -65,10 +64,6 @@
           <td><%= attachment.created_at %></td>
           <td>
             <%= link_to 'Show', ticket_attachment_path(@ticket, attachment) %>
-          </td>
-          <td>
-            <%= link_to 'Edit', edit_ticket_attachment_path(@ticket, attachment)
-            %>
           </td>
           <td>
             <%= link_to 'Destroy', ticket_attachment_path(@ticket, attachment),

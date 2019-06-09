@@ -1,40 +1,25 @@
-<h1><%= @ticket.name %> > Attachments > #<%= @attachment.id%></h1>
+<div style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;">
+  <div>
+    <%= render 'shared/menu' %>
+  </div>
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li>
+          <a href="<%= incident_path(@ticket.incident) %>"
+            ><%= @ticket.incident %></a
+          >
+        </li>
+        <li><a href="<%= tickets_incident_path(@incident) %>"> Tickets </a></li>
+        <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
+        <li><a href="<%= ticket_attachments_path(@ticket) %>">Attachments</a></li>
+        <li class="is-active"><a>Attachment #<%= @attachment.id %></a></li>
+      </ul>
+    </nav>
 
-<%= render 'tickets/nav' %>
-
-<p>
-  <strong>Created At:</strong>
-  <%= @attachment.created_at %>
-</p>
-
-<p>
-  <strong>Filename:</strong>
-    <% if @attachment.file.attached? %>
-        <a href="<%= url_for(@attachment.file) %>"><%= @attachment.file.blob.filename  %></a>
-    <% else %>
-        N/A
-    <% end %>
-</p>
-
-
-<p>
-  <strong>Size:</strong>
-    <% if @attachment.file.attached? %>
-      <%= number_to_human_size(@attachment.file.blob.byte_size)  %>
-    <% else %>
-      N/A
-    <% end %>
-</p>
-
-<strong>Description:</strong>
-<% if @attachment.description.empty? %>
-      N/A
-<% else %>
-    <div style="white-space: pre-line;">
-      <%= @attachment.description %>
-    </div>
-<% end %>
-
-<br /><br />
-
-<%= link_to 'Edit', edit_ticket_attachment_path(@ticket, @attachment) %> |
+    <h2 class="title is-4">Attachment #<%= @attachment.id %></h2>
+    <%= render 'tickets/nav' %>
+    <%= render 'form', attachment: @attachment %>
+  </div>
+</div>

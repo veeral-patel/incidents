@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :tickets, :except => [:edit] do
-      resources :attachments
+      resources :attachments, :except => [:edit]
       resources :comments
       resources :observables, :except => [:edit]
       member do
