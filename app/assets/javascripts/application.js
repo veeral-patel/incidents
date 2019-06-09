@@ -18,13 +18,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $("label").addClass("label");
-  $("textarea").addClass("textarea");
-  $("input[type=text]").addClass("input");
-  $("input[type=password]").addClass("input");
-  $("input[type=email]").addClass("input");
-  $("button").addClass("button is-link");
-
   // fade out notices
   $(".message.is-success").fadeOut(2000);
 
