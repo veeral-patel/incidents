@@ -19,6 +19,7 @@
         <th>Name</th>
         <th>Created At</th>
         <th>Created By</th>
+        <th>Tags</th>
         <th>Total Tickets</th>
         <th>Open Tickets</th>
         <th>In Progress Tickets</th>
@@ -36,6 +37,7 @@
           <td><%= incident.name %></td>
           <td><%= incident.created_at %></td>
           <td><%= incident.user %></td>
+          <td><%= incident.tag_list %></td>
           <td><%= incident.tickets.count %></td>
           <td><%= incident.open_tickets.count %></td>
           <td><%= incident.in_progress_tickets.count %></td>
