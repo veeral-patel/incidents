@@ -4,7 +4,7 @@
   No tickets
   <br />
 <% else %>
-<table class="table is-striped is-hoverable is-fullwidth">
+<table class="all-tickets-table hover stripe">
   <thead>
     <tr>
       <th>Name</th>
@@ -17,7 +17,9 @@
       <th>Parent Ticket</th>
       <th>Child Tickets</th>
       <th>Attachments</th>
-      <th colspan="4"></th>
+      <th>Show</th>
+      <th>Tree</th>
+      <th>Destroy</th>
     </tr>
   </thead>
 
@@ -42,7 +44,6 @@
         <td><%= ticket.attachments.count %></td>
         <td><%= link_to 'Show', ticket %></td>
         <td><%= link_to 'Tree', tree_ticket_path(ticket) %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -50,6 +51,10 @@
 </table>
 <% end %>
 
-<br>
-
-<%= link_to 'New Ticket', new_ticket_path %>
+<script>
+  $(document).ready(function() {
+    $(".all-tickets-table").DataTable({
+      "pagingType": "simple_numbers",
+    });
+  })
+</script>
