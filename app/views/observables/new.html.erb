@@ -19,6 +19,41 @@
 
         <h2 class="title is-4"> New Observable</h2>
         <%= render 'tickets/nav' %>
-        <%= render 'form', observable: @observable %>
+
+        <div style="width: 50%">
+            <%= form_with(model: @observable, url: [@ticket, @observable], local: true) do |form| %>
+                <% if @observable.errors.any? %>
+                <div class="message is-danger">
+                    <div class="message-header">
+                        <h2><%= pluralize(@observable.errors.count, "error") %> prohibited this observable from being saved:</h2>
+                    </div>
+                    <div class="message-body">
+                        <ul>
+                            <% @observable.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                    </div>
+                </div>
+                <% end %>
+
+                <div class="field">
+                    <%= form.label :observable, "Observable (Required)", class: "label" %>
+                    <%= form.text_field :observable, placeholder: "168.23.35.25", class: "input", autofocus: true %>
+                </div>
+
+                <div class="field">
+                    <%= form.label :description, class: "label" %>
+                    <%= form.text_area :description, placeholder: "Enter description here", class: "textarea" %>
+                </div>
+
+                <%= form.hidden_field :user_id, value: current_user.id %>
+                <%= form.hidden_field :ticket_id, value: @ticket.id %>
+
+                <div class="actions">
+                    <%= form.button "Create", type: :submit, class: "button is-link" %>
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>
