@@ -13,17 +13,17 @@
     <% end %>
 
     <div class="field">
-        <%= form.label :file %>
+        <%= form.label :file, class: "label" %>
         <%= form.file_field :file %>
     </div>
 
     <div class="field">
-      <%= form.label :description %>
-      <%= form.text_area :description, placeholder: "Enter description" %>
+      <%= form.label :description, class: "label" %>
+      <%= form.text_area :description, placeholder: "Enter description", class: "textarea" %>
     </div>
 
     <div class="field">
-      <%= form.label :ticket_id %>
+      <%= form.label :ticket_id, class: "label" %>
       <div class="select">
         <%= collection_select(:attachment, :ticket_id, Ticket.where(id: @ticket.id), :id, :name) %>
       </div>
