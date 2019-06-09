@@ -31,4 +31,6 @@
 /config/master.key
 
 *.swp
+*.swo
 .vscode
+
