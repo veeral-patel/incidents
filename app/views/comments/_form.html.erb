@@ -13,22 +13,26 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :user_id %>
-      <%= collection_select :comment, :user_id, User.where(id: @current_user.id), :id, :username %>
+      <%= form.label :user_id, "User (Required)", class: "label" %>
+      <div class="select">
+          <%= collection_select :comment, :user_id, User.where(id: @current_user.id), :id, :username %>
+      </div>
     </div>
 
     <div class="field">
-      <%= form.label :ticket_id %>
-      <%= collection_select :comment, :ticket_id, Ticket.where(id: @ticket.id), :id, :name %>
+      <%= form.label :ticket_id, "Ticket (Required)", class: "label" %>
+      <div class="select">
+          <%= collection_select :comment, :ticket_id, Ticket.where(id: @ticket.id), :id, :name %>
+      </div>
     </div>
 
     <div class="field">
-      <%= form.label :comment %>
-      <%= form.text_area :comment, placeholder: "Enter comment here" %>
+      <%= form.label :comment, "Comment (Required)", class: "label" %>
+      <%= form.text_area :comment, placeholder: "Enter comment here", class: "textarea" %>
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.button "Submit", type: :submit, class: "button is-link" %>
     </div>
   <% end %>
 </div>
