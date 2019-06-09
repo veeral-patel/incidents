@@ -1,4 +1,13 @@
-<h2 class="title is-4">All Tickets</h2>
+<div>
+  <span style="display: inline-block">
+    <h2 class="title is-4">All Tickets</h2>
+  </span>
+  <span>
+    <a href="<%= new_ticket_path %>" class="button is-link" style="float: right">New Ticket</a>
+  </span>
+</div>
+
+<br>
 
 <% if @tickets.empty? %>
   No tickets

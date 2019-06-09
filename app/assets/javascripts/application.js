@@ -21,6 +21,11 @@ $(document).ready(function() {
   // fade out notices
   $(".message.is-success").fadeOut(2000);
 
+  // shift-i to create a ticket
+  Mousetrap.bind("shift+t", function() {
+    window.location.replace("/tickets/new");
+  });
+
   // shift-i to create an incident
   Mousetrap.bind("shift+i", function() {
     window.location.replace("/incidents/new");
