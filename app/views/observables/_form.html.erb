@@ -16,31 +16,31 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :observable %>
-      <%= form.text_field :observable, placeholder: "168.23.35.25" %>
+      <%= form.label :observable, "Observable (Required)", class: "label" %>
+      <%= form.text_field :observable, placeholder: "168.23.35.25", class: "input" %>
     </div>
 
     <div class="field">
-      <%= form.label :user_id %>
+      <%= form.label :user_id, "Created By (Required)", class: "label" %>
       <div class="select">
         <%= collection_select :comment, :user_id, User.where(id: @current_user.id), :id, :username %>
       </div>
     </div>
 
     <div class="field">
-      <%= form.label :ticket_id %>
+      <%= form.label :ticket_id, "Ticket (Required)", class: "label" %>
       <div class="select">
         <%= collection_select :observable, :ticket_id, Ticket.where(id: @ticket.id), :id, :name %>
       </div>
     </div>
 
     <div class="field">
-      <%= form.label :description %>
-      <%= form.text_area :description, placeholder: "Enter description here" %>
+      <%= form.label :description, class: "label" %>
+      <%= form.text_area :description, placeholder: "Enter description here", class: "textarea" %>
     </div>
 
     <div class="actions">
-      <%= form.button "Submit", type: :submit %>
+      <%= form.button "Submit", type: :submit, class: "button is-link" %>
     </div>
   <% end %>
 </div>
