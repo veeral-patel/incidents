@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :children, :tree]
+  before_action :set_ticket, only: [:show, :update, :destroy, :children, :tree]
 
   # GET /tickets
   # GET /tickets.json
@@ -41,7 +41,7 @@ class TicketsController < ApplicationController
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticket }
       else
-        format.html { render :edit }
+        format.html { render :show }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
       end
     end
