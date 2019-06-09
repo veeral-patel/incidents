@@ -20,19 +20,36 @@
       <%= form.text_field :observable, placeholder: "168.23.35.25", class: "input", autofocus: true %>
     </div>
 
-    <div class="field">
-      <%= form.label :user_id, "Created By (Required)", class: "label" %>
-      <div class="select">
-        <%= collection_select :comment, :user_id, User.where(id: @current_user.id), :id, :username %>
+    <fieldset disabled>
+      <div class="field">
+        <%= form.label :created_at, "Created At", class: "label" %>
+        <%= form.text_field :created_at, class: "input" %>
       </div>
-    </div>
+    </fieldset>
 
-    <div class="field">
-      <%= form.label :ticket_id, "Ticket (Required)", class: "label" %>
-      <div class="select">
-        <%= collection_select :observable, :ticket_id, Ticket.where(id: @ticket.id), :id, :name %>
+    <br>
+
+    <fieldset disabled>
+      <div class="field">
+        <%= form.label :user_id, "Created By", class: "label" %>
+        <div class="select">
+          <%= collection_select :comment, :user_id, User.where(id: @current_user.id), :id, :username %>
+        </div>
       </div>
-    </div>
+    </fieldset>
+
+    <br>
+
+    <fieldset disabled>
+      <div class="field">
+        <%= form.label :ticket_id, "Ticket", class: "label" %>
+        <div class="select">
+          <%= collection_select :observable, :ticket_id, Ticket.where(id: @ticket.id), :id, :name %>
+        </div>
+      </div>
+    </fieldset>
+
+    <br>
 
     <div class="field">
       <%= form.label :description, class: "label" %>
