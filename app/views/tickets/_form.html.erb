@@ -16,14 +16,14 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :name, "Name (Required)" %>
-      <%= form.text_field :name, placeholder: "Conduct live response", autofocus: true %>
+      <%= form.label :name, "Name (Required)", class: "label" %>
+      <%= form.text_field :name, placeholder: "Conduct live response", autofocus: true, class: "input" %>
     </div>
 
     <fieldset disabled>
         <div class="field">
-          <strong>Created At:</strong>
-          <%= form.text_field :created_at %>
+          <%= form.label :created_at, "Created At", class: "label" %>
+          <%= form.text_field :created_at, class: "input" %>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
 
     <fieldset disabled>
         <div class="field">
-            <%= form.label :created_by, "Created By" %>
+            <%= form.label :created_by, "Created By", class: "label" %>
             <div class="select">
                 <%= collection_select :incident, :user, User.where(id: @incident.user_id), :id, :username  %>
             </div>
@@ -41,31 +41,31 @@
     <br />
 
     <div class="field">
-      <%= form.label :incident_id, "Incident (Required)" %>
+      <%= form.label :incident_id, "Incident (Required)", class: "label" %>
         <div class="select">
           <%= collection_select(:ticket, :incident_id, Incident.all, :id, :name) %>
         </div>
     </div>
 
     <div class="field">
-      <%= form.label :status, "Status (Required)" %>
+      <%= form.label :status, "Status (Required)", class: "label" %>
       <div class="select">
           <%= form.select :status, Ticket.statuses.keys.map { |w| [w.humanize, w] } %>
       </div>
     </div>
 
     <div class="field">
-      <%= form.label :is_lead %>
+      <%= form.label :is_lead, class: "label" %>
       <%= form.check_box :is_lead %>
     </div>
 
     <div class="field" style="width: 50%">
-      <%= form.label :tag_list, "Tag List " %>
-        <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
+      <%= form.label :tag_list, "Tag List ", class: "label" %>
+        <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk", class: "input" %>
     </div>
 
     <div class="field">
-      <%= form.label :assigned_to, "Assigned To " %>
+      <%= form.label :assigned_to, "Assigned To ", class: "label" %>
       <div class="select">
           <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
       </div>
@@ -73,7 +73,7 @@
     </div>
 
     <div class="field">
-      <%= form.label :priority, "Priority " %>
+      <%= form.label :priority, "Priority ", class: "label" %>
       <div class="select">
           <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
       </div>
@@ -82,7 +82,7 @@
     <%# only show parent ticket dropdown in edit ticket %>
     <% if not @ticket.new_record? %>
       <div class="field">
-        <%= form.label :parent_id, "Parent Ticket " %>
+        <%= form.label :parent_id, "Parent Ticket ", class: "label" %>
         <div class="select">
             <%= collection_select(:ticket, :parent_id, Ticket.where(incident: ticket.incident), :id, :name, {include_blank: true}) %>
         </div>
@@ -90,8 +90,8 @@
     <% end %>
 
     <div class="field" style="width: 50%">
-      <%= form.label :description, "Description " %>
-      <%= form.text_area :description, cols: 80, rows: 10, placeholder: "Enter description here" %>
+      <%= form.label :description, "Description ", class: "label" %>
+      <%= form.text_area :description, cols: 80, rows: 10, placeholder: "Enter description here", class: "textarea"  %>
     </div>
 
     <div class="actions">
