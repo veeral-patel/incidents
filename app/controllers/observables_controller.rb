@@ -1,5 +1,5 @@
 class ObservablesController < ApplicationController
-  before_action :set_observable, only: [:show, :edit, :update, :destroy]
+  before_action :set_observable, only: [:show, :update, :destroy]
   before_action :set_ticket
   before_action :set_current_user
 
@@ -17,10 +17,6 @@ class ObservablesController < ApplicationController
   # GET /observables/new
   def new
     @observable = Observable.new
-  end
-
-  # GET /observables/1/edit
-  def edit
   end
 
   # POST /observables
@@ -47,7 +43,7 @@ class ObservablesController < ApplicationController
         format.html { redirect_to ticket_observable_path(@ticket, @observable), notice: 'Observable was successfully updated.' }
         format.json { render :show, status: :ok, location: @observable }
       else
-        format.html { render :edit }
+        format.html { render :show }
         format.json { render json: @observable.errors, status: :unprocessable_entity }
       end
     end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :tickets, :except => [:edit] do
       resources :attachments
       resources :comments
-      resources :observables
+      resources :observables, :except => [:edit]
       member do
         get :children
         get :tree
