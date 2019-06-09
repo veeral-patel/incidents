@@ -31,7 +31,6 @@
           <th>Ticket</th>
           <th>Description</th>
           <th>Show</th>
-          <th>Edit</th>
           <th>Destroy</th>
         </tr>
       </thead>
@@ -44,7 +43,6 @@
             <td><%= attachment.ticket %></td>
             <td><%= truncate(attachment.description, :length => 60) %></td>
             <td><%= link_to 'Show', ticket_attachment_path(attachment.ticket, attachment) %></td>
-            <td><%= link_to 'Edit', edit_ticket_attachment_path(attachment.ticket, attachment) %></td>
             <td><%= link_to 'Destroy', ticket_attachment_path(attachment.ticket, attachment), method: :delete, data: { confirm: 'Are you sure?' } =%></td>
           </tr>
         <% end %>
