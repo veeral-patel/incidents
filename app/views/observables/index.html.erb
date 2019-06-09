@@ -34,13 +34,14 @@
         No observables
         <br />
     <% else %>
-        <table class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered">
+        <table class="ticket-observables-table">
           <thead>
             <tr>
               <th>Observable</th>
               <th>User</th>
               <th>Ticket</th>
-              <th colspan="2"></th>
+              <th>Show</th>
+              <th>Destroy</th>
             </tr>
           </thead>
 
@@ -64,3 +65,11 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $(".ticket-observables-table").DataTable({
+      "pagingType": "simple_numbers",
+    });
+  });
+</script>
