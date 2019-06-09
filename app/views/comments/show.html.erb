@@ -1,16 +1,23 @@
-<p>
-  <strong>User:</strong>
-  <%= @comment.user %>
-</p>
+<div style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;">
+  <div>
+    <%= render 'shared/menu' %>
+  </div>
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li>
+          <a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a>
+        </li>
+        <li><a href="<%= tickets_incident_path(@incident) %>"> Tickets </a></li>
+        <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
+        <li><a href="<%= ticket_comments_path(@ticket) %>">Comments</a></li>
+        <li class="is-active"><a><%= truncate(@comment.comment, :length => 40) %></a></li>
+      </ul>
+    </nav>
 
-<p>
-  <strong>Created At:</strong>
-  <%= @comment.created_at %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @comment.comment %>
-</p>
-
-<%= link_to 'Edit', edit_ticket_comment_path(@comment) %> |
+    <h2 class="title is-4">"<%= truncate(@comment.comment, :length => 40) %>" - Comment by <%= @comment.user %></h2>
+    <%= render 'tickets/nav' %>
+    <%= render 'form', comment: @comment %>
+  </div>
+</div>
