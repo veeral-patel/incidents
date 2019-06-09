@@ -69,7 +69,7 @@ class CommentsController < ApplicationController
     def require_permission
         # prevent user from editing or deleting another user's comment
         if current_user != Comment.find(params[:id]).user
-            flash[:notice] = "Cannot edit/delete comment as you did not create it"
+            flash[:alert] = "Cannot edit/delete comment as you did not create it"
             redirect_to ticket_comments_path(@ticket)
         end
     end
