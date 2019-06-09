@@ -14,8 +14,8 @@
       </ul>
     </nav>
 
-    <h1>Editing Observable</h1>
-
+    <h2 class="title is-4"><%= @observable.observable %></h2>
+    <%= render 'tickets/nav' %>
     <%= render 'form', observable: @observable %>
   </div>
 </div>
