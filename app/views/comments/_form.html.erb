@@ -22,6 +22,15 @@
       </div>
     </div>
 
+    <fieldset disabled>
+        <div class="field">
+          <%= form.label :created_at, "Created At", class: "label" %>
+          <%= form.text_field :created_at, class: "input" %>
+        </div>
+    </div>
+
+    <br>
+
     <div class="field">
       <%= form.label :ticket_id, "Ticket (Required)", class: "label" %>
       <div class="select">
