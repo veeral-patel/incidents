@@ -9,9 +9,7 @@
       <ul>
         <li><a href="<%= incidents_path %>"> All Incidents </a></li>
         <li>
-          <a href="<%= incident_path(@ticket.incident) %>"
-            ><%= @ticket.incident %></a
-          >
+          <a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a>
         </li>
         <li><a href="<%= tickets_incident_path(@incident) %>"> Tickets </a></li>
         <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
@@ -27,9 +25,7 @@
     ticket to <b><%= @ticket.name %></b>.
     <br />
     <% else %>
-    <table
-      class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered"
-    >
+    <table class="ticket-children-table hover striped">
       <thead>
         <tr>
           <th>Name</th>
@@ -38,7 +34,9 @@
           <th>Priority</th>
           <th>Is Lead?</th>
           <th>Created At</th>
-          <th colspan="4"></th>
+          <th>Show</th>
+          <th>Tree</th>
+          <th>Destroy</th>
         </tr>
       </thead>
 
@@ -53,7 +51,6 @@
           <td><%= ticket.created_at %></td>
           <td><%= link_to 'Show', ticket %></td>
           <td><%= link_to 'Tree', tree_ticket_path(ticket) %></td>
-          <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
           <td>
             <%= link_to 'Destroy', ticket, method: :delete, data: { confirm:
             'Are you sure?' } %>
@@ -65,3 +62,11 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $(".ticket-children-table").DataTable({
+      "pagingType": "simple_numbers",
+    });
+  });
+</script>
