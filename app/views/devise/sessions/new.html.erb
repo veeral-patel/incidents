@@ -3,17 +3,17 @@
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-            <p><%= f.label :login %>
-            <%= f.text_field :login, placeholder: "Username or email" %></p>
+            <p><%= f.label :login, class: "label" %>
+            <%= f.text_field :login, placeholder: "Username or email", class: "input" %></p>
         </div>
 
         <div class="field">
-            <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+            <%= f.label :password, class: "label" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "input" %>
         </div>
 
         <div class="actions">
-            <%= f.button "Log in", type: :submit %>
+            <%= f.button "Log in", type: :submit, class: "button is-link" %>
         </div>
     <% end %>
 

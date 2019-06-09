@@ -5,27 +5,30 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <p><%= f.label :username %>
-      <%= f.text_field :username, placeholder: "johnroberts" %></p><br />
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "john.roberts@scotus.gov" %>
+      <%= f.label :username, class: "label" %>
+      <%= f.text_field :username, placeholder: "johnroberts", class: "input" %>
+      
+      <br />
+      <%= f.label :email, class: "label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "john.roberts@scotus.gov", class: "input" %>
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label :password, class: "label" %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Enter password" %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Enter password", class: "input" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password" %>
+      <%= f.label :password_confirmation, class: "label" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password", class: "input" %>
     </div>
 
     <div class="actions">
-      <%= f.button "Sign up", type: :submit %>
+      <%= f.button "Sign up", type: :submit, class: "button is-link" %>
     </div>
   <% end %>
 
