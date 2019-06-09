@@ -28,11 +28,12 @@
 
     <br>
 
-    <%= render 'tickets/nav' %> <% if @ticket.attachments.empty? %> No
-    attachments
-    <br />
+    <%= render 'tickets/nav' %>
+    <% if @ticket.attachments.empty? %> 
+      No attachments
+      <br />
     <% else %>
-    <table class="ticket-attachments-table">
+    <table class="ticket-attachments-table hover stripe">
       <thead>
         <tr>
           <th>ID</th>
