@@ -1,21 +1,21 @@
-<p>
-  <strong>Observable:</strong>
-  <%= @observable.observable %>
-</p>
+<div style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;">
+  <div>
+    <%= render 'shared/menu' %>
+  </div>
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
+        <li><a href="<%= tickets_incident_path(@incident) %>"> Tickets </a></li>
+        <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
+        <li><a href="<%= ticket_observables_path(@ticket) %>">Observables</a></li>
+        <li class="is-active"><a><%= @observable.observable %></a></li>
+      </ul>
+    </nav>
 
-<p>
-  <strong>User:</strong>
-  <%= @observable.user %>
-</p>
+    <h1>Editing Observable</h1>
 
-<p>
-  <strong>Ticket:</strong>
-  <%= @observable.ticket %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @observable.description %>
-</p>
-
-<%= link_to 'Edit', edit_ticket_observable_path(@ticket, @observable) %> |
+    <%= render 'form', observable: @observable %>
+  </div>
+</div>
