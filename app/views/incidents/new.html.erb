@@ -1,3 +1,56 @@
+<%# breadcrumb %>
+<nav class="breadcrumb">
+    <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li class="is-active"><a>New Incident</a></li>
+    </ul>
+</nav>
+
+<%# title %>
 <h2 class="title is-4">New Incident</h2>
 
-<%= render 'form', incident: @incident %>
+<%# new incident form %>
+<div style="width: 50%">
+    <%= form_with(model: @incident, local: true) do |form| %>
+        <% if @incident.errors.any? %>
+            <div class="message is-danger">
+                <div class="message-header">
+                <p><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</p>
+                </div>
+                <div class="message-body">
+                <ul>
+                <% @incident.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+                </ul>
+                </div>
+            </div>
+        <% end %>
+
+        <div class="field">
+            <%= form.label :name, "Name (Required)", class: "label" %>
+            <%= form.text_field :name, placeholder: "Found Ryuk", autofocus: true, class: "input" %>
+        </div>
+
+        <div class="field">
+            <%= form.label :status, "Status (Required)", class: "label" %>
+            <div class="select">
+                <%= form.select :status, Incident.statuses.keys.map { |w| [w.humanize, w] } %>
+            </div>
+        </div>
+
+        <div class="field">
+            <%= form.label :tag_list, "Tag List", class: "label" %>
+            <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk", class: "input" %>
+        </div>
+
+        <div class="field">
+            <%= form.label :description, "Description", class: "label" %>
+            <%= form.text_area :description, placeholder: "Enter description here", class: "textarea" %>
+        </div>
+
+        <div class="actions">
+            <%= form.button "Update", type: :submit, class: "button is-link" %>
+        </div>
+    <% end %>
+</div>
