@@ -26,7 +26,7 @@
       No tickets
       <br />
     <% else %>
-    <table class="table is-striped is-hoverable is-fullwidth is-bordered">
+    <table class="tickets-table">
       <thead>
         <tr>
           <th>Name</th>
@@ -37,7 +37,9 @@
           <th>Created At</th>
           <th>Parent Ticket</th>
           <th># Child Tickets</th>
-          <th colspan="4"></th>
+          <th>Show</th>
+          <th>Tree</th>
+          <th>Destroy</th>
         </tr>
       </thead>
 
@@ -60,7 +62,6 @@
             <td><%= ticket.children.count %></td>
             <td><%= link_to 'Show', ticket %></td>
             <td><%= link_to 'Tree', tree_ticket_path(ticket) %></td>
-            <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
             <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
@@ -69,3 +70,11 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $(".tickets-table").DataTable({
+      "pagingType": "simple_numbers",
+    });
+  })
+</script>

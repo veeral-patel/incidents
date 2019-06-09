@@ -13,6 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
+//= require datatables
 //= require_tree .
 
 $(document).ready(function() {
