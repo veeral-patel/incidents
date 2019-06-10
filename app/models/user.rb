@@ -32,8 +32,13 @@ class User < ApplicationRecord
     end
 
     def validate_username
+        # edge case in devise
         if User.where(email: username).exists?
             errors.add(:username, :invalid)
+        end
+
+        if User.where(username: username).exists?
+            errors.add(:username, "is already taken")
         end
     end
 
