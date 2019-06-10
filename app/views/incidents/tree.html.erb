@@ -17,27 +17,25 @@
             </nav>
 
             <h2 class="title is-4">Tree</h2>
+            <p>Red nodes indicate open tickets, yellow nodes in progress tickets, and green nodes closed tickets.</p>
 
-            <div id="tree-simple"></div>
+            <div id="tree"></div>
         </div>
     </body>
 
     <script>
-        simple_chart_config = {
-        chart: {
-                container: "#tree-simple",
-                node: {
-                HTMLclass: "nodeStyle"
-            }
-        },
-        nodeStructure: gon.incident_tree_as_json
-
+        config = {
+            chart: {
+                container: "#tree",
+            },
+            nodeStructure: gon.incident_tree_as_json
         };
-        var my_chart = new Treant(simple_chart_config);
+
+        var my_chart = new Treant(config);
     </script>
 
     <style>
-        .nodeStyle {
+        .node {
             padding: 8px;
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;
@@ -47,6 +45,21 @@
             font-family: Tahoma;
             font-size: 15px;
             text-align: center;
+        }
+
+        .open {
+            background-color: #FF5454;
+            color: white;
+        }
+    
+        .in_progress {
+            background-color: khaki;
+            color: black;
+        }
+
+        .closed {
+            background-color: limegreen; 
+            color: white;
         }
     </style>
 </html>

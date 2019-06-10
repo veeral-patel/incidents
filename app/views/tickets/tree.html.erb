@@ -27,29 +27,28 @@
         </nav>
         <%# render title and nav %>
         <h2 class="title is-4">Tree</h2>
-        <%= render 'nav' %> <%# render tree %>
-        <a href="<%= tree_incident_path(@ticket.incident) %>"
-          >See this incident's tree</a
-        >
-        <div id="tree-simple"></div>
+        <%= render 'nav' %>
+        <p>Red nodes indicate open tickets, yellow nodes in progress tickets, and green nodes closed tickets.</p>
+        <br>
+        <a href="<%= tree_incident_path(@ticket.incident) %>">See this incident's tree</a>
+        <div id="tree"></div>
       </div>
     </div>
   </body>
 
   <script>
-    simple_chart_config = {
+    config = {
       chart: {
-        container: "#tree-simple",
-        node: { HTMLclass: "nodeStyle" }
+        container: "#tree"
       },
       nodeStructure: gon.ticket_tree_as_json
     };
 
-    var my_chart = new Treant(simple_chart_config);
+    var my_chart = new Treant(config);
   </script>
 
   <style>
-    .nodeStyle {
+    .node {
       padding: 8px;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
@@ -59,6 +58,21 @@
       font-family: Tahoma;
       font-size: 15px;
       text-align: center;
+    }
+
+    .open {
+        background-color: #FF5454;
+        color: white;
+    }
+    
+    .in_progress {
+        background-color: khaki;
+        color: black;
+    }
+
+    .closed {
+        background-color: limegreen; 
+        color: white;
     }
   </style>
 </html>
