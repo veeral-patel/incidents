@@ -25,6 +25,7 @@ gem 'rename'
 gem 'fixturator'
 gem 'activestorage-validator'
 gem 'simple_token_authentication', '~> 1.0'
+gem 'devise_invitable', '~> 2.0.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
