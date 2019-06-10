@@ -1,7 +1,9 @@
 <div style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;" >
+  <%# incident menu %>
   <div>
     <%= render 'shared/menu' %>
   </div>
+  <%# breadcrumbs %>
   <div>
     <nav class="breadcrumb">
       <ul>
@@ -15,8 +17,42 @@
         <li class="is-active"><a>New Comment</a></li>
       </ul>
     </nav>
+    <%# title %>
     <h2 class="title is-4">New Comment</h2>
+
+    <%# ticket nav %>
     <%= render 'tickets/nav' %>
-    <%= render 'form', comment: @comment %>
+
+    <%# new comment form %>
+    <div style="width: 50%">
+      <%= form_with(model: @comment, url: [@ticket, @comment], local: true) do |form| %>
+        <% if @comment.errors.any? %>
+          <div class="message is-danger">
+            <div class="message-header">
+                <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+            </div>
+            <div class="message-body">
+                <ul>
+                <% @comment.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= form.label :comment, "Comment (Required)", class: "label" %>
+          <%= form.text_area :comment, placeholder: "Enter comment here", class: "textarea" %>
+        </div>
+
+        <%= form.hidden_field :user_id, value: current_user.id %>
+        <%= form.hidden_field :ticket_id, value: @ticket.id %>
+
+        <div class="actions">
+          <%= form.button "Submit", type: :submit, class: "button is-link" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

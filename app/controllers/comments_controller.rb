@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :update, :destroy]
   before_action :set_ticket
   before_action :set_current_user
-  before_action :require_permission, only: [:edit, :update, :destroy]
+  before_action :require_permission, only: [:show, :update, :destroy]
 
   def index
   end
@@ -12,9 +12,6 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-  end
-
-  def edit
   end
 
   def create
@@ -37,7 +34,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to ticket_comment_path(@ticket, @comment), notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
-        format.html { render :edit }
+        format.html { render :show }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

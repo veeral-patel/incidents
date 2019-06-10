@@ -15,19 +15,27 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <%= form.label :user_id, "User (Required)", class: "label" %>
-      <div class="select">
-          <%= collection_select :comment, :user_id, User.where(id: @current_user.id), :id, :username %>
+    <fieldset disabled>
+      <div class="field">
+        <%= form.label :user_id, "Created By", class: "label" %>
+        <div class="select">
+            <%= collection_select :comment, :user_id, User.where(id: @current_user.id), :id, :username %>
+        </div>
       </div>
-    </div>
+    </fieldset>
 
-    <div class="field">
-      <%= form.label :ticket_id, "Ticket (Required)", class: "label" %>
-      <div class="select">
-          <%= collection_select :comment, :ticket_id, Ticket.where(id: @ticket.id), :id, :name %>
+    <br>
+
+    <fieldset disabled>
+      <div class="field">
+        <%= form.label :ticket_id, "Ticket", class: "label" %>
+        <div class="select">
+            <%= collection_select :comment, :ticket_id, Ticket.where(id: @ticket.id), :id, :name %>
+        </div>
       </div>
-    </div>
+    </fieldset>
+
+    <br>
 
     <div class="field">
       <%= form.label :comment, "Comment (Required)", class: "label" %>
@@ -35,7 +43,7 @@
     </div>
 
     <div class="actions">
-      <%= form.button "Submit", type: :submit, class: "button is-link" %>
+      <%= form.button "Update", type: :submit, class: "button is-link" %>
     </div>
   <% end %>
 </div>
