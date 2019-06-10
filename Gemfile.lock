@@ -37,6 +37,8 @@ GEM
       actionpack (= 5.2.3)
       activerecord (= 5.2.3)
       marcel (~> 0.3.1)
+    activestorage-validator (0.1.2)
+      rails (~> 5.2.0)
     activesupport (5.2.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
@@ -224,6 +226,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activestorage-validator
   acts-as-taggable-on (~> 6.0)
   ancestry
   bootsnap (>= 1.1.0)

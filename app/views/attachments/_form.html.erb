@@ -1,14 +1,18 @@
 <div style="width: 50%">
   <%= form_with(model: @attachment, url: [@ticket, @attachment], local: true) do |form| %>
     <% if attachment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(attachment.errors.count, "error") %> prohibited this attachment from being saved:</h2>
+      <div class="message is-danger">
+        <div class="message-header">
+          <h2><%= pluralize(attachment.errors.count, "error") %> prohibited this attachment from being saved:</h2>
+        </div>
 
-        <ul>
-        <% attachment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
+        <div class="message-body">
+          <ul>
+          <% attachment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       </div>
     <% end %>
 
@@ -30,7 +34,7 @@
     </div>
 
     <div class="actions">
-      <%= form.button "Submit", type: :submit %>
+      <%= form.button "Submit", type: :submit, class: "button is-link" %>
     </div>
   <% end %>
 </div>

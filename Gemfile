@@ -23,6 +23,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'gon'
 gem 'rename'
 gem 'fixturator'
+gem 'activestorage-validator'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
