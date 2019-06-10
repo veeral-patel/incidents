@@ -186,6 +186,10 @@ GEM
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    simple_token_authentication (1.15.1)
+      actionmailer (>= 3.2.6, < 6)
+      actionpack (>= 3.2.6, < 6)
+      devise (>= 3.2, < 6)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -246,6 +250,7 @@ DEPENDENCIES
   rename
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_token_authentication (~> 1.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
