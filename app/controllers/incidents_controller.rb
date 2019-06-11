@@ -1,5 +1,5 @@
 class IncidentsController < ApplicationController
-  before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree]
+  before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree, :members]
 
   # GET /incidents
   # GET /incidents.json
@@ -78,12 +78,10 @@ end
   end
 
   # GET /incidents/1/tickets
-  # GET /incidents/1/tickets.json
   def tickets
   end
 
   # GET /incidents/1/leads
-  # GET /incidents/1/leads.json
   def leads
   end
 
@@ -96,6 +94,9 @@ end
       format.html { render :tree }
       format.json { render json: @incident.to_json }
     end
+  end
+
+  def members
   end
 
   private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_031305) do
+ActiveRecord::Schema.define(version: 2019_06_11_041053) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_031305) do
   create_table "incidents_users", force: :cascade do |t|
     t.integer "user_id"
     t.integer "incident_id"
+    t.index ["incident_id", "user_id"], name: "index_incidents_users_on_incident_id_and_user_id", unique: true
     t.index ["incident_id"], name: "index_incidents_users_on_incident_id"
     t.index ["user_id"], name: "index_incidents_users_on_user_id"
   end

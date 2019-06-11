@@ -19,6 +19,9 @@
     <li>
       <a href="<%= tree_incident_path(@incident) %>">Tree</a>
     </li>
+    <li>
+      <a href="<%= members_incident_path(@incident) %>">Members (<%= @incident.members.count %>)</a>
+    </li>
     <%# <li>
       <br>
       <a style="color: #3676d9">New Ticket</a>

@@ -16,15 +16,16 @@ Rails.application.routes.draw do
           get :observables
           get :attachments
           get :tree
+          get :members
       end
   end
 
   devise_for :users, :skip => [:registrations] 
+
   as :user do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
-
 
   scope "/admin" do
     resources :users, :except => [:new, :show, :edit]

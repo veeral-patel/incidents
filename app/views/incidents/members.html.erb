@@ -1,0 +1,52 @@
+<div
+  style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;"
+>
+  <div>
+    <%= render 'shared/menu' %>
+  </div>
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
+        <li class="is-active"><a>Members</a></li>
+      </ul>
+    </nav>
+    <h2 class="title is-4">Members</h2>
+
+    Only these users can view this incident.
+
+    <br><br>
+
+    <% if @incident.members.empty? %>
+        No members
+    <% else %>
+        <table class="incident-members-table stripe hover">
+            <thead>
+                <tr>
+                    <th>User Created</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @incident.members.each do |member| %>
+                    <tr>
+                        <td><%= member.created_at %></td>
+                        <td><%= member.username %></td>
+                        <td><%= member.email %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% end %>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".incident-members-table").DataTable({
+        "pagingType": "simple_numbers",
+        });
+    });
+</script>
