@@ -45,6 +45,8 @@
         }
 
         function dragstart(event) {
+            console.log(event.srcElement)
+
             // make it half transparent
             event.target.style.opacity = .5;
             event.dataTransfer.setData("sourceId", event.srcElement.id);
@@ -59,7 +61,7 @@
             event.preventDefault();
 
             var sourceId = event.dataTransfer.getData("sourceId");
-            var destinationId = event.target.id;
+            var destinationId = event.currentTarget.id;
 
             // make XHR request
             var data = JSON.stringify({
