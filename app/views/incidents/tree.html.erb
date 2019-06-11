@@ -47,7 +47,7 @@
         function dragstart(event) {
             // make it half transparent
             event.target.style.opacity = .5;
-            event.dataTransfer.setData("source_id", event.srcElement.id);
+            event.dataTransfer.setData("sourceId", event.srcElement.id);
         }
 
         function dragend(event) {
@@ -57,11 +57,37 @@
 
         function drop(event, target){
             event.preventDefault();
-            console.log("source id:", event.dataTransfer.getData("source_id"))
-            console.log("destination id:", event.target.id)
 
-            // refresh the tree
-            $("#tree").toggle().toggle();
+            var sourceId = event.dataTransfer.getData("sourceId");
+            var destinationId = event.target.id;
+
+            // make XHR request
+            var data = JSON.stringify({
+                "ticket": {
+                    "parent_id": destinationId
+                }
+            });
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === 4) {
+                    // this.responseText holds JSON response
+
+                    // refresh the page
+                    window.location.reload();
+                }
+            });
+
+            // we make a PATCH request to a URL like "http://localhost:3000/tickets/3.json"
+            xhr.open("PATCH", gon.tickets_url + "/" + sourceId + ".json");
+            xhr.setRequestHeader("X-User-Username", gon.user.username);
+            xhr.setRequestHeader("X-User-Token", gon.user.authentication_token);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("cache-control", "no-cache");
+
+            xhr.send(data);
         }
 
         function  dragover(event) {
@@ -69,7 +95,10 @@
         }
 
         var my_chart = new Treant(config);
+
         addingDragAndDropSupport();
+
+        // console.log(gon.authentication_token);
     </script>
 
     <style>

@@ -90,7 +90,14 @@ end
     # GET /tickets/1/tree
   # GET /tickets/1/tree.json
   def tree
-    gon.push({ incident_tree_as_json: @incident.to_json })
+    gon.push({
+      incident_tree_as_json: @incident.to_json,
+      user: {
+        username: current_user.username,
+        authentication_token: current_user.authentication_token,
+      },
+      tickets_url: tickets_url
+    })
 
     respond_to do |format|
       format.html { render :tree }
