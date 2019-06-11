@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
     validate :validate_username
     validates :username, presence: true
+    validates_uniqueness_of :username
 
     has_many :incidents
     has_many :tickets
@@ -34,10 +35,6 @@ class User < ApplicationRecord
         # edge case in devise
         if User.where(email: username).exists?
             errors.add(:username, :invalid)
-        end
-
-        if User.where(username: username).exists?
-            errors.add(:username, "is already taken")
         end
     end
 
