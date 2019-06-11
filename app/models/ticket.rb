@@ -34,6 +34,7 @@ class Ticket < ApplicationRecord
         link: { href: Rails.application.routes.url_helpers.ticket_path(self) },
         collapsable: true,
         HTMLclass: self.status,
+        HTMLid: self.id,
         status: self.status
       }
     else
@@ -42,6 +43,7 @@ class Ticket < ApplicationRecord
         link: { href: Rails.application.routes.url_helpers.ticket_path(self) },
         collapsable: true,
         HTMLclass: self.status,
+        HTMLid: self.id,
         children: self.children.map { |child| child.to_json },
       }      
     end

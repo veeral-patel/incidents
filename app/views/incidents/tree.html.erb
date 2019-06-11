@@ -31,7 +31,44 @@
             nodeStructure: gon.incident_tree_as_json
         };
 
+        function addingDragAndDropSupport() {
+            var nodeDivs = document.getElementsByClassName("node");
+            var i;
+            for(i=0; i<nodeDivs.length; i++) {
+                nodeDivs[i].draggable = true;
+                nodeDivs[i].droppable = true;
+                nodeDivs[i].addEventListener('dragstart', dragstart, false);
+                nodeDivs[i].addEventListener('dragend', dragend, false);
+                nodeDivs[i].addEventListener('drop', drop, false);
+                nodeDivs[i].addEventListener('dragover', dragover, false);
+            }
+        }
+
+        function dragstart(event) {
+            // make it half transparent
+            event.target.style.opacity = .5;
+            event.dataTransfer.setData("source_id", event.srcElement.id);
+        }
+
+        function dragend(event) {
+            // reset transparency
+            event.target.style.opacity = "";
+        }
+
+        function drop(event, target){
+            event.preventDefault();
+            console.log("source id:", event.dataTransfer.getData("source_id"))
+            console.log("destination id:", event.target.id)
+
+            $("#tree").hide().fadeIn('fast');
+        }
+
+        function  dragover(event) {
+            event.preventDefault();
+        }
+
         var my_chart = new Treant(config);
+        addingDragAndDropSupport();
     </script>
 
     <style>
