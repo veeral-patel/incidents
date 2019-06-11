@@ -36,7 +36,6 @@
             var i;
             for(i=0; i<nodeDivs.length; i++) {
                 nodeDivs[i].draggable = true;
-                nodeDivs[i].droppable = true;
                 nodeDivs[i].addEventListener('dragstart', dragstart, false);
                 nodeDivs[i].addEventListener('dragend', dragend, false);
                 nodeDivs[i].addEventListener('drop', drop, false);
@@ -45,11 +44,14 @@
         }
 
         function dragstart(event) {
-            console.log(event.srcElement)
-
             // make it half transparent
             event.target.style.opacity = .5;
             event.dataTransfer.setData("sourceId", event.srcElement.id);
+
+            // style (droppable) nodes
+            var sourceId = event.srcElement.id; // id of node being dragged
+            var allNodesButNodeBeingDragged = $('.node').not("#" + sourceId);
+            allNodesButNodeBeingDragged.css('border', '3px dotted black');
         }
 
         function dragend(event) {
