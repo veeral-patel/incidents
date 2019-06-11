@@ -1,0 +1,52 @@
+<div>
+  <span style="display: inline-block">
+    <h2 class="title is-4">Users (<%= @users.count %>)</h2>
+  </span>
+  <span style="float: right">
+    <a href="<%= new_user_invitation_path %>" class="button is-link">Invite User</a>
+  </span>
+</div>
+
+<br>
+
+<% if @users.empty? %>
+  No users
+  <br />
+<% else %>
+<table class="users-table hover stripe">
+  <thead>
+    <tr>
+      <th>Created At</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Accepted Invitation?</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.created_at %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.invitation_accepted? %></td>
+        <% if @users.count == 1 %>
+          <%# can't delete last user %>
+          <td>Can't destroy last user</td>
+        <% else %>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    $(".users-table").DataTable({
+      "pagingType": "simple_numbers",
+    });
+  })
+</script
