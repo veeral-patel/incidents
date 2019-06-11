@@ -1,7 +1,7 @@
 class Incident < ApplicationRecord
     acts_as_taggable
 
-    enum status: { open: 0, in_progress: 1, closed: 2}
+    enum status: { open: 0, in_progress: 1, closed: 2 }
 
     validates :name, presence: true
     validates :status, presence: true
@@ -9,6 +9,7 @@ class Incident < ApplicationRecord
     has_many :tickets, dependent: :destroy
     has_many :observables, through: :tickets
     has_many :attachments, through: :tickets
+    has_and_belongs_to_many :members, class_name: "User"
 
     belongs_to :user
 
