@@ -60,7 +60,8 @@
             console.log("source id:", event.dataTransfer.getData("source_id"))
             console.log("destination id:", event.target.id)
 
-            $("#tree").hide().fadeIn('fast');
+            // refresh the tree
+            $("#tree").toggle().toggle();
         }
 
         function  dragover(event) {
