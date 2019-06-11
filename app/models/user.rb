@@ -1,8 +1,7 @@
 class User < ApplicationRecord
     acts_as_token_authenticatable
 
-    devise :invitable, :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :validatable
+    devise :invitable, :database_authenticatable, :recoverable, :rememberable, :validatable
 
     validate :validate_username
     validates :username, presence: true
