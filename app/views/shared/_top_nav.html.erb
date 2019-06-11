@@ -11,6 +11,12 @@
             </div>
             <div class="navbar-end">
                 <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Admin</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="<%= users_path %>">Users</a>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">New</a>
                     <div class="navbar-dropdown">
                         <a class="navbar-item" href="<%= new_ticket_path %>">Ticket (shift-t)</a>
