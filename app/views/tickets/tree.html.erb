@@ -30,6 +30,8 @@
         <%= render 'nav' %>
         <p>Red nodes indicate open tickets, yellow nodes in progress tickets, and green nodes closed tickets.</p>
         <br>
+        <p>Currently, you cannot drag/drop nodes on this tree, only on this incident's tree. This will change.</p>
+        <br>
         <a href="<%= tree_incident_path(@ticket.incident) %>">See this incident's tree</a>
         <div id="tree"></div>
       </div>
