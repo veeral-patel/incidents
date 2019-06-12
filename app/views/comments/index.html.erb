@@ -21,15 +21,19 @@
         <span style="display: inline-block">
             <h2 class="title is-4">Comments</h2>
         </span>
-        <span>
-            <a class="button is-link" style="float: right" href="<%= new_ticket_comment_path %>">New Comment</a>
+        <span style="float: right">
+            <%= render 'tickets/actions_dropdown', ticket: @ticket %>&nbsp;&nbsp;
+            <a class="button is-link" href="<%= new_ticket_comment_path %>">New Comment</a>
         </span>
     </div>
 
     <br>
 
-    <%= render 'tickets/nav' %> <% if @ticket.comments.empty? %> No comments
-    <br />
+    <%= render 'tickets/nav' %>
+
+    <% if @ticket.comments.empty? %>
+      No comments
+      <br>
     <% else %>
     <table
       class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered"

@@ -21,8 +21,9 @@
         <span style="display: inline-block">
             <h2 class="title is-4">Attachments</h2>
         </span>
-        <span>
-            <a class="button is-link" style="float: right" href="<%= new_ticket_attachment_path %>">New Attachment</a>
+        <span style="float: right">
+            <%= render 'tickets/actions_dropdown', ticket: @ticket %>&nbsp;&nbsp;
+            <a class="button is-link" href="<%= new_ticket_attachment_path %>">New Attachment</a>
         </span>
     </div>
 
