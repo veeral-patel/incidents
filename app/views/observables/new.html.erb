@@ -42,6 +42,11 @@
                     <%= form.text_field :observable, placeholder: "168.23.35.25", class: "input", autofocus: true %>
                 </div>
 
+                <div class="field" style="width: 50%">
+                    <%= form.label :tag_list, "Tag List ", class: "label" %>
+                    <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk", class: "input" %>
+                </div>
+
                 <div class="field">
                     <%= form.label :description, class: "label" %>
                     <%= form.text_area :description, placeholder: "Enter description here", class: "textarea" %>

@@ -74,6 +74,6 @@ class ObservablesController < ApplicationController
     end
 
     def observable_params
-      params.require(:observable).permit(:observable, :user_id, :ticket_id, :description)
+      params.require(:observable).permit(:observable, :user_id, :ticket_id, :description, :tag_list)
     end
 end
