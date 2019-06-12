@@ -1,5 +1,5 @@
 <div style="width: 50%">
-  <%= form_with(model: incident, local: true) do |form| %>
+  <%= form_with(model: incident) do |form| %>
     <% if incident.errors.any? %>
       <div class="message is-danger">
         <div class="message-header">
@@ -25,7 +25,7 @@
           <strong>Created At:</strong>
           <%= form.text_field :created_at, class: "input" %>
         </div>
-    </div>
+    </fieldset>
     <br>
 
     <fieldset disabled>
@@ -50,7 +50,7 @@
       <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk", class: "input" %>
     </div>
 
-    <div class="field" style="width: 60%">
+    <div class="field">
       <%= form.label :description, "Description", class: "label" %>
       <%= form.rich_text_area :description %>
     </div>
@@ -60,9 +60,3 @@
     </div>
   <% end %>
 </div>
-
-<style>
-	trix-editor {
-		min-height: 250px !important;
-	}
-</style>
