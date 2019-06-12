@@ -91,7 +91,7 @@
 
     <div class="field" style="width: 50%">
       <%= form.label :description, "Description ", class: "label" %>
-      <%= form.text_area :description, cols: 80, rows: 10, placeholder: "Enter description here", class: "textarea"  %>
+      <%= form.rich_text_area :description %>
     </div>
 
     <div class="actions">
@@ -99,3 +99,10 @@
     </div>
   <% end %>
 </div>
+
+
+<style>
+	trix-editor {
+		min-height: 250px !important;
+	}
+</style>
