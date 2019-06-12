@@ -1,0 +1,148 @@
+.pricing {
+
+    .section-title {
+        margin-bottom: 48px;
+    }
+
+	.accordion {
+		margin-top: 12px;
+		margin-bottom: 0;
+	}
+}
+
+.pricing-tables-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -12px;
+    margin-left: -12px;
+
+    &:first-child {
+        margin-top: -12px;
+    }
+
+    &:last-child {
+        margin-bottom: -12px;
+    }
+}
+
+.pricing-table {
+    padding: 12px;
+    width: 344px;
+    max-width: 344px;
+    flex-grow: 1;
+}
+
+.pricing-table-inner {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    background: color(bg, 1);
+    padding: 24px;
+    height: 100%;
+
+    > * {
+		position: relative; /* To display all elements above the box with shadow */
+        width: 100%;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        @include shadow;
+        mix-blend-mode: multiply;
+    }
+}
+
+.pricing-table-title {
+	@include font-weight(semibold);
+	color: color(typography, 1);
+}
+
+.pricing-table-price {
+	@if ( get-font-family(heading) != get-font-family(base) ) {
+		@include font-family(heading);
+	}
+	@include font-weight(bold);
+}
+
+.pricing-table-price-currency {
+	color: color(typography, 2);
+}
+
+.pricing-table-features {
+	margin-bottom: 90px;
+
+    li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+
+        .list-icon {
+            display: inline-flex;
+            width: 16px;
+            height: 12px;
+            margin-right: 12px;
+        }
+    }
+}
+
+.pricing-table-cta {
+    align-self: flex-end;
+}
+
+.pricing-table-primary {
+
+	.pricing-table-inner {
+		background: color(primary, 1);
+	}
+
+	.pricing-table-title {
+		color: color(typography, 1i);
+	}
+
+	.pricing-table-price-currency {
+		color: color(typography, 2i) !important;
+	}
+}
+
+.container .container-sm.pricing-faqs {
+	/* Make faq's widht match pricing tables */
+	max-width: 664px;
+}
+
+@include media( '>medium' ) {
+
+	.pricing {
+
+        .section-title {
+            margin-bottom: 64px;
+        }
+
+		.accordion {
+			margin-top: 36px;
+		}
+    }
+}
+
+@include media( '>large' ) {
+
+    .pricing {
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 160px;
+			right: -506px;
+			width: 725px;
+			height: 651px;
+			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzI1IiBoZWlnaHQ9IjY1MSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gIDxwYXRoIGQ9Ik02NzguNjAzIDY0My44NThjMTExLjgyLTU5LjExNS0xNS43Ny0xODUuMzQ0LTE1Ljc3LTMyMS40ODMgMC0xMzYuMTM4LS4yODQtMzQwLjM3MS0xMzYuNDIyLTMyMS4xMDUtMTM2LjEzOCAxOS4yNjYtOTQuMjg4IDE4Ny4xNjctNDQxLjkgMjY5LjE0OC0zNDcuNjE0IDgxLjk4IDQ4Mi4yNzMgNDMyLjU1NCA1OTQuMDkyIDM3My40NHoiIGZpbGw9IiNGNEY3RkUiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);
+			background-repeat: no-repeat;
+		}
+    }
+}
