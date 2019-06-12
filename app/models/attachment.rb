@@ -1,4 +1,6 @@
 class Attachment < ApplicationRecord
+    acts_as_taggable
+
     has_one_attached :file
 
     belongs_to :ticket
