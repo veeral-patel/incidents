@@ -23,6 +23,7 @@
       <th>Is Lead?</th>
       <th>Created At</th>
       <th>Created By</th>
+      <th>Assigned To</th>
       <th>Parent Ticket</th>
       <th>Child Tickets</th>
       <th>Attachments</th>
@@ -42,6 +43,7 @@
         <td><%= ticket.is_lead %></td>
         <td><%= ticket.created_at %></td>
         <td><%= ticket.user %></td>
+        <td><%= ticket.assigned_to %></td>
         <td>
         <% if ticket.parent == nil %>
             N/A
