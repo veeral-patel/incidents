@@ -101,6 +101,22 @@
         var my_chart = new Treant(config);
 
         addingDragAndDropSupport();
+
+        // refresh page every 5 seconds, unless user moves mouse
+        // or presses a key
+        var time = new Date().getTime();
+        $(document.body).bind("mousemove keypress", function(e) {
+            time = new Date().getTime();
+        });
+
+        function refresh() {
+            if(new Date().getTime() - time >= 5000) 
+                window.location.reload(true);
+            else 
+                setTimeout(refresh, 5000);
+        }
+
+        setTimeout(refresh, 5000);
     </script>
 
     <style>
