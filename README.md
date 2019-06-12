@@ -31,7 +31,7 @@ It's difficult to stay up to date on an incident where all these workstreams are
 Our insight is that incidents are trees of tickets, where some tickets are
 leads.
 
-![tree](screenshots/tree.png)
+![tree](screenshots/incident_tree.png)
 
 - Found multiple threat actors in an environment? Create a ticket for each
   threat actor (under the root) and assign each ticket to someone to investigate [1].
