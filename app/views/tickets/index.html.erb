@@ -53,7 +53,7 @@
         <td><%= ticket.attachments.count %></td>
         <td><%= link_to 'Show', ticket %></td>
         <td><%= link_to 'Tree', tree_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure? Deleting a ticket deletes all associated attachments, observables, child tickets, and comments.' } %></td>
       </tr>
     <% end %>
   </tbody>
