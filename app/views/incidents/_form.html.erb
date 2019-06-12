@@ -50,9 +50,10 @@
       <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk", class: "input" %>
     </div>
 
-    <div class="field" style="width: 50%">
+    <div class="field" style="width: 60%">
       <%= form.label :description, "Description", class: "label" %>
-      <%= form.text_area :description, placeholder: "Enter description here", class: "textarea" %>
+      <%# <%= form.text_area :description, placeholder: "Enter description here", class: "textarea" %>
+      <%= form.rich_text_area :description %>
     </div>
 
     <div class="actions">
@@ -60,3 +61,9 @@
     </div>
   <% end %>
 </div>
+
+<style>
+	trix-editor {
+		min-height: 250px !important;
+	}
+</style>

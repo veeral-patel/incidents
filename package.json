@@ -1,5 +1,11 @@
 {
   "name": "cases_mvp",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "^4.0.7",
+    "actiontext": "https://github.com/kobaltz/actiontext"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.7.1"
+  }
 }
