@@ -10,3 +10,4 @@ RUN bundle install
 COPY . /myapp
 
 ENV RAILS_ENV=production
+RUN rails assets:precompile
