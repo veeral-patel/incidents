@@ -46,7 +46,7 @@ only has to talk to the forensic team's manager.
 
 ```
 # build docker image
-docker build
+docker-compose build
 
 # create and migrate database
 docker-compose run web rake db:create db:migrate
