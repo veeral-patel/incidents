@@ -1,6 +1,5 @@
 class Incident < ApplicationRecord
     acts_as_taggable
-    has_rich_text :description
 
     enum status: { open: 0, in_progress: 1, closed: 2}
 
