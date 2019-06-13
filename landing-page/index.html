@@ -160,7 +160,7 @@
                             <div class="features-extended-header text-center">
                                 <div class="container-sm">
                                     <h2 class="section-title mt-0">Our Solution</h2>
-                                    <p class="section-paragraph">In INCIDENTS, incidents are trees of tickets, where some tickets are leads.</p>
+                                    <p class="section-paragraph">In INCIDENTS, incidents are trees of tickets, where some tickets are marked as leads.</p>
                                 </div>
                             </div>
                             <div class="feature-extended">
@@ -169,7 +169,43 @@
                                     <ul>
                                         <li>Found multiple threat actors in an environment? Create a ticket for each threat actor (under the root) and assign each threat actor to someone to investigate.</li>
                                         <li>Or you can create a root ticket for each involved team: forensics, remediation, IT, helpdesk, legal, etc. Each team can have visibility into other teams' work while working in parallel.</li>
-                                        <li>Drag and drop nodes to organize your tree.</li>
+                                        <li>Incidents are difficult to manage due to a lack of abstraction. An engagement manager doesn't care about the specifics of a live response analysis, but he is exposed to them anyways. By organizing an incident into a tree, investigators only need to worry about the 1-2 levels in tree below theirs.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3>Features</h3>
+                            <div class="feature-extended">
+                                <div class="feature-extended-body">
+                                    <ul>
+                                        <li>Add indicators, files, and comments to tickets</li>
+                                        <li>View all the indicators added to tickets in an incident in one place</li>
+                                        <li>View all the files added to tickets in an incident in one place</li>
+                                        <li>Visualize a ticket's tree (not just an incident's)</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-extended-body">
+                                    <ul>
+                                        <li>View all the leads for an incident in one place.</li>
+                                        <li>Tag indicators, attachments, tickets, and incidents</li>
+                                        <li>Assign a status and a priority to tickets</li>
+                                        <li>Keyboard shortcuts for creating tickets and incidents</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3>Upcoming Features</h3>
+                            <div class="feature-extended">
+                                <div class="feature-extended-body">
+                                    <ul>
+                                        <li>REST API</li>
+                                        <li>2FA</li>
+                                        <li>Restrict who can view an incident</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-extended-body">
+                                    <ul>
+                                        <li>Search</li>
+                                        <li>Mentions</li>
+                                        <li>Customizable status/priority</li>
                                     </ul>
                                 </div>
                             </div>
@@ -249,4 +285,11 @@
 
     <script src="dist/js/main.min.js"></script>
 </body>
+
+<style>
+    li:not(:last-child) {
+        margin-bottom: 25px;
+    }
+</style>
+
 </html>
