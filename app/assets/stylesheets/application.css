@@ -14,7 +14,3 @@
  *= require datatables
  *= require_self
  */
-
-trix-editor {
-  min-height: 250px !important;
-}
