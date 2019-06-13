@@ -43,7 +43,7 @@ below them. The incident manager doesn't have to talk to forensic analysts; he
 only has to talk to the forensic team's manager.
 
 ## Installation
-
+### To get it running locally:
 ```
 # build docker image
 docker-compose build
