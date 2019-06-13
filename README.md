@@ -11,6 +11,7 @@ As the investigation's scope increases, though, these tools aren't enough to
 manage the incident's complexity.
 
 You might have a dozen people working on 30-40 tasks at once:
+
 - collecting forensic data
 - conducting forensic analysis
 - running sweeps
@@ -28,7 +29,7 @@ leads.
 ![tree](screenshots/incident_tree.png)
 
 - Found multiple threat actors in an environment? Create a ticket for each
-  threat actor (under the root) and assign each ticket to someone to investigate [1].
+  threat actor (under the root) and assign each ticket to someone to investigate.
 - Similarly, you can create a root ticket for each involved team: forensics,
   remediation, IT, helpdesk, legal, etc. Each team can work in parallel but have
   visibility into other teams' work.
@@ -44,15 +45,28 @@ only has to talk to the forensic team's manager.
 ## Installation
 
 ```
+# build docker image
+docker build
+
+# create and migrate database
+docker-compose run web rake db:create db:migrate
+
+# create inital user (see below)
+docker-compose exec web rails console
+
+# start application
 docker-compose up
 ```
 
-Then visit http://localhost:3000 
+Create initial user:
 
-This runs Incidents in a Docker container with a SQLite3 database in it. Don't run this in production. Instructions for running in production are coming
-soon.
+```
+user = User.new(username: 'admin', email: ‘admin@protonmail.com’, password: 'mypassword')
+user.save
+```
+
+Then visit http://localhost:80
 
 --
 
-[0] I'll switch to HTTPS soon  
-[1] Assigning tickets isn't possible yet  
+[0] I'll switch to HTTPS soon
