@@ -61,7 +61,7 @@ docker-compose exec web rails console
 Create initial user:
 
 ```
-user = User.new(username: 'admin', email: ‘admin@protonmail.com’, password: 'mypassword')
+user = User.new(username: 'admin', email: 'admin@protonmail.com', password: 'mypassword')
 user.save
 ```
 
