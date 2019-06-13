@@ -51,11 +51,11 @@ docker build
 # create and migrate database
 docker-compose run web rake db:create db:migrate
 
-# create initial user (see below)
-docker-compose exec web rails console
-
 # start application
 docker-compose up
+
+# create initial user (see below)
+docker-compose exec web rails console
 ```
 
 Create initial user:
