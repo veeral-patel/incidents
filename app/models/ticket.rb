@@ -35,7 +35,6 @@ class Ticket < ApplicationRecord
         collapsable: true,
         HTMLclass: self.status,
         HTMLid: self.id,
-        status: self.status
       }
     else
       {
