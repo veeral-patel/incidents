@@ -8,6 +8,10 @@ class UserTest < ActiveSupport::TestCase
 
   test 'invalid user' do
     user = User.new()
+
+    refute user.valid?
+
+    assert_equal user.errors.size, 3
     assert_not_nil user.errors[:username], 'no validation error for username present'
     assert_not_nil user.errors[:password], 'no validation error for password present'
     assert_not_nil user.errors[:email], 'no validation error for email present'
