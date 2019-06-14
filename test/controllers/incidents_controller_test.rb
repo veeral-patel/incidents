@@ -32,11 +32,6 @@ class IncidentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_incident_url(@incident)
-    assert_response :success
-  end
-
   test "should update incident" do
     patch incident_url(@incident), params: { incident: { name: @incident.name } }
     assert_redirected_to incident_url(@incident)

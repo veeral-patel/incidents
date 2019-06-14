@@ -32,11 +32,6 @@ class AttachmentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_ticket_attachment_url(@attachment.ticket, @attachment)
-    assert_response :success
-  end
-
   test "should update attachment" do
      patch ticket_attachment_url(@attachment.ticket, @attachment), params: { attachment: { description: @attachment.description } }
     assert_redirected_to ticket_attachment_url(@attachment)

@@ -32,11 +32,6 @@ class TicketsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_ticket_url(@ticket)
-    assert_response :success
-  end
-
   test "should update ticket" do
     patch ticket_url(@ticket), params: { ticket: { incident_id: @ticket.incident_id, name: @ticket.name } }
     assert_redirected_to ticket_url(@ticket)

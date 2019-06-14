@@ -32,11 +32,6 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_ticket_comment_url(@comment.ticket, @comment)
-    assert_response :success
-  end
-
   test "should update comment" do
     patch ticket_comment_url(@comment.ticket, @comment), params: { comment: { comment: @comment.comment, user_id: @comment.user_id } }
     assert_redirected_to ticket_comment_url(@comment.ticket, @comment)

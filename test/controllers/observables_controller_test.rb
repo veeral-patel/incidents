@@ -32,11 +32,6 @@ class ObservablesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_ticket_observable_url(@observable.ticket, @observable)
-    assert_response :success
-  end
-
   test "should update observable" do
       patch ticket_observable_url(@observable.ticket, @observable), params: { observable: { description: @observable.description, observable: @observable.observable, ticket_id: @observable.ticket_id, user_id: @observable.user_id } }
       assert_redirected_to ticket_observable_url(@observable.ticket,@observable)
