@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_223329) do
+ActiveRecord::Schema.define(version: 2019_06_14_231745) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_223329) do
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
     t.boolean "admin"
+    t.datetime "deleted_at"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
