@@ -12,6 +12,10 @@ class User < ApplicationRecord
     has_many :comments
     has_many :observables
 
+    def admins
+        User.where(admin: true)
+    end
+
     def to_s
         self.username
     end

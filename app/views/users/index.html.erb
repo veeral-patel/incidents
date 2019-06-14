@@ -20,6 +20,7 @@
       <th>Username</th>
       <th>Email</th>
       <th>Accepted Invitation?</th>
+      <th>Is Admin?</th>
       <th>Destroy</th>
     </tr>
   </thead>
@@ -31,8 +32,10 @@
         <td><%= user.username %></td>
         <td><%= user.email %></td>
         <td><%= user.invitation_accepted? %></td>
-        <% if @users.count == 1 %>
-          <%# can't delete last user %>
+        <td><%= user.admin %></td>
+        <% if user.admin && user.admins.count == 1%>
+          <td>Can't destroy last admin</td>
+        <% elsif @users.count == 1 %>
           <td>Can't destroy last user</td>
         <% else %>
           <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
