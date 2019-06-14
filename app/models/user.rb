@@ -12,10 +12,6 @@ class User < ApplicationRecord
     has_many :comments
     has_many :observables
 
-    def assigned_tickets
-        Ticket.where(assigned_to: self)
-    end
-
     def to_s
         self.username
     end
