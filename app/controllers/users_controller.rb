@@ -25,6 +25,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user.username = @user.username + " [deleted]"
+    @user.save
+
     @user.soft_delete
 
     respond_to do |format|
