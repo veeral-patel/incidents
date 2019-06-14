@@ -37,6 +37,6 @@ class UserTest < ActiveSupport::TestCase
 
   test 'to string' do
     user = users(:user_1)
-    assert user.username, "test"
+    assert user.to_s, "test"
   end
 end
