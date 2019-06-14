@@ -84,4 +84,11 @@ class IncidentTest < ActiveSupport::TestCase
       children: []
     }
   end
+
+  test 'can delete an incident' do
+    # incident_1 has two tickets
+    incident = incidents(:incident_1)
+    incident.destroy
+    assert incident.destroyed?
+  end
 end

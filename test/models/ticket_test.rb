@@ -41,4 +41,11 @@ class TicketTest < ActiveSupport::TestCase
     ticket = tickets(:ticket_1)
     assert_equal ticket.to_s, "Ticket One"
   end
+
+  test 'can delete a ticket' do
+    # ticket_1 has an comment, an observable, and an attachment
+    ticket = tickets(:ticket_1)
+    ticket.destroy
+    assert ticket.destroyed?
+  end
 end
