@@ -48,4 +48,40 @@ class IncidentTest < ActiveSupport::TestCase
     incident = incidents(:incident_1)
     assert_equal incident.to_s, "Incident One"
   end
+
+  test 'to json -- one level' do
+    # incident_1 has two tickets, both at one level
+    # below the root
+    incident = incidents(:incident_1)
+    assert_equal incident.to_json, {
+      text: { name: "root" },
+      collapsable: true,
+      children: [
+        {
+          text: { name: "Ticket One" },
+          link: { href: "/tickets/1" },
+          collapsable: true,
+          HTMLclass: "open",
+          HTMLid: 1
+        },
+        {
+          text: { name: "Ticket Two [lead]" },
+          link: { href: "/tickets/2" },
+          collapsable: true,
+          HTMLclass: "closed",
+          HTMLid: 2
+        }
+      ]
+    }
+  end
+
+  test 'to json -- no tickets' do
+    # incident_2 has no tickets
+    incident = incidents(:incident_2)
+    assert_equal incident.to_json, {
+      text: { name: "root" },
+      collapsable: true,
+      children: []
+    }
+  end
 end
