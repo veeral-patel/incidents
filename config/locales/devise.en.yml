@@ -16,7 +16,7 @@ en:
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
-      deleted_account: "Your account has been deleted."
+      deleted_account: "Your account has been disabled."
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"

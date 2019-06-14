@@ -21,6 +21,7 @@
       <th>Email</th>
       <th>Accepted Invitation?</th>
       <th>Is Admin?</th>
+      <th>Enabled?</th>
       <th>Destroy</th>
     </tr>
   </thead>
@@ -33,6 +34,7 @@
         <td><%= user.email %></td>
         <td><%= user.invitation_accepted? %></td>
         <td><%= user.admin %></td>
+        <td><%= user.active_for_authentication? %></td>
         <% if user.admin && user.admins.count == 1%>
           <td>Can't destroy last admin</td>
         <% elsif @users.count == 1 %>
