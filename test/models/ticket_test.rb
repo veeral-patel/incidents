@@ -39,6 +39,6 @@ class TicketTest < ActiveSupport::TestCase
 
   test 'to string' do
     ticket = tickets(:ticket_1)
-    assert ticket.to_s, "Ticket One"
+    assert_equal ticket.to_s, "Ticket One"
   end
 end
