@@ -12,11 +12,17 @@ class User < ApplicationRecord
     has_many :comments
     has_many :observables
 
-    attr_writer :login
-
     def assigned_tickets
         Ticket.where(assigned_to: self)
     end
+
+    def to_s
+        self.username
+    end
+
+    # so you can login with your username ---------
+
+    attr_writer :login
 
     def login
         @login || self.username || self.email
@@ -36,10 +42,6 @@ class User < ApplicationRecord
         if User.where(email: username).exists?
             errors.add(:username, :invalid)
         end
-    end
-
-    def to_s
-        self.username
     end
 end
 
