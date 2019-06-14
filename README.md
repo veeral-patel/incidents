@@ -43,7 +43,9 @@ below them. The incident manager doesn't have to talk to forensic analysts; he
 only has to talk to the forensic team's manager.
 
 ## Installation
+
 ### To get it running locally:
+
 ```
 # build docker image
 docker-compose build
@@ -61,11 +63,12 @@ docker-compose exec web rails console
 Create initial user:
 
 ```
-user = User.new(username: 'admin', email: 'admin@protonmail.com', password: 'mypassword')
+user = User.new(username: 'admin', email: 'admin@protonmail.com', password: 'mypassword', admin: true)
 user.save
 ```
 
 Then visit http://localhost:80
 
 ### To run in production:
+
 Coming soon!
