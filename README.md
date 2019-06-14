@@ -67,6 +67,5 @@ user.save
 
 Then visit http://localhost:80
 
---
-
-[0] I'll switch to HTTPS soon
+### To run in production:
+Coming soon!
