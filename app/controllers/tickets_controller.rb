@@ -13,7 +13,11 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    if current_user.admin
+      @tickets = Ticket.all
+    else
+      @tickets = current_user.joined_tickets
+    end
   end
 
   # GET /tickets/1

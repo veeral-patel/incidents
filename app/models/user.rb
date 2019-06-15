@@ -20,6 +20,12 @@ class User < ApplicationRecord
         User.where(admin: true).where(deleted_at: nil)
     end
 
+    # user.tickets returns the tickets an user created
+    # user.joined_tickets returns the tickets in incidents an user is a member of
+    def joined_tickets
+        Ticket.where(incident: self.joined_incidents)
+    end
+
     def to_s
         self.username
     end
