@@ -1,5 +1,6 @@
 class IncidentsController < ApplicationController
   before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree]
+  # after_action :verify_authorized
 
   # GET /incidents
   # GET /incidents.json
@@ -10,6 +11,7 @@ class IncidentsController < ApplicationController
   # GET /incidents/1
   # GET /incidents/1.json
   def show
+    authorize @incident
   end
 
   # GET /incidents/1/observables

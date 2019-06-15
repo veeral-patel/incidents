@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
+    include Pundit
+
     acts_as_token_authentication_handler_for User
-    
     protect_from_forgery with: :exception
     before_action :configure_permitted_parameters, if: :devise_controller?
     skip_before_action :verify_authenticity_token, if: :json_request?
