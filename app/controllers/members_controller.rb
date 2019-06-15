@@ -4,9 +4,12 @@ class MembersController < ApplicationController
     def index
     end
 
-    private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_incident
-      @incident = Incident.find(params[:incident_id])
+    def destroy
+      # FILL IN
     end
+
+    private
+      def set_incident
+        @incident = Incident.find(params[:incident_id])
+      end
 end

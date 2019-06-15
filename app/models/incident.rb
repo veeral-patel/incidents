@@ -1,6 +1,8 @@
 class Incident < ApplicationRecord
     acts_as_taggable
 
+    after_create_commit :add_creator_to_members
+
     enum status: { open: 0, in_progress: 1, closed: 2}
 
     validates :name, presence: true
@@ -41,4 +43,10 @@ class Incident < ApplicationRecord
             children: root_tickets.map { |ticket| ticket.to_json }
         }
     end
+
+    private
+        def add_creator_to_members
+            self.members << self.user
+            self.save
+        end
 end

@@ -14,47 +14,25 @@
 
     <h2 class="title is-4">Members</h2>
 
-    <% if @incident.tickets.empty? %>
-      No tickets
+    <% if @incident.members.empty? %>
+      No members
       <br />
     <% else %>
-    <table class="tickets-table">
+    <table class="members-table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Incident</th>
-          <th>Status</th>
-          <th>Priority</th>
-          <th>Is Lead?</th>
-          <th>Created At</th>
-          <th>Parent Ticket</th>
-          <th># Child Tickets</th>
-          <th>Show</th>
-          <th>Tree</th>
-          <th>Destroy</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Remove</th>
         </tr>
       </thead>
 
       <tbody>
-        <% @incident.tickets.each do |ticket| %>
+        <% @incident.members.each do |member| %>
           <tr>
-            <td><%= ticket.name %></td>
-            <td><%= ticket.incident %></td>
-            <td><%= ticket.status %></td>
-            <td><%= ticket.priority %></td>
-            <td><%= ticket.is_lead %></td>
-            <td><%= ticket.created_at %></td>
-            <td>
-            <% if ticket.parent == nil %>
-                N/A
-            <% else %>
-                <%= link_to ticket.parent.name, ticket.parent =%>
-            <% end %>
-            </td>
-            <td><%= ticket.children.count %></td>
-            <td><%= link_to 'Show', ticket %></td>
-            <td><%= link_to 'Tree', tree_ticket_path(ticket) %></td>
-            <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure? Deleting a ticket deletes all associated attachments, observables, child tickets, and comments.' } %></td>
+            <td><%= member.username %></td>
+            <td><%= member.email %></td>
+            <td><%= link_to 'Destroy', incident_member_path(@incident, member), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -65,7 +43,7 @@
 
 <script>
   $(document).ready(function() {
-    $(".tickets-table").DataTable({
+    $(".members-table").DataTable({
       "pagingType": "simple_numbers",
     });
   })
