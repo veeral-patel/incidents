@@ -10,7 +10,6 @@ class ObservablesController < ApplicationController
   # GET /observables
   # GET /observables.json
   def index
-    @observables = Observable.all
   end
 
   # GET /observables/1
