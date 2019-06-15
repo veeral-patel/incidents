@@ -1,8 +1,14 @@
 class CommentsController < ApplicationController
+    # authorize each action
+  before_action :authorize_actions_on_one_comment, except: [:index, :create, :new]
+  before_action :authorize_other_actions, only: [:index, :create, :new]
+  
   before_action :set_comment, only: [:show, :update, :destroy]
   before_action :set_ticket
   before_action :set_current_user
-  before_action :require_permission, only: [:show, :update, :destroy]
+
+  # verify each action is authorized
+  after_action :verify_authorized
 
   def index
   end
@@ -63,12 +69,13 @@ class CommentsController < ApplicationController
         @current_user = current_user
     end
 
-    def require_permission
-        # prevent user from editing or deleting another user's comment
-        if current_user != Comment.find(params[:id]).user
-            flash[:alert] = "Cannot edit/delete comment as you did not create it"
-            redirect_to ticket_comments_path(@ticket)
-        end
+    def authorize_actions_on_one_comment
+      @comment = Comment.find(params[:id])
+      authorize @comment
+    end
+
+    def authorize_other_actions
+      authorize Comment
     end
 
     def comment_params
