@@ -12,6 +12,10 @@ class User < ApplicationRecord
     has_many :comments
     has_many :observables
 
+    # user.incidents returns the incidents an user created
+    # user.joined_incidents returns the incidents an user is a member of
+    has_and_belongs_to_many :joined_incidents, class_name: "Incident"
+
     def self.admins
         User.where(admin: true).where(deleted_at: nil)
     end

@@ -12,7 +12,11 @@ class IncidentsController < ApplicationController
   # GET /incidents
   # GET /incidents.json
   def index
-    @incidents = Incident.all
+    if current_user.admin
+      @incidents = Incident.all
+    else
+      @incidents = current_user.joined_incidents
+    end
   end
 
   # GET /incidents/1
