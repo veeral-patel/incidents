@@ -12,21 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2019_06_14_231745) do
 
-  create_table "action_text_rich_texts", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "body"
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
-  end
-
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -47,16 +37,16 @@ ActiveRecord::Schema.define(version: 2019_06_14_231745) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "ticket_id"
+    t.integer "ticket_id"
     t.index ["ticket_id"], name: "index_attachments_on_ticket_id"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "ticket_id"
+    t.integer "ticket_id"
     t.index ["ticket_id"], name: "index_comments_on_ticket_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -65,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_231745) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.string "description"
     t.integer "status"
     t.index ["user_id"], name: "index_incidents_on_user_id"
@@ -73,8 +63,8 @@ ActiveRecord::Schema.define(version: 2019_06_14_231745) do
 
   create_table "observables", force: :cascade do |t|
     t.string "observable"
-    t.bigint "user_id"
-    t.bigint "ticket_id"
+    t.integer "user_id"
+    t.integer "ticket_id"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,15 +72,34 @@ ActiveRecord::Schema.define(version: 2019_06_14_231745) do
     t.index ["user_id"], name: "index_observables_on_user_id"
   end
 
-# Could not dump table "taggings" because of following StandardError
-#   Unknown type 'serial' for column 'id'
+  create_table "taggings", force: :cascade do |t|
+    t.integer "tag_id"
+    t.string "taggable_type"
+    t.integer "taggable_id"
+    t.string "tagger_type"
+    t.integer "tagger_id"
+    t.string "context", limit: 128
+    t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
+  end
 
-# Could not dump table "tags" because of following StandardError
-#   Unknown type 'serial' for column 'id'
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true
+  end
 
   create_table "tickets", force: :cascade do |t|
     t.string "name"
-    t.bigint "incident_id"
+    t.integer "incident_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
@@ -98,8 +107,8 @@ ActiveRecord::Schema.define(version: 2019_06_14_231745) do
     t.integer "status"
     t.integer "priority"
     t.string "ancestry"
-    t.bigint "user_id"
-    t.bigint "assigned_to_id"
+    t.integer "user_id"
+    t.integer "assigned_to_id"
     t.index ["ancestry"], name: "index_tickets_on_ancestry"
     t.index ["assigned_to_id"], name: "index_tickets_on_assigned_to_id"
     t.index ["incident_id"], name: "index_tickets_on_incident_id"
@@ -122,7 +131,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_231745) do
     t.datetime "invitation_accepted_at"
     t.integer "invitation_limit"
     t.string "invited_by_type"
-    t.bigint "invited_by_id"
+    t.integer "invited_by_id"
     t.integer "invitations_count", default: 0
     t.boolean "admin"
     t.datetime "deleted_at"
