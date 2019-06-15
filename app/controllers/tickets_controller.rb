@@ -1,5 +1,14 @@
+# remember - when adding an action, add a corresponding
+# method in ticket_policy.rb
 class TicketsController < ApplicationController
+  # authorize each action
+  before_action :authorize_actions_on_one_ticket, except: [:index, :create, :new]
+  before_action :authorize_other_actions, only: [:index, :create, :new]
+
   before_action :set_ticket, only: [:show, :update, :destroy, :children, :tree]
+
+  # verify each action is authorized
+  after_action :verify_authorized
 
   # GET /tickets
   # GET /tickets.json
@@ -82,6 +91,15 @@ class TicketsController < ApplicationController
     def set_ticket
       @ticket = Ticket.find(params[:id])
       @incident = @ticket.incident
+    end
+
+    def authorize_actions_on_one_ticket
+      @ticket = Ticket.find(params[:id])
+      authorize @ticket
+    end
+
+    def authorize_other_actions
+      authorize Ticket
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
