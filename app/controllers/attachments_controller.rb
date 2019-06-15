@@ -1,6 +1,13 @@
 class AttachmentsController < ApplicationController
+  # authorize each action
+  before_action :authorize_actions_on_one_attachment, except: [:index, :create, :new]
+  before_action :authorize_other_actions, only: [:index, :create, :new]
+
   before_action :set_attachment, only: [:show, :update, :destroy]
   before_action :set_ticket
+
+  # verify each action is authorized
+  after_action :verify_authorized
 
   # GET /tickets/1/attachments
   # GET /tickets/1/attachments.json
@@ -66,6 +73,15 @@ class AttachmentsController < ApplicationController
     def set_ticket
       @ticket = Ticket.find(params[:ticket_id])
       @incident = @ticket.incident
+    end
+
+    def authorize_actions_on_one_attachment
+      @attachment = Attachment.find(params[:id])
+      authorize @attachment
+    end
+
+    def authorize_other_actions
+      authorize Attachment
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
