@@ -5,7 +5,11 @@ class MembersController < ApplicationController
     end
 
     def destroy
-      # FILL IN
+      @member = User.find(params[:id])
+      @incident.members.delete(@member)
+      respond_to do |format|
+        format.html { redirect_to incident_members_url, notice: 'Member was successfully removed.' }
+      end
     end
 
     private
