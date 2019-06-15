@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
     def soft_delete  
         update_attribute(:deleted_at, Time.current)  
-      end  
+    end  
       
     # ensure user account is active  
     def active_for_authentication?  
