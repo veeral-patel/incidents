@@ -5,10 +5,16 @@ class MembersController < ApplicationController
     end
 
     def destroy
-      @member = User.find(params[:id])
-      @incident.members.delete(@member)
-      respond_to do |format|
-        format.html { redirect_to incident_members_url, notice: 'Member was successfully removed.' }
+      if @incident.members.count == 1
+        respond_to do |format|
+          format.html { redirect_to incident_members_url, alert: "Cannot remove last member" }
+        end
+      else
+        @member = User.find(params[:id])
+        @incident.members.delete(@member)
+        respond_to do |format|
+          format.html { redirect_to incident_members_url, notice: 'Member was successfully removed.' }
+        end
       end
     end
 

@@ -32,7 +32,11 @@
           <tr>
             <td><%= member.username %></td>
             <td><%= member.email %></td>
-            <td><%= link_to 'Destroy', incident_member_path(@incident, member), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% if @incident.members.count == 1%>
+              <td>Cannot remove last member</td>
+            <% else %>
+              <td><%= link_to 'Destroy', incident_member_path(@incident, member), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
