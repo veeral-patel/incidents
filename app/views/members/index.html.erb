@@ -1,0 +1,54 @@
+<div style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;" >
+  <div>
+    <%= render 'shared/menu' %>
+  </div>
+
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
+        <li class="is-active"><a>Members</a></li>
+      </ul>
+    </nav>
+
+    <h2 class="title is-4">Members</h2>
+
+    <% if @incident.members.empty? %>
+      No members
+      <br />
+    <% else %>
+    <table class="members-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @incident.members.each do |member| %>
+          <tr>
+            <td><%= member.username %></td>
+            <td><%= member.email %></td>
+            <% if @incident.members.count == 1%>
+              <td>Cannot remove last member</td>
+            <% else %>
+              <td><%= link_to 'Destroy', incident_member_path(@incident, member), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $(".members-table").DataTable({
+      "pagingType": "simple_numbers",
+    });
+  })
+</script>
