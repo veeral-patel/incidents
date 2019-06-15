@@ -25,8 +25,10 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.username = @user.username + " [deleted]"
-    @user.save
+    if not @user.username.ends_with?('[deleted]')
+      @user.username = @user.username + " [deleted]"
+      @user.save
+    end
 
     @user.soft_delete
 

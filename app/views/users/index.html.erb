@@ -35,7 +35,9 @@
         <td><%= user.invitation_accepted? %></td>
         <td><%= user.admin %></td>
         <td><%= user.active_for_authentication? %></td>
-        <% if user.admin && user.admins.count == 1%>
+        <% if not user.active_for_authentication? %>
+          <td></td>
+        <% elsif user.admin && User.admins.count == 1%>
           <td>Can't destroy last admin</td>
         <% elsif @users.count == 1 %>
           <td>Can't destroy last user</td>

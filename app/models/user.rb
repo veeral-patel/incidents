@@ -12,8 +12,8 @@ class User < ApplicationRecord
     has_many :comments
     has_many :observables
 
-    def admins
-        User.where(admin: true)
+    def self.admins
+        User.where(admin: true).where(deleted_at: nil)
     end
 
     def to_s
