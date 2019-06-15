@@ -1,6 +1,13 @@
+# remember: when adding an action, add an action in incident_policy.rb
 class IncidentsController < ApplicationController
+  # authorize every action
+  before_action :authorize_actions_on_one_incident, except: [:index, :create, :new]
+  before_action :authorize_other_actions, only: [:index, :create, :new]
+
   before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree]
-  # after_action :verify_authorized
+
+  # verify each action is authorized
+  after_action :verify_authorized
 
   # GET /incidents
   # GET /incidents.json
@@ -11,7 +18,6 @@ class IncidentsController < ApplicationController
   # GET /incidents/1
   # GET /incidents/1.json
   def show
-    authorize @incident
   end
 
   # GET /incidents/1/observables
@@ -108,12 +114,19 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_incident
       @incident = Incident.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def authorize_actions_on_one_incident
+      @incident = Incident.find(params[:id])
+      authorize @incident
+    end
+
+    def authorize_other_actions
+      authorize Incident
+    end
+
     def incident_params
       params.require(:incident).permit(:name, :description, :tag_list, :status)
     end
