@@ -9,6 +9,7 @@ class Incident < ApplicationRecord
     has_many :tickets, dependent: :destroy
     has_many :observables, through: :tickets
     has_many :attachments, through: :tickets
+    has_and_belongs_to_many :members, class_name: "User"
 
     belongs_to :user
 

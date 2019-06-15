@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_231745) do
+ActiveRecord::Schema.define(version: 2019_06_15_005759) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -71,6 +71,14 @@ ActiveRecord::Schema.define(version: 2019_06_14_231745) do
     t.index ["user_id"], name: "index_incidents_on_user_id"
   end
 
+  create_table "incidents_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "incident_id"
+    t.index ["incident_id", "user_id"], name: "index_incidents_users_on_incident_id_and_user_id", unique: true
+    t.index ["incident_id"], name: "index_incidents_users_on_incident_id"
+    t.index ["user_id"], name: "index_incidents_users_on_user_id"
+  end
+
   create_table "observables", force: :cascade do |t|
     t.string "observable"
     t.bigint "user_id"
@@ -81,12 +89,6 @@ ActiveRecord::Schema.define(version: 2019_06_14_231745) do
     t.index ["ticket_id"], name: "index_observables_on_ticket_id"
     t.index ["user_id"], name: "index_observables_on_user_id"
   end
-
-# Could not dump table "taggings" because of following StandardError
-#   Unknown type 'serial' for column 'id'
-
-# Could not dump table "tags" because of following StandardError
-#   Unknown type 'serial' for column 'id'
 
   create_table "tickets", force: :cascade do |t|
     t.string "name"
