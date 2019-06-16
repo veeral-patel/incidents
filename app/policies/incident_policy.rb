@@ -25,7 +25,7 @@ class IncidentPolicy < ApplicationPolicy
         show?
     end
 
-    def destroy
+    def destroy?
         show?
     end
 
