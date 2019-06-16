@@ -43,7 +43,7 @@
 
         <div class="field">
           <%= form.label :comment, "Comment (Required)", class: "label" %>
-          <%= form.text_area :comment, placeholder: "Enter comment here", class: "textarea" %>
+          <%= form.text_area :comment, placeholder: "Enter comment here", class: "textarea", autofocus: true  %>
         </div>
 
         <%= form.hidden_field :user_id, value: current_user.id %>
