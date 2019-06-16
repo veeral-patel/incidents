@@ -7,7 +7,7 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :update, :destroy, :children, :tree]
 
   # verify each action is authorized
-  after_action :verify_authorized, except: [:index, :new]
+  after_action :verify_authorized, except: [:index, :new, :create]
 
   # GET /tickets
   # GET /tickets.json
