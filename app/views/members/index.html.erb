@@ -38,7 +38,7 @@
             <% if @incident.members.count == 1%>
               <td>Cannot remove last member</td>
             <% else %>
-              <td><%= link_to 'Destroy', incident_member_path(@incident, member), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Remove', incident_member_path(@incident, member), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
           </tr>
         <% end %>
