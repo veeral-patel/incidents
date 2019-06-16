@@ -1,14 +1,17 @@
 class IncidentPolicy < ApplicationPolicy
     # --- not specific to one incident -----
     def index?
+        # anyone can view list of incidents
         true
     end
 
     def new?
+        # anyone can create an incident
         true
     end
     
     def create?
+        # anyone can create an incident
         true
     end
 
