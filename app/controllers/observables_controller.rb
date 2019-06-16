@@ -23,7 +23,7 @@ class ObservablesController < ApplicationController
 
   # GET /observables/new
   def new
-    # if you can't see a ticket, you can't see its observables
+    # if you can't see a ticket, you can't create an observable in it
     raise Pundit::NotAuthorizedError unless TicketPolicy.new(current_user, @ticket).show?
 
     @observable = Observable.new

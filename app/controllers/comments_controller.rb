@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
     # authorize each action
   before_action :authorize_actions_on_one_comment, except: [:index, :create, :new]
-  before_action :authorize_other_actions, only: [:index, :create, :new]
   
   before_action :set_comment, only: [:show, :update, :destroy]
   before_action :set_ticket
@@ -11,16 +10,24 @@ class CommentsController < ApplicationController
   after_action :verify_authorized
 
   def index
+      # if you can't see a ticket, you can't see its comments
+      raise Pundit::NotAuthorizedError unless TicketPolicy.new(current_user, @ticket).show?
   end
 
   def show
   end
 
   def new
+    # if you can't see a ticket, you can't create a comment in it
+    raise Pundit::NotAuthorizedError unless TicketPolicy.new(current_user, @ticket).show?
+
     @comment = Comment.new
   end
 
   def create
+    # if you can't see a ticket, you can't create a comment in it
+    raise Pundit::NotAuthorizedError unless TicketPolicy.new(current_user, @ticket).show?
+
     @comment = current_user.comments.new(comment_params)
 
     respond_to do |format|
@@ -72,10 +79,6 @@ class CommentsController < ApplicationController
     def authorize_actions_on_one_comment
       @comment = Comment.find(params[:id])
       authorize @comment
-    end
-
-    def authorize_other_actions
-      authorize Comment
     end
 
     def comment_params
