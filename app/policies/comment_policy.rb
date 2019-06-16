@@ -1,7 +1,7 @@
 class CommentPolicy < ApplicationPolicy
     def show?
         # can show a comment if you can show its ticket
-        TicketPolicy.new(@user, record.ticket).show?
+        @user == record.user
     end
 
     def update?
