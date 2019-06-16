@@ -6,7 +6,7 @@ class AttachmentsController < ApplicationController
   before_action :set_ticket
 
   # verify each action is authorized
-  after_action :verify_authorized
+  after_action :verify_authorized, except: [:index, :new, :create]
 
   # GET /tickets/1/attachments
   # GET /tickets/1/attachments.json

@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   before_action :set_current_user
 
   # verify each action is authorized
-  after_action :verify_authorized
+  after_action :verify_authorized, except: [:index, :new, :create]
 
   def index
       # if you can't see a ticket, you can't see its comments

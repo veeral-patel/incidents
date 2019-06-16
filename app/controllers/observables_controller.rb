@@ -7,7 +7,7 @@ class ObservablesController < ApplicationController
   before_action :set_current_user
 
   # verify each action is authorized
-  after_action :verify_authorized
+  after_action :verify_authorized, except: [:index, :new, :create]
 
   # GET /observables
   # GET /observables.json
