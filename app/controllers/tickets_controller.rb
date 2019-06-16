@@ -3,12 +3,11 @@
 class TicketsController < ApplicationController
   # authorize each action
   before_action :authorize_actions_on_one_ticket, except: [:index, :create, :new]
-  before_action :authorize_other_actions, only: [:index, :create, :new]
 
   before_action :set_ticket, only: [:show, :update, :destroy, :children, :tree]
 
   # verify each action is authorized
-  after_action :verify_authorized
+  after_action :verify_authorized, except: [:index, :new]
 
   # GET /tickets
   # GET /tickets.json
@@ -33,6 +32,10 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
+    # if you can't view an incident, you can't create tickets in it
+    incident = Incident.find(ticket_params[:incident_id])
+    raise Pundit::NotAuthorizedError unless IncidentPolicy.new(current_user, incident).show?
+
     @ticket = current_user.tickets.new(ticket_params)
 
     respond_to do |format|
@@ -100,10 +103,6 @@ class TicketsController < ApplicationController
     def authorize_actions_on_one_ticket
       @ticket = Ticket.find(params[:id])
       authorize @ticket
-    end
-
-    def authorize_other_actions
-      authorize Ticket
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
