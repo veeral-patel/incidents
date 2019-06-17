@@ -72,3 +72,9 @@ Then visit http://localhost:80
 ### To run in production:
 
 Coming soon!
+
+## Get in touch
+
+Questions? Feedback? Don't hesitate to email me.
+
+veeral.patel@berkeley.edu
