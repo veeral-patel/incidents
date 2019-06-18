@@ -132,6 +132,6 @@ end
     end
 
     def incident_params
-      params.require(:incident).permit(:name, :description, :tag_list, :status)
+      params.require(:incident).permit(:name, :description, :tag_list, :status, :member_ids => [])
     end
 end

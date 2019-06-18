@@ -45,6 +45,16 @@
       </tbody>
     </table>
     <% end %>
+
+    <br />
+
+    <h2 class="title is-6">Edit Members</h2>
+
+    <%= form_for @incident do |f| %>
+      <%= f.collection_select(:member_ids, User.all, :id, :username, {:prompt => "Please Select a Sector"}, {:multiple => true})  %>
+      <br />
+      <%= f.submit %>
+    <% end %>
   </div>
 </div>
 
