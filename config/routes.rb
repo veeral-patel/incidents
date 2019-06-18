@@ -17,7 +17,7 @@ Rails.application.routes.draw do
           get :attachments
           get :tree
       end
-      resources :members, only: [:index, :create, :destroy]
+      resources :members, only: [:index, :destroy]
   end
 
   devise_for :users, :skip => [:registrations] 
