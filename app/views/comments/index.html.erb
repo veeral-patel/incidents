@@ -30,24 +30,20 @@
 
     <%= render 'tickets/nav' %>
 
-    <% if @ticket.comments.empty? %>
-      No comments
-    <% else %>
-      <% @ticket.comments.each do |comment|%>
-        <div class="comment-box">
-          <div class="comment-header">
-            <strong><%= comment.user %></strong> commented at <%= comment.created_at %>
-          </div>
-          <div class="comment-content">
-            <%= comment.comment %>
-          </div>
+    <% @ticket.comments.each do |comment|%>
+      <div class="comment-box">
+        <div class="comment-header">
+          <strong><%= comment.user %></strong> commented at <%= comment.created_at %>
         </div>
-      <% end %>
+        <div class="comment-content">
+          <%= comment.comment %>
+        </div>
+      </div>
     <% end %>
 
     <%= form_with(model: @comment, url: [@ticket, @comment], local: true) do |form| %>
       <div class="field" style="width: 60%">
-        <%= form.label :comment, "Comment", class: "label" %>
+        <%= form.label :comment, "Add Comment", class: "label" %>
         <%= form.text_area :comment, placeholder: "Enter comment here", class: "textarea", autofocus: true  %>
       </div>
 

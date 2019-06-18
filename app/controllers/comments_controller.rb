@@ -27,11 +27,9 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to ticket_comment_path(@ticket, @comment), notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
+        format.html { redirect_to ticket_comments_path(@ticket), notice: 'Comment was successfully created.' }
       else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.html { redirect_to ticket_comments_path(@ticket), alert: 'Comment could not be created. Is it empty?' }
       end
     end
   end
