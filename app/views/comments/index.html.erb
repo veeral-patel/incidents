@@ -33,38 +33,38 @@
 
     <% if @ticket.comments.empty? %>
       No comments
-      <br>
     <% else %>
-    <table
-      class="table is-narrow is-striped is-hoverable is-fullwidth is-bordered"
-    >
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Comment</th>
-          <th colspan="2"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @ticket.comments.each do |comment| %>
-        <tr>
-          <td><%= comment.user %></td>
-          <td><%= comment.comment %></td>
-          <% if current_user == comment.user %>
-            <td><%= link_to 'Edit', ticket_comment_path(@ticket, comment) %></td>
-            <td>
-              <%= link_to 'Destroy', ticket_comment_path(@ticket, comment),
-              method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
-          <% else %>
-            <td></td>
-            <td></td>
-          <% end %>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+      <% @ticket.comments.each do |comment|%>
+        <div class="comment-box">
+          <div class="comment-header">
+            <strong><%= comment.user %></strong> commented at <%= comment.created_at %>
+          </div>
+          <div class="comment-content">
+            <%= comment.comment %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
+
+<style>
+  .comment-box {
+    border: 1px solid lightgray;
+    width: 70%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+
+  .comment-header {
+    background-color: rgba(230, 231, 233, 0.5);
+    padding-left: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+
+  .comment-content {
+    padding: 2%;
+  }
+</style>
