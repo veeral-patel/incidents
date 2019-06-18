@@ -12,16 +12,11 @@ class CommentsController < ApplicationController
   def index
       # if you can't see a ticket, you can't see its comments
       raise Pundit::NotAuthorizedError unless TicketPolicy.new(current_user, @ticket).show?
+
+      @comment = Comment.new
   end
 
   def show
-  end
-
-  def new
-    # if you can't see a ticket, you can't create a comment in it
-    raise Pundit::NotAuthorizedError unless TicketPolicy.new(current_user, @ticket).show?
-
-    @comment = Comment.new
   end
 
   def create

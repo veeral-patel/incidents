@@ -23,7 +23,6 @@
         </span>
         <span style="float: right">
             <%= render 'tickets/actions_dropdown', ticket: @ticket %>&nbsp;&nbsp;
-            <a class="button is-link" href="<%= new_ticket_comment_path %>">New Comment</a>
         </span>
     </div>
 
@@ -45,13 +44,27 @@
         </div>
       <% end %>
     <% end %>
-  </div>
+
+    <%= form_with(model: @comment, url: [@ticket, @comment], local: true) do |form| %>
+      <div class="field" style="width: 60%">
+        <%= form.label :comment, "Comment", class: "label" %>
+        <%= form.text_area :comment, placeholder: "Enter comment here", class: "textarea", autofocus: true  %>
+      </div>
+
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <%= form.hidden_field :ticket_id, value: @ticket.id %>
+
+      <div class="actions">
+        <%= form.button "Submit", type: :submit, class: "button is-link" %>
+      </div>
+    <% end %>
+    </div>
 </div>
 
 <style>
   .comment-box {
     border: 1px solid lightgray;
-    width: 70%;
+    width: 60%;
     margin-bottom: 20px;
     margin-top: 20px;
     border-radius: 5px;
