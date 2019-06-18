@@ -25,7 +25,7 @@
                 <% end %>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">New</a>
-                    <div class="navbar-dropdown">
+                    <div class="navbar-dropdown is-right">
                         <a class="navbar-item" href="<%= new_ticket_path %>">Ticket (shift-t)</a>
                         <a class="navbar-item" href="<%= new_incident_path %>">Incident (shift-i)</a>
                     </div>
@@ -35,7 +35,7 @@
                         <%= current_user.username %>
                     </a>
 
-                    <div class="navbar-dropdown">
+                    <div class="navbar-dropdown is-right">
                         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-item' %> 
                         <hr class="navbar-divider">
                         <%= link_to "Log out", destroy_user_session_path, method: :delete, :class => 'navbar-item'  %>
