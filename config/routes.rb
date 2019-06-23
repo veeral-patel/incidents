@@ -17,6 +17,7 @@ Rails.application.routes.draw do
           get :attachments
           get :tree
           get :danger
+          get :new_ticket
       end
       resources :members, only: [:index, :destroy]
   end

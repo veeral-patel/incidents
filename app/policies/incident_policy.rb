@@ -52,4 +52,8 @@ class IncidentPolicy < ApplicationPolicy
     def danger?
         show?
     end
+
+    def new_ticket?
+        show?
+    end
 end

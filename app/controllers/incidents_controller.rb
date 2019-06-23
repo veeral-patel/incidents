@@ -89,6 +89,10 @@ end
     end
   end
 
+  # GET /incidents/1/new_ticket
+  def new_ticket
+  end
+
   # GET /incidents/1/danger
   def danger
   end
