@@ -20,7 +20,7 @@
                     </div>
                 </article>
             <% end %>
-            <% if alert %>
+            <% if alert and not alert.empty? %>
                 <article class="message is-info">
                     <div class="message-body">
                         <%= alert %>
