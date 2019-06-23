@@ -35,7 +35,7 @@
     <div class="field">
       <%= form.label :incident_id, "Incident (Required)", class: "label" %>
         <div class="select">
-          <%= collection_select(:ticket, :incident_id, current_user.joined_incidents, :id, :name) %>
+            <%= collection_select(:ticket, :incident_id, current_user.joined_incidents, :id, :name, {}, {:class => "chosen-select"}) %>
         </div>
     </div>
 
@@ -91,3 +91,9 @@
     </div>
   <% end %>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $(".chosen-select").chosen()
+    })
+</script>

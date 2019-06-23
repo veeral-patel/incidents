@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery
 //= require datatables
+//= require chosen-jquery
 //= require_tree .
 
 $(document).ready(function() {
