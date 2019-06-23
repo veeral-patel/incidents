@@ -1,22 +1,31 @@
-<div style="width: 50%">
-    <h2 class="title is-4">Log in</h2>
-
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-            <p><%= f.label :login, class: "label" %>
-            <%= f.text_field :login, placeholder: "Username or email", class: "input" %></p>
+<div style="display: flex; justify-content: center">
+    <div style="width: 50%; padding: 5%; border-radius: 8px">
+        <div style="text-align: center;">
+            <%= image_tag("logo.png", :alt => "logo") %>
         </div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+                <%= f.label :login, class: "label", style: "color: white" %>
+                <%= f.text_field :login, placeholder: "Username or email", class: "input" %>
+            </div>
 
-        <div class="field">
-            <%= f.label :password, class: "label" %>
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "input" %>
-        </div>
+            <div class="field">
+                <%= f.label :password, class: "label", style: "color: white" %>
+                <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "input" %>
+            </div>
 
-        <div class="actions">
-            <%= f.button "Log in", type: :submit, class: "button is-link" %>
-        </div>
-    <% end %>
+            <div class="actions">
+                <%= f.button "Log in", type: :submit, class: "button" %>
+            </div>
+        <% end %>
 
-    <br />
-    <%= render "devise/shared/links" %>
+        <br />
+        <%= render "devise/shared/links" %>
+    </div>
 </div>
+
+<style>
+html, body {
+    background-color: #3676d9;
+}
+</style>
