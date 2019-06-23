@@ -1,0 +1,29 @@
+<div style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;" >
+  <div>
+    <%= render 'shared/menu' %>
+  </div>
+
+  <div>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+        <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
+        <li class="is-active"><a>Danger</a></li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <h2 class="title is-4">Danger</h2>
+      <h2 class="title is-6">Destroy Incident</h2>
+      This will permanently delete this incident as well as all tickets, observables, comments,
+      and attachments within it.
+    </div>
+    <%=
+        link_to 'Destroy',
+        @incident,
+        method: :delete,
+        data: { confirm: 'Are you sure?' },
+        :class => "button is-danger" 
+    %>
+  </div>
+</div>

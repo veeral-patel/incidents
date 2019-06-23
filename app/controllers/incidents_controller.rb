@@ -4,7 +4,7 @@ class IncidentsController < ApplicationController
   before_action :authorize_actions_on_one_incident, except: [:index, :create, :new]
   before_action :authorize_other_actions, only: [:index, :create, :new]
 
-  before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree]
+  before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree, :danger]
 
   # verify each action is authorized
   after_action :verify_authorized
@@ -89,17 +89,19 @@ end
     end
   end
 
+  # GET /incidents/1/danger
+  def danger
+  end
+
   # GET /incidents/1/tickets
-  # GET /incidents/1/tickets.json
   def tickets
   end
 
   # GET /incidents/1/leads
-  # GET /incidents/1/leads.json
   def leads
   end
 
-    # GET /tickets/1/tree
+  # GET /tickets/1/tree
   # GET /tickets/1/tree.json
   def tree
     gon.push({

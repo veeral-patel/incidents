@@ -16,6 +16,7 @@ Rails.application.routes.draw do
           get :observables
           get :attachments
           get :tree
+          get :danger
       end
       resources :members, only: [:index, :destroy]
   end

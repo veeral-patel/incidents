@@ -48,4 +48,8 @@ class IncidentPolicy < ApplicationPolicy
     def leads?
         show?
     end
+
+    def danger?
+        show?
+    end
 end

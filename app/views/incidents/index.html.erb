@@ -27,7 +27,6 @@
         <th>Leads</th>
         <th>Show</th>
         <th>Tree</th>
-        <th>Destroy</th>
       </tr>
     </thead>
 
@@ -45,9 +44,6 @@
           <td><%= incident.leads.count %></td>
           <td><%= link_to 'Show', incident %></td>
           <td><%= link_to 'Tree', tree_incident_path(incident) %></td>
-          <td><%= link_to 'Destroy', incident, method: :delete,
-            data: { confirm: 'Are you sure? This will delete all tickets in this incident.' } %>
-          </td>
         </tr>
       <% end %>
     </tbody>
