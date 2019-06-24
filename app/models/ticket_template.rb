@@ -17,10 +17,12 @@ class TicketTemplate < ApplicationRecord
         if self.children.empty?
             {
                 text: { name: self.name },
+                link: { href: Rails.application.routes.url_helpers.edit_ticket_template_path(self) }
             }
         else
             {
                 text: { name: self.name },
+                link: { href: Rails.application.routes.url_helpers.edit_ticket_template_path(self) },
                 children: self.children.map { |child| child.to_json },
             }
         end

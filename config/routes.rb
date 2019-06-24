@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :ticket_templates, :except => [:new, :show, :edit] do
+  resources :ticket_templates, :except => [:new, :show] do
     member do
       get :tree
     end
