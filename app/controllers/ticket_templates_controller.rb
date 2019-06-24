@@ -4,7 +4,7 @@ class TicketTemplatesController < ApplicationController
   # GET /ticket_templates
   # GET /ticket_templates.json
   def index
-    @ticket_templates = TicketTemplate.all
+    @ticket_templates = TicketTemplate.root_templates
   end
 
   # GET /ticket_templates/1
