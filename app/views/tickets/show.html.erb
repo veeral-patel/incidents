@@ -4,13 +4,13 @@
     </div>
     <div>
         <nav class="breadcrumb">
-        <ul>
-            <li><a href="<%= incidents_path %>"> All Incidents </a></li>
-            <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
-            <li><a href="<%= tickets_incident_path(@incident) %>"> Tickets </a></li>
-            <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
-            <li class="is-active"><a>Details</a></li>
-        </ul>
+            <ul>
+                <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+                <li><a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a></li>
+                <li><a href="<%= tickets_incident_path(@incident) %>"> Tickets </a></li>
+                <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
+                <li class="is-active"><a>Details</a></li>
+            </ul>
         </nav>
 
         <%= render 'tickets/title', title: 'Details', ticket: @ticket %>
