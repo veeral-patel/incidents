@@ -7,9 +7,7 @@
       <ul>
         <li><a href="<%= incidents_path %>"> All Incidents </a></li>
         <li>
-          <a href="<%= incident_path(@ticket.incident) %>"
-            ><%= @ticket.incident %></a
-          >
+          <a href="<%= incident_path(@ticket.incident) %>"><%= @ticket.incident %></a>
         </li>
         <li><a href="<%= tickets_incident_path(@incident) %>"> Tickets </a></li>
         <li><a href="<%= ticket_path(@ticket) %>"><%= @ticket.name %></a></li>
@@ -34,6 +32,18 @@
       <div class="comment-box">
         <div class="comment-header">
           <strong><%= comment.user %></strong> commented at <%= comment.created_at %>
+          <% if policy(comment).destroy? %>
+            <span style="float: right; margin-right: 15px">
+                <%= link_to ticket_comment_path(@ticket, comment), method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' } do %>
+                    <i class="fa fa-trash"></i>
+                <% end %>
+            </span>
+          <% end %>
+          <% if policy(comment).update? %>
+              <a href="<%= ticket_comment_path(@ticket, comment) %>" style="margin-right: 10px; float: right">
+                <i class="far fa-edit"></i>
+              </a>
+          <% end %>
         </div>
         <div class="comment-content">
           <%= comment.comment %>
