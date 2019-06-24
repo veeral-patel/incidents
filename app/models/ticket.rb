@@ -47,4 +47,24 @@ class Ticket < ApplicationRecord
       }      
     end
   end
+
+  def create_template
+    if self.children.empty?
+      # create template only for itself
+      template = TicketTemplate.create(name: self.name, description: self.description)
+      return template
+    else
+      # create parent template
+      parent_template = TicketTemplate.create(name: self.name, description: self.description)
+
+      # create templates for children
+      self.children.each do |child|
+        child_template = child.create_template
+        child_template.parent = parent_template
+        child_template.save
+      end
+      
+      return parent_template
+    end
+  end
 end
