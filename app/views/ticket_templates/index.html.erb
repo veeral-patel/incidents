@@ -1,12 +1,31 @@
 <h2 class="title is-4">Ticket Templates</h2>
 
-<table class="responsive nowrap table table-hover" id="dttb-ticket_templates" data-sort="true" data-source="<%= url_for(format: :json)%>">
-  <thead>
-    <tr>
-      <th data-data="name">Name</th>
-      <th data-data="description">Description</th>
-      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
-    </tr>
-  </thead>
+<% if @ticket_templates.empty? %>
+  No ticket templates
+  <br />
+<% else %>
+  <table class="ticket-templates-table hover stripe">
+    <thead>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Destroy</th>
+    </thead>
+    <tbody>
+      <% @ticket_templates.each do |template| %>
+        <tr>
+          <td><%= template.name %></td>
+          <td><%= truncate(template.description, :length => 40) %></td>
+          <td><%= link_to 'Destroy', template, method: :delete, data: { confirm: "Are you sure you want to delete template #{template}?" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
-</table>
+<script>
+  $(document).ready(function() {
+    $(".ticket-templates-table").DataTable({
+      "pagingType": "simple_numbers",
+    });
+  });
+</script>

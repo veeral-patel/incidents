@@ -8,4 +8,8 @@ class TicketTemplate < ApplicationRecord
         TicketTemplate.all.each { |template| root_templates << template if not template.has_parent? }
         root_templates
     end
+
+    def to_s
+        self.name
+    end
 end
