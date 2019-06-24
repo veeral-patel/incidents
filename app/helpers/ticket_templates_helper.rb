@@ -1,0 +1,2 @@
+module TicketTemplatesHelper
+end

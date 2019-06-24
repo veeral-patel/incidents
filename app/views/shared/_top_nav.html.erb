@@ -13,6 +13,12 @@
                 <a class="navbar-item" href="<%= tickets_path %>">
                     All Tickets
                 </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Templates</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="<%= ticket_templates_path %>">Ticket Templates</a>
+                    </div>
+                </div>
             </div>
             <div class="navbar-end">
                 <% if current_user.admin %>

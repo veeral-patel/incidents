@@ -1,0 +1,16 @@
+<h1>Ticket Templates</h1>
+
+<table class="responsive nowrap table table-hover" id="dttb-ticket_templates" data-sort="true" data-source="<%= url_for(format: :json)%>">
+  <thead>
+    <tr>
+      <th data-data="name">Name</th>
+      <th data-data="description">Description</th>
+      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+    </tr>
+  </thead>
+
+</table>
+
+<br>
+
+<%= link_to 'New Ticket Template', new_ticket_template_path %>

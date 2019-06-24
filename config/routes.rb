@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ticket_templates
   resources :tickets, :except => [:edit] do
       resources :attachments, :except => [:edit]
       resources :comments, :except => [:new, :edit]
