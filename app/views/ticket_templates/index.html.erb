@@ -11,6 +11,7 @@
   <table class="ticket-templates-table hover stripe">
     <thead>
       <th>Name</th>
+      <th># Tickets</th>
       <th>Description</th>
       <th>Destroy</th>
     </thead>
@@ -18,6 +19,7 @@
       <% @ticket_templates.each do |template| %>
         <tr>
           <td><%= template.name %></td>
+          <td><%= template.num_tickets %></td>
           <td><%= truncate(template.description, :length => 40) %></td>
           <td><%= link_to 'Destroy', template, method: :delete, data: { confirm: "Are you sure you want to delete template #{template}?" } %></td>
         </tr>

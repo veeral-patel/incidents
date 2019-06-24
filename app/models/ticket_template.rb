@@ -9,6 +9,10 @@ class TicketTemplate < ApplicationRecord
         root_templates
     end
 
+    def num_tickets
+        self.descendants.count + 1
+    end
+
     def to_s
         self.name
     end
