@@ -13,6 +13,19 @@ class TicketTemplate < ApplicationRecord
         self.descendants.count + 1
     end
 
+    def to_json
+        if self.children.empty?
+            {
+                text: { name: self.name },
+            }
+        else
+            {
+                text: { name: self.name },
+                children: self.children.map { |child| child.to_json },
+            }
+        end
+    end
+
     def to_s
         self.name
     end

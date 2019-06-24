@@ -1,5 +1,5 @@
 class TicketTemplatesController < ApplicationController
-  before_action :set_ticket_template, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket_template, only: [:show, :edit, :update, :destroy, :tree]
 
   # GET /ticket_templates
   # GET /ticket_templates.json
@@ -53,6 +53,16 @@ class TicketTemplatesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to ticket_templates_url, notice: 'Ticket template was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /ticket_templates/1/tree
+  def tree
+    gon.push({ template_tree_as_json: @ticket_template.to_json })
+
+    respond_to do |format|
+      format.html { render :tree }
+      format.json { render json: @ticket_template.to_json }
     end
   end
 

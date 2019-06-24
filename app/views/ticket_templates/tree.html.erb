@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <%= include_gon(:init => true) %>
+  </head>
+
+  <body>
+    <div id="tree"></div>
+  </body>
+
+  <script>
+    config = {
+      chart: {
+        container: "#tree"
+      },
+      nodeStructure: gon.template_tree_as_json
+    };
+
+    var my_chart = new Treant(config);
+  </script>
+
+  <style>
+    .node {
+      padding: 8px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background-color: #ffffff;
+      border: 1px solid #000;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .open {
+        background-color: #FF5454;
+        color: white;
+    }
+    
+    .in_progress {
+        background-color: khaki;
+        color: black;
+    }
+
+    .closed {
+        background-color: limegreen; 
+        color: white;
+    }
+  </style>
+</html>
