@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       member do
         get :children
         get :tree
+        get :create_template
       end
   end
 

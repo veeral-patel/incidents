@@ -19,4 +19,8 @@ class TicketPolicy < ApplicationPolicy
     def tree?
         show?
     end
+
+    def create_template?
+        show?
+    end
 end
