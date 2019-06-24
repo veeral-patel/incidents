@@ -77,6 +77,11 @@
   $(document).ready(function() {
     $(".tickets-table").DataTable({
       "pagingType": "simple_numbers",
+      "language": { search: "" },
     });
+
+        // style datatable search inputs
+    $(".dataTables_filter input").addClass("input");
+    $(".dataTables_filter input").attr("placeholder", "Search");
   })
 </script>
