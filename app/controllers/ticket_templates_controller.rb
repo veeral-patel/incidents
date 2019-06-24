@@ -12,11 +12,6 @@ class TicketTemplatesController < ApplicationController
   def show
   end
 
-  # GET /ticket_templates/new
-  def new
-    @ticket_template = TicketTemplate.new
-  end
-
   # GET /ticket_templates/1/edit
   def edit
   end

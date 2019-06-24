@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :ticket_templates
+  resources :ticket_templates, :except => [:new]
+
   resources :tickets, :except => [:edit] do
       resources :attachments, :except => [:edit]
       resources :comments, :except => [:new, :edit]
@@ -27,7 +28,6 @@ Rails.application.routes.draw do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
     put 'users/:id' => 'devise/registrations#update', :as => 'user_registration'
   end
-
 
   scope "/admin" do
     resources :users, :except => [:new, :show, :edit]
