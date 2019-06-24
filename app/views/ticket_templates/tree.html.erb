@@ -4,6 +4,14 @@
   </head>
 
   <body>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="<%= ticket_templates_path %>"> Ticket Templates </a></li>
+        <li><a class="has-text-dark"><%= @ticket_template %></a></li>
+        <li class="is-active"><a>Tree</a></li>
+      </ul>
+    </nav>
+    <h2 class="title is-4">Tree</h2>
     <div id="tree"></div>
   </body>
 
