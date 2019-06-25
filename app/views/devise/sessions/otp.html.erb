@@ -1,6 +1,16 @@
-<p>Please verify your OTP</p>
-<%= form_for "", url: users_sessions_verify_otp_path, method: :post do |f| %>
-  <%= f.label :otp_attempt %>
-  <%= f.text_field :otp_attempt %>
-  <%= f.submit "Verify" %>
-<% end %>
+<div style="display: flex; justify-content: center">
+  <div style="width: 50%; padding: 5%; border-radius: 8px">
+    <h2 class="title is-4" style="color: white">Please enter your one time password</h2>
+    <%= form_for "", url: users_sessions_verify_otp_path, method: :post do |f| %>
+      <%= f.text_field :otp_attempt, class: "input", placeholder: "123456", autofocus: true %>
+      <br><br>
+      <%= f.button "Verify", type: :submit, class: "button" %>
+    <% end %>
+  </div>
+</div>
+
+<style>
+html, body {
+    background-color: #3676d9;
+}
+</style>
