@@ -47,6 +47,9 @@ only has to talk to the forensic team's manager.
 ### To get it running locally:
 
 ```
+# change environment variables in .env.sample, then:
+cp .env.sample .env
+
 # build docker image
 docker-compose build
 
