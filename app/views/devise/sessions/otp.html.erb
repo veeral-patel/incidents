@@ -1,6 +1,6 @@
 <div style="display: flex; justify-content: center">
   <div style="width: 50%; padding: 5%; border-radius: 8px">
-    <h2 class="title is-4" style="color: white">Please enter your one time password</h2>
+    <h2 class="title is-5" style="color: white">Please enter your one time password</h2>
     <%= form_for "", url: users_sessions_verify_otp_path, method: :post do |f| %>
       <%= f.text_field :otp_attempt, class: "input", placeholder: "123456", autofocus: true %>
       <br><br>
