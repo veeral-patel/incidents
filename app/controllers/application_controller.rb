@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
         devise_parameter_sanitizer.permit :account_update, keys: added_attrs
         devise_parameter_sanitizer.permit(:accept_invitation, keys: [:username])
+        devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
     end
 
     def json_request?

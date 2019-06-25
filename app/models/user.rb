@@ -1,7 +1,9 @@
 class User < ApplicationRecord
+   devise :two_factor_authenticatable, :otp_secret_encryption_key => ENV["2FA_KEY"]
+
     acts_as_token_authenticatable
 
-    devise :invitable, :database_authenticatable, :recoverable, :rememberable, :validatable
+    devise :invitable, :recoverable, :rememberable, :validatable
 
     validate :validate_username
     validates :username, presence: true
@@ -66,6 +68,19 @@ class User < ApplicationRecord
         if User.where(email: username).exists?
             errors.add(:username, :invalid)
         end
+    end
+
+    def activate_otp
+        self.otp_required_for_login = true
+        self.otp_secret = unconfirmed_otp_secret
+        self.unconfirmed_otp_secret = nil
+        save!
+      end
+    
+    def deactivate_otp
+        self.otp_required_for_login = false
+        self.otp_secret = nil
+        save!
     end
 end
 

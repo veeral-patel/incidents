@@ -28,7 +28,19 @@ Rails.application.routes.draw do
       resources :members, only: [:index, :destroy]
   end
 
-  devise_for :users, :skip => [:registrations] 
+  devise_for :users, :skip => [:registrations], controllers: { sessions: 'users/sessions' }
+
+  devise_scope :user do
+    post "/users/sessions/verify_otp" => "users/sessions#verify_otp"
+  end
+
+  resources :two_factor do
+    collection do
+      get :activate
+      get :deactivate
+    end
+  end
+
   as :user do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
     put 'users/:id' => 'devise/registrations#update', :as => 'user_registration'
