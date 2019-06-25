@@ -1,5 +1,6 @@
 class Incident < ApplicationRecord
     acts_as_taggable
+    has_rich_text :description
 
     after_create_commit :add_creator_to_members
 
