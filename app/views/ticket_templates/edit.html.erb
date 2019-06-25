@@ -1,3 +1,12 @@
+<nav class="breadcrumb">
+    <ul>
+        <li><a href="<%= ticket_templates_path %>"> Ticket Templates </a></li>
+        <li><a href="<%= edit_ticket_template_path(@ticket_template.root) %>"><%= @ticket_template.root %></a></li>
+        <li><a href="<%= tree_ticket_template_path(@ticket_template.root) %>"> Tree </a></li>
+        <li class="is-active"><a><%= @ticket_template %></a></li>
+    </ul>
+</nav>
+
 <h2 class="title is-4"><%= @ticket_template.name %></h2>
 
 <%= render 'form', ticket_template: @ticket_template %>
