@@ -67,7 +67,7 @@
     <div class="field">
       <%= form.label :assigned_to, "Assigned To ", class: "label" %>
       <div class="select">
-          <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
+          <%= collection_select :ticket, :assigned_to_id, ticket.incident.members, :id, :username, { include_blank: true } %>
       </div>
 
     </div>
