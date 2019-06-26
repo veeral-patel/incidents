@@ -106,7 +106,7 @@ class TicketsController < ApplicationController
   def create_template
     @ticket.create_template
     respond_to do |format|
-      format.html { redirect_to ticket_templates_url, notice: "Created template from ticket #{@ticket}"}
+      format.html { redirect_to ticket_templates_url, notice: "Created template from ticket '#{@ticket}''"}
     end
   end
 
