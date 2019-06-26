@@ -17,6 +17,7 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>Status</th>
         <th>Created At</th>
         <th>Created By</th>
         <th>Tags</th>
@@ -34,6 +35,7 @@
       <% @incidents.each do |incident| %>
         <tr>
           <td><%= incident.name %></td>
+          <td><%= incident.status %></td>
           <td><%= incident.created_at %></td>
           <td><%= incident.user %></td>
           <td><%= incident.tag_list %></td>
