@@ -2,6 +2,7 @@ class TicketTemplate < ApplicationRecord
     has_ancestry
 
     validates :name, presence: true
+    belongs_to :user
 
     def self.root_templates
         root_templates = []

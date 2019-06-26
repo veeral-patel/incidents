@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_25_210758) do
+ActiveRecord::Schema.define(version: 2019_06_26_053204) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -121,7 +121,9 @@ ActiveRecord::Schema.define(version: 2019_06_25_210758) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
+    t.integer "user_id"
     t.index ["ancestry"], name: "index_ticket_templates_on_ancestry"
+    t.index ["user_id"], name: "index_ticket_templates_on_user_id"
   end
 
   create_table "tickets", force: :cascade do |t|

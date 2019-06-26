@@ -13,6 +13,7 @@ class User < ApplicationRecord
     has_many :tickets
     has_many :comments
     has_many :observables
+    has_many :ticket_templates
 
     # user.incidents returns the incidents an user created
     # user.joined_incidents returns the incidents an user is a member of

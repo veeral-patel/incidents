@@ -12,6 +12,7 @@
     <thead>
       <th>Name</th>
       <th>Created At</th>
+      <th>Created By</th>
       <th># Tickets</th>
       <th>Description</th>
       <th>Tree</th>
@@ -22,6 +23,7 @@
         <tr>
           <td><%= template.name %></td>
           <td><%= template.created_at %></td>
+          <td><%= template.user %></td>
           <td><%= template.num_tickets %></td>
           <td><%= truncate(template.description, :length => 40) %></td>
           <td><%= link_to 'Tree', tree_ticket_template_path(template) %></td>
