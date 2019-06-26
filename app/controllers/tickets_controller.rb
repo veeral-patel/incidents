@@ -24,20 +24,6 @@ class TicketsController < ApplicationController
   def show
   end
 
-  # GET /tickets/new
-  def new
-    @ticket = Ticket.new
-    if current_user.admin 
-      if Incident.all.count == 0
-        @ticket.errors.add(:base, "No incidents exist! Create an incident before creating a ticket.") 
-      end
-    else
-      if current_user.joined_incidents.count == 0
-        @ticket.errors.add(:base, "You are not a member of any incidents. You must create an incident, or be added to one, before creating a ticket.")
-      end
-    end
-  end
-
   # POST /tickets
   # POST /tickets.json
   def create

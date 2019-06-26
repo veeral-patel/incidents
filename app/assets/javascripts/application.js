@@ -22,18 +22,13 @@ $(document).ready(function() {
   $(".message.is-success").fadeOut(2000);
 
   // escape unfocuses inputs
-  $('input[type=text]').keyup(function(e) {
-    if (e.keyCode === 27) $(this).blur(); 
+  $("input[type=text]").keyup(function(e) {
+    if (e.keyCode === 27) $(this).blur();
   });
 
   // and text areas
-  $('textarea').keyup(function(e) {
-    if (e.keyCode === 27) $(this).blur(); 
-  });
-
-  // shift-i to create a ticket
-  Mousetrap.bind("shift+t", function() {
-    window.location.replace("/tickets/new");
+  $("textarea").keyup(function(e) {
+    if (e.keyCode === 27) $(this).blur();
   });
 
   // shift-i to create an incident

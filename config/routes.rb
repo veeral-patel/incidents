@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tickets, :except => [:edit] do
+  resources :tickets, :except => [:edit, :new] do
       resources :attachments, :except => [:edit]
       resources :comments, :except => [:new, :edit]
       resources :observables, :except => [:edit]
