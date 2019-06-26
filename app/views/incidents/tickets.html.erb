@@ -12,17 +12,15 @@
       </ul>
     </nav>
 
-    <%# <div>
+    <div>
       <span style="display: inline-block">
         <h2 class="title is-4">Tickets</h2>
       </span>
       <span>
-        <a class="button is-link" style="float: right">New Ticket</a>
+        <a href="<%= new_ticket_incident_path %>" class="button is-link" style="float: right">New Ticket</a>
       </span>
     </div>
-    <br /> %>
-
-    <h2 class="title is-4">Tickets</h2>
+    <br />
 
     <% if @incident.tickets.empty? %>
       No tickets

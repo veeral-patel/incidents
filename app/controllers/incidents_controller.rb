@@ -4,7 +4,7 @@ class IncidentsController < ApplicationController
   before_action :authorize_actions_on_one_incident, except: [:index, :create, :new]
   before_action :authorize_other_actions, only: [:index, :create, :new]
 
-  before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree, :danger]
+  before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree, :danger, :new_ticket]
 
   # verify each action is authorized
   after_action :verify_authorized
@@ -116,6 +116,20 @@ end
     respond_to do |format|
       format.html { render :tree }
       format.json { render json: @incident.to_json }
+    end
+  end
+
+  def new_ticket
+    @ticket = Ticket.new
+
+    if current_user.admin 
+      if Incident.all.count == 0
+        @ticket.errors.add(:base, "No incidents exist! Create an incident before creating a ticket.") 
+      end
+    else
+      if current_user.joined_incidents.count == 0
+        @ticket.errors.add(:base, "You are not a member of any incidents. You must create an incident, or be added to one, before creating a ticket.")
+      end
     end
   end
 
