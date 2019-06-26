@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     post "/users/sessions/verify_otp" => "users/sessions#verify_otp"
   end
 
-  resources :two_factor do
+  resources :two_factor, only: [:index] do
     collection do
       get :activate
       get :deactivate
