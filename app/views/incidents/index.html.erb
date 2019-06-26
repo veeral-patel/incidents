@@ -16,6 +16,7 @@
   <table class="incidents-table hover stripe">
     <thead>
       <tr>
+        <th></th>
         <th>Name</th>
         <th>Created At</th>
         <th>Created By</th>
@@ -33,6 +34,7 @@
     <tbody>
       <% @incidents.each do |incident| %>
         <tr>
+          <td></td>
           <td><%= incident.name %></td>
           <td><%= incident.created_at %></td>
           <td><%= incident.user %></td>
@@ -54,7 +56,16 @@
   $(document).ready(function() {
     $(".incidents-table").DataTable({
       "pagingType": "simple_numbers",
-      "language": { search: "" }
+      "language": { search: "" },
+      "columnDefs": [ {
+          "orderable": false,
+          "className": 'select-checkbox',
+          "targets":   0
+        } ],
+        "select": {
+          "style":    'os',
+          "selector": 'td:first-child'
+        }
     });
 
         // style datatable search inputs
