@@ -8,10 +8,18 @@
         <div class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item" href="<%= incidents_path %>">
-                    Incidents
+                    <% if current_user.admin %>
+                        Incidents (<%= Incident.all.count %>)
+                    <% else %>
+                        Incidents (<%= current_user.joined_incidents.count =%>)
+                    <% end %>
                 </a>
                 <a class="navbar-item" href="<%= tickets_path %>">
-                    Tickets
+                    <% if current_user.admin %>
+                        Tickets (<%= Ticket.all.count %>)
+                    <% else %>
+                        Tickets (<%= current_user.joined_tickets.count =%>)
+                    <% end %>
                 </a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Templates</a>
