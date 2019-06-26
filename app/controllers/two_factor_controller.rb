@@ -1,4 +1,8 @@
 class TwoFactorController < ApplicationController
+    def index
+        @two_factor_enabled = current_user.otp_required_for_login
+    end
+
     def activate
         current_user.unconfirmed_otp_secret = User.generate_otp_secret
         current_user.save!

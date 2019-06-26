@@ -1,0 +1,9 @@
+<h2 class="title is-4">2FA</h2>
+
+<div class="content">
+    <% if @two_factor_enabled %>
+        <p>2FA is <span style="color: green; font-weight: bold">enabled</span></p>
+    <% else %>
+            <p>2FA is <span style="color: red; font-weight: bold">disabled</span></p>
+    <% end %>
+</div>
