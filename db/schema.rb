@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2019_06_25_210758) do
     t.string "invited_by_type"
     t.integer "invited_by_id"
     t.integer "invitations_count", default: 0
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.datetime "deleted_at"
     t.string "encrypted_otp_secret"
     t.string "encrypted_otp_secret_iv"
