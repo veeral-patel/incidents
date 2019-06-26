@@ -1,88 +1,95 @@
-<%# breadcrumb %>
-<nav class="breadcrumb">
-    <ul>
-        <li><a href="<%= tickets_path %>"> All Tickets </a></li>
-        <li class="is-active"><a>New Ticket</a></li>
-    </ul>
-</nav>
+<div style="display: grid; grid-template-columns: 13% 87%; grid-column-gap: 2%;" >
+  <div>
+    <%= render 'shared/menu' %>
+  </div>
+  <div>
+    <nav class="breadcrumb">
+        <ul>
+          <li><a href="<%= incidents_path %>"> All Incidents </a></li>
+          <li><a href="<%= incident_path(@incident) %>"><%= @incident.name %></a></li>
+          <li><a href="<%= tickets_incident_path(@incident) %>">Tickets</a></li>
+          <li class="is-active"><a>New Ticket</a></li>
+        </ul>
+      </nav>
 
-<%# title %>
-<h2 class="title is-4">New Ticket</h2>
+  <%# title %>
+  <h2 class="title is-4">New Ticket</h2>
 
-<%# new ticket form %>
-<div style="width: 50%">
-  <%= form_with(model: @ticket, local: true) do |form| %>
-    <% if @ticket.errors.any? %>
-      <div class="message is-danger">
-        <div class="message-header">
-          <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+  <%# new ticket form %>
+  <div style="width: 50%">
+    <%= form_with(model: @ticket, local: true) do |form| %>
+      <% if @ticket.errors.any? %>
+        <div class="message is-danger">
+          <div class="message-header">
+            <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+          </div>
+          <div class="message-body">
+            <ul>
+            <% @ticket.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
         </div>
-        <div class="message-body">
-          <ul>
-          <% @ticket.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
 
-    <div class="field">
-      <%= form.label :name, "Name (Required)", class: "label" %>
-      <%= form.text_field :name, placeholder: "Conduct live response", autofocus: true, class: "input" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :status, "Status (Required)", class: "label" %>
-      <div class="select">
-          <%= form.select :status, Ticket.statuses.keys.map { |w| [w.humanize, w] } %>
-      </div>
-    </div>
-
-    <div class="field">
-      <%= form.label :is_lead, class: "label" %>
-      <%= form.check_box :is_lead %>
-    </div>
-
-    <div class="field" style="width: 50%">
-      <%= form.label :tag_list, "Tag List ", class: "label" %>
-        <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk", class: "input" %>
-    </div>
-
-    <div class="field">
-      <%= form.label :assigned_to, "Assigned To ", class: "label" %>
-      <div class="select">
-          <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
-      </div>
-
-    </div>
-
-    <div class="field">
-      <%= form.label :priority, "Priority ", class: "label" %>
-      <div class="select">
-          <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
-      </div>
-    </div>
-
-    <%# only show parent ticket dropdown in edit ticket %>
-    <% if not @ticket.new_record? %>
       <div class="field">
-        <%= form.label :parent_id, "Parent Ticket ", class: "label" %>
+        <%= form.label :name, "Name (Required)", class: "label" %>
+        <%= form.text_field :name, placeholder: "Conduct live response", autofocus: true, class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :status, "Status (Required)", class: "label" %>
         <div class="select">
-            <%= collection_select(:ticket, :parent_id, Ticket.where(incident: ticket.incident), :id, :name, {include_blank: true}) %>
+            <%= form.select :status, Ticket.statuses.keys.map { |w| [w.humanize, w] } %>
         </div>
       </div>
+
+      <div class="field">
+        <%= form.label :is_lead, class: "label" %>
+        <%= form.check_box :is_lead %>
+      </div>
+
+      <div class="field" style="width: 50%">
+        <%= form.label :tag_list, "Tag List ", class: "label" %>
+          <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk", class: "input" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :assigned_to, "Assigned To ", class: "label" %>
+        <div class="select">
+            <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
+        </div>
+
+      </div>
+
+      <div class="field">
+        <%= form.label :priority, "Priority ", class: "label" %>
+        <div class="select">
+            <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
+        </div>
+      </div>
+
+      <%# only show parent ticket dropdown in edit ticket %>
+      <% if not @ticket.new_record? %>
+        <div class="field">
+          <%= form.label :parent_id, "Parent Ticket ", class: "label" %>
+          <div class="select">
+              <%= collection_select(:ticket, :parent_id, Ticket.where(incident: ticket.incident), :id, :name, {include_blank: true}) %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :description, "Description ", class: "label" %>
+        <%= form.rich_text_area :description =%>
+      </div>
+
+      <%= form.hidden_field :incident_id, value: @incident.id %>
+
+      <div class="actions">
+        <%= form.button "Update", type: :submit, class: "button is-link" %>
+      </div>
     <% end %>
-
-    <div class="field">
-      <%= form.label :description, "Description ", class: "label" %>
-      <%= form.rich_text_area :description =%>
-    </div>
-
-    <%= form.hidden_field :incident_id, value: @incident.id %>
-
-    <div class="actions">
-      <%= form.button "Update", type: :submit, class: "button is-link" %>
-    </div>
-  <% end %>
+  </div>
 </div>
