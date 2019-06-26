@@ -42,6 +42,7 @@
               <th>Created By</th>
               <th>Created At</th>
               <th>Description</th>
+              <th>Tags</th>
               <th>Show</th>
               <th>Destroy</th>
             </tr>
@@ -54,6 +55,7 @@
               <td><%= observable.user %></td>
               <td><%= observable.created_at %></td>
               <td><%= truncate(observable.description, :length => 40) %></td>
+              <td><%= observable.tag_list %></td>
               <td>
                 <%= link_to 'Show', ticket_observable_path(@ticket, observable) %>
               </td>

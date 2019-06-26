@@ -30,6 +30,7 @@
         <th>User</th>
         <th>Ticket</th>
         <th>Description</th>
+        <th>Tags</th>
         <th>Show</th>
         <th>Destroy</th>
       </tr>
@@ -42,6 +43,7 @@
           <td><%= observable.user %></td>
           <td><%= observable.ticket %></td>
           <td><%= truncate(observable.description, :length => 60) %></td>
+          <td><%= observable.tag_list %></td>
           <td><%= link_to 'Show', ticket_observable_path(observable.ticket, observable) %></td>
           <td><%= link_to 'Destroy', ticket_observable_path(observable.ticket, observable), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
