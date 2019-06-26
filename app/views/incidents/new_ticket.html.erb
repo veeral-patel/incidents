@@ -58,7 +58,7 @@
       <div class="field">
         <%= form.label :assigned_to, "Assigned To ", class: "label" %>
         <div class="select">
-            <%= collection_select :ticket, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
+            <%= collection_select :ticket, :assigned_to_id, @incident.members, :id, :username, { include_blank: true } %>
         </div>
 
       </div>
@@ -69,16 +69,6 @@
             <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
         </div>
       </div>
-
-      <%# only show parent ticket dropdown in edit ticket %>
-      <% if not @ticket.new_record? %>
-        <div class="field">
-          <%= form.label :parent_id, "Parent Ticket ", class: "label" %>
-          <div class="select">
-              <%= collection_select(:ticket, :parent_id, Ticket.where(incident: ticket.incident), :id, :name, {include_blank: true}) %>
-          </div>
-        </div>
-      <% end %>
 
       <div class="field">
         <%= form.label :description, "Description ", class: "label" %>
