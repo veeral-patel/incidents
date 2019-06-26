@@ -1,4 +1,4 @@
-<h2 class="title is-4">Edit User</h2>
+<h2 class="title is-4">Edit Profile</h2>
 
 <div style="width: 50%">
     <%= form_for(resource, as: resource_name, url: user_registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -53,6 +53,3 @@
         </div>
     <% end %>
 </div>
-
-<br>
-<%= link_to "Back", :back %>
