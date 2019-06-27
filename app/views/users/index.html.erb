@@ -22,7 +22,7 @@
       <th>Accepted Invitation?</th>
       <th>Is Admin?</th>
       <th>Enabled?</th>
-      <th>Destroy</th>
+      <th>Disable</th>
     </tr>
   </thead>
 
@@ -38,11 +38,11 @@
         <% if not user.active_for_authentication? %>
           <td></td>
         <% elsif user.admin && User.admins.count == 1%>
-          <td>Can't destroy last admin</td>
+          <td>Can't disable last admin</td>
         <% elsif @users.count == 1 %>
-          <td>Can't destroy last user</td>
+          <td>Can't disable last user</td>
         <% else %>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Disable', user, method: :delete %></td>
         <% end %>
       </tr>
     <% end %>
