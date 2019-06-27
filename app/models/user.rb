@@ -36,7 +36,6 @@ class User < ApplicationRecord
         update_attribute(:deleted_at, Time.current)  
     end  
       
-    # ensure user account is active  
     def active_for_authentication?  
         super && !deleted_at  
     end  
