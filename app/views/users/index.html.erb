@@ -16,11 +16,11 @@
 <table class="users-table hover stripe">
   <thead>
     <tr>
-      <th>Created At</th>
       <th>Username</th>
       <th>Status</th>
       <th>Email</th>
       <th>Role</th>
+      <th>Created At</th>
       <th>Disable</th>
     </tr>
   </thead>
@@ -28,11 +28,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.created_at %></td>
         <td><%= user.username %></td>
         <td><%= user.status.upcase %></td>
         <td><%= user.email %></td>
         <td><%= user.admin? ? "admin" : "user" %></td>
+        <td><%= user.created_at %></td>
         <% if not user.active_for_authentication? %>
           <td></td>
         <% elsif user.admin && User.admins.count == 1%>
