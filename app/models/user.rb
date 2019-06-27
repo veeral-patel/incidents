@@ -28,6 +28,20 @@ class User < ApplicationRecord
         Ticket.where(incident: self.joined_incidents)
     end
 
+    def status
+        if not self.active_for_authentication?
+            return :disabled
+        elsif self.invitation_sent_at?
+            if self.invitation_accepted?
+                return :invitation_accepted
+            else 
+                return :invitation_pending
+            end
+        else
+            return :created_manually
+        end
+    end
+
     def to_s
         self.username
     end

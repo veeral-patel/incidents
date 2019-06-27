@@ -18,6 +18,7 @@
     <tr>
       <th>Created At</th>
       <th>Username</th>
+      <th>Status</th>
       <th>Email</th>
       <th>Accepted Invitation?</th>
       <th>Is Admin?</th>
@@ -31,6 +32,7 @@
       <tr>
         <td><%= user.created_at %></td>
         <td><%= user.username %></td>
+        <td><%= user.status.upcase %></td>
         <td><%= user.email %></td>
         <td><%= user.invitation_accepted? %></td>
         <td><%= user.admin %></td>

@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    if not @user.username.ends_with?('[deleted]')
-      @user.username = @user.username + " [deleted]"
+    if not @user.username.ends_with?('[disabled]')
+      @user.username = @user.username + " [disabled]"
       @user.save
     end
 
