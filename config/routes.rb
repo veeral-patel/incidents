@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :ticket_templates, :except => [:new, :show] do
-    member do
-      get :tree
-    end
-  end
+  # resources :ticket_templates, :except => [:new, :show] do
+  #   member do
+  #     get :tree
+  #   end
+  # end
 
   resources :tickets, :except => [:edit, :new] do
       resources :attachments, :except => [:edit]
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       member do
         get :children
         get :tree
-        get :create_template
+        # get :create_template
       end
   end
 
@@ -31,16 +31,16 @@ Rails.application.routes.draw do
 
   devise_for :users, :skip => [:registrations], controllers: { sessions: 'users/sessions' }
 
-  devise_scope :user do
-    post "/users/sessions/verify_otp" => "users/sessions#verify_otp"
-  end
+  # devise_scope :user do
+  #   post "/users/sessions/verify_otp" => "users/sessions#verify_otp"
+  # end
 
-  resources :two_factor, only: [:index] do
-    collection do
-      get :activate
-      get :deactivate
-    end
-  end
+  # resources :two_factor, only: [:index] do
+  #   collection do
+  #     get :activate
+  #     get :deactivate
+  #   end
+  # end
 
   as :user do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'

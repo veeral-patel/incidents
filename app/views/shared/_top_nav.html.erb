@@ -21,12 +21,6 @@
                         Tickets (<%= current_user.joined_tickets.count =%>)
                     <% end %>
                 </a>
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">Templates</a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="<%= ticket_templates_path %>">Ticket Templates</a>
-                    </div>
-                </div>
             </div>
             <div class="navbar-end">
                 <% if current_user.admin %>
@@ -48,7 +42,7 @@
                         <%= current_user.username %>
                     </a>
                     <div class="navbar-dropdown is-right">
-                        <%= link_to '2FA', two_factor_index_path, :class => 'navbar-item' %> 
+                        <%# <%= link_to '2FA', two_factor_index_path, :class => 'navbar-item' %> 
                         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-item' %> 
                         <hr class="navbar-divider">
                         <%= link_to "Log out", destroy_user_session_path, method: :delete, :class => 'navbar-item'  %>

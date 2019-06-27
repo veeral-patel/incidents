@@ -9,8 +9,6 @@
   </div>
   <div class="dropdown-menu" id="dropdown-menu" role="menu">
     <div class="dropdown-content">
-      <a href="<%= create_template_ticket_path(@ticket) %>" class="dropdown-item">Create Template From This Ticket</a>
-      <hr class="dropdown-divider">
       <%= link_to 'Destroy Ticket', ticket, method: :delete, data: { confirm: 'Are you sure? Deleting a ticket deletes all associated attachments, observables, child tickets, and comments.' }, class: 'dropdown-item', style: 'color: red' %>
     </div>
   </div>
