@@ -1,12 +1,7 @@
 # Overview
 
-INCIDENTS is an open source web application for security incident response,
-like TheHive. 
+INCIDENTS is an open source web application for incident response, just like [TheHive](https://thehive-project.org).
 
-## Concepts
+INCIDENTS models incidents as a tree of tickets, like this:
 
-- Create an **incident** for each investigation
-- Each incident has many **tickets**, or pieces of work.
-- If a ticket needs to be investigated further, mark it as a **lead**.
-- Add **comments**, **attachments**, and **observables** (aka indicators) to a ticket.
-- Add **child tickets** to a ticket to break it down into smaller pieces, or to indicate the ticket spawned another piece of work.
+![Tree](img/tree.png)
