@@ -1,5 +1,8 @@
 # Overview
 
+INCIDENTS is an open source web application for security incident response,
+like TheHive. 
+
 ## Concepts
 
 - Create an **incident** for each investigation
