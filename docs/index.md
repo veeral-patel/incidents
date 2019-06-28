@@ -30,6 +30,7 @@ _INCIDENTS models incidents as a tree of tickets, like this:_
   tickets you assign to people to get things done in parallel. And analysts can identify open tickets to work on, without waiting for the investigation lead
 - **Preserve institutional knowledge**--document how investigations developed over time to reference in future incidents and for training new analysts
 - **Improve your IR process**--by documenting an investigation's evolution, be able to look back and find bottlenecks, areas for improvement, opportunities for automation
+- **Tame incidents with large scopes**--people only need to worry about the few levels in the tree below theirs, instead of being exposed to all the information about the incident
 
 ## Features
 
