@@ -21,3 +21,14 @@ _INCIDENTS models incidents as a tree of tickets, like this:_
 - If a ticket needs to be investigated further, mark it as a **lead**.
 - Add **comments**, **attachments**, and **observables** (aka indicators) to a ticket.
 - Add **child tickets** to a ticket to break it down into smaller pieces, or to indicate the ticket spawned another piece of work.
+
+## Features
+- Restrict who can view an incident
+- View all an incident's attachments in one place
+- View all an incident's observables in one place
+- View all an incident's leads in one place
+- Drag/drop nodes in the tree to quickly reorganize an incident
+- Tag indicators, attachments, tickets, and incidents
+- Assign tickets to users
+- Assign statuses and priorities to tickets
+- Keyboard shortcut for creating an incident
