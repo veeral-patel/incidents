@@ -21,7 +21,8 @@ including:
 - Adding observables, comments, and attachments to tickets
 - Destroying the incident itself
 
-Currently, there are no finer grained permissions or roles you can apply to an incident member to
-limit his abilities.
+Currently, there are no finer grained permissions or roles you can apply to an incident member to limit his abilities.
+
+You also can't disallow users from doing actions not tied to a specific incident, such as "create incident".
 
 (Dealbreaker? Let's chat about your use case! Email me at [veeral.patel@berkeley.edu](mailto:veeral.patel@berkeley.edu))
