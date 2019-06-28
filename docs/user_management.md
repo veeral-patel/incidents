@@ -11,7 +11,7 @@ invitation to create an account.
 
 - Currently, disabled users cannot be re-enabled. This will be fixed.
 - You cannot disable the last enabled admin user.
-- You cannot disable the last enabled user.
+- You cannot disable the last enabled user (who's probably an admin!).
 
 ## User statuses
 
