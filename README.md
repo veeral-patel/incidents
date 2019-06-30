@@ -25,7 +25,15 @@ _INCIDENTS models an incident as a tree of tickets, with any number of levels_
 ![Tree](docs/img/tree.png)
 
 I believe this approach better captures an incident responders' mental model of
-the incident. 
+an incident.
+
+## Benefits
+- **Avoid missing things with centralized lead management**--whether you're analysing a single system or leading a large engagement
+- **Keep people on the same page**--team members can glance at the tree to find out what's going on, instead of reading old status updates or reading the entire Slack channel
+- **Complete investigations faster**--divide large tasks into smaller tickets you assign to people to get things done in parallel. And analysts can identify open tickets to work on, without waiting for the investigation lead
+- **Preserve institutional knowledge**--document how investigations developed over time to reference in future incidents and for training new analysts
+- **Improve your IR process**--by documenting an investigation's evolution, be able to look back and find bottlenecks, areas for improvement, opportunities for automation
+- **Tame incidents with large scopes**--people only need to worry about the few levels in the tree below theirs, instead of being exposed to all the information about the incident
 
 ## Concepts
 
@@ -34,16 +42,6 @@ the incident.
 - If a ticket needs to be investigated further, mark it as a **lead**.
 - Add **comments**, **attachments**, and **observables** (aka indicators) to a ticket.
 - Add **child tickets** to a ticket to break it down into smaller pieces, or to indicate the ticket spawned another piece of work.
-
-## Benefits
-- **Avoid missing things with centralized lead management**--whether you're
-  analysing a single system or leading a large engagement
-- **Keep people on the same page**--team members can glance at the tree to find out what's going on, instead of reading old status updates or reading the entire Slack channel
-- **Complete investigations faster**--divide large tasks into smaller
-  tickets you assign to people to get things done in parallel. And analysts can identify open tickets to work on, without waiting for the investigation lead
-- **Preserve institutional knowledge**--document how investigations developed over time to reference in future incidents and for training new analysts
-- **Improve your IR process**--by documenting an investigation's evolution, be able to look back and find bottlenecks, areas for improvement, opportunities for automation
-- **Tame incidents with large scopes**--people only need to worry about the few levels in the tree below theirs, instead of being exposed to all the information about the incident
 
 ## Features
 
