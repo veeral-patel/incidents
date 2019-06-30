@@ -14,7 +14,7 @@ detection/response team, INCIDENTS is for you.
 
 ## Why INCIDENTS?
 
-Investigations are tree-like: a piece of malware may spawn an enterprise-wide sweep, which may find another piece of malware, which may spawn
+Investigations are tree-like: a piece of malware may spawn an enterprise-wide sweep, which may find a related piece of malware, which may spawn
 another sweep, and so on.
 
 Unfortunately, existing ticketing systems -- like TheHive and JIRA -- don't let you create subtickets of subtickets. So effectively your
