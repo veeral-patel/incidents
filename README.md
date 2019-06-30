@@ -2,7 +2,8 @@
 
 [![Gitter](https://badges.gitter.im/incidents-oss/community.svg)](https://gitter.im/incidents-oss/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-INCIDENTS is an open source web application for incident response, just like [TheHive](https://thehive-project.org).
+INCIDENTS is a web-based, actively maintained case management tool for incident response, just like
+[TheHive](https://thehive-project.org).
 
 You can use INCIDENTS whether you're investigating a malware infection, a
 phishing campaign, insider abuse, an application vulnerability, a
@@ -10,8 +11,6 @@ denial-of-service attempt, or any other kind of security incident.
 
 If you work at a SOC, MSSP, incident response firm, or an internal
 detection/response team, INCIDENTS is for you.
-
-INCIDENTS is actively maintained.
 
 ## Why INCIDENTS?
 
