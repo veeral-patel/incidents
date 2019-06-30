@@ -56,6 +56,6 @@ _INCIDENTS models incidents as a tree of tickets, like this:_
 ## Get in touch
 To request a feature or report a bug, [please open an issue on GitHub](https://github.com/veeral-patel/incidents/issues)
 
-You can email the author at [veeral.patel@berkeley.edu](mailto:veeral.patel@berkeley.edu). I reply to all emails, and most within a couple hours.
+You can email the author at [veeral.patel@berkeley.edu](mailto:veeral.patel@berkeley.edu). I reply to all emails, and most within a couple hours. I welcome feedback!
 
 We're on [Gitter](https://gitter.im/incidents-oss/community), too.
