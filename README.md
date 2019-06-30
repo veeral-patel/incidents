@@ -8,6 +8,9 @@ You can use INCIDENTS whether you're investigating a malware infection, a
 phishing campaign, insider abuse, an application vulnerability, a
 denial-of-service attempt, or any other kind of security incident.
 
+If you work at a SOC, MSSP, incident response firm, or an internal
+detection/response team, INCIDENTS is for you.
+
 ## Investigations are tree-like
 
 Investigations are tree-like: a piece of malware may spawn an enterprise-wide sweep, which may find another piece of malware, which may spawn
