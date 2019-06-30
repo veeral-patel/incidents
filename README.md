@@ -51,6 +51,8 @@ _INCIDENTS models incidents as a tree of tickets, like this:_
 - Keyboard shortcut for creating an incident
 
 ## Get in touch
-Email the author at [veeral.patel@berkeley.edu](mailto:veeral.patel@berkeley.edu). I reply to all emails, and most within a couple hours.
+To request a feature or report a bug, [please open an issue on GitHub](https://github.com/veeral-patel/incidents/issues)
 
-And join [Gitter](https://gitter.im/incidents-oss/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+You can email the author at [veeral.patel@berkeley.edu](mailto:veeral.patel@berkeley.edu). I reply to all emails, and most within a couple hours.
+
+We're on [Gitter](https://gitter.im/incidents-oss/community), too.
