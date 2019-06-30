@@ -45,3 +45,8 @@ _INCIDENTS models incidents as a tree of tickets, like this:_
 - Assign tickets to users
 - Assign statuses and priorities to tickets
 - Keyboard shortcut for creating an incident
+
+## Get in touch
+Email the author at [mailto:veeral.patel@berkeley.edu](veeral.patel@berkeley.edu)
+
+Or join [Gitter](https://badges.gitter.im/incidents-oss/community.svg)](https://gitter.im/incidents-oss/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
