@@ -24,7 +24,7 @@ INCIDENTS models an incident as a tree of tickets, with any number of levels
 
 ![Tree](docs/img/tree.png)
 
-I believe this approach better captures an incident responders' mental model of
+I believe this approach better captures an incident responder's mental model of
 an incident.
 
 ## Benefits
