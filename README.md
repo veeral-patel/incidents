@@ -17,7 +17,8 @@ detection/response team, INCIDENTS is for you.
 Investigations are tree-like: a piece of malware may spawn an enterprise-wide sweep, which may find another piece of malware, which may spawn
 another sweep, and so on.
 
-Unfortunately, existing ticketing systems -- like TheHive and JIRA -- don't let you create subtickets of subtickets.
+Unfortunately, existing ticketing systems -- like TheHive and JIRA -- don't let you create subtickets of subtickets. So effectively your
+tree can only have 2 levels. And you can't view a visualization of the tree.
 
 _INCIDENTS models an incident as a tree of tickets, with any number of levels_
 
