@@ -4,6 +4,10 @@
 
 INCIDENTS is an open source web application for incident response, just like [TheHive](https://thehive-project.org).
 
+You can use INCIDENTS whether you're investigating a malware infection, a
+phishing campaign, insider abuse, an application vulnerability, a
+denial-of-service attempt, or any other kind of security incident.
+
 ## Investigations are tree-like
 
 Investigations are tree-like: a piece of malware may spawn an enterprise-wide sweep, which may find another piece of malware, which may spawn
