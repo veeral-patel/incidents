@@ -18,7 +18,7 @@ Investigations are tree-like: a piece of malware may spawn an enterprise-wide sw
 another sweep, and so on.
 
 Unfortunately, existing ticketing systems -- like TheHive and JIRA -- don't let you create subtickets of subtickets. So effectively your
-tree can only have 2 levels--and they don't let you visualization of the tree, either.
+tree can only have 2 levels--and they don't show you a visualization of the tree, either.
 
 _INCIDENTS models an incident as a tree of tickets, with any number of levels_
 
