@@ -53,6 +53,14 @@ _INCIDENTS models incidents as a tree of tickets, like this:_
 - Assign statuses and priorities to tickets
 - Keyboard shortcut for creating an incident
 
+## Tech Stack
+
+INCIDENTS is built using:
+- Ruby on Rails
+- ActionText
+- Bulma
+- JQuery
+
 ## Get in touch
 To request a feature or report a bug, [please open an issue on GitHub](https://github.com/veeral-patel/incidents/issues)
 
