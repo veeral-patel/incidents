@@ -1,5 +1,7 @@
 # INCIDENTS
 
+[![Gitter](https://badges.gitter.im/incidents-oss/community.svg)](https://gitter.im/incidents-oss/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 INCIDENTS is an open source web application for incident response, just like [TheHive](https://thehive-project.org).
 
 ## Investigations are tree-like
