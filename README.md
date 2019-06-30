@@ -13,17 +13,19 @@ detection/response team, INCIDENTS is for you.
 
 INCIDENTS is actively maintained.
 
-## Investigations are tree-like
+## Why INCIDENTS?
 
 Investigations are tree-like: a piece of malware may spawn an enterprise-wide sweep, which may find another piece of malware, which may spawn
 another sweep, and so on.
 
-But existing ticketing systems, like TheHive and JIRA, don't let you create
-subtickets of subtickets.
+Unfortunately, existing ticketing systems -- like TheHive and JIRA -- don't let you create subtickets of subtickets.
 
-_INCIDENTS models incidents as a tree of tickets, like this:_
+_INCIDENTS models an incident as a tree of tickets, with any number of levels_
 
 ![Tree](docs/img/tree.png)
+
+I believe this approach better captures an incident responders' mental model of
+the incident. 
 
 ## Concepts
 
