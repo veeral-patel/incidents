@@ -20,7 +20,7 @@ another sweep, and so on.
 Unfortunately, existing ticketing systems -- like TheHive and JIRA -- don't let you create subtickets of subtickets. So effectively your
 tree can only have 2 levels--and they don't show you a visualization of the tree, either.
 
-INCIDENTS models an incident as a tree of tickets, with any number of levels
+INCIDENTS models an incident as a tree of tickets, with any number of levels.
 
 ![Tree](docs/img/tree.png)
 
@@ -63,7 +63,7 @@ INCIDENTS is built using:
 - Bulma
 - JQuery
 
-## Get in touch
+## Get in Touch
 To request a feature or report a bug, [please open an issue on GitHub](https://github.com/veeral-patel/incidents/issues)
 
 You can email the author at [veeral.patel@berkeley.edu](mailto:veeral.patel@berkeley.edu). I reply to all emails, and most within a couple hours. I welcome feedback!
