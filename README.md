@@ -12,6 +12,32 @@ denial-of-service attempt, or any other kind of security incident.
 If you work at a SOC, MSSP, incident response firm, or an internal
 detection/response team, INCIDENTS is for you.
 
+## Get INCIDENTS Running Locally
+```
+# change environment variables in .env.sample, then:
+cp .env.sample .env
+
+# build docker image
+docker-compose build
+
+# create and migrate database
+docker-compose run web rake db:create db:migrate
+
+# start application
+docker-compose up
+
+# create initial user (see below)
+docker-compose exec web rails console
+```
+
+Create initial user:
+```
+user = User.new(username: 'admin', email: 'admin@protonmail.com', password: 'mypassword', admin: true)
+user.save
+```
+
+Then visit http://localhost:80
+
 ## Why INCIDENTS?
 
 Investigations are tree-like: a piece of malware may spawn an enterprise-wide sweep, which may find a related piece of malware, which may spawn
