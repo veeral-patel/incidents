@@ -30,8 +30,6 @@ gem 'pundit'
 gem 'devise-two-factor'
 gem 'rqrcode_png'
 gem 'dotenv-rails'
-gem 'webpacker'
-gem 'actiontext', github: 'kobaltz/actiontext', branch: 'archive', require: 'action_text'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

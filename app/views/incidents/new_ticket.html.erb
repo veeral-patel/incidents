@@ -72,7 +72,7 @@
 
       <div class="field">
         <%= form.label :description, "Description ", class: "label" %>
-        <%= form.rich_text_area :description =%>
+        <%= form.text_area :description, class: "textarea", placeholder: "Type description here..." =%>
       </div>
 
       <%= form.hidden_field :incident_id, value: @incident.id %>
