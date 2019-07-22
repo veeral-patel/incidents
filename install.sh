@@ -9,4 +9,4 @@ docker-compose build
 docker-compose run web rake db:create db:migrate
 
 # start application
-docker-compose up
+docker-compose up -d
