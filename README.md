@@ -13,18 +13,9 @@ If you work at a SOC, MSSP, incident response firm, or an internal
 detection/response team, INCIDENTS is for you.
 
 ## Get INCIDENTS Running Locally
+
 ```
-# change environment variables in .env.sample, then:
-echo 'SECRET_KEY_BASE='$(rails secret)
-
-# build docker image
-docker-compose build
-
-# create and migrate database
-docker-compose run web rake db:create db:migrate
-
-# start application
-docker-compose up
+chmod +x install.sh && ./install.sh
 
 # create initial user (see below)
 docker-compose exec web rails console
