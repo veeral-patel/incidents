@@ -3,7 +3,6 @@ FROM ruby:2.6.1
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 RUN gem install bundler
-RUN npm install
 RUN mkdir /app
 WORKDIR /app
 COPY Gemfile /app/Gemfile
