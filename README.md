@@ -15,7 +15,7 @@ detection/response team, INCIDENTS is for you.
 ## Get INCIDENTS Running Locally
 ```
 # change environment variables in .env.sample, then:
-cp .env.sample .env
+echo 'SECRET_KEY_BASE='$(rails secret)
 
 # build docker image
 docker-compose build
