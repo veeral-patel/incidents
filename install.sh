@@ -1,5 +1,6 @@
 # initialize environment variables
-echo 'SECRET_KEY_BASE='$(rails secret) > .env
+secret=$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM
+echo 'SECRET_KEY_BASE='$secret > .env
 
 # build docker image
 docker-compose build
