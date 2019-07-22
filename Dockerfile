@@ -9,8 +9,8 @@ WORKDIR /app
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
-RUN rails assets:precompile
 COPY . /app
+RUN rails assets:precompile
 
 ENV RAILS_ENV=production
 ENV RAILS_SERVE_STATIC_FILES=true
