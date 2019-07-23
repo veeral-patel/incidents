@@ -5,16 +5,8 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     before_action :configure_permitted_parameters, if: :devise_controller?
     skip_before_action :verify_authenticity_token, if: :json_request?
-    before_action :ensure_subdomain_is_provided
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
-    protected
-    def ensure_subdomain_is_provided
-        if request.subdomain.empty?
-            flash[:alert] = "Subdomain cannot be empty"
-        end
-    end
 
     def configure_permitted_parameters
         added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
