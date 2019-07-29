@@ -10,7 +10,6 @@ development:
   database: db_development
   adapter: postgresql
   encoding: unicode
-  host: db
   username: postgres
   pool: 5
 
