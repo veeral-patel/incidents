@@ -1,0 +1,71 @@
+<h2 class="title is-4">Assigned Tickets</h2>
+
+<div class="content">
+This page lists all the tickets you've been assigned.
+</div>
+
+<% if @assigned_tickets.empty? %>
+  You haven't been assigned any tickets.
+  <br />
+<% else %>
+<table class="all-tickets-table hover stripe">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Incident</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Is Lead?</th>
+      <th>Created At</th>
+      <th>Created By</th>
+      <th>Assigned To</th>
+      <th>Parent Ticket</th>
+      <th>Child Tickets</th>
+      <th>Attachments</th>
+      <th>Show</th>
+      <th>Tree</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assigned_tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.name %></td>
+        <td><%= ticket.incident %></td>
+        <td><%= ticket.status %></td>
+        <td><%= ticket.priority %></td>
+        <td><%= ticket.is_lead %></td>
+        <td><%= ticket.created_at %></td>
+        <td><%= ticket.user %></td>
+        <td><%= ticket.assigned_to %></td>
+        <td>
+        <% if ticket.parent == nil %>
+            N/A
+        <% else %>
+            <%= link_to ticket.parent.name, ticket.parent =%>
+        <% end %>
+        </td>
+        <td><%= ticket.children.count %></td>
+        <td><%= ticket.attachments.count %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Tree', tree_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure? Deleting a ticket deletes all associated attachments, observables, child tickets, and comments.' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    $(".all-tickets-table").DataTable({
+      "pagingType": "simple_numbers",
+      "language": { search: "" },
+    });
+
+        // style datatable search inputs
+    $(".dataTables_filter input").addClass("input");
+    $(".dataTables_filter input").attr("placeholder", "Search");
+  })
+</script>

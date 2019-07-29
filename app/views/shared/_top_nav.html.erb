@@ -21,6 +21,9 @@
                         Tickets (<%= current_user.joined_tickets.count =%>)
                     <% end %>
                 </a>
+                <a class="navbar-item" href="<%= assigned_tickets_path %>">
+                    Assigned Tickets (<%= current_user.assigned_tickets.count =%>)
+                </a>
             </div>
             <div class="navbar-end">
                 <% if current_user.admin %>
