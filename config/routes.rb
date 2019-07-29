@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  # resources :ticket_templates, :except => [:new, :show] do
-  #   member do
-  #     get :tree
-  #   end
-  # end
+  get :tags, :to  => 'tags#index'
 
   resources :tickets, :except => [:edit, :new] do
       resources :attachments, :except => [:edit]
@@ -52,4 +48,10 @@ Rails.application.routes.draw do
   end
 
   root :to => 'incidents#index'
+
+  # resources :ticket_templates, :except => [:new, :show] do
+  #   member do
+  #     get :tree
+  #   end
+  # end
 end
