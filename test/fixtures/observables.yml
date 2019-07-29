@@ -1,9 +1,0 @@
-observable_1:
-  id: 1
-  observable: 172.168.1.1
-  user_id: 1
-  ticket_id: 1
-  description: ''
-  created_at: 2016-10-10 07:00:00.000000000 Z
-  updated_at: 2016-10-10 07:00:00.000000000 Z
-
