@@ -59,7 +59,10 @@
     $(document).ready(function() {
         $('.tag_list').tokenInput("/tags.json", {
             theme: 'facebook',
-            tokenValue: 'name'
+            tokenValue: 'name',
+            preventDuplicates: true,
+            allowFreeTagging: true,
+            minChars: 1
         });
     });
 </script>
