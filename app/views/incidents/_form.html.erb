@@ -20,7 +20,7 @@
       <%= form.text_field :name, placeholder: "Found Ryuk", class: "input" %>
     </div>
 
-    <fieldset disabled>
+    <fieldset disabled style="border: none">
         <div class="field">
           <strong>Created At:</strong>
           <%= form.text_field :created_at, class: "input" %>
@@ -28,7 +28,7 @@
     </fieldset>
     <br>
 
-    <fieldset disabled>
+    <fieldset disabled style="border: none">
         <div class="field">
             <%= form.label :created_by, "Created By", class: "label" %>
             <div class="select">
@@ -56,7 +56,7 @@
     </div>
 
     <div class="actions">
-      <%= form.button "Update", type: :submit, class: "button is-link" %>
+      <%= form.button "Update", type: :submit, class: "button " %>
     </div>
   <% end %>
 </div>
