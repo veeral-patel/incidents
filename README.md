@@ -22,12 +22,31 @@ docker-compose exec web rails console
 ```
 
 Create initial user:
+
 ```
 user = User.new(username: 'admin', email: 'admin@protonmail.com', password: 'mypassword', admin: true)
 user.save
 ```
 
 Then visit http://localhost:80
+
+### Dark theme
+
+INCIDENTS supports a dark theme! To use it, simply replace:
+
+```
+sh ./choose_theme.sh light
+```
+
+with
+
+```
+sh ./choose_theme.sh dark
+```
+
+in `install.sh`.
+
+Then follow the instructions above.
 
 ## Why INCIDENTS?
 
@@ -45,6 +64,7 @@ I believe this approach better captures an incident responder's mental model of
 an incident.
 
 ## Benefits
+
 - **Avoid missing things with centralized lead management**--whether you're analysing a single system or leading a large engagement
 - **Keep people on the same page**--team members can glance at the tree to find out what's going on, instead of reading old status updates or reading the entire Slack channel
 - **Complete investigations faster**--divide large tasks into smaller tickets you assign to people to get things done in parallel. And analysts can identify open tickets to work on, without waiting for the investigation lead
@@ -75,12 +95,14 @@ an incident.
 ## Tech Stack
 
 INCIDENTS is built using:
+
 - Ruby on Rails
 - ActionText
 - Bulma
 - JQuery
 
 ## Get in Touch
+
 To request a feature or report a bug, [please open an issue on GitHub](https://github.com/veeral-patel/incidents/issues)
 
 You can email the author at [veeral.patel@berkeley.edu](mailto:veeral.patel@berkeley.edu). I reply to all emails, and most within a couple hours. I welcome feedback!
