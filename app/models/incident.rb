@@ -4,8 +4,7 @@ class Incident < ApplicationRecord
         tsearch: {
             highlight: {
                 StartSel: '<b>',
-                StopSel: '</b>',
-                HighlightAll: true
+                StopSel: '</b>'
             }
         }
     }
