@@ -18,3 +18,19 @@
 .dataTables_empty {
   background-color: black;
 }
+
+fieldset:disabled {
+  border: none;
+}
+
+.input,
+.textarea {
+  background-color: black;
+  color: white;
+  border: 1px solid gray;
+}
+
+.textarea::placeholder,
+.input::placeholder {
+  color: gray;
+}

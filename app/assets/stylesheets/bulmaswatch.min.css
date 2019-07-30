@@ -9697,16 +9697,3 @@ label.panel-block:hover {
 .hero .navbar .navbar-dropdown {
   border: none;
 }
-
-.input,
-.textarea {
-  background-color: black;
-  color: white;
-  border: 1px dotted gray;
-}
-
-.textarea::placeholder,
-.input::placeholder {
-  color: gray;
-}
-
