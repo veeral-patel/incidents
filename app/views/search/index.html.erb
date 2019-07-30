@@ -1,4 +1,13 @@
-<h2 class="title is-4">Search</h2>
+<div class="content">
+    <h2 class="title is-4">Search</h2>
+</div>
+
+<div class="content">
+    <%= form_tag(search_index_path, method: :get) do %>
+        <%= text_field_tag :q, params[:q], class: 'input', placeholder: 'Found Ryuk', style: 'width: 50%' %>
+        <%= submit_tag 'Search', class: 'button is-link' %>
+    <% end %>
+</div>
 
 <div class="content">
     <% if @results.empty? %>
