@@ -43,3 +43,9 @@ div[id^="DataTables_Table_"][id$="_length"],
 div[id^="DataTables_Table_"][id$="_info"] {
   color: #666;
 }
+
+/* make table backgrounds dark */
+table.dataTable.stripe tbody tr.odd,
+table.dataTable.stripe tbody tr.even {
+  background-color: #121212;
+}
