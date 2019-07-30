@@ -44,6 +44,11 @@ class Ticket < ApplicationRecord
         HTMLclass: self.status,
         HTMLid: self.id,
         children: self.children.map { |child| child.to_json },
+        connectors: {
+          style: {
+            stroke: "gray"
+          }
+        },
       }      
     end
   end
