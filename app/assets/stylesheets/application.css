@@ -14,3 +14,7 @@
  *= require datatables
  *= require_self
  */
+
+.dataTables_empty {
+  background-color: black;
+}
