@@ -50,6 +50,10 @@
         <%= form.check_box :is_lead %>
       </div>
 
+      <div class="content">
+          <p>Mark tickets as leads for them to appear in <a href="<%= leads_incident_url(@incident) %>">Leads</a>. This way, you can view all the areas of an incident that require further investigation in one place.</p>
+      </div>
+
       <div class="field" style="width: 50%">
         <%= form.label :tag_list, "Tag List ", class: "label" %>
           <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: "apt1, ryuk", class: "input" %>
