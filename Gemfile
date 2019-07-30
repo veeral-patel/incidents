@@ -30,6 +30,7 @@ gem 'pundit'
 gem 'devise-two-factor'
 gem 'rqrcode_png'
 gem 'dotenv-rails'
+gem 'pg_search'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
