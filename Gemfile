@@ -32,6 +32,7 @@ gem 'rqrcode_png'
 gem 'dotenv-rails'
 gem 'pg_search'
 gem 'will_paginate', '~> 3.1.0'
+gem 'faker'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
