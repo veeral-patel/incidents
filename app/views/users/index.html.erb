@@ -53,5 +53,9 @@
     $(".users-table").DataTable({
       "pagingType": "simple_numbers",
     });
-  })
-</script
+
+    // style datatable search inputs
+    $(".dataTables_filter input").addClass("input");
+    $(".dataTables_filter input").attr("placeholder", "Search");
+  });
+</script>
