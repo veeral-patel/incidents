@@ -33,7 +33,7 @@
         <div class="field">
             <%= form.label :created_by, "Created By", class: "label" %>
             <div class="select">
-                <%= collection_select :incident, :user, User.where(id: @incident.user_id), :id, :username  %>
+                <%= collection_select :ticket, :user, User.where(id: @ticket.user_id), :id, :username  %>
             </div>
         </div>
     </fieldset>
