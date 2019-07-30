@@ -20,18 +20,32 @@
                 <%= f.button "Log in", type: :submit, class: "button" %>
             </div>
 
+            <br>
+
             <div>
                 <a href="<%= new_user_password_path =%>" style="color: white">Forgot your password?</a>
             </div>
         <% end %>
-
-        <br />
-        <%= render "devise/shared/links" %>
     </div>
 </div>
 
 <style>
 html, body {
     background-color: #3676d9;
+}
+
+.input, .input:focus {
+    background-color: #3676d9;
+    color: white;
+    border: 1px solid white;
+}
+
+.input::placeholder {
+    color: white;
+}
+
+.button {
+    background-color: #3676d9;
+    border: 1px solid white;
 }
 </style>
