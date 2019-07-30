@@ -40,7 +40,12 @@ class Incident < ApplicationRecord
         {
             text: { name: "root" },
             collapsable: true,
-            children: root_tickets.map { |ticket| ticket.to_json }
+            children: root_tickets.map { |ticket| ticket.to_json },
+            connectors: {
+                style: {
+                    'stroke': 'gray',
+                }
+            },
         }
     end
 

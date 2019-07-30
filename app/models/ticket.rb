@@ -35,6 +35,11 @@ class Ticket < ApplicationRecord
         collapsable: true,
         HTMLclass: self.status,
         HTMLid: self.id,
+        connectors: {
+            style: {
+                'stroke': 'gray',
+            }
+        },
       }
     else
       {
@@ -44,6 +49,11 @@ class Ticket < ApplicationRecord
         HTMLclass: self.status,
         HTMLid: self.id,
         children: self.children.map { |child| child.to_json },
+        connectors: {
+            style: {
+                'stroke': 'gray',
+            }
+        },
       }      
     end
   end
