@@ -24,6 +24,10 @@
                 <a class="navbar-item" href="<%= assigned_tickets_path %>">
                     Assigned Tickets (<%= current_user.assigned_tickets.count =%>)
                 </a>
+                <div class="navbar-item">
+                    <i class="fas fa-search"></i>
+                    <input class="input search_input" type="text" placeholder="Search">
+               </div>
             </div>
             <div class="navbar-end">
                 <% if current_user.admin %>
@@ -55,3 +59,28 @@
         </div>
     </nav>
 <% end %>
+
+<style>
+.search_input {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    box-shadow: none;
+    border-radius: 0px;
+    width: 300px;
+}
+
+.fa-search {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search_input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search_input:focus {
+    border: none;
+    border-color: none;
+    box-shadow: none;
+}
+</style>
