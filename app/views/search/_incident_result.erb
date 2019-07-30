@@ -1,0 +1,15 @@
+<div style="margin-bottom: 20px">
+    <div>
+        <a href="<%= incident_path(result) %>" class="title is-6" style="display: inline-block">
+            <%= result.searchable.name %>
+        </a>
+        <span class="tag is-info"><%= result.searchable_type %></span>
+    </div>
+    <div>
+        <% if result.respond_to?(:pg_search_highlight) %>
+            <%= result.pg_search_highlight.html_safe %>
+        <% else %>
+            <%= result.content %>
+        <% end %>
+    </div>
+</div>

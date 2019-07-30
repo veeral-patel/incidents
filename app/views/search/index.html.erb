@@ -1,26 +1,25 @@
+<%# page title %>
 <div class="content">
     <h2 class="title is-4">Search</h2>
 </div>
 
-<div class="content">
+<%# render search input %>
+<div>
     <%= form_tag(search_index_path, method: :get) do %>
         <%= text_field_tag :q, params[:q], class: 'input', placeholder: 'Found Ryuk', style: 'width: 50%' %>
         <%= submit_tag 'Search', class: 'button is-link' %>
     <% end %>
 </div>
 
-<div class="content">
+
+<%# render search results %>
+<br>
+<div>
     <% if @results.empty? %>
         <p>No results.</p>
     <% else %>
         <% @results.each do |result| %>
-            <div class="content">
-                <% if result.respond_to?(:pg_search_highlight) %>
-                    <%= result.pg_search_highlight.html_safe %>
-                <% else %>
-                    <%= result.content %>
-                <% end %>
-            </div>
+            <%= render 'search/incident_result', result: result %>
         <% end %>
     <% end %>
 </div>
