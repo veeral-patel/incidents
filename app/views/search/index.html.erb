@@ -14,7 +14,8 @@
         <p>No results.</p>
     <% else %>
         <% @results.each do |result| %>
-            <p><%= result %></p>
+            <strong><%= result.searchable_type %></strong>
+            <p><%= result.content %></p>
         <% end %>
     <% end %>
 </div>
