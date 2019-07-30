@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   #   end
   # end
 
+  resources :search, :only => [:index, :new]
+
   resources :tickets, :except => [:edit, :new] do
       resources :attachments, :except => [:edit]
       resources :comments, :except => [:new, :edit]

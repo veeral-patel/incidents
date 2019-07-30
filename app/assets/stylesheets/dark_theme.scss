@@ -1,0 +1,39 @@
+.dataTables_empty {
+  background-color: #121212;
+}
+
+fieldset:disabled {
+  border: none;
+}
+
+.input,
+.textarea {
+  background-color: #121212;
+  color: white;
+  border: 1px solid gray;
+}
+
+.textarea::placeholder,
+.input::placeholder {
+  color: gray;
+}
+
+/*
+    Matches elements with ID of form DataTables_Table_x_length, where x can be any character(s)
+    Used to style the "Show X entries" and "Showing X of Y entries" elements in each datatable.
+  */
+div[id^="DataTables_Table_"][id$="_length"],
+div[id^="DataTables_Table_"][id$="_info"] {
+  color: #666;
+}
+
+/* make table backgrounds dark */
+table.dataTable.stripe tbody tr.odd,
+table.dataTable.stripe tbody tr.even {
+  background-color: #121212;
+}
+
+.select > select {
+  background-color: #121212;
+  color: white;
+}
