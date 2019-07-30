@@ -16,11 +16,11 @@
 <%= will_paginate @results, class: "digg_pagination" %>
 
 <%# render search results %>
-<br>
 <div>
     <% if @results.empty? %>
         <p>No results.</p>
     <% else %>
+        <br>
         <% @results.each do |result| %>
             <%= render 'search/incident_result', result: result %>
         <% end %>
