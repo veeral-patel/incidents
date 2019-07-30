@@ -10,7 +10,10 @@
         <%= submit_tag 'Search', class: 'button is-link' %>
     <% end %>
 </div>
+<br>
 
+
+<%= will_paginate @results, class: "digg_pagination" %>
 
 <%# render search results %>
 <br>
