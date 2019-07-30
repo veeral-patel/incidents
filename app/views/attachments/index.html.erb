@@ -48,7 +48,7 @@
 
       <tbody>
         <% @ticket.attachments.each do |attachment| %>
-        <tr>
+        <tr style="background-color: black">
           <td><%= attachment.id %></td>
           <td>
             <% if attachment.file.attached? %>
