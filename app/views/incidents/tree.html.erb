@@ -34,7 +34,7 @@
         function addingDragAndDropSupport() {
             var nodeDivs = document.getElementsByClassName("node");
             var i;
-            for(i=0; i<nodeDivs.length; i++) {
+            for(i = 0; i < nodeDivs.length; i++) {
                 nodeDivs[i].draggable = true;
                 nodeDivs[i].addEventListener('dragstart', dragstart, false);
                 nodeDivs[i].addEventListener('dragend', dragend, false);
@@ -51,7 +51,7 @@
             // style (droppable) nodes
             var sourceId = event.srcElement.id; // id of node being dragged
             var allNodesButNodeBeingDragged = $('.node').not("#" + sourceId);
-            allNodesButNodeBeingDragged.css('border', '3px dotted black');
+            allNodesButNodeBeingDragged.css('border', '3px dotted white');
         }
 
         function dragend(event) {
