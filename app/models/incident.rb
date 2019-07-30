@@ -1,4 +1,7 @@
 class Incident < ApplicationRecord
+    include PgSearch::Model
+    multisearchable against: [:name, :description]
+
     acts_as_taggable
 
     after_create_commit :add_creator_to_members

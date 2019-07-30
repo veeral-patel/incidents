@@ -1,1 +1,11 @@
 <h2 class="title is-4">Search</h2>
+
+<div class="content">
+    <% if @results.empty? %>
+        <p>No results.</p>
+    <% else %>
+        <% @results.each do |result| %>
+            <p><%= result %></p>
+        <% end %>
+    <% end %>
+</div>
