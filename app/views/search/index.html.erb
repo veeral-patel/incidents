@@ -14,8 +14,13 @@
         <p>No results.</p>
     <% else %>
         <% @results.each do |result| %>
-            <strong><%= result.searchable_type %></strong>
-            <p><%= result.content %></p>
+            <div class="content">
+                <% if result.respond_to?(:pg_search_highlight) %>
+                    <%= result.pg_search_highlight.html_safe %>
+                <% else %>
+                    <%= result.content %>
+                <% end %>
+            </div>
         <% end %>
     <% end %>
 </div>
