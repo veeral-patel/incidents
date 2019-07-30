@@ -49,3 +49,8 @@ table.dataTable.stripe tbody tr.odd,
 table.dataTable.stripe tbody tr.even {
   background-color: #121212;
 }
+
+.select > select {
+  background-color: #121212;
+  color: white;
+}
