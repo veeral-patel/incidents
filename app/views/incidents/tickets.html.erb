@@ -48,8 +48,12 @@
           <tr>
             <td><%= ticket.name %></td>
             <td><%= ticket.incident %></td>
-            <td><%= ticket.status %></td>
-            <td><%= ticket.priority %></td>
+            <td>
+                <%= render 'tickets/status_tag', ticket: ticket %>
+            </td>
+            <td>
+                <%= render 'tickets/priority_tag', ticket: ticket %>
+            </td>
             <td><%= ticket.is_lead %></td>
             <td><%= ticket.created_at %></td>
             <td>

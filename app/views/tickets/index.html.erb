@@ -34,22 +34,10 @@ This page lists all the tickets of all the incidents you're a member of.
         <td><%= ticket.name %></td>
         <td><%= ticket.incident %></td>
         <td>
-            <% if ticket.status == "closed"%>
-                <span class="tag is-success">Closed</span>
-            <% elsif ticket.status == "in_progress" %>
-                <span class="tag is-warning">In Progress</span>
-            <% elsif ticket.status == "open" %>
-                <span class="tag is-danger">Open</span>
-            <% end %>
+            <%= render 'tickets/status_tag', ticket: ticket %>
         </td>
         <td>
-            <% if ticket.priority == "low"%>
-                <span class="tag is-success">Low</span>
-            <% elsif ticket.priority == "medium" %>
-                <span class="tag is-warning">Medium</span>
-            <% elsif ticket.priority == "high" %>
-                <span class="tag is-danger">High</span>
-            <% end %>
+            <%= render 'tickets/priority_tag', ticket: ticket %>
         </td>
         <td><%= ticket.is_lead %></td>
         <td><%= ticket.created_at %></td>

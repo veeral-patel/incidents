@@ -35,7 +35,15 @@
       <% @incidents.each do |incident| %>
         <tr>
           <td><%= incident.name %></td>
-          <td><%= incident.status %></td>
+          <td>
+            <% if incident.status == "closed"%>
+                <span class="tag is-success">Closed</span>
+            <% elsif incident.status == "in_progress" %>
+                <span class="tag is-warning">In Progress</span>
+            <% elsif incident.status == "open" %>
+                <span class="tag is-danger">Open</span>
+            <% end %>
+          </td>
           <td><%= incident.created_at %></td>
           <td><%= incident.user %></td>
           <td><%= incident.tag_list %></td>
