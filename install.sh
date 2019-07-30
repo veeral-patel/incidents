@@ -2,6 +2,10 @@
 secret=$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM
 echo 'SECRET_KEY_BASE='$secret > .env
 
+# to use the dark theme, replace with:
+# sh choose_script.sh dark
+sh choose_script.sh light
+
 # build docker image
 docker-compose build
 
