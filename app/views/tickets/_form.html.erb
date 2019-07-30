@@ -33,7 +33,7 @@
         <div class="field">
             <%= form.label :created_by, "Created By", class: "label" %>
             <div class="select">
-                <%= collection_select :incident, :user, User.where(id: @incident.user_id), :id, :username  %>
+                <%= collection_select :ticket, :user, User.where(id: @ticket.user_id), :id, :username  %>
             </div>
         </div>
     </fieldset>
@@ -103,3 +103,15 @@
     </div>
   <% end %>
 </div>
+
+<style>
+  div > select#ticket_status,
+  div > select#ticket_priority,
+  div > select#ticket_user,
+  div > select#ticket_status,
+  div > select#ticket_assigned_to_id {
+    background-color: black;
+    color: white;
+    border: 1px gray solid;
+  }
+</style>
