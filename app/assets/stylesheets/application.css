@@ -16,7 +16,7 @@
  */
 
 .dataTables_empty {
-  background-color: black;
+  background-color: #121212;
 }
 
 fieldset:disabled {
@@ -25,7 +25,7 @@ fieldset:disabled {
 
 .input,
 .textarea {
-  background-color: black;
+  background-color: #121212;
   color: white;
   border: 1px solid gray;
 }
