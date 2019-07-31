@@ -12,6 +12,14 @@
             <%= result.content %>
         <% end %>
     </div>
+
+    <% if ticket.description %>
+        <div class="ticket_result_description"> 
+            <strong>Description</strong>
+            <%= ticket.description.truncate_words(35) %>
+        </div>
+    <% end %>
+
     <% if ticket.tag_list %>
         <br>
         <div class="tags">
@@ -30,5 +38,9 @@
 
     .ticket_result {
         margin-bottom: 30px;
+    }
+
+     .ticket_result_description {
+        white-space: pre-line;
     }
 </style>

@@ -13,10 +13,12 @@
         <% end %>
     </div>
 
-    <div class="incident_result_description"> 
-        <strong>Description</strong>
-        <%= incident.description.truncate_words(35) %>
-    </div>
+    <% if incident.description %>
+        <div class="incident_result_description"> 
+            <strong>Description</strong>
+            <%= incident.description.truncate_words(35) %>
+        </div>
+    <% end %>
 
     <% if incident.tag_list %>
         <br>
