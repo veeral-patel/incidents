@@ -46,6 +46,20 @@
       </div>
 
       <div class="field">
+        <%= form.label :priority, "Priority", class: "label" %>
+        <div class="select">
+            <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= form.label :parent, "Parent Ticket", class: "label" %>
+        <div class="select">
+            <%= collection_select :ticket, :parent_id, @incident.tickets, :id, :name, { include_blank: true } %>
+        </div>
+      </div>
+
+      <div class="field">
         <%= form.label :is_lead, class: "label" %>
         <%= form.check_box :is_lead %>
       </div>
@@ -64,14 +78,6 @@
         <div class="select">
             <%= collection_select :ticket, :assigned_to_id, @incident.members, :id, :username, { include_blank: true } %>
         </div>
-
-      </div>
-
-      <div class="field">
-        <%= form.label :priority, "Priority ", class: "label" %>
-        <div class="select">
-            <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
-        </div>
       </div>
 
       <div class="field">
@@ -82,7 +88,7 @@
       <%= form.hidden_field :incident_id, value: @incident.id %>
 
       <div class="actions">
-        <%= form.button "Update", type: :submit, class: "button is-link" %>
+        <%= form.button "Create Ticket", type: :submit, class: "button is-link" %>
       </div>
     <% end %>
   </div>
