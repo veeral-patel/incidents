@@ -35,13 +35,13 @@ Then visit http://localhost:80
 INCIDENTS supports a dark theme! To use it, simply replace:
 
 ```
-sh ./choose_theme.sh light
+bash ./choose_theme.sh light
 ```
 
 with
 
 ```
-sh ./choose_theme.sh dark
+bash ./choose_theme.sh dark
 ```
 
 in `install.sh`.
