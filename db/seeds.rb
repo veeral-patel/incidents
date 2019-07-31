@@ -13,7 +13,9 @@ end
     random_user.incidents.create(
         name: "Incident-#{Faker::Code.nric}",
         status: [:open, :closed, :in_progress].sample,
+        tag_list: [Faker::Ancient.unique.god] * rand(1..4)
     )
+    Faker::Ancient.unique.clear
 end
 
 # create 50 tickets
@@ -37,8 +39,10 @@ end
         priority: [:high, :medium, :low].sample,
         is_lead: is_lead,
         assigned_to: is_assigned ? User.all.sample : nil,
-        parent: has_parent ? random_incident.tickets.sample : nil
+        parent: has_parent ? random_incident.tickets.sample : nil,
+        tag_list: [Faker::Ancient.unique.god] * rand(1..4)
     )
+    Faker::Ancient.unique.clear
 end
 
 # create 150 observables
