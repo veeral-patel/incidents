@@ -27,4 +27,20 @@ end
     )
 end
 
+# create 75 observables
+75.times do
+    random_user = User.all.sample
+    random_observable = [
+        Faker::Internet.domain_name,
+        Faker::Internet.ip_v4_address,
+        Faker::Internet.ip_v6_address,
+        Faker::Internet.url
+    ].sample
+
+    random_user.observables.create(
+        observable: random_observable,
+        ticket: Ticket.all.sample
+    )
+end
+
 puts "Seeded the database"
