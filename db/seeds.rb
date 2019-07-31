@@ -19,14 +19,20 @@ end
 # create 25 tickets
 25.times do
     random_user = User.all.sample
-    is_lead = (rand <= 0.3) # 30% chance it's a lead
+
+     # 30% chance the ticket's a lead
+    is_lead = (rand <= 0.3)
+
+    # 70% chance the ticket is assigned to an user
+    is_assigned = (rand <= 0.7)
 
     random_user.tickets.create(
         name: "Ticket-#{Faker::Code.nric}",
         incident: Incident.all.sample,
         status: [:open, :closed, :in_progress].sample,
         priority: [:high, :medium, :low].sample,
-        is_lead: is_lead
+        is_lead: is_lead,
+        assigned_to: is_assigned ? User.all.sample : nil
     )
 end
 
