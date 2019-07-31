@@ -27,7 +27,7 @@
                 <div class="navbar-item">
                     <i class="fas fa-search"></i>
                     <%= form_tag(search_index_path, method: :get) do %>
-                        <%= text_field_tag :q, params[:q], class: 'input', placeholder: 'Search', class: 'search_input input' %>
+                        <%= text_field_tag :q, params[:q], placeholder: 'Search', class: 'search_input input' %>
                     <% end %>
                 </div>
             </div>
