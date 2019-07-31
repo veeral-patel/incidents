@@ -35,6 +35,8 @@
           <th>Priority</th>
           <th>Is Lead?</th>
           <th>Created At</th>
+          <th>Created By</th>
+          <th>Tags</th>
           <th>Parent Ticket</th>
           <th># Child Tickets</th>
           <th>Show</th>
@@ -56,6 +58,8 @@
             </td>
             <td><%= ticket.is_lead %></td>
             <td><%= ticket.created_at %></td>
+            <td><%= ticket.user %></td>
+            <td><%= ticket.tag_list %></td>
             <td>
             <% if ticket.parent == nil %>
                 N/A
