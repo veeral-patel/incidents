@@ -5,8 +5,8 @@
        password: Faker::Internet.password
     )
 
-    Incident.create(
-        name: Faker::Code.nric,
+    incident = user.incidents.create(
+        name: "Incident-#{Faker::Code.nric}",
         status: [:open, :closed, :in_progress].sample,
         user: user
     )
