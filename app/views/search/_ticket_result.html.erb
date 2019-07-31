@@ -3,7 +3,7 @@
         <a href="<%= ticket_path(result.searchable) %>" class="title is-5 result_title">
             <%= result.searchable.name %>
         </a>
-        <span class="tag is-info">Ticket</span>
+        <span class="tag is-primary">Ticket</span>
     </div>
     <div>
         <% if result.respond_to?(:pg_search_highlight) %>
