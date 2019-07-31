@@ -2,6 +2,7 @@ class Incident < ApplicationRecord
     include PgSearch::Model
     multisearchable against: [:name, :description, :tag_list], using: {
         tsearch: {
+            prefix: true,
             highlight: {
                 StartSel: '<b>',
                 StopSel: '</b>'

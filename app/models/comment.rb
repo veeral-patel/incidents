@@ -2,6 +2,7 @@ class Comment < ApplicationRecord
   include PgSearch::Model
   multisearchable against: [:comment], using: {
       tsearch: {
+          prefix: true,
           highlight: {
               StartSel: '<b>',
               StopSel: '</b>'

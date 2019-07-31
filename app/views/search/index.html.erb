@@ -28,6 +28,8 @@
                 <%= render 'search/ticket_result', result: result, ticket: result.searchable %>
             <% elsif result.searchable_type == 'Comment' %>
                 <%= render 'search/comment_result', result: result, comment: result.searchable %>
+            <% elsif result.searchable_type == 'Observable' %>
+                <%= render 'search/observable_result', result: result, observable: result.searchable %>
             <% end %>
         <% end %>
     <% end %>

@@ -1,0 +1,59 @@
+<div class="observable_result">
+    <div>
+        <a 
+           href="<%= ticket_observable_path(observable.ticket, observable) %>"
+           class="title is-5 observable_result_title"
+        > 
+            <%= observable.observable %>
+        </a>
+        <span class="tag is-primary">Observable</span>
+    </div>
+    <div>
+        <% if result.respond_to?(:pg_search_highlight) %>
+            <%= result.pg_search_highlight.html_safe %>
+        <% else %>
+            <%= result.content %>
+        <% end %>
+    </div>
+
+    <% if observable.description %>
+        <div class="observable_result_description"> 
+            <strong>Description</strong>
+            <%= observable.description.truncate_words(35) %>
+        </div>
+    <% end %>
+
+    <div> 
+        <br>
+        <strong>About</strong>
+        <p>Created by <%= observable.user %> at <%= observable.created_at %> on <a href="<%= ticket_path(observable.ticket) %>"><%= observable.ticket %></a>
+        (incident: <a href="<%= incident_path(observable.ticket.incident) %>"><%= observable.ticket.incident %></a>)</p>
+    </div>
+
+    <% if observable.tag_list %>
+        <br>
+        <div class="tags">
+            <% observable.tag_list.each do |tag| %>
+                <span class="tag"><%= tag %></span>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
+<style>
+    .observable_result {
+        margin-bottom: 30px;
+        width: 60%;
+        padding-bottom: 10px;
+        border-bottom: 1px dotted lightgray;
+    }
+
+    .observable_result_title {
+        display: inline-block;
+        color: rgb(53, 118, 217);
+    }
+
+     .observable_result_description {
+        white-space: pre-line;
+    }
+</style>
