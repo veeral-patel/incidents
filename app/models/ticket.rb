@@ -1,6 +1,6 @@
 class Ticket < ApplicationRecord
    include PgSearch::Model
-   multisearchable against: [:name, :description, :tag_list], using: {
+   multisearchable against: [:name, :description, :tag_list, :user, :status, :priority, :assigned_to, :parent], using: {
        tsearch: {
           prefix: true,
            highlight: {
