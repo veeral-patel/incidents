@@ -41,7 +41,7 @@
 
         <div class="field">
             <%= form.label :tag_list, "Tags", class: "label" %>
-            <%= form.text_field :tag_list, class: "tag_list", placeholder: "apt1, ryuk" %>
+            <%= form.text_field :tag_list, class: "tag_list", value: form.object.tag_list.to_s, placeholder: "apt1, ryuk" %>
         </div>
 
         <div class="field">
@@ -54,3 +54,12 @@
         </div>
     <% end %>
 </div>
+
+<script>
+// initialize tag inputs
+$(".tag_list").selectize({
+    delimiter: ",",
+    persist: false,
+    create: true
+});
+</script>
