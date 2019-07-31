@@ -45,4 +45,11 @@ $(document).ready(function() {
       $target.closest("form").submit();
     }
   });
+
+  // initialize tag inputs
+  $(".tag_list").selectize({
+    delimiter: ",",
+    persist: false,
+    create: true
+  });
 });

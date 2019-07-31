@@ -60,18 +60,3 @@
     </div>
   <% end %>
 </div>
-
-<script>
-    $(document).ready(function() {
-      $('.tag_list').selectize({
-          delimiter: ",",
-          persist: false,
-          create: function(input) {
-            return {
-                value: input,
-                text: input
-            }
-          }
-      });
-    })
-</script>
