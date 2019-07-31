@@ -26,7 +26,7 @@
     <div> 
         <br>
         <strong>About</strong>
-        <p>Created by <%= observable.user %> at <%= observable.created_at %> on <a href="<%= ticket_path(observable.ticket) %>"><%= observable.ticket %></a>
+        <p>Created by <%= observable.user %> at <%= observable.created_at %> on ticket <a href="<%= ticket_path(observable.ticket) %>"><%= observable.ticket %></a>
         (incident: <a href="<%= incident_path(observable.ticket.incident) %>"><%= observable.ticket.incident %></a>)</p>
     </div>
 

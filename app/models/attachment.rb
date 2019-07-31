@@ -1,4 +1,14 @@
 class Attachment < ApplicationRecord
+    include PgSearch::Model
+    multisearchable against: [:description, :tag_list], using: {
+        tsearch: {
+            prefix: true,
+            highlight: {
+                StartSel: '<b>',
+                StopSel: '</b>'
+            }
+        }
+    }
     acts_as_taggable
 
     has_one_attached :file

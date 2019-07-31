@@ -30,6 +30,8 @@
                 <%= render 'search/comment_result', result: result, comment: result.searchable %>
             <% elsif result.searchable_type == 'Observable' %>
                 <%= render 'search/observable_result', result: result, observable: result.searchable %>
+            <% elsif result.searchable_type == 'Attachment' %>
+                <%= render 'search/attachment_result', result: result, attachment: result.searchable %>
             <% end %>
         <% end %>
     <% end %>

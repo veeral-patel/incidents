@@ -1,0 +1,61 @@
+<div class="attachment_result">
+    <div>
+        <a 
+           href="<%= ticket_attachment_path(attachment.ticket, attachment) %>"
+           class="title is-5 attachment_result_title"
+        > 
+            <%= attachment.file.blob.filename %>
+        </a>
+        <span class="tag is-danger">attachment</span>
+    </div>
+
+    <div>
+        <% if result.respond_to?(:pg_search_highlight) %>
+            <%= result.pg_search_highlight.html_safe %>
+        <% else %>
+            <%= result.content %>
+        <% end %>
+    </div>
+
+    <% if attachment.description %>
+        <div class="attachment_result_description"> 
+            <strong>Description</strong>
+            <%= attachment.description.truncate_words(35) %>
+        </div>
+    <% end %>
+
+    <br>
+
+    <div> 
+        <strong>About</strong>
+        <p>Uploaded at <%= attachment.created_at %> on ticket <a href="<%= ticket_path(attachment.ticket) %>"><%= attachment.ticket %></a>
+        (incident: <a href="<%= incident_path(attachment.ticket.incident) %>"><%= attachment.ticket.incident %></a>)</p>
+    </div>
+
+    <% if attachment.tag_list %>
+        <br>
+        <div class="tags">
+            <% attachment.tag_list.each do |tag| %>
+                <span class="tag"><%= tag %></span>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
+<style>
+    .attachment_result {
+        margin-bottom: 30px;
+        width: 60%;
+        padding-bottom: 10px;
+        border-bottom: 1px dotted lightgray;
+    }
+
+    .attachment_result_title {
+        display: inline-block;
+        color: rgb(53, 118, 217);
+    }
+
+     .attachment_result_description {
+        white-space: pre-line;
+    }
+</style>
