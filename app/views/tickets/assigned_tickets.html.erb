@@ -15,13 +15,13 @@ This page lists all the tickets you've been assigned.
       <th>Incident</th>
       <th>Status</th>
       <th>Priority</th>
-      <th>Is Lead?</th>
+      <th>Lead?</th>
       <th>Created At</th>
       <th>Created By</th>
+      <th>Tags</th>
       <th>Assigned To</th>
       <th>Parent Ticket</th>
       <th>Child Tickets</th>
-      <th>Attachments</th>
       <th>Show</th>
       <th>Tree</th>
       <th>Destroy</th>
@@ -42,6 +42,7 @@ This page lists all the tickets you've been assigned.
         <td><%= ticket.is_lead %></td>
         <td><%= ticket.created_at %></td>
         <td><%= ticket.user %></td>
+        <td><%= ticket.tag_list %></td>
         <td><%= ticket.assigned_to %></td>
         <td>
         <% if ticket.parent == nil %>
@@ -51,7 +52,6 @@ This page lists all the tickets you've been assigned.
         <% end %>
         </td>
         <td><%= ticket.children.count %></td>
-        <td><%= ticket.attachments.count %></td>
         <td><%= link_to 'Show', ticket %></td>
         <td><%= link_to 'Tree', tree_ticket_path(ticket) %></td>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure? Deleting a ticket deletes all associated attachments, observables, child tickets, and comments.' } %></td>
