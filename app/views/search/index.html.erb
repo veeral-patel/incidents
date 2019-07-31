@@ -13,13 +13,21 @@
 <br>
 
 
-<%= will_paginate @results, class: "digg_pagination" %>
+<% if @results.total_pages >= 2 %>
+    <%= will_paginate @results, class: "digg_pagination" %>
+    <br>
+<% end %>
 
 <%# render search results %>
 <div>
     <% if @results.empty? %>
-        <p>No results.</p>
+        <% if @query and not @query.eql? "" %>
+            <p>No results for "<%= @query %>".</p>
+        <% else %>
+            <p>No results. You must specify a search query!
+       <% end %>
     <% else %>
+        <p><%= @results.count %> result(s) for "<%= @query %>"</p>
         <br>
         <% @results.each do |result| %>
             <% if result.searchable_type == 'Incident'%>
