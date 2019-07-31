@@ -14,6 +14,7 @@
     </div>
     <div>
         <br>
+        <b>About</b>
         <p>
             Commented at <%= comment.created_at %> on <a href="<%= ticket_path(comment.ticket) %>"><%= comment.ticket %></a>
             (incident: <a href="<%= incident_path(comment.ticket.incident) %>"><%= comment.ticket.incident %></a>)

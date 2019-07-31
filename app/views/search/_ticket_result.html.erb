@@ -20,6 +20,14 @@
         </div>
     <% end %>
 
+    <div>
+        <br>
+        <b>About</b>
+        <p>
+            Incident: <a href="<%= incident_path(ticket.incident) %>"><%= ticket.incident %></a>
+        </p>
+    </div>
+
     <% if ticket.tag_list %>
         <br>
         <div class="tags">
