@@ -43,8 +43,8 @@
       <tbody>
         <% @ticket.children.each do |ticket| %>
         <tr>
-          <td><%= ticket.name %></td>
-          <td><%= ticket.incident %></td>
+          <td><a href="<%= ticket_url(ticket) %>"><%= ticket %></a></td>
+          <td><a href="<%= incident_url(ticket.incident) %>"><%= ticket.incident %></a></td>
           <td><%= render 'tickets/status_tag', ticket: ticket %></td>
           <td><%= render 'tickets/priority_tag', ticket: ticket %></td>
           <td><%= ticket.is_lead %></td>
