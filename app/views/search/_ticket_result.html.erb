@@ -1,7 +1,7 @@
 <div class="ticket_result">
     <div>
-        <a href="<%= ticket_path(result.searchable) %>" class="title is-5 ticket_result_title">
-            <%= result.searchable.name %>
+        <a href="<%= ticket_path(ticket) %>" class="title is-5 ticket_result_title">
+            <%= ticket.name %>
         </a>
         <span class="tag is-primary">Ticket</span>
     </div>
@@ -12,6 +12,14 @@
             <%= result.content %>
         <% end %>
     </div>
+    <% if ticket.tag_list %>
+        <br>
+        <div class="tags">
+            <% ticket.tag_list.each do |tag| %>
+                <span class="tag"><%= tag %></span>
+            <% end %>
+        </div>
+    <% end %>
 </div>
 
 <style>

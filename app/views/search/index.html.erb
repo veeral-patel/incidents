@@ -23,9 +23,9 @@
         <br>
         <% @results.each do |result| %>
             <% if result.searchable_type == 'Incident'%>
-                <%= render 'search/incident_result', result: result %>
+                <%= render 'search/incident_result', result: result, incident: result.searchable %>
             <% elsif result.searchable_type == 'Ticket' %>
-                <%= render 'search/ticket_result', result: result %>
+                <%= render 'search/ticket_result', result: result, ticket: result.searchable %>
             <% end %>
         <% end %>
     <% end %>

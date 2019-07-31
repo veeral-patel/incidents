@@ -1,7 +1,7 @@
 <div class="incident_result">
     <div>
-        <a href="<%= incident_path(result.searchable) %>" class="title is-5 incident_result_title">
-            <%= result.searchable.name %>
+        <a href="<%= incident_path(incident) %>" class="title is-5 incident_result_title">
+            <%= incident.name %>
         </a>
         <span class="tag is-info">Incident</span>
     </div>
@@ -12,6 +12,15 @@
             <%= result.content %>
         <% end %>
     </div>
+
+    <% if incident.tag_list %>
+        <br>
+        <div class="tags">
+            <% incident.tag_list.each do |tag| %>
+                <span class="tag"><%= tag %></span>
+            <% end %>
+        </div>
+    <% end %>
 </div>
 
 <style>
