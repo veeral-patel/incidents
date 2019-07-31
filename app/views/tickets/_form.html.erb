@@ -86,17 +86,14 @@
       <div class="select">
           <%= collection_select :ticket, :assigned_to_id, ticket.incident.members, :id, :username, { include_blank: true } %>
       </div>
-
     </div>
-    <%# only show parent ticket dropdown in edit ticket %>
-    <% if not @ticket.new_record? %>
-      <div class="field">
-        <%= form.label :parent_id, "Parent Ticket ", class: "label" %>
-        <div class="select">
-            <%= collection_select(:ticket, :parent_id, Ticket.where(incident: ticket.incident), :id, :name, {include_blank: true}) %>
-        </div>
+
+    <div class="field">
+      <%= form.label :parent_id, "Parent Ticket ", class: "label" %>
+      <div class="select">
+          <%= collection_select(:ticket, :parent_id, Ticket.where(incident: ticket.incident), :id, :name, {include_blank: true}) %>
       </div>
-    <% end %>
+    </div>
 
     <div class="field">
       <%= form.label :description, "Description ", class: "label" %>
@@ -108,3 +105,12 @@
     </div>
   <% end %>
 </div>
+
+<script>
+// initialize tag inputs
+$(".tag_list").selectize({
+    delimiter: ",",
+    persist: false,
+    create: true
+});
+</script>
