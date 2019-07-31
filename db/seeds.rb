@@ -10,10 +10,12 @@ end
 # create 5 incidents
 5.times do
     random_user = User.all.sample
+    random_description = [Faker::Quotes::Shakespeare.hamlet_quote, Faker::Quotes::Shakespeare.as_you_like_it_quote].sample
     random_user.incidents.create(
         name: "Incident-#{Faker::Code.nric}",
         status: [:open, :closed, :in_progress].sample,
-        tag_list: [Faker::Ancient.unique.god, Faker::Ancient.unique.god, Faker::Ancient.unique.god]
+        tag_list: [Faker::Ancient.unique.god, Faker::Ancient.unique.god, Faker::Ancient.unique.god],
+        description: random_description
     )
     Faker::Ancient.unique.clear
 end
@@ -22,6 +24,7 @@ end
 50.times do
     random_user = User.all.sample
     random_incident = Incident.all.sample
+    random_description = [Faker::Quotes::Shakespeare.romeo_and_juliet_quote, Faker::Quotes::Shakespeare.king_richard_iii_quote].sample
 
      # 30% chance the ticket's a lead
     is_lead = (rand <= 0.3)
@@ -40,7 +43,8 @@ end
         is_lead: is_lead,
         assigned_to: is_assigned ? User.all.sample : nil,
         parent: has_parent ? random_incident.tickets.sample : nil,
-        tag_list: [Faker::Ancient.unique.god, Faker::Ancient.unique.god]
+        tag_list: [Faker::Ancient.unique.god, Faker::Ancient.unique.god],
+        description: random_description
     )
     Faker::Ancient.unique.clear
 end
