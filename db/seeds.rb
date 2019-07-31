@@ -16,9 +16,10 @@ end
     )
 end
 
-# create 25 tickets
-25.times do
+# create 50 tickets
+50.times do
     random_user = User.all.sample
+    random_incident = Incident.all.sample
 
      # 30% chance the ticket's a lead
     is_lead = (rand <= 0.3)
@@ -26,18 +27,22 @@ end
     # 70% chance the ticket is assigned to an user
     is_assigned = (rand <= 0.7)
 
+    # 80% chance the ticket has a parent ticket
+    has_parent = (rand <= 0.8)
+
     random_user.tickets.create(
         name: "Ticket-#{Faker::Code.nric}",
-        incident: Incident.all.sample,
+        incident: random_incident,
         status: [:open, :closed, :in_progress].sample,
         priority: [:high, :medium, :low].sample,
         is_lead: is_lead,
-        assigned_to: is_assigned ? User.all.sample : nil
+        assigned_to: is_assigned ? User.all.sample : nil,
+        parent: has_parent ? random_incident.tickets.sample : nil
     )
 end
 
-# create 75 observables
-75.times do
+# create 150 observables
+150.times do
     random_user = User.all.sample
     random_observable = [
         Faker::Internet.domain_name,
@@ -52,8 +57,8 @@ end
     )
 end
 
-# create 150 comments
-150.times do
+# create 200 comments
+200.times do
     random_user = User.all.sample
     random_comment = [
         Faker::Quote.famous_last_words,
