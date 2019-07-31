@@ -39,7 +39,7 @@ This page lists all the tickets of all the incidents you're a member of.
         <td>
             <%= render 'tickets/priority_tag', ticket: ticket %>
         </td>
-        <td><%= ticket.is_lead %></td>
+        <td><%= ticket.is_lead == true %></td>
         <td><%= ticket.created_at %></td>
         <td><%= ticket.user %></td>
         <td><%= ticket.assigned_to %></td>
