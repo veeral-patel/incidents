@@ -7,8 +7,8 @@ cat .env
 echo ""
 
 # to use the dark theme, replace with:
-# sh ./choose_theme.sh dark
-sh ./choose_theme.sh light
+# bash ./choose_theme.sh dark
+bash ./choose_theme.sh light
 
 # build docker image
 docker-compose build
