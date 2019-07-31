@@ -13,6 +13,12 @@
         <% end %>
     </div>
 
+    <div style="white-space: pre-line;"> 
+        <strong>Description</strong>
+        <%= incident.description.truncate_words(35) %>
+    </div>
+   
+
     <% if incident.tag_list %>
         <br>
         <div class="tags">
@@ -31,5 +37,6 @@
 
     .incident_result {
         margin-bottom: 30px;
+        width: 60%;
     }
 </style>
