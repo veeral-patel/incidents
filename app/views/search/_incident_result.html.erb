@@ -1,6 +1,6 @@
-<div class="result">
+<div class="incident_result">
     <div>
-        <a href="<%= incident_path(result.searchable) %>" class="title is-5 result_title">
+        <a href="<%= incident_path(result.searchable) %>" class="title is-5 incident_result_title">
             <%= result.searchable.name %>
         </a>
         <span class="tag is-info">Incident</span>
@@ -15,12 +15,12 @@
 </div>
 
 <style>
-    .result_title {
+    .incident_result_title {
         display: inline-block;
         color: rgb(53, 118, 217);
     }
 
-    .result {
+    .incident_result {
         margin-bottom: 30px;
     }
 </style>

@@ -1,6 +1,6 @@
-<div class="result">
+<div class="ticket_result">
     <div>
-        <a href="<%= ticket_path(result.searchable) %>" class="title is-5 result_title">
+        <a href="<%= ticket_path(result.searchable) %>" class="title is-5 ticket_result_title">
             <%= result.searchable.name %>
         </a>
         <span class="tag is-primary">Ticket</span>
@@ -14,13 +14,13 @@
     </div>
 </div>
 
-<script>
-    .result_title {
+<style>
+    .ticket_result_title {
         display: inline-block;
         color: rgb(53, 118, 217);
     }
 
-    .result {
+    .ticket_result {
         margin-bottom: 30px;
     }
-</script>
+</style>
