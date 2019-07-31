@@ -11,12 +11,22 @@ end
 5.times do
     random_user = User.all.sample
     random_description = [Faker::Quotes::Shakespeare.hamlet_quote, Faker::Quotes::Shakespeare.as_you_like_it_quote].sample
-    random_user.incidents.create(
+
+    inc = random_user.incidents.create(
         name: "Incident-#{Faker::Code.nric}",
         status: [:open, :closed, :in_progress].sample,
         tag_list: [Faker::Ancient.unique.god, Faker::Ancient.unique.god, Faker::Ancient.unique.god],
         description: random_description
     )
+
+    random_people = User.all.shuffle.first(3)
+    random_people.each do |person|
+        if not inc.members.include? person
+            inc.members << person
+            inc.save
+        end
+    end
+
     Faker::Ancient.unique.clear
 end
 
