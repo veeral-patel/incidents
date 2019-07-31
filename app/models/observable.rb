@@ -1,6 +1,6 @@
 class Observable < ApplicationRecord
   include PgSearch::Model
-  multisearchable against: [:observable], using: {
+  multisearchable against: [:observable, :description, :tag_list], using: {
       tsearch: {
           prefix: true,
           highlight: {
