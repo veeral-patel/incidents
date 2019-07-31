@@ -1,4 +1,14 @@
 class Ticket < ApplicationRecord
+   include PgSearch::Model
+   multisearchable against: [:name, :description, :tag_list], using: {
+       tsearch: {
+           highlight: {
+               StartSel: '<b>',
+               StopSel: '</b>'
+           }
+       }
+   }
+
   has_ancestry
   acts_as_taggable
 
