@@ -13,7 +13,7 @@ end
     random_user.incidents.create(
         name: "Incident-#{Faker::Code.nric}",
         status: [:open, :closed, :in_progress].sample,
-        tag_list: [Faker::Ancient.unique.god] * rand(1..4)
+        tag_list: [Faker::Ancient.unique.god, Faker::Ancient.unique.god, Faker::Ancient.unique.god]
     )
     Faker::Ancient.unique.clear
 end
@@ -40,7 +40,7 @@ end
         is_lead: is_lead,
         assigned_to: is_assigned ? User.all.sample : nil,
         parent: has_parent ? random_incident.tickets.sample : nil,
-        tag_list: [Faker::Ancient.unique.god] * rand(1..4)
+        tag_list: [Faker::Ancient.unique.god, Faker::Ancient.unique.god]
     )
     Faker::Ancient.unique.clear
 end
