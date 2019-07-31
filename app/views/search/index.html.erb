@@ -26,6 +26,8 @@
                 <%= render 'search/incident_result', result: result, incident: result.searchable %>
             <% elsif result.searchable_type == 'Ticket' %>
                 <%= render 'search/ticket_result', result: result, ticket: result.searchable %>
+            <% elsif result.searchable_type == 'Comment' %>
+                <%= render 'search/comment_result', result: result, comment: result.searchable %>
             <% end %>
         <% end %>
     <% end %>

@@ -1,4 +1,14 @@
 class Comment < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [:comment], using: {
+      tsearch: {
+          highlight: {
+              StartSel: '<b>',
+              StopSel: '</b>'
+          }
+      }
+  }
+
   belongs_to :user
   belongs_to :ticket
 

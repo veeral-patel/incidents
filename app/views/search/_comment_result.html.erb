@@ -1,0 +1,37 @@
+<div class="comment_result">
+    <div>
+        <a href="<%= ticket_comments_path(comment.ticket) %>" class="title is-5 comment_result_title">
+            Comment by <%= comment.user %>
+        </a>
+        <span class="tag is-dark">Comment</span>
+    </div>
+    <div>
+        <% if result.respond_to?(:pg_search_highlight) %>
+            <%= result.pg_search_highlight.html_safe %>
+        <% else %>
+            <%= result.content %>
+        <% end %>
+    </div>
+    <div>
+        <br>
+        <p>
+            Commented at <%= comment.created_at %> on <a href="<%= ticket_path(comment.ticket) %>"><%= comment.ticket %></a>
+            (incident: <a href="<%= incident_path(comment.ticket.incident) %>"><%= comment.ticket.incident %></a>)
+        </p>
+    </div>
+</div>
+
+<style>
+    .comment_result_title {
+        display: inline-block;
+        color: rgb(53, 118, 217);
+    }
+
+    .comment_result {
+        margin-bottom: 30px;
+    }
+
+     .comment_result_description {
+        white-space: pre-line;
+    }
+</style>
