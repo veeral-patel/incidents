@@ -1,6 +1,6 @@
-<div style="margin-bottom: 30px">
+<div class="result">
     <div>
-        <a href="<%= ticket_path(result.searchable) %>" class="title is-5" style="display: inline-block; color: rgb(53, 118, 217)">
+        <a href="<%= ticket_path(result.searchable) %>" class="title is-5 result_title">
             <%= result.searchable.name %>
         </a>
         <span class="tag is-info">Ticket</span>
@@ -13,3 +13,14 @@
         <% end %>
     </div>
 </div>
+
+<script>
+    .result_title {
+        display: inline-block;
+        color: rgb(53, 118, 217);
+    }
+
+    .result {
+        margin-bottom: 30px;
+    }
+</script>
