@@ -1,9 +1,9 @@
 <div style="margin-bottom: 30px">
     <div>
-        <a href="<%= incident_path(result) %>" class="title is-5" style="display: inline-block; color: rgb(53, 118, 217)">
+        <a href="<%= ticket_path(result.searchable) %>" class="title is-5" style="display: inline-block; color: rgb(53, 118, 217)">
             <%= result.searchable.name %>
         </a>
-        <span class="tag is-info"><%= result.searchable_type %></span>
+        <span class="tag is-info">Ticket</span>
     </div>
     <div>
         <% if result.respond_to?(:pg_search_highlight) %>

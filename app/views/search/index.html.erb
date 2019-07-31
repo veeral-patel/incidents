@@ -22,7 +22,11 @@
     <% else %>
         <br>
         <% @results.each do |result| %>
-            <%= render 'search/result', result: result %>
+            <% if result.searchable_type == 'Incident'%>
+                <%= render 'search/incident_result', result: result %>
+            <% elsif result.searchable_type == 'Ticket' %>
+                <%= render 'search/ticket_result', result: result %>
+            <% end %>
         <% end %>
     <% end %>
 </div>
