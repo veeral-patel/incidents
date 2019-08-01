@@ -63,5 +63,8 @@ $(document).ready(function() {
         persist: false,
         create: true
     });
+
+    users = <%= raw User.pluck(:username).compact.to_json %>;
+    $('textarea').atwho({at:"@", 'data': users});
 })
 </script>
