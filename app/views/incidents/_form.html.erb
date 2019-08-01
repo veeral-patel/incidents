@@ -52,7 +52,7 @@
 
     <div class="field">
       <%= form.label :description, "Description", class: "label" %>
-      <%= form.text_area :description, class: "textarea", placeholder: "Type description here..." %>
+      <%= form.text_area :description, class: "textarea description", placeholder: "Type description here..." %>
     </div>
 
     <div class="actions">
@@ -62,10 +62,15 @@
 </div>
 
 <script>
-// initialize tag inputs
-$(".tag_list").selectize({
-    delimiter: ",",
-    persist: false,
-    create: true
-});
+$(document).ready(function() {
+  // initialize tag inputs
+  $(".tag_list").selectize({
+      delimiter: ",",
+      persist: false,
+      create: true
+  });
+
+  users = <%= raw User.pluck(:username).compact.to_json %>;
+  $('.description').atwho({at:"@", 'data': users})
+})
 </script>

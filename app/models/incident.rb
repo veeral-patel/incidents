@@ -12,8 +12,10 @@ class Incident < ApplicationRecord
 
     acts_as_taggable
 
-    after_create_commit :add_creator_to_members
-    after_create_commit :notify_mentioned_users
+    after_create :add_creator_to_members
+
+    after_update :notify_mentioned_users, if: :saved_change_to_description?
+    after_create :notify_mentioned_users
 
     enum status: { open: 0, in_progress: 1, closed: 2}
 
