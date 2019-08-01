@@ -37,7 +37,6 @@
     <table class="ticket-attachments-table hover stripe">
       <thead>
         <tr>
-          <th>ID</th>
           <th>Name</th>
           <th>Size</th>
           <th>Created At</th>
@@ -49,13 +48,8 @@
       <tbody>
         <% @ticket.attachments.each do |attachment| %>
         <tr>
-          <td><%= attachment.id %></td>
           <td>
-            <% if attachment.file.attached? %>
-            <a href="<%= url_for(attachment.file) %>"
-              ><%= attachment.file.blob.filename %></a
-            >
-            <% else %> N/A <% end %>
+            <a href="<%= url_for(attachment.file) %>"><%= attachment.file.blob.filename %></a>
           </td>
           <td>
             <% if attachment.file.attached? %> <%=

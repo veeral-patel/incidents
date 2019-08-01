@@ -26,7 +26,7 @@
     <table class="incident-attachments-table stripe hover">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>Name</th>
           <th>Created At</th>
           <th>Ticket</th>
           <th>Description</th>
@@ -38,9 +38,17 @@
       <tbody>
         <% @incident.attachments.each do |attachment| %>
           <tr>
-            <td><%= attachment.id %></td>
+              <td>
+              <a href="<%= url_for(attachment.file) %>">
+                  <%= attachment.file.blob.filename %>
+              </a>
+              </td>
             <td><%= attachment.created_at %></td>
-            <td><%= attachment.ticket %></td>
+            <td>
+                <a href="<%= ticket_path(attachment.ticket) %>">
+                    <%= attachment.ticket %>
+                </a>
+            </td>
             <td><%= truncate(attachment.description, :length => 60) %></td>
             <td><%= link_to 'Show', ticket_attachment_path(attachment.ticket, attachment) %></td>
             <td><%= link_to 'Destroy', ticket_attachment_path(attachment.ticket, attachment), method: :delete, data: { confirm: 'Are you sure?' } =%></td>
