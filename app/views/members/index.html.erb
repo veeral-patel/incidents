@@ -17,6 +17,17 @@
     <p>Only members of this incident can view it.</p>
     <br />
 
+    <%= form_with(model: @member) do |form| %>
+      <div class="field">
+        <%= form.select :username, User.all - @incident.members %>
+      </div>
+      <div class="actions">
+        <%= form.button "Create", type: :submit, class: "button is-link" %>
+      </div>
+    <% end %>
+
+    <br>
+
     <% if @incident.members.empty? %>
       No members
       <br />
@@ -44,16 +55,6 @@
         <% end %>
       </tbody>
     </table>
-    <% end %>
-
-    <br />
-
-    <h2 class="title is-6">Edit Members</h2>
-
-    <%= form_for @incident do |f| %>
-      <%= f.collection_select(:member_ids, User.all, :id, :username, {:prompt => "Please select an user"}, {:multiple => true})  %>
-      <br />
-      <%= f.submit %>
     <% end %>
   </div>
 </div>

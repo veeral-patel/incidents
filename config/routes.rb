@@ -30,7 +30,7 @@ Rails.application.routes.draw do
           get :danger
           get :new_ticket
       end
-      resources :members, only: [:index, :destroy]
+      resources :members, only: [:index, :create, :destroy]
   end
 
   devise_for :users, :skip => [:registrations], controllers: { sessions: 'users/sessions' }

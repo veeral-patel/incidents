@@ -6,6 +6,23 @@ class MembersController < ApplicationController
       raise Pundit::NotAuthorizedError unless IncidentPolicy.new(current_user, @incident).show?
     end
 
+    def create
+      if params.key? 'username'
+        @member = User.where(username: params['username']).take
+      else
+        flash[:alert] = "You must specify the username of the member to add"
+        redirect_to incident_members_url(@incident) and return
+      end
+      
+      if @member && @incident.members << @member
+        flash[:notice] = "Added #{@member.username} to the incident"
+        redirect_to incident_members_url(@incident)
+      else
+        flash[:alert] = "Failed to add member to the incident"
+        redirect_to incident_members_url(@incident)
+      end
+    end
+
     def destroy
       raise Pundit::NotAuthorizedError unless IncidentPolicy.new(current_user, @incident).show?
 
