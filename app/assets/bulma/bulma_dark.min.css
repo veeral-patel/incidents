@@ -4234,9 +4234,6 @@ a.list-item {
       .navbar.is-primary .navbar-dropdown a.navbar-item.is-active {
         background-color: #2A9FD6;
         color: #fff; } }
-  .navbar.is-link {
-    background-color: #3273E2;
-    color: #fff; }
     .navbar.is-link .navbar-brand > .navbar-item,
     .navbar.is-link .navbar-brand .navbar-link {
       color: #fff; }
