@@ -21,7 +21,7 @@ class Comment < ApplicationRecord
     def notify_mentioned_users
         mentions = begin
             regex = /@([\w]+)/
-            self.description.scan(regex).flatten    
+            self.comment.scan(regex).flatten    
         end
         mentioned_users = User.where(username: mentions)
         mentioned_users.each do |user|
