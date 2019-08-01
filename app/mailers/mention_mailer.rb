@@ -8,4 +8,9 @@ class MentionMailer < ApplicationMailer
         @user, @ticket = user, ticket
         mail(to: @user.email, subject: "You were mentioned in ticket '#{@ticket}'")
     end
+
+    def mentioned_in_observable_description(user, observable)
+        @user, @observable = user, observable
+        mail(to: @user.email, subject: "You were mentioned in observable '#{@observable}'")
+    end
 end

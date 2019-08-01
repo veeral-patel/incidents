@@ -1,0 +1,17 @@
+Hey <%= @user.username %>,
+
+<br><br>
+
+You were mentioned in the description of observable "<%= @observable %>".
+
+<br><br>
+
+<strong>Description</strong>
+
+<br><br>
+
+<%= truncate(@observable.description, :length => 300) %>
+
+<br><br>
+
+<a href="<%= ticket_observable_url(@observable.ticket, @observable) %>">View observable</a>
