@@ -29,7 +29,25 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.username %></td>
-        <td><%= user.status.upcase %></td>
+        <td>
+          <% if user.status.upcase.to_s.eql? 'DISABLED' %>
+            <span class="tag is-danger">
+              <%= user.status.upcase %>
+            </span>
+          <% elsif user.status.upcase.to_s.eql? 'INVITATION_PENDING' %>
+            <span class="tag is-warning">
+              <%= user.status.upcase %>
+            </span>
+          <% elsif user.status.upcase.to_s.eql? 'INVITATION_ACCEPTED' %>
+            <span class="tag is-success">
+              <%= user.status.upcase %>
+            </span>
+          <% else %>
+            <span class="tag">
+              <%= user.status.upcase.to_s %>
+            </span>
+          <% end %>
+        </td>
         <td><%= user.email %></td>
         <td><%= user.admin? ? "admin" : "user" %></td>
         <td><%= user.created_at %></td>
