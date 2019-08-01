@@ -54,9 +54,9 @@
         <% if not user.active_for_authentication? or user.status.eql? :invitation_pending %>
           <td></td>
         <% elsif user.admin && User.admins.count == 1%>
-          <td>Can't disable last admin</td>
+          <td></td>
         <% elsif @users.count == 1 %>
-          <td>Can't disable last user</td>
+          <td></td>
         <% else %>
           <td><%= link_to 'Disable', user, method: :delete %></td>
         <% end %>
