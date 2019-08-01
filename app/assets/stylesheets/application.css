@@ -12,5 +12,6 @@
  *
  *= require datatables
  *= require_tree .
+ *= require jquery.atwho
  *= require_self
  */

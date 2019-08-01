@@ -14,6 +14,7 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require jquery.atwho
 //= require datatables
 //= require_tree .
 
