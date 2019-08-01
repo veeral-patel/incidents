@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:enable, :destroy]
   before_action :authorize_admin
 
   # GET /users
@@ -8,32 +8,22 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
-  def update
+  # GET /users/1/enable
+  def enable
+    @user.soft_restore
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to users_url, notice: "#{@user} was successfully enabled." }
+      format.json { head :no_content }
     end
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    if not @user.username.ends_with?('[disabled]')
-      @user.username = @user.username + " [disabled]"
-      @user.save
-    end
-
     @user.soft_delete
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: "#{@user} was successfully disabled." }
       format.json { head :no_content }
     end
   end

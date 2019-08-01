@@ -52,7 +52,11 @@ Rails.application.routes.draw do
   end
 
   scope "/admin" do
-    resources :users, :except => [:new, :show, :edit]
+    resources :users, :only => [:index, :destroy] do
+      member do
+        get :enable
+      end
+    end
   end
 
   root :to => 'incidents#index'

@@ -51,7 +51,20 @@ class User < ApplicationRecord
         self.username
     end
 
+    def soft_restore
+        # Reverts a soft delete.
+        if self.username.ends_with? ' [disabled]'
+            self.username = self.username.delete_suffix ' [disabled]'
+            self.save
+        end
+        update_attribute(:deleted_at, nil)
+    end
+
     def soft_delete  
+        if not self.username.ends_with? ' [disabled]'
+            self.username = self.username + " [disabled]"
+            self.save
+        end
         update_attribute(:deleted_at, Time.current)  
     end  
       

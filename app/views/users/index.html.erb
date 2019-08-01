@@ -51,7 +51,9 @@
         <td><%= user.email %></td>
         <td><%= user.admin? ? "admin" : "user" %></td>
         <td><%= user.created_at %></td>
-        <% if not user.active_for_authentication? or user.status.eql? :invitation_pending %>
+        <% if not user.active_for_authentication?  %>
+          <td><%= link_to 'Enable', enable_user_path(user) %></td>
+        <% elsif user.status.eql? :invitation_pending %>
           <td></td>
         <% elsif user.admin && User.admins.count == 1%>
           <td></td>
