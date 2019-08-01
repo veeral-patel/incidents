@@ -13,3 +13,7 @@ production:
   host: db
   database: db_production
   username: postgres
+
+heroku:
+  adapter: postgresql
+  url: ENV["DATABASE_URL"]
