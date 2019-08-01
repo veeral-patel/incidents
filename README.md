@@ -58,7 +58,7 @@ tree can only have 2 levels--and they don't show you a visualization of the tree
 
 INCIDENTS models an incident as a tree of tickets, with any number of levels.
 
-![Tree](docs/img/tree.png)
+![Tree](https://user-images.githubusercontent.com/12554095/62274952-b8c83a00-b3f5-11e9-8066-b864883b1979.png)
 
 I believe this approach better captures an incident responder's mental model of
 an incident.
