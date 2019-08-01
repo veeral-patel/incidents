@@ -21,6 +21,6 @@ class MentionMailer < ApplicationMailer
 
     def mentioned_in_attachment_description(user, attachment)
         @user, @attachment = user, attachment
-        mail(to: @user.email, subject: "You were mentioned on attachment '#{@attachment} on ticket '#{@attachment.ticket}'")
+        mail(to: @user.email, subject: "You were mentioned on an attachment in ticket '#{@attachment.ticket}'")
     end
 end
