@@ -4,6 +4,7 @@ class MembersController < ApplicationController
 
     def index
       raise Pundit::NotAuthorizedError unless IncidentPolicy.new(current_user, @incident).show?
+      @nonmembers = User.all - @incident.members
     end
 
     def create

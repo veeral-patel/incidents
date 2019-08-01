@@ -18,12 +18,12 @@
     <br />
 
     <%= form_with(model: @member) do |form| %>
-      <div class="field">
-        <%= form.select :username, User.all - @incident.members %>
-      </div>
-      <div class="actions">
-        <%= form.button "Create", type: :submit, class: "button is-link" %>
-      </div>
+      <span style="display: inline-block">
+        <%= form.select(:username, @nonmembers, {}, { :class => 'members_select', :style => 'width: 200px' }) %>
+      </span>
+      <span>
+        <%= form.button "Add to Incident", type: :submit, class: "button is-link" %>
+      </span>
     <% end %>
 
     <br>
@@ -69,5 +69,11 @@
     // style datatable search inputs
     $(".dataTables_filter input").addClass("input");
     $(".dataTables_filter input").attr("placeholder", "Search");
+
+    // autocomplete for member select
+    $('.members_select').selectize({
+      create: false,
+    });
   })
 </script>
+
