@@ -73,6 +73,8 @@ class Incident < ApplicationRecord
                 self.description.scan(regex).flatten    
             end
             mentioned_users = User.where(username: mentions)
-            mentioned_users.each { |user| puts user } # email users here
+            mentioned_users.each do |user|
+                MentionMailer.mentioned_in_incident_description(user, self).deliver_later
+            end
         end
 end

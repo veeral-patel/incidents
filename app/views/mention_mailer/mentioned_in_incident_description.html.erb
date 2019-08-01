@@ -1,0 +1,6 @@
+Hey <%= @user.username %>,
+
+You were mentioned in the description of incident <%= @incident %>.
+
+<h3>Description</h3>
+<%= truncate(@incident.description, :length => 300) %>
