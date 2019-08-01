@@ -21,7 +21,7 @@ class Attachment < ApplicationRecord
     validate :ensure_file_is_attached
 
     def to_s
-        attachment.file.blob.filename
+        self.file.blob.filename
     end
 
     def ensure_file_is_attached
