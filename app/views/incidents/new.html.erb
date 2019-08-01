@@ -46,7 +46,7 @@
 
         <div class="field">
             <%= form.label :description, "Description", class: "label" %>
-            <%= form.text_area :description, class: "textarea", placeholder: "Type description here" %>
+            <%= form.text_area :description, class: "textarea description", placeholder: "Type description here" %>
         </div>
 
         <div class="actions">
@@ -65,6 +65,6 @@ $(document).ready(function() {
     });
 
     users = <%= raw User.pluck(:username).compact.to_json %>;
-    $('textarea').atwho({at:"@", 'data': users});
+    $('.description').atwho({at:"@", 'data': users});
 })
 </script>
