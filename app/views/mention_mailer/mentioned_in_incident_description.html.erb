@@ -1,12 +1,12 @@
 Hey <%= @user.username %>,
 
-<br>
+<br><br>
 
 You were mentioned in the description of incident "<%= @incident %>".
 
-<h5>Description</h5>
+<strong>Description</strong>
 <%= truncate(@incident.description, :length => 300) %>
 
-<br>
+<br><br>
 
 <a href="<%= incident_url(@incident) %>">View Incident</a>
