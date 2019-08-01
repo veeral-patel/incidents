@@ -51,7 +51,7 @@
         <td><%= user.email %></td>
         <td><%= user.admin? ? "admin" : "user" %></td>
         <td><%= user.created_at %></td>
-        <% if not user.active_for_authentication? %>
+        <% if not user.active_for_authentication? or user.status.eql? :invitation_pending %>
           <td></td>
         <% elsif user.admin && User.admins.count == 1%>
           <td>Can't disable last admin</td>
