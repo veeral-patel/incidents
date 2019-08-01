@@ -16,6 +16,6 @@ class MentionMailer < ApplicationMailer
 
     def mentioned_in_ticket_comment(user, comment)
         @user, @comment = user, comment
-        mail(to: @user.email, subject: "#{comment.user} mentioned you in a comment on ticket '#{comment.ticket}'")
+        mail(to: @user.email, subject: "#{@comment.user} mentioned you in a comment on ticket '#{comment.ticket}'")
     end
 end
