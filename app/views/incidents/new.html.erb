@@ -56,10 +56,12 @@
 </div>
 
 <script>
-// initialize tag inputs
-$(".tag_list").selectize({
-    delimiter: ",",
-    persist: false,
-    create: true
-});
+$(document).ready(function() {
+    // initialize tag inputs
+    $(".tag_list").selectize({
+        delimiter: ",",
+        persist: false,
+        create: true
+    });
+})
 </script>
