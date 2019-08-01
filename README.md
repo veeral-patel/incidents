@@ -111,21 +111,27 @@ We're on [Gitter](https://gitter.im/incidents-oss/community), too.
 
 ## Screenshots
 
+<p>
 <img width="115" alt="all_incidents" src="https://user-images.githubusercontent.com/12554095/62274941-b7970d00-b3f5-11e9-85dd-a0ec255e938b.png">
 <img width="124" alt="all_tickets" src="https://user-images.githubusercontent.com/12554095/62274942-b7970d00-b3f5-11e9-93d6-f8863aead33c.png">
 <img width="124" alt="assigned_tickets" src="https://user-images.githubusercontent.com/12554095/62274944-b82fa380-b3f5-11e9-9c2c-02287c6c1dee.png">
 <img width="123" alt="delete_incident" src="https://user-images.githubusercontent.com/12554095/62274945-b82fa380-b3f5-11e9-9eb4-b54059ac6dfb.png">
 <img width="120" alt="incident_attachments" src="https://user-images.githubusercontent.com/12554095/62274946-b82fa380-b3f5-11e9-9428-3eca7f36f37d.png">
 <img width="124" alt="incident_details" src="https://user-images.githubusercontent.com/12554095/62274947-b82fa380-b3f5-11e9-8c1a-446e91d6908f.png">
+</p>
+<p>
 <img width="120" alt="incident_leads" src="https://user-images.githubusercontent.com/12554095/62274948-b82fa380-b3f5-11e9-9cba-56a90530a523.png">
 <img width="124" alt="incident_members" src="https://user-images.githubusercontent.com/12554095/62274949-b8c83a00-b3f5-11e9-82ee-89ae29775bb7.png">
 <img width="124" alt="incident_observables" src="https://user-images.githubusercontent.com/12554095/62274950-b8c83a00-b3f5-11e9-9f99-4f9a5b7701a5.png">
 <img width="120" alt="incident_tickets" src="https://user-images.githubusercontent.com/12554095/62274951-b8c83a00-b3f5-11e9-9fbc-4cdc04feea01.png">
 <img width="124" alt="incident_tree" src="https://user-images.githubusercontent.com/12554095/62274952-b8c83a00-b3f5-11e9-8066-b864883b1979.png">
 <img width="124" alt="new_ticket" src="https://user-images.githubusercontent.com/12554095/62274953-b8c83a00-b3f5-11e9-94be-d1442bc1e7e4.png">
+</p>
+<p>
 <img width="120" alt="new_incident" src="https://user-images.githubusercontent.com/12554095/62274954-b8c83a00-b3f5-11e9-8868-30dedbfdc9f4.png">
 <img width="120" alt="ticket_tree" src="https://user-images.githubusercontent.com/12554095/62274955-b960d080-b3f5-11e9-9d20-e7c536935e84.png">
 <img width="120" alt="ticket_comments" src="https://user-images.githubusercontent.com/12554095/62274956-b960d080-b3f5-11e9-935e-e726d0ff53dc.png">
 <img width="120" alt="ticket_details" src="https://user-images.githubusercontent.com/12554095/62274957-b960d080-b3f5-11e9-94e5-d88bc3fd9191.png">
 <img width="124" alt="search" src="https://user-images.githubusercontent.com/12554095/62274959-b960d080-b3f5-11e9-8cc3-2a414a5fff42.png">
 <img width="124" alt="users" src="https://user-images.githubusercontent.com/12554095/62274960-b960d080-b3f5-11e9-81cf-d986344332e6.png">
+</p>
