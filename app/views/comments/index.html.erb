@@ -54,7 +54,7 @@
     <%= form_with(model: @comment, url: [@ticket, @comment], local: true) do |form| %>
       <div class="field" style="width: 60%">
         <%= form.label :comment, "Add Comment", class: "label" %>
-        <%= form.text_area :comment, placeholder: "Enter comment here", class: "textarea", autofocus: true  %>
+        <%= form.text_area :comment, placeholder: "Enter comment here", class: "textarea description", autofocus: true  %>
       </div>
 
       <%= form.hidden_field :user_id, value: current_user.id %>
@@ -89,3 +89,10 @@
     padding-bottom: 2%;
   }
 </style>
+
+<script>
+  $(document).ready(function() {
+    users = <%= raw User.pluck(:username).compact.to_json %>;
+    $('.description').atwho({at:"@", 'data': users});
+  })
+</script>

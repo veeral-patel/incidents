@@ -1,0 +1,17 @@
+Hey <%= @user.username %>,
+
+<br><br>
+
+<%= comment.user %> mentioned you in a comment on ticket '<%= comment.ticket %>'
+
+<br><br>
+
+<strong>Comment</strong>
+
+<br><br>
+
+<%= truncate(@comment.comment, :length => 300) %>
+
+<br><br>
+
+<a href="<%= ticket_comments_url(@comment.ticket) %>">View This Ticket's Comments</a>
