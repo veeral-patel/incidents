@@ -37,3 +37,8 @@ table.dataTable.stripe tbody tr.even {
   background-color: #121212;
   color: white;
 }
+
+div.selectize-input,
+div.selectize-control.single div.selectize-input.input-active {
+  background-color: #121212;
+}
