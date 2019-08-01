@@ -13,6 +13,7 @@ class Incident < ApplicationRecord
     acts_as_taggable
 
     after_create_commit :add_creator_to_members
+    after_create_commit :notify_mentioned_users
 
     enum status: { open: 0, in_progress: 1, closed: 2}
 
@@ -64,5 +65,14 @@ class Incident < ApplicationRecord
         def add_creator_to_members
             self.members << self.user
             self.save
+        end
+
+        def notify_mentioned_users
+            mentions = begin
+                regex = /@([\w]+)/
+                self.description.scan(regex).flatten    
+            end
+            mentioned_users = User.where(username: mentions)
+            mentioned_users.each { |user| puts user } # email users here
         end
 end
