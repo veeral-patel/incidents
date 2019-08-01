@@ -33,6 +33,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'faker'
 gem 'pg'
 gem 'aws-sdk-s3'
+gem 'jquery-atwho-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
