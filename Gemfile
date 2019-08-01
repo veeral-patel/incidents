@@ -31,6 +31,8 @@ gem 'dotenv-rails'
 gem 'pg_search'
 gem 'will_paginate', '~> 3.1.0'
 gem 'faker'
+gem 'pg'
+gem 'aws-sdk-s3'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -74,9 +76,6 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-group :production do
-    gem 'pg'
-end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
