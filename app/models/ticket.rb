@@ -1,14 +1,16 @@
 class Ticket < ApplicationRecord
-   include PgSearch::Model
-   multisearchable against: [:name, :description, :tag_list, :user, :status, :priority, :assigned_to, :parent], using: {
-       tsearch: {
-          prefix: true,
-           highlight: {
-               StartSel: '<b>',
-               StopSel: '</b>'
-           }
-       }
-   }
+  include PgSearch::Model
+  multisearchable against: [:name, :description, :tag_list, :user, :status, :priority, :assigned_to, :parent], using: {
+      tsearch: {
+         prefix: true,
+          highlight: {
+              StartSel: '<b>',
+              StopSel: '</b>'
+          }
+      }
+  }
+
+  after_create_commit :notify_mentioned_users
 
   has_ancestry
   acts_as_taggable
@@ -88,4 +90,16 @@ class Ticket < ApplicationRecord
       return parent_template
     end
   end
+
+  private
+    def notify_mentioned_users
+      mentions = begin
+          regex = /@([\w]+)/
+          self.description.scan(regex).flatten    
+      end
+      mentioned_users = User.where(username: mentions)
+      mentioned_users.each do |user|
+          MentionMailer.mentioned_in_ticket_description(user, self).deliver_later
+      end
+    end
 end

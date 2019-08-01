@@ -1,0 +1,17 @@
+Hey <%= @user.username %>,
+
+<br><br>
+
+You were mentioned in the description of ticket "<%= @ticket %>".
+
+<br><br>
+
+<strong>Description</strong>
+
+<br><br>
+
+<%= truncate(@ticket.description, :length => 300) %>
+
+<br><br>
+
+<a href="<%= ticket_url(@ticket) %>">View Ticket</a>
