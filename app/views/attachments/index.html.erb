@@ -52,9 +52,11 @@
             <a href="<%= url_for(attachment.file) %>"><%= attachment.file.blob.filename %></a>
           </td>
           <td>
-            <% if attachment.file.attached? %> <%=
-            number_to_human_size(attachment.file.blob.byte_size) %> <% else %>
-            N/A <% end %>
+            <% if attachment.file.attached? %>
+              <%= number_to_human_size(attachment.file.blob.byte_size) %>
+            <% else %>
+              N/A
+            <% end %>
           </td>
           <td><%= attachment.created_at %></td>
           <td>

@@ -9,6 +9,9 @@ class Attachment < ApplicationRecord
             }
         }
     }
+
+    after_create_commit :notify_mentioned_users
+
     acts_as_taggable
 
     has_one_attached :file
@@ -17,9 +20,25 @@ class Attachment < ApplicationRecord
 
     validate :ensure_file_is_attached
 
+    def to_s
+        attachment.file.blob.filename
+    end
+
     def ensure_file_is_attached
         if not self.file.attached?
             errors.add(:file, "must be attached")
         end
     end
+
+    private
+        def notify_mentioned_users
+            mentions = begin
+                regex = /@([\w]+)/
+                self.description.scan(regex).flatten    
+            end
+            mentioned_users = User.where(username: mentions)
+            mentioned_users.each do |user|
+                MentionMailer.mentioned_in_attachment_description(user, self).deliver_later
+            end
+        end
 end

@@ -28,7 +28,7 @@
 
     <div class="field">
       <%= form.label :description, class: "label" %>
-      <%= form.text_area :description, placeholder: "Enter description", class: "textarea" %>
+      <%= form.text_area :description, placeholder: "Enter description", class: "textarea description" %>
     </div>
 
     <%= form.hidden_field :ticket_id, value: @ticket.id %>
@@ -47,4 +47,7 @@ $(".tag_list").selectize({
     persist: false,
     create: true
 });
+
+  users = <%= raw User.pluck(:username).compact.to_json %>;
+  $('.description').atwho({at:"@", 'data': users});
 </script>

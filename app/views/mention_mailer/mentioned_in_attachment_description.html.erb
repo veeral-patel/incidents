@@ -1,0 +1,17 @@
+Hey <%= @user.username %>,
+
+<br><br>
+
+You were mentioned on attachment <%= @attachment %>, in ticket <%= @attachment.ticket %>.
+
+<br><br>
+
+<strong>Description</strong>
+
+<br><br>
+
+<%= truncate(@attachment.description, :length => 300) %>
+
+<br><br>
+
+<a href="<%= ticket_attachment_url(@attachment.ticket, @attachment) %>">View Attachment</a>
