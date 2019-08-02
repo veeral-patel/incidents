@@ -1,0 +1,32 @@
+<nav class="breadcrumb">
+      <ul>
+          <li><a href="<%= priorities_path %>">Priorities</a></li>
+          <li class="is-active"><a>Rename Priority</a></li>
+      </ul>
+</nav>
+
+<h2 class="title is-4">Rename Priority</h2>
+
+<%= form_with(model: @priority, local: true) do |form| %>
+  <% if @priority.errors.any? %>
+    <div class="message is-danger">
+      <div class="message-header">
+        <p><%= pluralize(@priority.errors.count, "error") %> prohibited this priority from being saved:</p>
+      </div>
+      <div class="message-body">
+        <ul>
+        <% @priority.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="field" style="width: 40%">
+    <%= form.text_field :name, class: "input", placeholder: "In Progress" %>
+  </div>
+  <div class="actions">
+    <%= form.button "Rename Priority", type: :submit, class: "button is-link" %>
+  </div>
+<% end %>
