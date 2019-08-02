@@ -23,7 +23,7 @@ class StatusesController < ApplicationController
         format.html { redirect_to statuses_url, notice: 'Status was successfully created.' }
         format.json { render :index, status: :created, location: @status }
       else
-        format.html { render :new }
+        format.html { redirect_to statuses_url, alert: "Could not create status. Did you enter the status's name?" }
         format.json { render json: @status.errors, status: :unprocessable_entity }
       end
     end
