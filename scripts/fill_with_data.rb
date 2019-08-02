@@ -49,7 +49,7 @@ end
         name: "Ticket-#{Faker::Code.nric}",
         incident: random_incident,
         status_id: Status.all.sample.id,
-        priority: [:high, :medium, :low].sample,
+        priority_id: Priority.all.sample.id,
         is_lead: is_lead,
         assigned_to: is_assigned ? User.all.sample : nil,
         parent: has_parent ? random_incident.tickets.sample : nil,
