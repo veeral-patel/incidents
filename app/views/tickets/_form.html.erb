@@ -61,7 +61,7 @@
     <div class="field">
       <%= form.label :priority, "Priority ", class: "label" %>
       <div class="select">
-          <%= collection_select :ticket, :status_id, Priority.all, :id, :name  %>
+          <%= collection_select :ticket, :priority_id, Priority.all, :id, :name  %>
       </div>
     </div>
 
