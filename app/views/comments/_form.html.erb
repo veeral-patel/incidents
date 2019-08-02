@@ -39,7 +39,7 @@
 
     <div class="field">
       <%= form.label :comment, "Comment (Required)", class: "label" %>
-      <%= form.text_area :comment, placeholder: "Enter comment here", class: "textarea" %>
+      <%= form.text_area :comment, placeholder: "Enter comment here", class: "textarea comment" %>
     </div>
 
     <div class="actions">
@@ -47,3 +47,10 @@
     </div>
   <% end %>
 </div>
+
+<script>
+$(document).ready(function() {
+  users = <%= raw User.pluck(:username).compact.to_json %>;
+  $('.comment').atwho({at:"@", 'data': users})
+})
+</script>

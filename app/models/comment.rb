@@ -10,7 +10,8 @@ class Comment < ApplicationRecord
       }
   }
 
-  after_create_commit :notify_mentioned_users
+  after_create :notify_mentioned_users
+  after_update_commit :notify_mentioned_users, if: :saved_change_to_comment?
 
   belongs_to :user
   belongs_to :ticket
