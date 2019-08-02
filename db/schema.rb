@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_174524) do
+ActiveRecord::Schema.define(version: 2019_08_02_215612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2019_08_02_174524) do
     t.bigint "user_id"
     t.string "description"
     t.bigint "status_id"
+    t.bigint "assigned_to_id"
+    t.index ["assigned_to_id"], name: "index_incidents_on_assigned_to_id"
     t.index ["status_id"], name: "index_incidents_on_status_id"
     t.index ["user_id"], name: "index_incidents_on_user_id"
   end
@@ -211,6 +213,7 @@ ActiveRecord::Schema.define(version: 2019_08_02_174524) do
   add_foreign_key "comments", "users"
   add_foreign_key "incidents", "statuses"
   add_foreign_key "incidents", "users"
+  add_foreign_key "incidents", "users", column: "assigned_to_id"
   add_foreign_key "incidents_users", "incidents"
   add_foreign_key "incidents_users", "users"
   add_foreign_key "observables", "tickets"
