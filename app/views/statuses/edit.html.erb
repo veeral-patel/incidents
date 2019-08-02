@@ -1,3 +1,10 @@
+<nav class="breadcrumb">
+      <ul>
+          <li><a href="<%= statuses_path %>"> Statuses </a></li>
+          <li class="is-active"><a>Rename Status</a></li>
+      </ul>
+</nav>
+
 <h2 class="title is-4">Rename Status</h2>
 
 <%= form_with(model: @status, local: true) do |form| %>
