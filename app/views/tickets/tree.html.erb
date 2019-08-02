@@ -28,9 +28,7 @@
         <%# render title and nav %>
         <%= render 'tickets/title', title: 'Tree', ticket: @ticket %>
         <%= render 'nav' %>
-        <p>Red nodes indicate open tickets, yellow nodes in progress tickets, and green nodes closed tickets.</p>
-        <br>
-        <p>Currently, you cannot drag/drop nodes on this tree, only on this incident's tree. This will change.</p>
+        <p>Currently, you cannot drag/drop nodes on this tree (only on this incident's tree). This will change.</p>
         <br>
         <a href="<%= tree_incident_path(@ticket.incident) %>">See this incident's tree</a>
         <div id="tree"></div>
@@ -55,26 +53,11 @@
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       border-radius: 3px;
-      background-color: lightgray;
+      background-color: hsl(217, 71%, 53%);
       color: white;
       border: 1px solid #000;
       font-size: 15px;
       text-align: center;
-    }
-
-    .open {
-        background-color: #FF5454;
-        color: white;
-    }
-    
-    .in_progress {
-        background-color: khaki;
-        color: black;
-    }
-
-    .closed {
-        background-color: limegreen; 
-        color: white;
     }
   </style>
 </html>
