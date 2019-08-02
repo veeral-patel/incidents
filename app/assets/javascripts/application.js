@@ -37,6 +37,12 @@ $(document).ready(function() {
     window.location.replace("/incidents/new");
   });
 
+  // shift-s to select the search box
+  Mousetrap.bind("shift+s", function(event) {
+    event.preventDefault();
+    $(".search_input").focus();
+  });
+
   // submit forms with Cmd-Enter in textareas
   $(document).on("keydown", "body", function(e) {
     if (!(e.keyCode == 13 && e.metaKey)) return;
