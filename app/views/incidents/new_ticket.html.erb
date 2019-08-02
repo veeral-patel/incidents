@@ -46,9 +46,9 @@
       </div>
 
       <div class="field">
-        <%= form.label :priority, "Priority", class: "label" %>
+        <%= form.label :priority, "Priority (Required)", class: "label" %>
         <div class="select">
-            <%= form.select :priority, Ticket.priorities.keys.map { |w| [w.humanize, w] } %>
+            <%= collection_select :ticket, :priority_id, Priority.all, :id, :name  %>
         </div>
       </div>
 

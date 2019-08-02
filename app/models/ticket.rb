@@ -17,8 +17,6 @@ class Ticket < ApplicationRecord
   has_ancestry
   acts_as_taggable
 
-  enum priority: { low: 0, medium: 1, high: 2}
-
   has_many :attachments, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :observables, dependent: :destroy
@@ -29,7 +27,7 @@ class Ticket < ApplicationRecord
 
   validates :name, presence: true
   validates :status_id, presence: true
-  validates :priority, presence: true
+  validates :priority_id, presence: true
 
   def to_s
     self.name
@@ -37,6 +35,10 @@ class Ticket < ApplicationRecord
 
   def status
     Status.find(status_id).name
+  end
+
+  def priority
+    Priority.find(priority_id).name
   end
 
   # needed, as we're indexing using the 'status' method on this model
