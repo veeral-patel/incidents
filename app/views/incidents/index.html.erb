@@ -18,11 +18,10 @@
       <tr>
         <th>Name</th>
         <th>Status</th>
-        <th>Created At</th>
+        <th>Description</th>
+        <th>Created</th>
         <th>Created By</th>
         <th>Tags</th>
-        <th>Total Tickets</th>
-        <th>Leads</th>
         <th>Show</th>
         <th>Tree</th>
       </tr>
@@ -43,11 +42,14 @@
                 <span class="tag"><%= incident.status %></span>
             <% end %>
           </td>
+          <td><%= incident.description.truncate_words(20) %></td>
           <td><%= incident.created_at %></td>
           <td><%= incident.user %></td>
-          <td><%= incident.tag_list %></td>
-          <td><%= incident.tickets.count %></td>
-          <td><%= incident.leads.count %></td>
+          <td>
+            <% incident.tag_list.each do |tag| %>
+              <span class="tag"><%= tag %></span>
+            <% end %>
+          </td>
           <td><%= link_to 'Show', incident %></td>
           <td><%= link_to 'Tree', tree_incident_path(incident) %></td>
         </tr>
