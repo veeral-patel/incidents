@@ -1,4 +1,17 @@
-<h1>Statuses</h1>
+<div>
+  <span style="display: inline-block">
+    <h2 class="title is-4">Statuses</h2>
+  </span>
+  <span>
+    <a href="<%= new_status_path %>" class="button is-link" style="float: right">New Status</a>
+  </span>
+</div>
+
+<br>
+
+<p>This page lists the statuses a ticket or an incident can be in.</p>
+
+<br>
 
 <table class="responsive nowrap table table-hover" id="dttb-statuses" data-sort="true" data-source="<%= url_for(format: :json)%>">
   <thead>
@@ -7,9 +20,4 @@
       <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
     </tr>
   </thead>
-
 </table>
-
-<br>
-
-<%= link_to 'New Status', new_status_path %>
