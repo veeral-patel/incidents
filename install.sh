@@ -1,6 +1,10 @@
 # initialize environment variables
-secret=$(dd if=/dev/urandom count=1 bs=128 2> /dev/null | sha512sum | cut -d ' ' -f 1)
-echo 'SECRET_KEY_BASE='$secret > .env
+secret_key_base=$(dd if=/dev/urandom count=1 bs=128 2> /dev/null | sha512sum | cut -d ' ' -f 1)
+two_factor_key=$(dd if=/dev/urandom count=1 bs=128 2> /dev/null | sha512sum | cut -d ' ' -f 1)
+
+echo 'SECRET_KEY_BASE='$secret_key_base > .env
+echo '2FA_KEY='$two_factor_key > .env
+
 echo 'Initialized .env with contents:'
 echo ""
 cat .env
