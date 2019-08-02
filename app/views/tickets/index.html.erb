@@ -42,7 +42,11 @@ This page lists all the tickets of all the incidents you're a member of.
         <td><%= ticket.is_lead == true %></td>
         <td><%= ticket.created_at %></td>
         <td><%= ticket.user %></td>
-        <td><%= ticket.tag_list %></td>
+        <td>
+            <% ticket.tag_list.each do |tag| %>
+                <span class="tag"><%= tag %></span>
+            <% end %>
+        </td>
         <td><%= ticket.assigned_to %></td>
         <td>
         <% if ticket.parent == nil %>
