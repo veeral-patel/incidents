@@ -12,6 +12,19 @@ class PrioritiesController < ApplicationController
     def edit
     end
 
+    # POST /admin/priorities
+    def create
+      @priority = Priority.new(priority_params)
+
+      respond_to do |format|
+        if @priority.save
+          format.html { redirect_to priorities_url, notice: 'Priority was successfully created.' }
+        else
+          format.html { redirect_to priorities_url, alert: "Could not create priority. Did you enter the priority's name?" }
+        end
+      end
+    end
+
     # PATCH/PUT /admin/priorities/1
     def update
       respond_to do |format|
