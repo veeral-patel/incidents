@@ -2,17 +2,17 @@ class StatusesController < ApplicationController
   before_action :set_status, only: [:edit, :update, :destroy]
   before_action :authorize_admin
 
-  # GET /statuses
+  # GET /admin/statuses
   def index
     @statuses = Status.all
     @status = Status.new
   end
 
-  # GET /statuses/1/edit
+  # GET /admin/statuses/1/edit
   def edit
   end
 
-  # POST /statuses
+  # POST /admin/statuses
   def create
     @status = Status.new(status_params)
 
@@ -25,7 +25,7 @@ class StatusesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /statuses/1
+  # PATCH/PUT /admin/statuses/1
   def update
     respond_to do |format|
       if @status.update(status_params)
@@ -36,7 +36,7 @@ class StatusesController < ApplicationController
     end
   end
 
-  # DELETE /statuses/1
+  # DELETE /admin/statuses/1
   def destroy
     @status.destroy
     respond_to do |format|
