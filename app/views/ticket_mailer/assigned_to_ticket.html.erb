@@ -6,7 +6,7 @@ You were assigned to ticket '<%= @ticket %>'.
 
 <br><br>
 
-<% if @ticket.description %>
+<% if not @ticket.description.empty? %>
     <strong>Description</strong>
     <br><br>
     <%= truncate(@ticket.description, :length => 300) %>
