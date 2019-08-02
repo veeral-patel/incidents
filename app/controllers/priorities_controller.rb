@@ -5,6 +5,7 @@ class PrioritiesController < ApplicationController
     # GET /admin/priorities
     def index
         @priorities = Priority.all
+        @priority = Priority.new
     end
 
     # GET /admin/priorities/1/edit
