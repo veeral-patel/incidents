@@ -1,7 +1,9 @@
-<% if ticket.priority == "low"%>
+<% if ticket.priority == "Low"%>
     <span class="tag is-success">Low</span>
-<% elsif ticket.priority == "medium" %>
+<% elsif ticket.priority == "Medium" %>
     <span class="tag is-warning">Medium</span>
-<% elsif ticket.priority == "high" %>
+<% elsif ticket.priority == "High" %>
     <span class="tag is-danger">High</span>
+<% else %>
+    <span class="tag"><%= ticket.priority %></span>
 <% end %>
