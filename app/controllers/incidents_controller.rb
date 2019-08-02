@@ -1,8 +1,8 @@
 # remember: when adding an action, add an action in incident_policy.rb
 class IncidentsController < ApplicationController
   # authorize every action
-  before_action :authorize_actions_on_one_incident, except: [:index, :create, :new]
-  before_action :authorize_other_actions, only: [:index, :create, :new]
+  before_action :authorize_actions_on_one_incident, except: [:index, :assigned_incidents, :create, :new]
+  before_action :authorize_other_actions, only: [:index, :assigned_incidents, :create, :new]
 
   before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree, :danger, :new_ticket]
 
@@ -10,8 +10,8 @@ class IncidentsController < ApplicationController
   after_action :verify_authorized
 
   # GET /incidents
-  # GET /incidents.json
   def index
+    @title = "Incidents"
     if current_user.admin
       @incidents = Incident.all
     else
@@ -19,18 +19,25 @@ class IncidentsController < ApplicationController
     end
   end
 
+  # GET /assigned_incidents
+  def assigned_incidents
+      @incidents = current_user.assigned_incidents
+      @title = "Assigned Incidents"
+
+      respond_to do |format|
+        format.html { render :index }
+      end
+  end
+
   # GET /incidents/1
-  # GET /incidents/1.json
   def show
   end
 
   # GET /incidents/1/observables
-  # GET /incidents/1/observables.json
   def observables
       @incident = Incident.find(params[:id])
       respond_to do |format|
         format.html { render :observables }
-        format.json { render json: @incident.observables }
       end
   end
 
@@ -40,7 +47,6 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(params[:id])
     respond_to do |format|
       format.html { render :attachments }
-      format.json { render json: @incident.attachments }
     end
 end
 
@@ -57,10 +63,8 @@ end
     respond_to do |format|
       if @incident.save
         format.html { redirect_to @incident, notice: 'Incident was successfully created.' }
-        format.json { render :show, status: :created, location: @incident }
       else
         format.html { render :new }
-        format.json { render json: @incident.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -71,10 +75,8 @@ end
     respond_to do |format|
       if @incident.update(incident_params)
         format.html { redirect_to @incident, notice: 'Incident was successfully updated.' }
-        format.json { render :show, status: :ok, location: @incident }
       else
         format.html { render :show }
-        format.json { render json: @incident.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -85,7 +87,6 @@ end
     @incident.destroy
     respond_to do |format|
       format.html { redirect_to incidents_url, notice: 'Incident was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

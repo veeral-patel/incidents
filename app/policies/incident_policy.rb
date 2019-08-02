@@ -15,6 +15,11 @@ class IncidentPolicy < ApplicationPolicy
         true
     end
 
+    def assigned_incidents?
+        # anyone can view their list of assigned incidents
+        true
+    end
+
     # ---- specific to one incident --------
 
     def show?
