@@ -13,11 +13,11 @@
 <% if @statuses.empty? %>
    No statuses
 <% else %>
-   <table class="table">
+   <table class="table statuses-table">
       <thead>
         <tr>
           <th>Created At</th>
-          <th>Name</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
@@ -30,3 +30,16 @@
       </tbody>
     </table>
 <% end %>
+
+<script>
+  $(document).ready(function() {
+    $(".statuses-table").DataTable({
+      "pagingType": "simple_numbers",
+      "language": { search: "" }
+    });
+
+        // style datatable search inputs
+    $(".dataTables_filter input").addClass("input");
+    $(".dataTables_filter input").attr("placeholder", "Search");
+  });
+</script>
