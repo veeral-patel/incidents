@@ -45,7 +45,7 @@ class TicketsController < ApplicationController
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
         format.json { render :show, status: :created, location: @ticket }
       else
-        format.html { render :new }
+        format.html { redirect_to new_ticket_incident_url(incident), alert: 'Could not create ticket. Are you missing any required fields?' }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
       end
     end
