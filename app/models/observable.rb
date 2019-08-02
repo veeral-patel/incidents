@@ -10,7 +10,8 @@ class Observable < ApplicationRecord
       }
   }
 
-  after_create_commit :notify_mentioned_users
+  after_update :notify_mentioned_users, if: :saved_change_to_description?
+  after_create :notify_mentioned_users
 
   acts_as_taggable
 
