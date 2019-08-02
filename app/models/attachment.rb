@@ -10,7 +10,8 @@ class Attachment < ApplicationRecord
         }
     }
 
-    after_create_commit :notify_mentioned_users
+    after_create :notify_mentioned_users
+    after_update_commit :notify_mentioned_users, if: :saved_change_to_description?
 
     acts_as_taggable
 

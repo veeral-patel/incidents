@@ -41,13 +41,16 @@
 
 
 <script>
-// initialize tag inputs
-$(".tag_list").selectize({
-    delimiter: ",",
-    persist: false,
-    create: true
-});
+$(document).ready(function() {
+  // initialize tag inputs
+  $(".tag_list").selectize({
+      delimiter: ",",
+      persist: false,
+      create: true
+  });
 
-  users = <%= raw User.pluck(:username).compact.to_json %>;
-  $('.description').atwho({at:"@", 'data': users});
+    // for mention dropdowns
+    users = <%= raw User.pluck(:username).compact.to_json %>;
+    $('.description').atwho({at:"@", 'data': users});
+});
 </script>
