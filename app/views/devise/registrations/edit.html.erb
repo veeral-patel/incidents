@@ -1,4 +1,4 @@
-<h2 class="title is-4">Edit Profile</h2>
+<h2 class="title is-4">Profile</h2>
 
 <div style="width: 50%">
     <%= form_for(resource, as: resource_name, url: user_registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -27,17 +27,8 @@
             <% end %>
         </div>
 
-        <fieldset disabled>
-            <div class="field">
-                <label class="label">API Token</label>
-                <input value="<%= current_user.authentication_token %>" class="input" />
-            </div>
-        </fieldset>
-
-        <br>
-
         <div class="field">
-            <%= f.label :password_confirmation, class: "label" %><br />
+            <%= f.label :password_confirmation, class: "label" %>
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
         </div>
 
