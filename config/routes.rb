@@ -52,7 +52,8 @@ Rails.application.routes.draw do
   end
 
   scope "/admin" do
-    resources :statuses, :only => [:index, :create, :update, :edit, :destroy]
+    # uncomment this line once I finish implementing custom statuses
+    # resources :statuses, :only => [:index, :create, :update, :edit, :destroy]
     resources :users, :only => [:index, :destroy] do
       member do
         get :enable
