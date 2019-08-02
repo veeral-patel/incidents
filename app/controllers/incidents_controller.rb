@@ -11,7 +11,8 @@ class IncidentsController < ApplicationController
 
   # GET /incidents
   def index
-    @title = "Incidents"
+    @title, @empty_message = "Incidents", "No incidents"
+
     if current_user.admin
       @incidents = Incident.all
     else
@@ -22,7 +23,7 @@ class IncidentsController < ApplicationController
   # GET /assigned_incidents
   def assigned_incidents
       @incidents = current_user.assigned_incidents
-      @title = "Assigned Incidents"
+      @title, @empty_message = "Assigned Incidents", "You haven't been assigned any incidents."
 
       respond_to do |format|
         format.html { render :index }
