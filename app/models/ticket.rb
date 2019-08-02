@@ -1,6 +1,7 @@
 class Ticket < ApplicationRecord
   include PgSearch::Model
-  multisearchable against: [:name, :description, :tag_list, :user, :status, :priority, :assigned_to, :parent], using: {
+  multisearchable against: [:name, :description, :tag_list, :user, :status, :priority, :assigned_to, :parent], 
+  using: {
       tsearch: {
          prefix: true,
           highlight: {
@@ -36,6 +37,11 @@ class Ticket < ApplicationRecord
 
   def status
     Status.find(status_id).name
+  end
+
+  # needed, as we're indexing using the 'status' method on this model
+  def self.rebuild_pg_search_documents
+    find_each { |record| record.update_pg_search_document }
   end
 
   def to_json
