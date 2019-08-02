@@ -1,7 +1,9 @@
-<% if ticket.status == "closed"%>
+<% if ticket.status == "Closed"%>
     <span class="tag is-success">Closed</span>
-<% elsif ticket.status == "in_progress" %>
+<% elsif ticket.status == "In Progress" %>
     <span class="tag is-warning">In Progress</span>
-<% elsif ticket.status == "open" %>
+<% elsif ticket.status == "Open" %>
     <span class="tag is-danger">Open</span>
+<% else %>
+    <span class="tag"><%= ticket.status %></span>
 <% end %>

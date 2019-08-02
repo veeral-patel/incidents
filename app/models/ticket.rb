@@ -35,7 +35,7 @@ class Ticket < ApplicationRecord
   end
 
   def status
-    Status.find(status_id)
+    Status.find(status_id).name
   end
 
   def to_json
