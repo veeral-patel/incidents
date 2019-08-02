@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_215936) do
+ActiveRecord::Schema.define(version: 2019_08_02_005759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,13 @@ ActiveRecord::Schema.define(version: 2019_07_30_215936) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
+  create_table "statuses", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -143,14 +150,15 @@ ActiveRecord::Schema.define(version: 2019_07_30_215936) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.boolean "is_lead"
-    t.integer "status"
     t.integer "priority"
     t.string "ancestry"
     t.bigint "user_id"
     t.bigint "assigned_to_id"
+    t.bigint "status_id"
     t.index ["ancestry"], name: "index_tickets_on_ancestry"
     t.index ["assigned_to_id"], name: "index_tickets_on_assigned_to_id"
     t.index ["incident_id"], name: "index_tickets_on_incident_id"
+    t.index ["status_id"], name: "index_tickets_on_status_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
@@ -200,6 +208,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_215936) do
   add_foreign_key "observables", "tickets"
   add_foreign_key "observables", "users"
   add_foreign_key "tickets", "incidents"
+  add_foreign_key "tickets", "statuses"
   add_foreign_key "tickets", "users"
   add_foreign_key "tickets", "users", column: "assigned_to_id"
 end

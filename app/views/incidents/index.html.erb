@@ -22,9 +22,6 @@
         <th>Created By</th>
         <th>Tags</th>
         <th>Total Tickets</th>
-        <th>Open Tickets</th>
-        <th>In Progress Tickets</th>
-        <th>Closed Tickets</th>
         <th>Leads</th>
         <th>Show</th>
         <th>Tree</th>
@@ -48,9 +45,6 @@
           <td><%= incident.user %></td>
           <td><%= incident.tag_list %></td>
           <td><%= incident.tickets.count %></td>
-          <td><%= incident.open_tickets.count %></td>
-          <td><%= incident.in_progress_tickets.count %></td>
-          <td><%= incident.closed_tickets.count %></td>
           <td><%= incident.leads.count %></td>
           <td><%= link_to 'Show', incident %></td>
           <td><%= link_to 'Tree', tree_incident_path(incident) %></td>
