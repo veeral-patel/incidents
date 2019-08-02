@@ -1,23 +1,32 @@
-<div>
-  <span style="display: inline-block">
-    <h2 class="title is-4">Statuses</h2>
-  </span>
-  <span>
-    <a href="<%= new_status_path %>" class="button is-link" style="float: right">New Status</a>
-  </span>
-</div>
-
-<br>
+<h2 class="title is-4">Statuses</h2>
 
 <p>This page lists the statuses a ticket or an incident can be in.</p>
 
 <br>
 
-<table class="responsive nowrap table table-hover" id="dttb-statuses" data-sort="true" data-source="<%= url_for(format: :json)%>">
-  <thead>
-    <tr>
-      <th data-data="name">Name</th>
-      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
-    </tr>
-  </thead>
-</table>
+<div style="width: 50%">
+  <%= render 'form', status: @status %>
+</div>
+
+<br>
+
+<% if @statuses.empty? %>
+   No statuses
+<% else %>
+   <table class="table">
+      <thead>
+        <tr>
+          <th>Created At</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @statuses.each do |status| %>
+          <tr>
+            <td><%= status.created_at %></td>
+            <td><%= status.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+<% end %>

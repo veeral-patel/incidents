@@ -1,22 +1,14 @@
 class StatusesController < ApplicationController
-  before_action :set_status, only: [:show, :edit, :update, :destroy]
+  before_action :set_status, only: [:edit, :update, :destroy]
   before_action :authorize_admin
 
   # GET /statuses
   # GET /statuses.json
   def index
     @statuses = Status.all
-  end
-
-  # GET /statuses/1
-  # GET /statuses/1.json
-  def show
-  end
-
-  # GET /statuses/new
-  def new
     @status = Status.new
   end
+
 
   # GET /statuses/1/edit
   def edit
@@ -30,7 +22,7 @@ class StatusesController < ApplicationController
     respond_to do |format|
       if @status.save
         format.html { redirect_to @status, notice: 'Status was successfully created.' }
-        format.json { render :show, status: :created, location: @status }
+        format.json { render :index, status: :created, location: @status }
       else
         format.html { render :new }
         format.json { render json: @status.errors, status: :unprocessable_entity }
@@ -44,7 +36,7 @@ class StatusesController < ApplicationController
     respond_to do |format|
       if @status.update(status_params)
         format.html { redirect_to @status, notice: 'Status was successfully updated.' }
-        format.json { render :show, status: :ok, location: @status }
+        format.json { render :index, status: :ok, location: @status }
       else
         format.html { render :edit }
         format.json { render json: @status.errors, status: :unprocessable_entity }
