@@ -45,6 +45,13 @@
       </div>
     </div>
 
+    <div class="field">
+        <%= form.label :assigned_to, "Assigned To ", class: "label" %>
+        <div class="select">
+            <%= collection_select :incident, :assigned_to_id, incident.members, :id, :username, { include_blank: true } %>
+        </div>
+    </div>
+
     <div class="field" style="width: 50%">
       <%= form.label :tag_list, "Tags", class: "label" %>
       <%= form.text_field :tag_list, placeholder: "apt1, ryuk", value: form.object.tag_list.to_s, class: "tag_list" %>
