@@ -1,0 +1,16 @@
+Hey <%= @user.username %>,
+
+<br><br>
+
+You were assigned incident '<%= @incident %>'.
+
+<br><br>
+
+<% if not @incident.description.empty? %>
+    <strong>Description</strong>
+    <br><br>
+    <%= truncate(@incident.description, :length => 300) %>
+    <br><br>
+<% end %>
+
+<a href="<%= incident_url(@incident) %>">View Incident</a>

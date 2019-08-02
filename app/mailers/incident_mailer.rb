@@ -8,4 +8,9 @@ class IncidentMailer < ApplicationMailer
         @user, @incident = user, incident
         mail(to: @user.email, subject: "You were removed from incident '#{@incident}'")
     end
+
+    def assigned_to_incident(user, incident)
+        @user, @incident = user, incident
+        mail(to: @user.email, subject: "You were assigned incident #{@incident}")
+    end
 end
