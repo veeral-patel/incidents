@@ -17,10 +17,8 @@ class Incident < ApplicationRecord
     after_create :notify_mentioned_users
     after_update_commit :notify_mentioned_users, if: :saved_change_to_description?
 
-    enum status: { open: 0, in_progress: 1, closed: 2}
-
     validates :name, presence: true
-    validates :status, presence: true
+    validates :status_id, presence: true
 
     has_many :tickets, dependent: :destroy
     has_many :observables, through: :tickets
@@ -31,6 +29,10 @@ class Incident < ApplicationRecord
 
     def leads
         self.tickets.where(is_lead: true)
+    end
+
+    def status
+        Status.find(status_id).name
     end
 
     def to_s
