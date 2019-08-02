@@ -1,26 +1,23 @@
-<div style="width: 60%">
-  <%= form_with(model: status, local: true) do |form| %>
-    <% if status.errors.any? %>
-      <div class="message is-danger">
-        <div class="message-header">
-          <p><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</p>
-        </div>
-        <div class="message-body">
-          <ul>
-          <% status.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
+<%= form_with(model: status, local: true) do |form| %>
+  <% if status.errors.any? %>
+    <div class="message is-danger">
+      <div class="message-header">
+        <p><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</p>
       </div>
-    <% end %>
-
-    <div class="field">
-      <%= form.label :name, class: "label" %>
-      <%= form.text_field :name, class: "input", placeholder: "In Progress" %>
-    </div>
-    <div class="actions">
-      <%= form.button "Create Status", type: :submit, class: "button is-link" %>
+      <div class="message-body">
+        <ul>
+        <% status.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
-</div>
+
+  <div style="display: inline-block; width: 30%">
+    <%= form.text_field :name, class: "input", placeholder: "In Progress" %>
+  </div>
+  <div style="display: inline-block">
+    <%= form.button "Create Status", type: :submit, class: "button is-link" %>
+  </div>
+<% end %>
