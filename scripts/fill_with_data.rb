@@ -14,7 +14,7 @@ end
 
     inc = random_user.incidents.create(
         name: "Incident-#{Faker::Code.nric}",
-        status: [:open, :closed, :in_progress].sample,
+        status_id: Status.all.sample.id,
         tag_list: [Faker::Ancient.unique.god, Faker::Ancient.unique.god, Faker::Ancient.unique.god],
         description: random_description
     )
@@ -48,7 +48,7 @@ end
     random_user.tickets.create(
         name: "Ticket-#{Faker::Code.nric}",
         incident: random_incident,
-        status: [:open, :closed, :in_progress].sample,
+        status_id: Status.all.sample.id,
         priority: [:high, :medium, :low].sample,
         is_lead: is_lead,
         assigned_to: is_assigned ? User.all.sample : nil,
