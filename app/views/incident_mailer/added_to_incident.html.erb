@@ -1,0 +1,15 @@
+Hey <%= @user.username %>,
+
+<br><br>
+
+You were added to incident '<%= @incident %>'!
+
+<strong>Description</strong>
+
+<br><br>
+
+<%= truncate(@incident.description, :length => 300) %>
+
+<br><br>
+
+<a href="<%= incident_url(@incident) %>">View Incident</a>

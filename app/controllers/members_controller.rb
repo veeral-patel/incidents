@@ -18,6 +18,7 @@ class MembersController < ApplicationController
       if @member && @incident.members << @member
         flash[:notice] = "Added #{@member.username} to the incident"
         redirect_to incident_members_url(@incident)
+        IncidentMailer.added_to_incident(@member, @incident).deliver_later
       else
         flash[:alert] = "Failed to add member to the incident"
         redirect_to incident_members_url(@incident)
