@@ -3,7 +3,6 @@ class StatusesController < ApplicationController
   before_action :authorize_admin
 
   # GET /statuses
-  # GET /statuses.json
   def index
     @statuses = Status.all
     @status = Status.new
@@ -14,42 +13,34 @@ class StatusesController < ApplicationController
   end
 
   # POST /statuses
-  # POST /statuses.json
   def create
     @status = Status.new(status_params)
 
     respond_to do |format|
       if @status.save
         format.html { redirect_to statuses_url, notice: 'Status was successfully created.' }
-        format.json { render :index, status: :created, location: @status }
       else
         format.html { redirect_to statuses_url, alert: "Could not create status. Did you enter the status's name?" }
-        format.json { render json: @status.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /statuses/1
-  # PATCH/PUT /statuses/1.json
   def update
     respond_to do |format|
       if @status.update(status_params)
         format.html { redirect_to statuses_url, notice: 'Status was successfully updated.' }
-        format.json { render :index, status: :ok, location: @status }
       else
-        format.html { render :edit }
-        format.json { render json: @status.errors, status: :unprocessable_entity }
+        format.html { render :edit, alert: "Could not update status" }
       end
     end
   end
 
   # DELETE /statuses/1
-  # DELETE /statuses/1.json
   def destroy
     @status.destroy
     respond_to do |format|
       format.html { redirect_to statuses_url, notice: 'Status was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
