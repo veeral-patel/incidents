@@ -40,6 +40,9 @@ $(document).ready(function() {
   // shift-s to select the search box
   Mousetrap.bind("shift+s", function(event) {
     event.preventDefault();
+    if ($(".search_input").val()) {
+      $(".search_input").val("");
+    }
     $(".search_input").focus();
   });
 
