@@ -25,6 +25,7 @@
                     <a class="navbar-link">Assigned</a>
                     <div class="navbar-dropdown">
                         <a class="navbar-item" href="<%= assigned_tickets_path %>">Tickets (<%= current_user.assigned_tickets.count %>)</a>
+                        <a class="navbar-item" href="<%= assigned_incidents_path %>">Incidents (<%= current_user.assigned_incidents.count %>)</a>
                     </div>
                 </div>
                 <div class="navbar-item">

@@ -33,6 +33,10 @@ class User < ApplicationRecord
         Ticket.where(assigned_to: self)
     end
 
+    def assigned_incidents
+        Incident.where(assigned_to: self)
+    end
+
     def status
         if not self.active_for_authentication?
             return :disabled

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   get :assigned_tickets, :to => 'tickets#assigned_tickets'
+  get :assigned_incidents, :to => 'incidents#assigned_incidents'
 
   resources :incidents, :except => [:edit] do
       member do
