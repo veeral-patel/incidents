@@ -1,0 +1,16 @@
+Hey <%= @user.username %>,
+
+<br><br>
+
+You were assigned to ticket '<%= @ticket %>'.
+
+<br><br>
+
+<% if @ticket.description %>
+    <strong>Description</strong>
+    <br><br>
+    <%= truncate(@ticket.description, :length => 300) %>
+    <br><br>
+<% end %>
+
+<a href="<%= ticket_url(@ticket) %>">View Ticket</a>
