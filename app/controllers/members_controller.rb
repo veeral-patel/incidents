@@ -30,14 +30,18 @@ class MembersController < ApplicationController
 
       if @incident.members.count == 1
         respond_to do |format|
-          format.html { redirect_to incident_members_url(@incident), alert: "Cannot remove last member" }
+          format.html { redirect_to incident_members_url(@incident), alert: "Cannot remove an incident's last member" }
         end
       else
         @member = User.find(params[:id])
-        @incident.members.delete(@member)
 
         respond_to do |format|
-          format.html { redirect_to incident_members_url(@incident), notice: "Removed #{@member} from the incident" }
+          if @incident.members.delete(@member)
+            format.html { redirect_to incident_members_url(@incident), notice: "Removed #{@member} from the incident" }
+            IncidentMailer.removed_from_incident(@member, @incident).deliver_later 
+          else
+            format.html { redirect_to incident_members_url(@incident), notice: "Failed to remove #{@member} from the incident" }
+          end
         end
       end
     end
