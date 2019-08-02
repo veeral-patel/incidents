@@ -1,0 +1,23 @@
+<%= form_with(model: priority, local: true) do |form| %>
+  <% if priority.errors.any? %>
+    <div class="message is-danger">
+      <div class="message-header">
+        <p><%= pluralize(priority.errors.count, "error") %> prohibited this priority from being saved:</p>
+      </div>
+      <div class="message-body">
+        <ul>
+        <% priority.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div style="display: inline-block; width: 30%">
+    <%= form.text_field :name, class: "input", placeholder: "In Progress" %>
+  </div>
+  <div style="display: inline-block">
+    <%= form.button "Create Priority", type: :submit, class: "button is-link" %>
+  </div>
+<% end %>
