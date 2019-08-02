@@ -14,8 +14,8 @@ class Incident < ApplicationRecord
 
     after_create :add_creator_to_members
 
-    after_update :notify_mentioned_users, if: :saved_change_to_description?
     after_create :notify_mentioned_users
+    after_update_commit :notify_mentioned_users, if: :saved_change_to_description?
 
     enum status: { open: 0, in_progress: 1, closed: 2}
 

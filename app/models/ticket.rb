@@ -10,8 +10,8 @@ class Ticket < ApplicationRecord
       }
   }
 
-  after_update :notify_mentioned_users, if: :saved_change_to_description?
   after_create :notify_mentioned_users
+  after_update_commit :notify_mentioned_users, if: :saved_change_to_description?
 
   has_ancestry
   acts_as_taggable
