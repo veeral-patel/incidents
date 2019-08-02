@@ -33,12 +33,14 @@
         <tr>
           <td><%= incident.name %></td>
           <td>
-            <% if incident.status == "closed"%>
+            <% if incident.status == "Closed"%>
                 <span class="tag is-success">Closed</span>
-            <% elsif incident.status == "in_progress" %>
+            <% elsif incident.status == "In Progress" %>
                 <span class="tag is-warning">In Progress</span>
-            <% elsif incident.status == "open" %>
+            <% elsif incident.status == "Open" %>
                 <span class="tag is-danger">Open</span>
+            <% else %>
+                <span class="tag"><%= incident.status %></span>
             <% end %>
           </td>
           <td><%= incident.created_at %></td>
@@ -61,7 +63,7 @@
       "language": { search: "" }
     });
 
-        // style datatable search inputs
+    // style datatable search inputs
     $(".dataTables_filter input").addClass("input");
     $(".dataTables_filter input").attr("placeholder", "Search");
   });
