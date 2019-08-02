@@ -1,6 +1,25 @@
-<h1>Editing Status</h1>
+<h2 class="title is-4">Rename Status</h2>
 
-<%= render 'form', status: @status %>
+<%= form_with(model: @status, local: true) do |form| %>
+  <% if @status.errors.any? %>
+    <div class="message is-danger">
+      <div class="message-header">
+        <p><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</p>
+      </div>
+      <div class="message-body">
+        <ul>
+        <% @status.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @status %> |
-<%= link_to 'Back', statuses_path %>
+  <div class="field">
+    <%= form.text_field :name, class: "input", placeholder: "In Progress" %>
+  </div>
+  <div class="actions">
+    <%= form.button "Rename", type: :submit, class: "button is-link" %>
+  </div>
+<% end %>
