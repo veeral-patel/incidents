@@ -52,8 +52,8 @@ Rails.application.routes.draw do
   end
 
   scope "/admin" do
-    resources :statuses, :only => [:index, :create, :update, :edit, :destroy]
-    resources :priorities, :only => [:index, :create, :update, :edit, :destroy]
+    resources :statuses, :only => [:index, :create, :update, :edit]
+    resources :priorities, :only => [:index, :create, :update, :edit]
     resources :users, :only => [:index, :destroy] do
       member do
         get :enable
