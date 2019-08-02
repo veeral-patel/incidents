@@ -14,7 +14,7 @@ bash ./choose_theme.sh light
 docker-compose build
 
 # create and migrate database
-docker-compose run web rake db:create db:migrate
+docker-compose run web rake db:create db:migrate db:seed
 
 # start application
 docker-compose up -d
