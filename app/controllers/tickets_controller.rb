@@ -75,14 +75,6 @@ class TicketsController < ApplicationController
     end
   end
 
-  # GET /tickets/1/create_template
-  def create_template
-    @ticket.create_template
-    respond_to do |format|
-      format.html { redirect_to ticket_templates_url, notice: "Created template from ticket '#{@ticket}''"}
-    end
-  end
-
   private
     def set_ticket
       @ticket = Ticket.find(params[:id])
