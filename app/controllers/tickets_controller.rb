@@ -43,10 +43,8 @@ class TicketsController < ApplicationController
     respond_to do |format|
       if @ticket.save
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
-        format.json { render :show, status: :created, location: @ticket }
       else
         format.html { redirect_to new_ticket_incident_url(incident), alert: 'Could not create ticket. Are you missing any required fields?' }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -71,7 +69,6 @@ class TicketsController < ApplicationController
     @ticket.destroy
     respond_to do |format|
       format.html { redirect_to tickets_url, notice: 'Ticket was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
   
@@ -80,7 +77,6 @@ class TicketsController < ApplicationController
   def children
       respond_to do |format|
         format.html { render :children }
-        format.json { render json: @ticket.children }
       end
   end
 
@@ -91,7 +87,6 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       format.html { render :tree }
-      format.json { render json: @ticket.to_json }
     end
   end
 
