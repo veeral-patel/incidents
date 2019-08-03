@@ -2,12 +2,12 @@
 # method in ticket_policy.rb
 class TicketsController < ApplicationController
   # authorize each action
-  before_action :authorize_actions_on_one_ticket, except: [:index, :create, :new, :assigned_tickets]
+  before_action :authorize_actions_on_one_ticket, except: [:index, :create, :assigned_tickets]
 
   before_action :set_ticket, only: [:show, :update, :destroy, :children, :tree]
 
   # verify each action is authorized
-  after_action :verify_authorized, except: [:index, :create, :new, :assigned_tickets]
+  after_action :verify_authorized, except: [:index, :create, :assigned_tickets]
 
   # GET /tickets
   # GET /tickets.json
