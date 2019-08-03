@@ -15,7 +15,7 @@
                     <% end %>
                 </a>
                 <a class="navbar-item" href="<%= tickets_path %>">
-                    Tickets (<%= current_user.joined_tickets.count =%>)
+                    Tickets (<%= current_user.accessible_tickets.count =%>)
                 </a>
                 <div class="navbar-item has-dropdown is-hoverable"> 
                     <a class="navbar-link">Assigned</a>

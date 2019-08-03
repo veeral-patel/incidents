@@ -12,12 +12,7 @@ class IncidentsController < ApplicationController
   # GET /incidents
   def index
     @title, @empty_message = "Incidents", "No incidents"
-
-    if current_user.admin
-      @incidents = Incident.all
-    else
-      @incidents = current_user.joined_incidents
-    end
+    @incidents = current_user.accessible_incidents
   end
 
   # GET /assigned_incidents

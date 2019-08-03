@@ -9,7 +9,7 @@ class TicketsController < ApplicationController
 
   # GET /tickets
   def index
-    @tickets = current_user.joined_tickets
+    @tickets = current_user.accessible_tickets
   end
 
   # GET /assigned_tickets

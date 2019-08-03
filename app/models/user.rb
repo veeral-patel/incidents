@@ -14,8 +14,7 @@ class User < ApplicationRecord
     has_many :comments
     has_many :observables
 
-    # user.incidents returns the incidents an user created
-    # user.joined_incidents returns the incidents an user is a member of
+    # the incidents this user is a member of
     has_and_belongs_to_many :joined_incidents, class_name: "Incident"
 
     def self.admins
@@ -23,9 +22,15 @@ class User < ApplicationRecord
     end
 
     # user.tickets returns the tickets an user created
-    # user.joined_tickets returns the tickets in incidents an user is a member of
-    def joined_tickets
-        self.admin? ? Ticket.all : Ticket.where(incident: self.joined_incidents)
+    # user.accessible_tickets returns the tickets in incidents an user is a member of
+    def accessible_tickets
+        self.admin == true ? Ticket.all : Ticket.where(incident: self.accessible_incidents)
+    end
+
+    # user.incidents returns the incidents an user created
+    # user.accessible_incidents returns the incidents an user is a member of
+    def accessible_incidents
+        self.admin == true ? Incident.all : self.joined_incidents
     end
 
     # lists the tickets assigned to this user
