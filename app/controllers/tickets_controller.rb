@@ -11,11 +11,7 @@ class TicketsController < ApplicationController
 
   # GET /tickets
   def index
-    if current_user.admin
-      @tickets = Ticket.all
-    else
-      @tickets = current_user.joined_tickets
-    end
+    @tickets = current_user.joined_tickets
   end
 
   # GET /assigned_tickets

@@ -25,7 +25,7 @@ class User < ApplicationRecord
     # user.tickets returns the tickets an user created
     # user.joined_tickets returns the tickets in incidents an user is a member of
     def joined_tickets
-        Ticket.where(incident: self.joined_incidents)
+        self.admin? ? Ticket.all : Ticket.where(incident: self.joined_incidents)
     end
 
     # lists the tickets assigned to this user

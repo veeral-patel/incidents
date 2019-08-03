@@ -15,11 +15,7 @@
                     <% end %>
                 </a>
                 <a class="navbar-item" href="<%= tickets_path %>">
-                    <% if current_user.admin %>
-                        Tickets (<%= Ticket.all.count %>)
-                    <% else %>
-                        Tickets (<%= current_user.joined_tickets.count =%>)
-                    <% end %>
+                    Tickets (<%= current_user.joined_tickets.count =%>)
                 </a>
                 <div class="navbar-item has-dropdown is-hoverable"> 
                     <a class="navbar-link">Assigned</a>
