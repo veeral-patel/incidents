@@ -24,8 +24,8 @@ class TicketsController < ApplicationController
   # POST /tickets
   def create
     # if you can't view an incident, you can't create tickets in it
-    incident = Incident.find(ticket_params[:incident_id])
-    raise Pundit::NotAuthorizedError unless IncidentPolicy.new(current_user, incident).show?
+    @incident = Incident.find(ticket_params[:incident_id])
+    raise Pundit::NotAuthorizedError unless IncidentPolicy.new(current_user, @incident).show?
 
     @ticket = current_user.tickets.new(ticket_params)
 
@@ -33,7 +33,7 @@ class TicketsController < ApplicationController
       if @ticket.save
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
       else
-        format.html { redirect_to new_ticket_incident_url(incident), alert: 'Could not create ticket. Are you missing any required fields?' }
+        format.html { render 'incidents/new_ticket' }
       end
     end
   end
