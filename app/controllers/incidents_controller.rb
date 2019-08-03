@@ -117,7 +117,6 @@ end
 
     respond_to do |format|
       format.html { render :tree }
-      format.json { render json: @incident.to_json }
     end
   end
 
