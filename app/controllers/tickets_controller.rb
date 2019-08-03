@@ -10,7 +10,6 @@ class TicketsController < ApplicationController
   after_action :verify_authorized, except: [:index, :create, :assigned_tickets]
 
   # GET /tickets
-  # GET /tickets.json
   def index
     if current_user.admin
       @tickets = Ticket.all
@@ -20,19 +19,16 @@ class TicketsController < ApplicationController
   end
 
   # GET /assigned_tickets
-  # GET /assigned_tickets.json
   def assigned_tickets
     # Lists the tickets assigned to the current user
     @assigned_tickets = current_user.assigned_tickets
   end
 
   # GET /tickets/1
-  # GET /tickets/1.json
   def show
   end
 
   # POST /tickets
-  # POST /tickets.json
   def create
     # if you can't view an incident, you can't create tickets in it
     incident = Incident.find(ticket_params[:incident_id])
@@ -50,7 +46,6 @@ class TicketsController < ApplicationController
   end
 
   # PATCH/PUT /tickets/1
-  # PATCH/PUT /tickets/1.json
   def update
     respond_to do |format|
       if @ticket.update(ticket_params)
@@ -64,7 +59,6 @@ class TicketsController < ApplicationController
   end
 
   # DELETE /tickets/1
-  # DELETE /tickets/1.json
   def destroy
     @ticket.destroy
     respond_to do |format|
@@ -73,7 +67,6 @@ class TicketsController < ApplicationController
   end
   
   # GET /tickets/1/children
-  # GET /tickets/1/children.json
   def children
       respond_to do |format|
         format.html { render :children }
@@ -81,7 +74,6 @@ class TicketsController < ApplicationController
   end
 
   # GET /tickets/1/tree
-  # GET /tickets/1/tree.json
   def tree
     gon.push({ ticket_tree_as_json: @ticket.to_json })
 
