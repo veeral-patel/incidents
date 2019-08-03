@@ -40,10 +40,8 @@ class ObservablesController < ApplicationController
     respond_to do |format|
       if @observable.save
         format.html { redirect_to ticket_observable_path(@ticket, @observable), notice: 'Observable was successfully created.' }
-        format.json { render :show, status: :created, location: @observable }
       else
         format.html { render :new }
-        format.json { render json: @observable.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,10 +52,8 @@ class ObservablesController < ApplicationController
     respond_to do |format|
       if @observable.update(observable_params)
         format.html { redirect_to ticket_observable_path(@ticket, @observable), notice: 'Observable was successfully updated.' }
-        format.json { render :show, status: :ok, location: @observable }
       else
         format.html { render :show }
-        format.json { render json: @observable.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -68,7 +64,6 @@ class ObservablesController < ApplicationController
     @observable.destroy
     respond_to do |format|
       format.html { redirect_to ticket_observables_path(@ticket), notice: 'Observable was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
