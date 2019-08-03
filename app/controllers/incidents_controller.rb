@@ -118,7 +118,7 @@ end
   def new_ticket
     @ticket = Ticket.new
 
-    if current_user.admin 
+    if current_user.admin == true
       if Incident.all.count == 0
         @ticket.errors.add(:base, "No incidents exist! Create an incident before creating a ticket.") 
       end
