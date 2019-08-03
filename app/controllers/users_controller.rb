@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     @user.soft_restore
     respond_to do |format|
       format.html { redirect_to users_url, notice: "#{@user} was successfully enabled." }
-      format.json { head :no_content }
     end
   end
 
@@ -24,7 +23,6 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to users_url, notice: "#{@user} was successfully disabled." }
-      format.json { head :no_content }
     end
   end
 
