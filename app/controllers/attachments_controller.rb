@@ -35,10 +35,8 @@ class AttachmentsController < ApplicationController
     respond_to do |format|
       if @attachment.save
         format.html { redirect_to ticket_attachment_path(@ticket, @attachment), notice: 'Attachment was successfully created.' }
-        format.json { render :show, status: :created, location: @attachment }
       else
         format.html { render :new }
-        format.json { render json: @attachment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,10 +47,8 @@ class AttachmentsController < ApplicationController
     respond_to do |format|
       if @attachment.update(attachment_params)
         format.html { redirect_to ticket_attachment_path(@ticket, @attachment), notice: 'Attachment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attachment }
       else
         format.html { render :show }
-        format.json { render json: @attachment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,7 +59,6 @@ class AttachmentsController < ApplicationController
     @attachment.destroy
     respond_to do |format|
       format.html { redirect_to ticket_attachments_path(@ticket), notice: 'Attachment was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
