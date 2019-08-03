@@ -1,5 +1,3 @@
-# remember - when adding an action, add a corresponding
-# method in ticket_policy.rb
 class TicketsController < ApplicationController
   # authorize each action
   before_action :authorize_actions_on_one_ticket, except: [:index, :create, :assigned_tickets]
@@ -86,7 +84,6 @@ class TicketsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_ticket
       @ticket = Ticket.find(params[:id])
       @incident = @ticket.incident
@@ -97,7 +94,6 @@ class TicketsController < ApplicationController
       authorize @ticket
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
       params.require(:ticket).permit(:name, :description, :incident_id, :is_lead, :status_id, :priority_id, :tag_list, :parent_id, :assigned_to_id)
     end
