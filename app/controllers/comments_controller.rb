@@ -38,10 +38,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to ticket_comment_path(@ticket, @comment), notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :show }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,7 +48,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to ticket_comments_path(@ticket), notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
