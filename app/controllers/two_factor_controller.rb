@@ -8,12 +8,14 @@ class TwoFactorController < ApplicationController
         current_user.save!
         @qr_code = RQRCode::QRCode.new(two_factor_url).to_img.resize(240, 240).to_data_url
         current_user.activate_otp
+        flash[:notice] = "Successfully enabled 2FA."
         render :qr
     end
 
     def deactivate
         current_user.deactivate_otp
         redirect_back(fallback_location: root_path)
+        flash[:notice] = "Successfully disabled 2FA."
     end
 
     def two_factor_url

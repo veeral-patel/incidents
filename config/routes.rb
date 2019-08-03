@@ -36,16 +36,16 @@ Rails.application.routes.draw do
 
   devise_for :users, :skip => [:registrations], controllers: { sessions: 'users/sessions' }
 
-  # devise_scope :user do
-  #   post "/users/sessions/verify_otp" => "users/sessions#verify_otp"
-  # end
+  devise_scope :user do
+    post "/users/sessions/verify_otp" => "users/sessions#verify_otp"
+  end
 
-  # resources :two_factor, only: [:index] do
-  #   collection do
-  #     get :activate
-  #     get :deactivate
-  #   end
-  # end
+  resources :two_factor, only: [:index] do
+    collection do
+      get :activate
+      get :deactivate
+    end
+  end
 
   as :user do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
