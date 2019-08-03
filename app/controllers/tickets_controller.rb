@@ -16,7 +16,6 @@ class TicketsController < ApplicationController
 
   # GET /assigned_tickets
   def assigned_tickets
-    # Lists the tickets assigned to the current user
     @assigned_tickets = current_user.assigned_tickets
   end
 
