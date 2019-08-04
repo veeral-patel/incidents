@@ -34,6 +34,7 @@ gem 'faker'
 gem 'pg'
 gem 'aws-sdk-s3'
 gem 'jquery-atwho-rails'
+gem "audited", "~> 4.9"
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
