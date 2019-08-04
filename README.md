@@ -22,21 +22,13 @@ Then visit http://localhost:80
 
 ### Dark theme
 
-INCIDENTS supports a dark theme! To use it, simply replace:
+INCIDENTS supports a dark theme! See "Screenshots" at the bottom of this README to see some screenshots.
+
+Instead of running the command above, run:
 
 ```
-bash ./choose_theme.sh light
+chmod +x install.sh && ./install.sh dark
 ```
-
-with
-
-```
-bash ./choose_theme.sh dark
-```
-
-in `install.sh`.
-
-Then follow the instructions above.
 
 ## Why INCIDENTS?
 

@@ -6,9 +6,22 @@ echo ""
 cat .env
 echo ""
 
-# to use the dark theme, replace with:
-# bash ./choose_theme.sh dark
-bash ./choose_theme.sh light
+if [ $# -eq 0 ]; then
+    theme=light
+elif [ $1 == 'light' ]; then
+    theme="light"
+elif [ $1 == 'dark' ]; then
+    theme="dark"
+else
+    echo "ERROR: invalid theme -- must be either 'light' or 'dark'"
+    echo ""
+    echo "Usage:"
+    echo "./install.sh # light theme"
+    echo "./install.sh light # light theme"
+    echo "./install.sh dark # dark theme"
+    exit
+fi
+bash ./choose_theme.sh $theme
 
 # build docker image
 docker-compose build
