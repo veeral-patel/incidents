@@ -25,7 +25,7 @@ chmod +x install.sh && ./install.sh
 
 Then visit http://localhost:80
 
-**Don't run this setup in production!** Files are stored on disk, the database is not secured, and you won't be able to invite other users, as email sending hasn't been set up. Just use this setup to try out the tool.
+**Don't run this setup in production!** Files are stored on disk, the database is not secured, doesn't use HTTPS, and you won't be able to invite other users, as email sending hasn't been set up. Just use this setup to try out the tool.
 
 ### Dark theme
 
