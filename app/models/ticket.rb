@@ -11,6 +11,8 @@ class Ticket < ApplicationRecord
       }
   }
 
+  audited
+
   after_create :notify_mentioned_users
   after_update_commit :notify_assigned_user, if: :saved_change_to_assigned_to_id?
   after_update_commit :notify_mentioned_users, if: :saved_change_to_description?

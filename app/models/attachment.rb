@@ -10,6 +10,8 @@ class Attachment < ApplicationRecord
         }
     }
 
+    audited
+
     after_create :notify_mentioned_users
     after_update_commit :notify_mentioned_users, if: :saved_change_to_description?
 

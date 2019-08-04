@@ -12,6 +12,8 @@ class Incident < ApplicationRecord
 
     acts_as_taggable
 
+    audited
+
     after_create :add_creator_to_members
 
     after_create :notify_mentioned_users
