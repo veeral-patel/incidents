@@ -13,6 +13,11 @@ class IncidentsController < ApplicationController
   def index
     @title, @empty_message = "Incidents", "No incidents"
     @incidents = current_user.accessible_incidents
+
+    respond_to do |format|
+        format.html { render :index }
+        format.json { render :index }
+    end
   end
 
   # GET /assigned_incidents
