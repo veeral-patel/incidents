@@ -28,6 +28,7 @@ Rails.application.routes.draw do
           get :observables
           get :attachments
           get :tree
+          get :audit_logs
           get :danger
           get :new_ticket
       end

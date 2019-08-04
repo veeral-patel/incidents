@@ -129,6 +129,9 @@ end
     end
   end
 
+  def audit_logs
+  end
+
   private
     def set_incident
       @incident = Incident.find(params[:id])

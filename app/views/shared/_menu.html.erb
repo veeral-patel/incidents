@@ -20,6 +20,9 @@
       <a href="<%= tree_incident_path(@incident) %>">Tree</a>
     </li>
     <li>
+      <a href="<%= audit_logs_incident_path(@incident) %>">Audit Logs</a>
+    </li>
+    <li>
       <a href="<%= incident_members_path(@incident) %>">Members (<%= @incident.members.count %>)</a>
     </li>
     <li>

@@ -38,6 +38,10 @@ class IncidentPolicy < ApplicationPolicy
         show?
     end
 
+    def audit_logs?
+        show?
+    end
+
     def observables?
         show?
     end
