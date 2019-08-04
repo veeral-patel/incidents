@@ -1,2 +1,10 @@
-json.extract! ticket, :id, :name, :incident_id, :created_at, :updated_at, :parent_id
-json.url ticket_url(ticket, format: :json)
+json.id ticket.id
+json.name ticket.name
+json.created_at ticket.created_at
+json.created_by ticket.user.username
+json.status ticket.status
+json.priority ticket.priority
+json.is_lead ticket.is_lead
+json.tags ticket.tag_list
+json.assigned_to ticket.assigned_to.username
+json.description ticket.description
