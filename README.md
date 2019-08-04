@@ -20,9 +20,9 @@ This script will install INCIDENTS, provision an initial user account for you, a
 chmod +x install.sh && ./install.sh
 ```
 
-**Don't run this in production!** Files are stored on disk, the database is not secured, and you won't be able to invite other users, as email sending hasn't been set up.
-
 Then visit http://localhost:80
+
+**Don't run this in production!** Files are stored on disk, the database is not secured, and you won't be able to invite other users, as email sending hasn't been set up.
 
 ### Dark theme
 
