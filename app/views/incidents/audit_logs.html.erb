@@ -12,6 +12,47 @@
       </ul>
     </nav>
 
-    <h2 class="title is-4">Audit Logs</h2>
+    <div class="content">
+        <h2 class="title is-4">Audit Logs</h2>
+    </div>
+
+    <% if @logs.empty? %>
+        No logs
+    <% else %>
+        <table class="audit-logs-table stripe hover">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>User</th>
+                    <th>Field</th>
+                    <th>Before</th>
+                    <th>After</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @logs.each do |log| %>
+                    <tr>
+                        <td><%= log[:time] %></td>
+                        <td><%= log[:username] %></td>
+                        <td><%= log[:field] %></td>
+                        <td><%= log[:before] %></td>
+                        <td><%= log[:after] %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% end %>
   </div>
 </div>
+<script>
+  $(document).ready(function() {
+    $(".audit-logs-table").DataTable({
+      "pagingType": "simple_numbers",
+      "language": { search: "" }
+    });
+
+    // style datatable search inputs
+    $(".dataTables_filter input").addClass("input");
+    $(".dataTables_filter input").attr("placeholder", "Search");
+  });
+</script>

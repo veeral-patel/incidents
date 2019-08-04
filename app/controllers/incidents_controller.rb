@@ -4,7 +4,7 @@ class IncidentsController < ApplicationController
   before_action :authorize_actions_on_one_incident, except: [:index, :assigned_incidents, :create, :new]
   before_action :authorize_other_actions, only: [:index, :assigned_incidents, :create, :new]
 
-  before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree, :danger, :new_ticket]
+  before_action :set_incident, only: [:show, :update, :destroy, :tickets, :leads, :tree, :danger, :new_ticket, :audit_logs]
 
   # verify each action is authorized
   after_action :verify_authorized
@@ -130,6 +130,39 @@ end
   end
 
   def audit_logs
+    @logs = []
+
+    @incident.audits.each do |log|
+      log.audited_changes.each do |field, changes|
+        if not changes.nil? and changes.kind_of? Array and changes.length == 2
+          before, after = changes[0], changes[1]
+          if field == 'priority_id'
+            before = Priority.find(before)
+            after = Priority.find(after)
+            field = 'Priority'
+          elsif field == 'status_id'
+            before = Status.find(before)
+            after = Status.find(after)
+            field = 'Status'
+          elsif field == 'assigned_to_id'
+            if not before.nil?
+              before = User.find(before)
+            end
+            if not after.nil?
+              after = User.find(after)
+            end
+            field = 'Assigned To'
+          end
+          @logs.push({
+            time: log.created_at,
+            username: User.find(log.user_id).username,
+            field: field,
+            before: before,
+            after: after
+          })
+        end
+      end
+    end
   end
 
   private
