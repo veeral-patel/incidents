@@ -16,16 +16,6 @@ detection/response team, INCIDENTS is for you.
 
 ```
 chmod +x install.sh && ./install.sh
-
-# create initial user (see below)
-docker-compose exec web rails console
-```
-
-Create initial user:
-
-```
-user = User.new(username: 'admin', email: 'admin@protonmail.com', password: 'mypassword', admin: true)
-user.save
 ```
 
 Then visit http://localhost:80
