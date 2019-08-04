@@ -16,13 +16,15 @@ detection/response team, INCIDENTS is for you.
 
 This script will install INCIDENTS, provision an initial user account for you, and print out the login credentials.
 
+Docker and Docker Compose are required.
+
 ```
 chmod +x install.sh && ./install.sh
 ```
 
 Then visit http://localhost:80
 
-**Don't run this in production!** Files are stored on disk, the database is not secured, and you won't be able to invite other users, as email sending hasn't been set up.
+**Don't run this setup in production!** Files are stored on disk, the database is not secured, and you won't be able to invite other users, as email sending hasn't been set up. Just use this setup to try out the tool.
 
 ### Dark theme
 
