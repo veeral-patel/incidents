@@ -1,6 +1,6 @@
 class Incident < ApplicationRecord
     include PgSearch::Model
-    multisearchable against: [:name, :description, :tag_list, :status, :user], using: {
+    multisearchable against: [:name, :description, :tag_list, :status, :priority, :user], using: {
         tsearch: {
             prefix: true,
             highlight: {
@@ -20,6 +20,7 @@ class Incident < ApplicationRecord
 
     validates :name, presence: true
     validates :status_id, presence: true
+    validates :priority_id, presence: true
 
     has_many :tickets, dependent: :destroy
     has_many :observables, through: :tickets
@@ -36,6 +37,15 @@ class Incident < ApplicationRecord
     def status
         Status.find(status_id).name
     end
+
+    def priority
+        Priority.find(priority_id).name
+    end
+
+    # needed, as we're indexing using the 'status' and 'priority' methods on this model
+  def self.rebuild_pg_search_documents
+    find_each { |record| record.update_pg_search_document }
+  end
 
     def to_s
         self.name

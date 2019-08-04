@@ -40,6 +40,13 @@
         </div>
 
         <div class="field">
+            <%= form.label :priority, "Priority (Required)", class: "label" %>
+            <div class="select">
+                <%= collection_select :incident, :priority_id, Priority.all, :id, :name  %>
+            </div>
+        </div>
+
+        <div class="field">
             <%= form.label :assigned_to, "Assigned To ", class: "label" %>
             <div class="select">
                 <%= collection_select :incident, :assigned_to_id, User.all, :id, :username, { include_blank: true } %>
