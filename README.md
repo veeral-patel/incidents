@@ -85,7 +85,6 @@ an incident.
 INCIDENTS is built using:
 
 - Ruby on Rails
-- ActionText
 - Bulma
 - JQuery
 
