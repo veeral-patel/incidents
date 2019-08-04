@@ -19,6 +19,7 @@ This script will install INCIDENTS, provision an initial user account for you, a
 Docker and Docker Compose are required.
 
 ```
+git clone https://github.com/veeral-patel/incidents && cd incidents
 chmod +x install.sh && ./install.sh
 ```
 
