@@ -14,9 +14,13 @@ detection/response team, INCIDENTS is for you.
 
 ## Get INCIDENTS Running Locally
 
+This script will install INCIDENTS, provision an initial user account for you, and print out the login credentials.
+
 ```
 chmod +x install.sh && ./install.sh
 ```
+
+**Don't run this in production!** Files are stored on disk, the database is not secured, and you won't be able to invite other users, as email sending hasn't been set up.
 
 Then visit http://localhost:80
 
