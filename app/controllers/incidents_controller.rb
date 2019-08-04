@@ -32,6 +32,10 @@ class IncidentsController < ApplicationController
 
   # GET /incidents/1
   def show
+      respond_to do |format|
+          format.html { render :show }
+          format.json { render :show }
+      end
   end
 
   # GET /incidents/1/observables
