@@ -25,8 +25,11 @@ chmod +x install.sh && sudo ./install.sh
 
 Then visit http://localhost:80
 
-Tested on MacOS, Ubuntu, Debian, and Fedora. Other OS's probably work,
-too, considering the application runs in Docker containers.
+Tested on MacOS, Ubuntu, Debian, and Fedora. Other OS's probably work, too, considering the application runs in Docker containers.
+
+If you forgot your login credentials, simply run the install script again; it'll
+provision a new user account for you. "Forgot my password" doesn't work in this
+local setup, as email sending isn't configured.
 
 **Don't run this setup in production!** Files are stored on disk, the database is not secured, doesn't use HTTPS, and you won't be able to invite other users, as email sending hasn't been set up. Just use this setup to try out the tool.
 
