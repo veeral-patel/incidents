@@ -1,7 +1,5 @@
 # INCIDENTS
 
-[![Gitter](https://badges.gitter.im/incidents-oss/community.svg)](https://gitter.im/incidents-oss/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 INCIDENTS is a web-based, actively maintained case management tool for incident response, just like
 [TheHive](https://thehive-project.org).
 
@@ -100,8 +98,6 @@ INCIDENTS is built using:
 To request a feature or report a bug, [please open an issue on GitHub](https://github.com/veeral-patel/incidents/issues)
 
 You can email the author at [veeral.patel@berkeley.edu](mailto:veeral.patel@berkeley.edu). I reply to all emails, and most within a couple hours. I welcome feedback!
-
-We're on [Gitter](https://gitter.im/incidents-oss/community), too.
 
 ## Screenshots
 
