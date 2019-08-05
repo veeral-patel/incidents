@@ -20,7 +20,7 @@ Docker and Docker Compose are required.
 
 ```
 git clone https://github.com/veeral-patel/incidents && cd incidents
-chmod +x install.sh && ./install.sh
+chmod +x install.sh && sudo ./install.sh
 ```
 
 Then visit http://localhost:80
