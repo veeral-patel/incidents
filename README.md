@@ -29,7 +29,21 @@ If you forgot your login credentials, simply run the install script again; it'll
 provision a new user account for you. "Forgot my password" doesn't work in this
 local setup, as email sending isn't configured.
 
+### Don't run this setup in production!
+
 **Don't run this setup in production!** Files are stored on disk, the database is not secured, doesn't use HTTPS, and you won't be able to invite other users, as email sending hasn't been set up. Just use this setup to try out the tool.
+
+### Common errors while installing
+
+#### "Couldn't connect to the Docker daemon"
+- Be sure Docker is running. Run `sudo systemctl start docker`, start Docker
+  Desktop, or run the equivalent command to start Docker for your OS.
+- Docker requires root access to run. Make you're running `sudo ./install.sh`, not `./install.sh`.
+
+#### Docker container "killed" during installation
+- Clear disk space if you're running low on it
+- Add more memory (if installing in a VM) or terminate unused,
+  memory-intensive processes
 
 ### Dark theme
 
