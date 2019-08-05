@@ -16,7 +16,7 @@ detection/response team, INCIDENTS is for you.
 
 This script will install INCIDENTS, provision an initial user account for you, and print out the login credentials.
 
-Docker and Docker Compose are required.
+Install [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) first.
 
 ```
 git clone https://github.com/veeral-patel/incidents && cd incidents
