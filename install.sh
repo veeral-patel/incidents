@@ -23,6 +23,8 @@ else
 fi
 bash ./choose_theme.sh $theme
 
+echo ""
+
 # build docker image
 docker-compose build
 
