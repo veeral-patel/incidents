@@ -52,7 +52,7 @@ INCIDENTS supports a dark theme! See "Screenshots" at the bottom of this README 
 Instead of running the command above, run:
 
 ```
-chmod +x install.sh && ./install.sh dark
+chmod +x install.sh && sudo ./install.sh dark
 ```
 
 ## Why INCIDENTS?
