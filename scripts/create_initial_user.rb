@@ -14,9 +14,6 @@ if admin.save
 
     puts "Username: #{admin.username}"
     puts "Password: #{password}"
-
-    puts ''
-    puts 'Now visit http://localhost:80 to log in!'
 else
     puts 'Failed to create initial user'
 end
