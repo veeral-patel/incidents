@@ -1,8 +1,7 @@
 # INCIDENTS
 
 > [True Positive](https://truepositive.app) is the next iteration of
-> INCIDENTS. It's offered as a SaaS, has a modern UI, is well-documented,
-> lets you start creating cases from emails in <30 seconds, and a lot more.>
+> INCIDENTS. It's cloud hosted and offered via SaaS. We recommend using True Positive over INCIDENTS.
 
 INCIDENTS is a web-based tool for incident response, just like
 [TheHive](https://thehive-project.org).
