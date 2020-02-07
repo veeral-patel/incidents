@@ -1,6 +1,10 @@
 # INCIDENTS
 
-INCIDENTS is a web-based, actively maintained case management tool for incident response, just like
+> [True Positive](https://truepositive.app) is the next iteration of
+> INCIDENTS. It's offered as a SaaS, has a modern UI, is well-documented,
+> lets you start creating cases from emails in <30 seconds, and a lot more.>
+
+INCIDENTS is a web-based tool for incident response, just like
 [TheHive](https://thehive-project.org).
 
 You can use INCIDENTS whether you're investigating a malware infection, a
