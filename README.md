@@ -1,7 +1,7 @@
 # INCIDENTS
 
 > [True Positive](https://truepositive.app) is the next iteration of
-> INCIDENTS. It's cloud hosted and offered via SaaS. We recommend using True Positive over INCIDENTS.
+> INCIDENTS.
 
 INCIDENTS is a web-based tool for incident response, just like
 [TheHive](https://thehive-project.org).
@@ -12,6 +12,8 @@ denial-of-service attempt, or any other kind of security incident.
 
 If you work at a SOC, MSSP, incident response firm, or an internal
 detection/response team, INCIDENTS is for you.
+
+Refer to documentation in the [docs/](docs/) folder.
 
 ## Get INCIDENTS Running Locally
 
