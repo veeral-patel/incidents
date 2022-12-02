@@ -1,0 +1,28 @@
+site_name: INCIDENTS
+site_dir: "_site"
+theme:
+  name: "material"
+  logo:
+    icon: "feedback"
+  palette:
+    primary: "blue"
+    accent: "blue"
+repo_name: "veeral-patel/incidents"
+repo_url: "https://github.com/veeral-patel/incidents"
+edit_uri: ""
+nav:
+  - Home: "index.md"
+  - Quickstart: "quickstart.md"
+  - Installing for Production: "installing_in_production.md"
+  - Concepts:
+      - "Incidents": "incidents.md"
+      - "Tickets": "tickets.md"
+      - "Leads": "leads.md"
+      - "Tags": "tags.md"
+      - "Observables": "observables.md"
+  - Features:
+      - "Custom Statuses": "custom_statuses.md"
+      - "Custom Priorities": "custom_priorities.md"
+      - "Restrict Access to an Incident": "restrict_incident_access.md"
+      - "User Management": "user_management.md"
+      - "Dark Theme": "dark_theme.md"
